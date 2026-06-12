@@ -1,1 +1,695 @@
+/* ==========================================
+   CR PORTAL v2
+   Parte 1
+   Base + Hero
+========================================== */
 
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ROOT */
+
+:root{
+
+    --bg:#08111b;
+
+    --card:#102030;
+
+    --primary:#d4a64d;
+
+    --text:#e8eef7;
+
+    --muted:#9fb3c8;
+
+}
+
+/* BODY */
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:'Segoe UI',sans-serif;
+
+    line-height:1.7;
+
+}
+
+/* LINKS */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* CONTAINER */
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+/* HERO */
+
+.hero{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:40px;
+
+    align-items:center;
+
+    padding:60px 20px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #071018,
+
+        #0f2233
+
+    );
+
+    border-radius:20px;
+
+    margin-top:20px;
+
+}
+
+/* FOTO */
+
+.photo{
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:3px solid var(--primary);
+
+    box-shadow:0 0 30px rgba(212,166,77,.25);
+
+}
+
+.photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+
+    flex:1;
+
+    min-width:300px;
+
+}
+
+/* TITULOS */
+
+.hero h1{
+
+    font-size:clamp(32px,5vw,48px);
+
+    color:var(--text);
+
+}
+
+.hero h2{
+
+    color:var(--primary);
+
+    font-weight:400;
+
+    margin-top:10px;
+
+}
+
+/* TEXTO */
+
+.hero p{
+
+    margin-top:20px;
+
+    max-width:850px;
+
+}
+
+/* SEÇÕES */
+
+.section{
+
+    margin-top:30px;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.hero{
+
+    text-align:center;
+
+    justify-content:center;
+
+}
+
+.hero-content{
+
+    min-width:auto;
+
+}
+
+.photo{
+
+    width:180px;
+
+    height:180px;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.hero h2{
+
+    font-size:20px;
+
+}
+
+}
+
+/* ==========================================
+   CR PORTAL v2
+   Parte 2
+   Botões, Tags e Cards
+========================================== */
+
+/* BOTÕES */
+
+.actions{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+    display:inline-block;
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:#08111b;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    opacity:.95;
+
+}
+
+.btn-secondary{
+
+    background:#183042;
+
+    color:var(--text);
+
+    border:1px solid rgba(212,166,77,.3);
+
+}
+
+.btn-secondary:hover{
+
+    background:#21425a;
+
+}
+
+/* TAGS */
+
+.tags{
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.tag{
+
+    border:1px solid var(--primary);
+
+    color:var(--primary);
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.tag:hover{
+
+    background:rgba(212,166,77,.1);
+
+}
+
+/* CARDS */
+
+.card{
+
+    background:var(--card);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+    transition:.3s;
+
+    border:1px solid transparent;
+
+}
+
+.card:hover{
+
+    border:1px solid var(--primary);
+
+    transform:translateY(-4px);
+
+}
+
+.card h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    color:var(--text);
+
+}
+
+/* GRID DE CARDS */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+}
+
+/* FOOTER GRID FUTURO */
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+}
+
+.footer-grid .card{
+
+    margin-bottom:0;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.actions{
+
+    justify-content:center;
+
+}
+
+.tags{
+
+    justify-content:center;
+
+}
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+/* ==========================================
+   CR PORTAL
+   Parte 3
+   Componentes Técnicos
+========================================== */
+
+/* ARTICLE CARD */
+
+.article-card{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    border:1px solid transparent;
+
+    transition:.3s;
+
+}
+
+.article-card:hover{
+
+    border:1px solid var(--primary);
+
+}
+
+.article-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.article-meta{
+
+    margin:15px 0;
+
+    color:var(--muted);
+
+    font-size:.9rem;
+
+}
+
+/* LAB CARD */
+
+.lab-card{
+
+    background:var(--card);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+    border-left:4px solid var(--primary);
+
+}
+
+.lab-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+/* PROJECT CARD */
+
+.project-card{
+
+    background:var(--card);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+}
+
+.project-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+/* ALERTAS */
+
+.alert{
+
+    background:#132238;
+
+    border-left:5px solid var(--primary);
+
+    padding:20px;
+
+    margin:25px 0;
+
+}
+
+.tip{
+
+    background:#132238;
+
+    border-left:5px solid #22c55e;
+
+    padding:20px;
+
+    margin:25px 0;
+
+}
+
+.warning{
+
+    background:#132238;
+
+    border-left:5px solid #f59e0b;
+
+    padding:20px;
+
+    margin:25px 0;
+
+}
+
+/* CÓDIGO */
+
+pre{
+
+    background:#020817;
+
+    padding:20px;
+
+    overflow:auto;
+
+    border-radius:12px;
+
+    margin:25px 0;
+
+}
+
+code{
+
+    color:#4ade80;
+
+    font-family:Consolas,monospace;
+
+}
+
+/* IMAGENS */
+
+.article-image{
+
+    width:100%;
+
+    border-radius:15px;
+
+    margin:25px 0;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+}
+
+/* TABELAS */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin:25px 0;
+
+}
+
+th{
+
+    background:#132238;
+
+    color:var(--primary);
+
+}
+
+th,td{
+
+    padding:15px;
+
+    border:1px solid #28435d;
+
+}
+
+/* TIMELINE */
+
+.timeline{
+
+    border-left:3px solid var(--primary);
+
+    padding-left:25px;
+
+}
+
+.job{
+
+    margin-bottom:30px;
+
+}
+
+.job small{
+
+    color:var(--muted);
+
+}
+
+/* FOOTER */
+
+footer{
+
+    margin-top:60px;
+
+    border-top:1px solid #28435d;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+}
+
+footer p{
+
+    color:var(--muted);
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.article-card{
+
+padding:20px;
+
+}
+
+.lab-card{
+
+padding:20px;
+
+}
+
+.project-card{
+
+padding:20px;
+
+}
+
+.timeline{
+
+padding-left:15px;
+
+}
+
+pre{
+
+padding:15px;
+
+}
+
+table{
+
+font-size:.9rem;
+
+}
+
+}
