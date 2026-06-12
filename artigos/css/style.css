@@ -169,3 +169,95 @@ margin-top:10px;
 color:#cbd5e1;
 
 }
+
+.hero img{
+
+width:100%;
+
+border-radius:12px;
+
+margin-bottom:30px;
+
+}
+
+.conteudo{
+
+max-width:900px;
+
+margin:auto;
+
+padding:20px;
+
+}
+
+.categoria{
+
+color:#fbbf24;
+
+font-weight:bold;
+
+}
+
+.conteudo h1{
+
+font-size:3rem;
+
+margin:20px 0;
+
+}
+
+.conteudo h2{
+
+font-size:1.4rem;
+
+font-weight:normal;
+
+color:#cbd5e1;
+
+margin-bottom:20px;
+
+}
+
+.meta{
+
+display:flex;
+
+gap:20px;
+
+margin-bottom:20px;
+
+}
+
+.autor{
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+}
+
+.tags span{
+
+background:#334155;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+margin-right:10px;
+
+}
+
+section{
+
+margin:40px 0;
+
+}
+
+section h3{
+
+color:#fbbf24;
+
+margin-bottom:15px;
+
+}
