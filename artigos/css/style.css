@@ -125,3 +125,47 @@ background:#111827;
 margin-top:50px;
 
 }
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+}
+
+.card{
+
+background:#1e293b;
+
+padding:25px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+border:1px solid #334155;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+border:1px solid #fbbf24;
+
+}
+
+.card p{
+
+margin-top:10px;
+
+color:#cbd5e1;
+
+}
