@@ -1,89 +1,194 @@
-<section class="hero">
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Investigação Forense em Linux
+
+</title>
+
+<meta name="description"
+content="Reconstruindo uma invasão utilizando Bodyfile e mactime.">
+
+<link rel="stylesheet"
+href="../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
 
 <div class="hero-content">
 
+<span class="categoria">
+
+BIBLIOTECA TÉCNICA
+
+</span>
+
 <h1>
+
 Investigação Forense em Linux
+
 </h1>
 
 <h2>
+
 Reconstruindo uma invasão utilizando Bodyfile e mactime
+
 </h2>
 
 <p>
 
 Uma investigação forense raramente depende de uma única evidência.
-O verdadeiro desafio consiste em correlacionar pequenos vestígios até
-reconstruir a sequência completa dos acontecimentos.
+O verdadeiro desafio consiste em correlacionar pequenos vestígios
+até reconstruir a sequência completa dos acontecimentos.
 
 </p>
 
 <div class="tags">
 
-<span class="tag">Forense Digital</span>
+<span class="tag">
 
-<span class="tag">Linux</span>
+Forense Digital
 
-<span class="tag">The Sleuth Kit</span>
+</span>
 
-<span class="tag">Timeline Analysis</span>
+<span class="tag">
 
-<span class="tag">DFIR</span>
+Linux
+
+</span>
+
+<span class="tag">
+
+DFIR
+
+</span>
+
+<span class="tag">
+
+Timeline Analysis
+
+</span>
+
+<span class="tag">
+
+The Sleuth Kit
+
+</span>
 
 </div>
 
 </div>
 
-</section>
+</header>
+
+<main>
 
 <section class="section">
 
 <div class="card">
 
-<h3>
+<h2>
 
 Ficha Técnica
 
-</h3>
+</h2>
 
-<p>
+<div class="tech-info">
 
-<b>Categoria:</b> Forense Digital
+<div class="tech-box">
 
-</p>
+<strong>
 
-<p>
+Categoria
 
-<b>Nível:</b> Iniciante
+</strong>
 
-</p>
+Forense Digital
 
-<p>
+</div>
 
-<b>Ferramentas:</b>
+<div class="tech-box">
 
-Linux,
-The Sleuth Kit,
-fls,
+<strong>
+
+Nível
+
+</strong>
+
+Iniciante
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Ferramentas
+
+</strong>
+
+Linux
+
+<br>
+
+The Sleuth Kit
+
+<br>
+
+fls
+
+<br>
+
 mactime
 
-</p>
+</div>
 
-<p>
+<div class="tech-box">
 
-<b>Laboratório:</b>
+<strong>
+
+Laboratório
+
+</strong>
 
 Prático
 
-</p>
+</div>
 
-<p>
+<div class="tech-box">
 
-<b>Tempo estimado:</b>
+<strong>
+
+Tempo estimado
+
+</strong>
 
 15 minutos
 
-</p>
+</div>
+
+</div>
 
 </div>
 
@@ -93,11 +198,64 @@ Prático
 
 <div class="card">
 
-<h3>
+<h2>
+
+Resumo Executivo
+
+</h2>
+
+<p>
+
+Durante uma investigação forense, o analista raramente encontra uma
+única evidência capaz de explicar todo um incidente de segurança.
+
+</p>
+
+<p>
+
+Na maioria das situações, o trabalho consiste em reunir pequenos
+vestígios e estabelecer relações entre eles até reconstruir uma
+sequência lógica dos acontecimentos.
+
+</p>
+
+<p>
+
+Neste laboratório será demonstrado como utilizar Bodyfile e mactime
+para gerar uma Timeline forense e identificar atividades realizadas
+em um sistema Linux.
+
+</p>
+
+<div class="alert">
+
+<strong>
+
+Objetivo do laboratório
+
+</strong>
+
+<br><br>
+
+Demonstrar como metadados do sistema de arquivos podem ser utilizados
+para reconstruir eventos relacionados à criação de arquivos,
+persistência e possíveis atividades de exfiltração.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
 
 O desafio
 
-</h3>
+</h2>
 
 <p>
 
@@ -136,1015 +294,18 @@ E uma pergunta precisa ser respondida.
 
 </p>
 
-<div class="alert">
-
-<strong>
+<blockquote>
 
 O que aconteceu?
 
-</strong>
-
-</div>
+</blockquote>
 
 <p>
 
-Durante uma investigação forense o analista raramente encontra uma única
-evidência capaz de explicar todo o incidente.
-
-Seu trabalho consiste em reunir pequenos vestígios e estabelecer relações
-entre eles até reconstruir a sequência dos acontecimentos.
+Essa pergunta será respondida ao longo deste laboratório por meio da
+análise cronológica dos metadados presentes no sistema de arquivos.
 
 </p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Entendendo o Bodyfile
-
-</h3>
-
-<p>
-
-Para construir uma Timeline é necessário coletar os metadados do sistema
-de arquivos.
-
-</p>
-
-<p>
-
-Um Bodyfile contém exatamente essas informações.
-
-</p>
-
-<p>
-
-Entre elas estão os conhecidos atributos MACB.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-root@crportal:~#
-
-</div>
-
-<pre>
-
-M = Modified
-
-A = Accessed
-
-C = Changed
-
-B = Birth
-
-</pre>
-
-</div>
-
-<p>
-
-Esses atributos registram alterações realizadas em arquivos e diretórios.
-
-Quando processados pelo mactime tornam possível reconstruir a sequência
-cronológica dos eventos.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Preparando a evidência
-
-</h3>
-
-<p>
-
-Para demonstrar esse processo foi criado um pequeno laboratório forense.
-
-</p>
-
-<p>
-
-O primeiro passo consistiu na criação de uma imagem de disco de 200 MB.
-
-</p>
-
-<p>
-
-Posteriormente a imagem foi formatada em Ext4 e montada em um diretório
-específico.
-
-</p>
-
-<p>
-
-A partir desse momento qualquer atividade executada fará parte da futura
-evidência digital.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-$ dd if=/dev/zero of=evidencia.img bs=1M count=200
-
-200+0 records in
-
-200+0 records out
-
-209715200 bytes copied
-
-$ mkfs.ext4 evidencia.img
-
-Creating filesystem...
-
-done.
-
-$ mkdir montagem
-
-$ sudo mount evidencia.img montagem
-
-$ ls
-
-montagem/
-
-</pre>
-
-</div>
-
-<p>
-
-O objetivo do laboratório não era criar um malware complexo.
-
-O objetivo era produzir rastros que pudessem ser identificados durante a
-investigação.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-Observação do Analista
-
-</strong>
-
-<br><br>
-
-Uma das maiores dificuldades durante uma investigação forense não é
-encontrar evidências.
-
-É preservar a integridade dessas evidências para que possam ser analisadas
-posteriormente sem alterações.
-
-</div>
-
-</section>
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Simulando uma invasão
-
-</h3>
-
-<p>
-
-Com a evidência preparada, chegou o momento de simular algumas atividades
-comumente encontradas durante uma investigação forense.
-
-</p>
-
-<p>
-
-O objetivo não é criar um malware real.
-
-</p>
-
-<p>
-
-O objetivo é produzir artefatos que deixem rastros suficientes para serem
-identificados posteriormente durante a análise.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Etapa 1 - O Payload
-
-</h3>
-
-<p>
-
-O primeiro passo foi criar um arquivo chamado
-<b>payload.sh</b>.
-
-Poucos segundos depois, um conteúdo simulando um malware foi gravado
-nesse arquivo.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-root@laboratorio:~#
-
-</div>
-
-<pre>
-
-$ touch payload.sh
-
-$ sleep 5
-
-$ echo "malware" > payload.sh
-
-$ ls
-
-payload.sh
-
-</pre>
-
-</div>
-
-<div class="tip">
-
-<strong>
-
-Observação do Analista
-
-</strong>
-
-<br><br>
-
-Pequenos intervalos entre os comandos facilitam a interpretação da Timeline
-durante a investigação.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Etapa 2 - Persistência
-
-</h3>
-
-<p>
-
-Ataques reais raramente executam apenas um payload.
-
-É comum que mecanismos de persistência sejam implantados para garantir
-acesso futuro ao sistema comprometido.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-root@laboratorio:~#
-
-</div>
-
-<pre>
-
-$ mkdir persistencia
-
-$ sleep 5
-
-$ touch persistencia/backdoor
-
-$ ls persistencia/
-
-backdoor
-
-</pre>
-
-</div>
-
-<p>
-
-Nesse laboratório, o diretório
-<b>persistencia</b>
-representa um mecanismo utilizado para manter acesso ao ambiente.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Etapa 3 - Possível exfiltração
-
-</h3>
-
-<p>
-
-Uma última atividade foi executada para simular o armazenamento temporário
-de informações antes de uma possível exfiltração.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-root@laboratorio:/tmp#
-
-</div>
-
-<pre>
-
-$ echo "dados roubados" > exfiltracao.txt
-
-$ ls
-
-exfiltracao.txt
-
-</pre>
-
-</div>
-
-<p>
-
-Embora simples, esse comportamento é semelhante ao observado em diversos
-incidentes reais.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Preservando a evidência
-
-</h3>
-
-<p>
-
-Após todas as atividades, a imagem forense foi desmontada.
-
-</p>
-
-<p>
-
-Esse procedimento impede novas alterações e preserva a integridade da
-evidência para análise posterior.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-$ cd ..
-
-$ sudo umount montagem
-
-$ ls
-
-evidencia.img
-
-</pre>
-
-</div>
-
-<div class="alert">
-
-<strong>
-
-Importante
-
-</strong>
-
-<br><br>
-
-Uma investigação forense confiável depende da preservação da evidência.
-Qualquer alteração posterior pode comprometer a análise.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-A investigação começa
-
-</h3>
-
-<p>
-
-Com a evidência preservada, inicia-se a fase de análise.
-
-</p>
-
-<p>
-
-O primeiro passo consiste em extrair os metadados do sistema de arquivos.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-$ fls -r -m / evidencia.img > bodyfile.txt
-
-$ ls
-
-bodyfile.txt
-
-</pre>
-
-</div>
-
-<p>
-
-O Bodyfile reúne milhares de informações relacionadas aos arquivos e
-diretórios presentes na evidência.
-
-</p>
-
-<p>
-
-Esses dados serão processados pelo mactime para construir a Timeline.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-$ mactime -b bodyfile.txt > timeline.txt
-
-$ less timeline.txt
-
-...
-
-10:23:19 .a.. /payload.sh
-
-10:23:24 m.c. /payload.sh
-
-...
-
-</pre>
-
-</div>
-
-<p>
-
-Nesse momento a pergunta inicial começa a ser respondida.
-
-</p>
-
-<div class="tip">
-
-<strong>
-
-Pergunta do Investigador
-
-</strong>
-
-<br><br>
-
-Quem criou o payload?
-
-Quando ele foi alterado?
-
-Existe algum mecanismo de persistência?
-
-Há indícios de exfiltração?
-
-A Timeline contém essas respostas.
-
-</div>
-
-</div>
-
-</section>
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Primeira descoberta: O Payload
-
-</h3>
-
-<p>
-
-Com a Timeline gerada, o primeiro artefato identificado foi o arquivo
-<b>payload.sh</b>.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-10:23:19 .a.. /payload.sh
-
-10:23:24 m.c. /payload.sh
-
-</pre>
-
-</div>
-
-<p>
-
-O primeiro evento indica que o arquivo foi criado e acessado.
-
-Poucos segundos depois ocorreu uma alteração em seu conteúdo e em seus
-metadados.
-
-</p>
-
-<div class="tip">
-
-<strong>Conclusão do Investigador</strong>
-
-<br><br>
-
-O payload foi criado e posteriormente recebeu conteúdo.
-
-Existe uma sequência lógica de ações executadas sobre o arquivo.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Segunda descoberta: Persistência
-
-</h3>
-
-<p>
-
-Outro evento interessante apareceu durante a análise.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-10:23:29 .a.. /persistencia
-
-10:23:34 m.c. /persistencia
-
-</pre>
-
-</div>
-
-<p>
-
-Inicialmente o diretório foi criado.
-
-Poucos segundos depois seus metadados foram alterados.
-
-</p>
-
-<p>
-
-A explicação aparece quando um novo artefato é encontrado.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-/persistencia/backdoor
-
-</pre>
-
-</div>
-
-<div class="tip">
-
-<strong>Conclusão do Investigador</strong>
-
-<br><br>
-
-A criação do diretório foi seguida da implantação de um mecanismo de
-persistência.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Terceira descoberta: O Backdoor
-
-</h3>
-
-<p>
-
-A Timeline apresentou novos registros.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-.a.. /persistencia/backdoor
-
-m.c. /persistencia/backdoor
-
-</pre>
-
-</div>
-
-<p>
-
-Os eventos indicam criação e posterior modificação do artefato.
-
-</p>
-
-<div class="tip">
-
-<strong>Conclusão do Investigador</strong>
-
-<br><br>
-
-O comportamento é compatível com um mecanismo utilizado para manter
-acesso ao sistema comprometido.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Quarta descoberta: Possível exfiltração
-
-</h3>
-
-<p>
-
-Outro registro chamou atenção durante a investigação.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-analista@dfir:~$
-
-</div>
-
-<pre>
-
-m.a.c /tmp/exfiltracao.txt
-
-</pre>
-
-</div>
-
-<p>
-
-Os metadados indicam que praticamente ao mesmo tempo ocorreram:
-
-</p>
-
-<ul>
-
-<li>Criação do arquivo;</li>
-
-<li>Gravação do conteúdo;</li>
-
-<li>Alteração dos metadados.</li>
-
-</ul>
-
-<div class="tip">
-
-<strong>Conclusão do Investigador</strong>
-
-<br><br>
-
-Embora seja um laboratório, esse comportamento é semelhante ao observado
-durante atividades relacionadas à preparação de dados para exfiltração.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Reconstruindo a história
-
-</h3>
-
-<p>
-
-Após correlacionar todos os eventos foi possível reconstruir a atividade
-executada no sistema.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-Timeline da Investigação
-
-</div>
-
-<pre>
-
-10:23:19
-
-Payload criado
-
-|
-
-v
-
-10:23:24
-
-Conteúdo gravado
-
-|
-
-v
-
-10:23:29
-
-Persistência criada
-
-|
-
-v
-
-10:23:34
-
-Backdoor implantado
-
-|
-
-v
-
-10:27:56
-
-Possível exfiltração
-
-</pre>
-
-</div>
-
-<p>
-
-Observe que praticamente toda a sequência foi reconstruída utilizando
-apenas metadados do sistema de arquivos.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-Conclusão
-
-</h3>
-
-<p>
-
-Uma investigação forense raramente depende de uma única evidência.
-
-</p>
-
-<p>
-
-O trabalho do analista consiste em reunir pequenos vestígios e estabelecer
-relações entre eles.
-
-</p>
-
-<p>
-
-Neste laboratório foi possível identificar:
-
-</p>
-
-<ul>
-
-<li>Criação de um payload;</li>
-
-<li>Alteração do conteúdo;</li>
-
-<li>Implantação de persistência;</li>
-
-<li>Criação de um backdoor;</li>
-
-<li>Atividade relacionada à possível exfiltração.</li>
-
-</ul>
-
-<p>
-
-Mais importante do que aprender comandos é desenvolver o raciocínio
-investigativo.
-
-</p>
-
-<div class="alert">
-
-<strong>
-
-Lição aprendida
-
-</strong>
-
-<br><br>
-
-Arquivos podem ser apagados.
-
-Logs podem ser alterados.
-
-Ferramentas podem falhar.
-
-Mas praticamente toda ação deixa um vestígio.
-
-O desafio do analista forense é encontrar esses vestígios e conectá-los
-até reconstruir a história dos acontecimentos.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h3>
-
-O que você aprendeu neste laboratório?
-
-</h3>
-
-<ul>
-
-<li>Criar uma evidência digital.</li>
-
-<li>Preservar sua integridade.</li>
-
-<li>Gerar um Bodyfile.</li>
-
-<li>Construir uma Timeline.</li>
-
-<li>Interpretar atributos MACB.</li>
-
-<li>Identificar persistência.</li>
-
-<li>Reconstruir uma invasão utilizando metadados.</li>
-
-</ul>
 
 </div>
 
