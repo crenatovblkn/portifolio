@@ -310,3 +310,209 @@ análise cronológica dos metadados presentes no sistema de arquivos.
 </div>
 
 </section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Entendendo o Bodyfile
+
+</h2>
+
+<p>
+
+Para reconstruir uma sequência de eventos é necessário identificar os
+vestígios deixados pelo sistema operacional. Uma das formas mais
+utilizadas em investigação forense consiste na análise dos metadados
+armazenados pelo sistema de arquivos.
+
+</p>
+
+<p>
+
+Esses metadados podem ser extraídos e organizados em um arquivo
+conhecido como Bodyfile, que posteriormente será utilizado para gerar
+uma Timeline cronológica das atividades executadas.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@crportal:~#
+
+</div>
+
+<pre>
+
+M = Modified
+
+A = Accessed
+
+C = Changed
+
+B = Birth
+
+</pre>
+
+</div>
+
+<p>
+
+Cada atributo representa uma informação importante sobre o ciclo de
+vida dos arquivos e diretórios presentes na evidência digital.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+Observação do Analista
+
+</strong>
+
+<br><br>
+
+Um único timestamp raramente explica um incidente. O verdadeiro valor
+da análise forense está na correlação entre diversos eventos.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Preparando a Evidência
+
+</h2>
+
+<p>
+
+Para demonstrar o processo de investigação foi criado um pequeno
+laboratório controlado.
+
+</p>
+
+<p>
+
+O primeiro passo consistiu na criação de uma imagem de disco de
+200 MB, posteriormente formatada utilizando Ext4 e montada em um
+diretório específico.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+$ dd if=/dev/zero of=evidencia.img bs=1M count=200
+
+200+0 records in
+
+200+0 records out
+
+209715200 bytes copied
+
+$ mkfs.ext4 evidencia.img
+
+Creating filesystem...
+
+done.
+
+$ mkdir montagem
+
+$ sudo mount evidencia.img montagem
+
+$ ls
+
+montagem/
+
+</pre>
+
+</div>
+
+<p>
+
+A partir desse momento qualquer atividade realizada passaria a fazer
+parte da futura evidência digital.
+
+</p>
+
+<p>
+
+O objetivo deste laboratório não é simular um ataque sofisticado.
+
+O objetivo é gerar artefatos suficientes para demonstrar como a
+Timeline Analysis pode ser utilizada durante uma investigação.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Uma breve pausa
+
+</h2>
+
+<p>
+
+Até este ponto ainda não existe um incidente.
+
+Existe apenas uma evidência preparada para registrar atividades.
+
+</p>
+
+<p>
+
+Na prática, essa etapa é extremamente importante.
+
+Durante uma investigação real, a preservação da integridade da
+evidência determina a confiabilidade dos resultados obtidos pelo
+analista.
+
+</p>
+
+<div class="alert">
+
+<strong>
+
+Importante
+
+</strong>
+
+<br><br>
+
+Toda alteração realizada após a aquisição da evidência pode comprometer
+a investigação. Preservar a integridade dos dados é um dos princípios
+fundamentais da Computação Forense.
+
+</div>
+
+</div>
+
+</section>
+
+  
