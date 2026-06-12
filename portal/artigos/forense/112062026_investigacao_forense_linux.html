@@ -516,3 +516,385 @@ fundamentais da Computação Forense.
 </section>
 
   
+
+ <section class="section">
+
+<div class="card">
+
+<h2>
+
+Simulando um Incidente
+
+</h2>
+
+<p>
+
+Com a evidência preparada, chegou o momento de criar alguns artefatos
+que serão posteriormente identificados durante a investigação.
+
+</p>
+
+<p>
+
+O objetivo não é reproduzir um ataque complexo.
+
+O objetivo é gerar rastros capazes de demonstrar como uma Timeline
+forense pode ser utilizada para reconstruir uma sequência de eventos.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Primeira ação: criando um Payload
+
+</h2>
+
+<p>
+
+O primeiro passo consiste na criação de um pequeno arquivo chamado
+<b>payload.sh</b>.
+
+</p>
+
+<p>
+
+Após sua criação, um conteúdo simples é gravado no arquivo,
+simulando um possível script malicioso.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@laboratorio:~#
+
+</div>
+
+<pre>
+
+$ touch payload.sh
+
+$ sleep 5
+
+$ echo "malware" > payload.sh
+
+$ ls
+
+payload.sh
+
+</pre>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+Observação do Analista
+
+</strong>
+
+<br><br>
+
+Os pequenos intervalos entre os comandos foram inseridos
+propositalmente para facilitar a interpretação da Timeline.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Segunda ação: Persistência
+
+</h2>
+
+<p>
+
+Ataques reais raramente executam apenas um payload.
+
+Frequentemente mecanismos de persistência são implantados para garantir
+acesso futuro ao sistema comprometido.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@laboratorio:~#
+
+</div>
+
+<pre>
+
+$ mkdir persistencia
+
+$ sleep 5
+
+$ touch persistencia/backdoor
+
+$ ls persistencia/
+
+backdoor
+
+</pre>
+
+</div>
+
+<p>
+
+Neste laboratório, o diretório
+<b>persistencia</b>
+representa um mecanismo utilizado para manter acesso ao ambiente.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Terceira ação: Possível Exfiltração
+
+</h2>
+
+<p>
+
+Uma última atividade foi executada para simular o armazenamento
+temporário de informações antes de uma possível exfiltração.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@laboratorio:/tmp#
+
+</div>
+
+<pre>
+
+$ echo "dados roubados" > exfiltracao.txt
+
+$ ls
+
+exfiltracao.txt
+
+</pre>
+
+</div>
+
+<p>
+
+Embora seja um laboratório simplificado, esse comportamento é
+compatível com situações encontradas em diversos incidentes reais.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Preservando a Evidência
+
+</h2>
+
+<p>
+
+Após a execução das atividades, a imagem forense foi desmontada.
+
+</p>
+
+<p>
+
+Esse procedimento impede novas alterações e garante a integridade
+da evidência para análise posterior.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+$ cd ..
+
+$ sudo umount montagem
+
+$ ls
+
+evidencia.img
+
+</pre>
+
+</div>
+
+<div class="alert">
+
+<strong>
+
+Importante
+
+</strong>
+
+<br><br>
+
+Uma investigação forense confiável depende da preservação da evidência.
+Qualquer alteração posterior pode comprometer os resultados obtidos
+durante a análise.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+A Investigação Começa
+
+</h2>
+
+<p>
+
+Com a evidência preservada, inicia-se a fase de análise.
+
+</p>
+
+<p>
+
+O primeiro passo consiste em extrair os metadados do sistema de
+arquivos.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+$ fls -r -m / evidencia.img > bodyfile.txt
+
+$ ls
+
+bodyfile.txt
+
+</pre>
+
+</div>
+
+<p>
+
+O Bodyfile reúne milhares de informações relacionadas aos arquivos
+e diretórios presentes na evidência.
+
+</p>
+
+<p>
+
+Esses dados serão processados pelo mactime para gerar a Timeline
+forense.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+$ mactime -b bodyfile.txt > timeline.txt
+
+$ less timeline.txt
+
+...
+
+10:23:19 .a.. /payload.sh
+
+10:23:24 m.c. /payload.sh
+
+...
+
+</pre>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+Perguntas do Investigador
+
+</strong>
+
+<br><br>
+
+Quem criou o payload?
+
+<br><br>
+
+Quando ele foi alterado?
+
+<br><br>
+
+Existe algum mecanismo de persistência?
+
+<br><br>
+
+Há indícios de exfiltração?
+
+<br><br>
+
+A Timeline contém essas respostas.
+
+</div>
+
+</div>
+
+</section> 
