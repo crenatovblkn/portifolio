@@ -261,3 +261,53 @@ color:#fbbf24;
 margin-bottom:15px;
 
 }
+
+.hero{
+
+margin-bottom:40px;
+
+}
+
+.hero img{
+
+width:100%;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
+
+.hero-text{
+
+padding:25px 0;
+
+}
+
+.hero-text h1{
+
+font-size:2.8rem;
+
+margin:15px 0;
+
+color:#fbbf24;
+
+}
+
+.hero-text p{
+
+font-size:1.2rem;
+
+color:#cbd5e1;
+
+}
+
+.categoria{
+
+color:#fbbf24;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+}
