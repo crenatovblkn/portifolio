@@ -918,3 +918,15 @@ padding:20px;
 }
 
 }
+
+.card p{
+    text-align: justify;
+}
+
+.card li{
+    text-align: justify;
+}
+
+blockquote{
+    text-align: justify;
+}
