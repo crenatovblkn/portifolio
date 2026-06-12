@@ -681,3 +681,240 @@ font-size:.9rem;
 }
 
 }
+
+/* =======================================
+   CR PORTAL
+   Artigos Técnicos v1
+======================================= */
+
+/* FICHA TÉCNICA */
+
+.tech-info{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:15px;
+
+margin:25px 0;
+
+}
+
+.tech-box{
+
+background:#102030;
+
+padding:15px;
+
+border-radius:12px;
+
+border-left:4px solid var(--primary);
+
+}
+
+.tech-box strong{
+
+display:block;
+
+color:var(--primary);
+
+margin-bottom:8px;
+
+}
+
+/* TERMINAL LINUX */
+
+.terminal{
+
+margin:25px 0;
+
+border-radius:12px;
+
+overflow:hidden;
+
+background:#000;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.35);
+
+}
+
+.terminal-header{
+
+background:#222;
+
+padding:10px 15px;
+
+font-size:.9rem;
+
+color:#ddd;
+
+font-family:monospace;
+
+border-bottom:1px solid #444;
+
+}
+
+.terminal pre{
+
+margin:0;
+
+padding:20px;
+
+background:#000;
+
+color:#5cff5c;
+
+font-family:
+Consolas,
+monospace;
+
+font-size:.95rem;
+
+line-height:1.6;
+
+overflow:auto;
+
+}
+
+/* LISTAS */
+
+.card ul{
+
+margin-top:15px;
+
+margin-left:25px;
+
+}
+
+.card li{
+
+margin-bottom:10px;
+
+}
+
+/* ARTIGO */
+
+.card h3{
+
+margin-bottom:20px;
+
+}
+
+.card p{
+
+margin-bottom:15px;
+
+}
+
+/* ALERTAS */
+
+.tip{
+
+margin-top:20px;
+
+padding:20px;
+
+background:#132238;
+
+border-left:5px solid #22c55e;
+
+border-radius:8px;
+
+}
+
+.tip strong{
+
+display:block;
+
+margin-bottom:10px;
+
+color:#22c55e;
+
+}
+
+.alert{
+
+margin-top:20px;
+
+padding:20px;
+
+background:#132238;
+
+border-left:5px solid #f59e0b;
+
+border-radius:8px;
+
+}
+
+.alert strong{
+
+display:block;
+
+margin-bottom:10px;
+
+color:#f59e0b;
+
+}
+
+/* CITAÇÕES */
+
+blockquote{
+
+margin:25px 0;
+
+padding:20px;
+
+background:#102030;
+
+border-left:5px solid var(--primary);
+
+font-style:italic;
+
+}
+
+/* SEPARAÇÃO */
+
+.section{
+
+margin-top:50px;
+
+}
+
+/* TÍTULOS */
+
+.section h2{
+
+margin-bottom:20px;
+
+color:var(--primary);
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.terminal pre{
+
+font-size:.85rem;
+
+padding:15px;
+
+}
+
+.tech-info{
+
+grid-template-columns:1fr;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
+}
