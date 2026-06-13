@@ -1287,3 +1287,33 @@ grid-template-columns:1fr;
 
 }
 
+
+/* BOTÃO VOLTAR */
+
+.back-button{
+
+display:inline-block;
+
+padding:12px 20px;
+
+background:#16304b;
+
+border-radius:8px;
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+margin-bottom:20px;
+
+}
+
+.back-button:hover{
+
+transform:translateY(-2px);
+
+background:#1d4268;
+
+}
