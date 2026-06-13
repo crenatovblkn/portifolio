@@ -898,3 +898,355 @@ A Timeline contém essas respostas.
 </div>
 
 </section> 
+```html
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Primeira Descoberta: O Payload
+
+</h2>
+
+<p>
+
+Com a Timeline gerada, o primeiro artefato identificado foi o arquivo
+<b>payload.sh</b>.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+10:23:19 .a.. /payload.sh
+
+10:23:24 m.c. /payload.sh
+
+</pre>
+
+</div>
+
+<p>
+
+O primeiro registro indica que o arquivo foi criado e acessado.
+
+Poucos segundos depois, novos eventos indicaram alteração do conteúdo e
+atualização dos metadados.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+Conclusão do Investigador
+
+</strong>
+
+<br><br>
+
+O payload foi criado e posteriormente modificado. Existe uma sequência
+cronológica compatível com a criação e gravação de conteúdo no arquivo.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Segunda Descoberta: Persistência
+
+</h2>
+
+<p>
+
+Outro evento importante surgiu durante a análise da Timeline.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+10:23:29 .a.. /persistencia
+
+10:23:34 m.c. /persistencia
+
+</pre>
+
+</div>
+
+<p>
+
+Inicialmente o diretório foi criado.
+
+Poucos segundos depois ocorreu alteração em seus metadados.
+
+</p>
+
+<p>
+
+Ao aprofundar a investigação foi encontrado um novo artefato.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Artefato Encontrado
+
+</div>
+
+<pre>
+
+/persistencia/backdoor
+
+</pre>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+Conclusão do Investigador
+
+</strong>
+
+<br><br>
+
+A criação do diretório foi seguida pela implantação de um mecanismo de
+persistência.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Terceira Descoberta: O Backdoor
+
+</h2>
+
+<p>
+
+A Timeline apresentou novos registros relacionados ao artefato
+identificado anteriormente.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+.a.. /persistencia/backdoor
+
+m.c. /persistencia/backdoor
+
+</pre>
+
+</div>
+
+<p>
+
+Os eventos indicam criação e posterior alteração do arquivo.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+Conclusão do Investigador
+
+</strong>
+
+<br><br>
+
+Esse comportamento é compatível com mecanismos utilizados para manter
+acesso ao ambiente comprometido.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Quarta Descoberta: Possível Exfiltração
+
+</h2>
+
+<p>
+
+Outro registro chamou atenção durante a análise.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+analista@dfir:~$
+
+</div>
+
+<pre>
+
+m.a.c /tmp/exfiltracao.txt
+
+</pre>
+
+</div>
+
+<p>
+
+Os metadados sugerem que praticamente ao mesmo tempo ocorreram criação,
+gravação do conteúdo e atualização dos atributos do arquivo.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+Conclusão do Investigador
+
+</strong>
+
+<br><br>
+
+Embora seja um laboratório controlado, esse padrão é semelhante ao
+observado em atividades relacionadas à preparação de dados para
+exfiltração.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Reconstruindo a História
+
+</h2>
+
+<p>
+
+Após correlacionar todos os eventos, foi possível reconstruir a
+sequência dos acontecimentos.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Timeline da Investigação
+
+</div>
+
+<pre>
+
+10:23:19
+
+Payload criado
+
+│
+
+10:23:24
+
+Conteúdo gravado
+
+│
+
+10:23:29
+
+Persistência criada
+
+│
+
+10:23:34
+
+Backdoor implantado
+
+│
+
+10:27:56
+
+Possível exfiltração
+
+</pre>
+
+</div>
+
+<p>
+
+Observe que praticamente toda a sequência foi reconstruída utilizando
+apenas metadados do sistema de arquivos.
+
+</p>
+
+<div class="alert">
+
+<strong>
+
+Resultado da Investigação
+
+</strong>
+
+<br><br>
+
+A correlação entre os eventos permitiu identificar atividades
+compatíveis com criação de payload, persistência e possível preparação
+para exfiltração de dados.
+
+</div>
+
+</div>
+
+</section>
+```
