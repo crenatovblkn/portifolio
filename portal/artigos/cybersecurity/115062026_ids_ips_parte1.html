@@ -302,4 +302,703 @@ de proteção à rede.
 </div>
 
 </section>
-  
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👁 O que é um IDS?
+
+</h2>
+
+<p>
+
+IDS significa
+<b>Intrusion Detection System</b>,
+ou Sistema de Detecção de Intrusão.
+
+</p>
+
+<p>
+
+Seu principal objetivo é monitorar
+o tráfego da rede e identificar
+atividades suspeitas ou maliciosas.
+
+</p>
+
+<p>
+
+Entretanto, existe uma característica
+muito importante.
+
+</p>
+
+<p>
+
+O IDS não impede o ataque.
+
+Ele apenas observa e informa
+que algo anormal aconteceu.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+🔍 Pense no IDS desta forma
+
+</strong>
+
+<br><br>
+
+Imagine uma câmera de segurança.
+
+Ela observa.
+
+Ela grava.
+
+Ela alerta.
+
+Mas ela não impede um criminoso
+de entrar em uma residência.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙️ Como o IDS funciona?
+
+</h2>
+
+<p>
+
+Vamos acompanhar o caminho
+de uma conexão suspeita.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Fluxo Simplificado
+
+</div>
+
+<pre>
+
+🌐 INTERNET
+
+      |
+
+      V
+
+📦 PACOTE
+
+      |
+
+      V
+
+👁 IDS
+
+      |
+
+      V
+
+🔍 ANALISA
+
+      |
+
+      V
+
+🚨 ALERTA
+
+      |
+
+      V
+
+👨‍💻 SOC
+
+</pre>
+
+</div>
+
+<p>
+
+Observe que em nenhum momento
+o tráfego é interrompido.
+
+</p>
+
+<p>
+
+O IDS apenas identifica padrões
+suspeitos e gera alertas para
+a equipe de segurança.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📋 Principais Funções
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔍 Monitoramento
+
+</strong>
+
+Observa continuamente
+o tráfego da rede.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🚨 Detecção
+
+</strong>
+
+Identifica padrões
+suspeitos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📨 Alertas
+
+</strong>
+
+Notifica a equipe
+de segurança.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📝 Logging
+
+</strong>
+
+Registra eventos
+para investigação.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌎 Um Caso Real
+
+</h2>
+
+<p>
+
+Imagine um servidor corporativo.
+
+</p>
+
+<p>
+
+Um atacante inicia uma
+varredura de portas.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+08:15
+
+</div>
+
+<pre>
+
+TCP SYN
+
+22
+
+80
+
+443
+
+445
+
+3389
+
+8080
+
+8443
+
+...
+
+</pre>
+
+</div>
+
+<p>
+
+O IDS percebe que existe um
+comportamento incomum.
+
+</p>
+
+<p>
+
+Diversas conexões estão sendo
+realizadas em um curto espaço
+de tempo.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Alerta Gerado
+
+</div>
+
+<pre>
+
+Origem:
+
+192.168.1.50
+
+Evento:
+
+Possível Varredura
+
+Severidade:
+
+Média
+
+Ação:
+
+Notificar SOC
+
+</pre>
+
+</div>
+
+<div class="alert">
+
+<strong>
+
+⚠️ Importante
+
+</strong>
+
+<br><br>
+
+O IDS não bloqueou
+o atacante.
+
+Ele apenas informou
+que uma atividade
+suspeita foi detectada.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>IDS significa Intrusion Detection System.</li>
+
+<li>É um mecanismo passivo.</li>
+
+<li>Monitora o tráfego.</li>
+
+<li>Detecta padrões suspeitos.</li>
+
+<li>Gera alertas.</li>
+
+<li>Registra eventos.</li>
+
+<li>Não bloqueia ataques.</li>
+
+</ul>
+
+<div class="tip">
+
+<strong>
+
+💡 Lição Aprendida
+
+</strong>
+
+<br><br>
+
+O papel do IDS é aumentar
+a visibilidade da rede.
+
+Ele responde uma pergunta
+fundamental para a equipe
+de segurança:
+
+"Algo suspeito está acontecendo?"
+
+</div>
+
+</div>
+
+</section>      
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Resumo do Episódio
+
+</h2>
+
+<p>
+
+Ao longo deste primeiro capítulo conhecemos dois importantes mecanismos
+utilizados na proteção de redes corporativas.
+
+</p>
+
+<p>
+
+Aprendemos que Firewall, IDS e IPS não competem entre si.
+
+Cada um desempenha uma função específica dentro de uma estratégia
+conhecida como Defesa em Profundidade.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🧱 Firewall
+
+</strong>
+
+Controla o tráfego.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👁 IDS
+
+</strong>
+
+Detecta ameaças.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 IPS
+
+</strong>
+
+Pode bloquear ataques.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔒 Objetivo
+
+</strong>
+
+Proteger a organização.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+💡 O Conceito Mais Importante
+
+</h2>
+
+<p>
+
+Nenhuma solução isolada é capaz de proteger completamente uma empresa.
+
+</p>
+
+<p>
+
+A segurança moderna é construída em camadas.
+
+Cada mecanismo adiciona uma nova capacidade de proteção.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+Lição Aprendida
+
+</strong>
+
+<br><br>
+
+Firewall, IDS e IPS trabalham juntos.
+
+Quanto maior a quantidade de camadas de defesa,
+maior a capacidade de identificar e responder
+a ameaças.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>O que são IDS e IPS.</li>
+
+<li>Por que esses mecanismos existem.</li>
+
+<li>Onde ficam posicionados na rede.</li>
+
+<li>Como trabalham junto ao Firewall.</li>
+
+<li>O conceito de Defesa em Profundidade.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔍 Uma pergunta permanece...
+
+</h2>
+
+<p>
+
+Vamos voltar ao cenário do início do artigo.
+
+</p>
+
+<p>
+
+Um usuário abriu um e-mail malicioso.
+
+</p>
+
+<p>
+
+Seu computador iniciou uma conexão suspeita.
+
+</p>
+
+<p>
+
+Agora sabemos que IDS e IPS existem.
+
+</p>
+
+<p>
+
+Mas ainda não respondemos uma pergunta importante.
+
+</p>
+
+<blockquote>
+
+Como um sistema consegue perceber
+que uma atividade é suspeita?
+
+</blockquote>
+
+<p>
+
+Essa resposta será apresentada
+no próximo episódio da série.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+➡ Próximo Episódio
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Fundamentos da Defesa de Redes
+
+</div>
+
+<pre>
+
+✅ Parte 1
+
+IDS e IPS
+
+Uma visão geral.
+
+|
+
+V
+
+➡ Parte 2
+
+IDS
+
+Quem detecta o ataque?
+
+|
+
+V
+
+⬜ Parte 3
+
+IPS
+
+Quem impede o ataque?
+
+|
+
+V
+
+⬜ Parte 4
+
+IDS x IPS
+
+|
+
+V
+
+⬜ Parte 5
+
+Ferramentas
+
+|
+
+V
+
+⬜ Parte 6
+
+SOC
+
+</pre>
+
+</div>
+
+<p>
+
+No próximo capítulo estudaremos
+o Intrusion Detection System (IDS),
+seus mecanismos de detecção,
+formas de funcionamento e exemplos
+práticos encontrados em ambientes
+corporativos.
+
+</p>
+
+</div>
+
+</section>
