@@ -116,6 +116,32 @@ body{
     background:#e2c15a;
     transform:translateY(-2px);
     box-shadow:0 4px 15px rgba(212,175,55,.35);
+}
+.secondary-actions{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	gap:15px;
+	margin-top:15px;
+}
+.secondary-actions .btn{
+	width:220px;
+	text-align:center;
+}
+.actions .btn-primary{
+	width:70%;
+	margin:0 auto;
+	display:block;
+}
+.secondary-actions{
+	display:flex;
+	justify-content:center;
+	gap:15px;
+	margin-top:15px;
+}
+.secondary-actions .btn{
+	flex:1;
+	text-align:center;
 }	
 .tags{
     margin-top:25px;
@@ -167,6 +193,13 @@ body{
 }
 /* MOBILE */
 @media(max-width:768px){
+.secondary-actions{
+	justify-content:center;
+	gap:12px;
+}
+.secondary-actions .btn{
+	width:48%;
+}	
 .hero{
     text-align:center;
     justify-content:center;
@@ -197,10 +230,23 @@ body{
 		Projetando, implantando e fortalecendo soluções de Cybersecurity para ambientes corporativos, governamentais, financeiros e industriais de alta criticidade.
 		</p><br>
         <div class="actions">
-			<a class="btn btn-primary" href="resume/Carlos_Renato_CV.pdf" download> 📄 Download CV </a>
-			<a class="btn btn-portal" href="portal/index.html"> 📚 CR Portal </a>
-			<a class="btn btn-secondary" href="https://linkedin.com/in/crenatovb" target="_blank"> 💼 LinkedIn </a>
-		</div>
+			<a href="SEU_LINK_CV"
+				class="btn btn-primary">
+				📄 Download CV
+			</a>
+		<div class="secondary-actions">
+			<a href="portal/index.html"
+				class="btn btn-portal">
+				📚 CR Portal
+			</a>
+			<a href="https://www.linkedin.com/in/crenatovb/"
+				class="btn btn-secondary">
+				💼 LinkedIn
+        </a>
+
+    </div>
+
+</div>
         <div class="tags">
             <span class="tag">Firewall</span>
             <span class="tag">Pentest</span>
