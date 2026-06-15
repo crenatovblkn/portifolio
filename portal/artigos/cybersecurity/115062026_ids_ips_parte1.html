@@ -12,8 +12,8 @@ content="width=device-width, initial-scale=1.0">
 <title>
 
 Fundamentos da Defesa de Redes
-Parte 1
-IDS e IPS
+
+Visão Geral
 
 </title>
 
@@ -45,22 +45,20 @@ alt="Carlos Renato">
 
 <h1>
 
-🛡️ Fundamentos da Defesa de Redes
+🛡 Fundamentos da Defesa de Redes
 
 </h1>
 
 <h2>
 
-Parte 1
-
-IDS e IPS
+🌐 Visão Geral
 
 </h2>
 
 <p>
 
-Entendendo a primeira linha de defesa
-de uma rede corporativa.
+Entendendo as principais camadas
+de proteção de uma rede corporativa.
 
 </p>
 
@@ -135,7 +133,7 @@ Segunda-feira.
 
 <p>
 
-Um funcionário recebe um e-mail.
+Um colaborador recebe um e-mail.
 
 O remetente parece legítimo.
 
@@ -147,51 +145,45 @@ Existe um anexo.
 
 <p>
 
-Ele abre.
+Ele abre o arquivo.
 
 </p>
 
 <p>
 
 Em poucos segundos seu computador
-tenta estabelecer comunicação com um
-servidor externo.
+tenta estabelecer comunicação com
+um servidor desconhecido.
 
 </p>
 
 <p>
 
-Quem percebe isso?
+Uma pergunta surge.
 
 </p>
+
+<blockquote>
+
+Quem percebe que algo
+suspeito está acontecendo?
+
+</blockquote>
 
 <p>
 
-Quem alerta a equipe de segurança?
+Para responder essa pergunta
+precisamos compreender alguns dos
+principais mecanismos utilizados
+na defesa de redes corporativas.
 
 </p>
 
-<p>
+</div>
 
-Quem impede que o ataque continue?
+</section>
 
-</p>
-
-<p>
-
-Para responder essas perguntas
-precisamos conhecer dois importantes
-controles de segurança:
-
-</p>
-
-<ul>
-
-<li>IDS.</li>
-
-<li>IPS.</li>
-
-</ul>
+<section class="section">
 
 <div class="tip">
 
@@ -208,11 +200,9 @@ Cybersecurity é acreditar que
 Firewall, IDS e IPS desempenham
 a mesma função.
 
-Na prática, eles trabalham juntos
-para aumentar a capacidade de defesa
-da organização.
-
-</div>
+Na realidade, eles trabalham
+em conjunto, adicionando novas
+camadas de proteção à rede.
 
 </div>
 
@@ -230,9 +220,18 @@ da organização.
 
 <p>
 
-Antes de estudar IDS e IPS,
-vamos observar uma arquitetura
-simplificada de uma rede corporativa.
+Antes de estudar as tecnologias envolvidas,
+vamos observar uma arquitetura simplificada
+de uma rede corporativa.
+
+</p>
+
+<p>
+
+Embora ambientes reais sejam muito mais
+complexos, praticamente toda organização
+possui mecanismos responsáveis por controlar,
+monitorar e proteger o tráfego de rede.
 
 </p>
 
@@ -241,6 +240,146 @@ simplificada de uma rede corporativa.
 <div class="terminal-header">
 
 Arquitetura Simplificada
+
+</div>
+
+<pre>
+
+                🌐 INTERNET
+
+                      |
+
+                      V
+
+              🧱 FIREWALL
+
+                      |
+
+                      V
+
+             👁 IDS / 🛡 IPS
+
+                      |
+
+                      V
+
+               🖥 REDE INTERNA
+
+                      |
+
+                      V
+
+              👨‍💻 ADMINISTRADORES
+
+</pre>
+
+</div>
+
+<p>
+
+Cada componente possui uma função
+específica dentro da estratégia
+de defesa da organização.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🧱 Firewall
+
+</strong>
+
+Controla o tráfego
+entre redes.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👁 IDS
+
+</strong>
+
+Monitora atividades
+suspeitas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 IPS
+
+</strong>
+
+Pode interromper
+ameaças.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👨‍💻 Equipe
+
+</strong>
+
+Analisa eventos
+e toma decisões.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Defesa em Profundidade
+
+</h2>
+
+<p>
+
+Existe um conceito muito importante
+em Cybersecurity chamado
+Defesa em Profundidade.
+
+</p>
+
+<p>
+
+A ideia é simples.
+
+</p>
+
+<p>
+
+Ao invés de confiar em uma única
+solução de segurança, a organização
+utiliza diversas camadas de proteção.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Defesa em Camadas
 
 </div>
 
@@ -258,172 +397,19 @@ Arquitetura Simplificada
 
       V
 
-👁 IDS / 🛡 IPS
-
-      |
-
-      V
-
-🖥 REDE INTERNA
-
-</pre>
-
-</div>
-
-<p>
-
-O Firewall controla acessos.
-
-O IDS observa atividades suspeitas.
-
-O IPS observa e pode bloquear
-ações maliciosas.
-
-</p>
-
-<div class="alert">
-
-<strong>
-
-⚠️ Importante
-
-</strong>
-
-<br><br>
-
-IDS e IPS não substituem
-o Firewall.
-
-Eles adicionam novas camadas
-de proteção à rede.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-👁 O que é um IDS?
-
-</h2>
-
-<p>
-
-IDS significa
-<b>Intrusion Detection System</b>,
-ou Sistema de Detecção de Intrusão.
-
-</p>
-
-<p>
-
-Seu principal objetivo é monitorar
-o tráfego da rede e identificar
-atividades suspeitas ou maliciosas.
-
-</p>
-
-<p>
-
-Entretanto, existe uma característica
-muito importante.
-
-</p>
-
-<p>
-
-O IDS não impede o ataque.
-
-Ele apenas observa e informa
-que algo anormal aconteceu.
-
-</p>
-
-<div class="tip">
-
-<strong>
-
-🔍 Pense no IDS desta forma
-
-</strong>
-
-<br><br>
-
-Imagine uma câmera de segurança.
-
-Ela observa.
-
-Ela grava.
-
-Ela alerta.
-
-Mas ela não impede um criminoso
-de entrar em uma residência.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-⚙️ Como o IDS funciona?
-
-</h2>
-
-<p>
-
-Vamos acompanhar o caminho
-de uma conexão suspeita.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-Fluxo Simplificado
-
-</div>
-
-<pre>
-
-🌐 INTERNET
-
-      |
-
-      V
-
-📦 PACOTE
-
-      |
-
-      V
-
 👁 IDS
 
       |
 
       V
 
-🔍 ANALISA
+🛡 IPS
 
       |
 
       V
 
-🚨 ALERTA
+🖥 SERVIDORES
 
       |
 
@@ -437,268 +423,34 @@ Fluxo Simplificado
 
 <p>
 
-Observe que em nenhum momento
-o tráfego é interrompido.
+Caso uma camada falhe,
+as demais continuam contribuindo
+para reduzir os riscos.
 
 </p>
-
-<p>
-
-O IDS apenas identifica padrões
-suspeitos e gera alertas para
-a equipe de segurança.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-📋 Principais Funções
-
-</h2>
-
-<div class="tech-info">
-
-<div class="tech-box">
-
-<strong>
-
-🔍 Monitoramento
-
-</strong>
-
-Observa continuamente
-o tráfego da rede.
-
-</div>
-
-<div class="tech-box">
-
-<strong>
-
-🚨 Detecção
-
-</strong>
-
-Identifica padrões
-suspeitos.
-
-</div>
-
-<div class="tech-box">
-
-<strong>
-
-📨 Alertas
-
-</strong>
-
-Notifica a equipe
-de segurança.
-
-</div>
-
-<div class="tech-box">
-
-<strong>
-
-📝 Logging
-
-</strong>
-
-Registra eventos
-para investigação.
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🌎 Um Caso Real
-
-</h2>
-
-<p>
-
-Imagine um servidor corporativo.
-
-</p>
-
-<p>
-
-Um atacante inicia uma
-varredura de portas.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-08:15
-
-</div>
-
-<pre>
-
-TCP SYN
-
-22
-
-80
-
-443
-
-445
-
-3389
-
-8080
-
-8443
-
-...
-
-</pre>
-
-</div>
-
-<p>
-
-O IDS percebe que existe um
-comportamento incomum.
-
-</p>
-
-<p>
-
-Diversas conexões estão sendo
-realizadas em um curto espaço
-de tempo.
-
-</p>
-
-<div class="terminal">
-
-<div class="terminal-header">
-
-Alerta Gerado
-
-</div>
-
-<pre>
-
-Origem:
-
-192.168.1.50
-
-Evento:
-
-Possível Varredura
-
-Severidade:
-
-Média
-
-Ação:
-
-Notificar SOC
-
-</pre>
-
-</div>
-
-<div class="alert">
-
-<strong>
-
-⚠️ Importante
-
-</strong>
-
-<br><br>
-
-O IDS não bloqueou
-o atacante.
-
-Ele apenas informou
-que uma atividade
-suspeita foi detectada.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🎯 O que aprendemos?
-
-</h2>
-
-<ul>
-
-<li>IDS significa Intrusion Detection System.</li>
-
-<li>É um mecanismo passivo.</li>
-
-<li>Monitora o tráfego.</li>
-
-<li>Detecta padrões suspeitos.</li>
-
-<li>Gera alertas.</li>
-
-<li>Registra eventos.</li>
-
-<li>Não bloqueia ataques.</li>
-
-</ul>
 
 <div class="tip">
 
 <strong>
 
-💡 Lição Aprendida
+💡 Lição Importante
 
 </strong>
 
 <br><br>
 
-O papel do IDS é aumentar
-a visibilidade da rede.
+A segurança moderna não depende
+de uma única tecnologia.
 
-Ele responde uma pergunta
-fundamental para a equipe
-de segurança:
-
-"Algo suspeito está acontecendo?"
+Ela depende da combinação de
+diversos controles trabalhando
+em conjunto.
 
 </div>
 
 </div>
 
-</section>      
+</section>
 
 <section class="section">
 
@@ -706,23 +458,161 @@ de segurança:
 
 <h2>
 
-🎯 Resumo do Episódio
+🤔 Uma pergunta importante
 
 </h2>
 
 <p>
 
-Ao longo deste primeiro capítulo conhecemos dois importantes mecanismos
-utilizados na proteção de redes corporativas.
+Vamos voltar ao cenário inicial.
 
 </p>
 
 <p>
 
-Aprendemos que Firewall, IDS e IPS não competem entre si.
+Um colaborador abriu
+um arquivo suspeito.
 
-Cada um desempenha uma função específica dentro de uma estratégia
-conhecida como Defesa em Profundidade.
+</p>
+
+<p>
+
+Seu computador iniciou
+uma comunicação desconhecida.
+
+</p>
+
+<p>
+
+A rede possui Firewall.
+
+Possui IDS.
+
+Possui IPS.
+
+</p>
+
+<p>
+
+Mas surge uma dúvida.
+
+</p>
+
+<blockquote>
+
+Quem é capaz de perceber
+que existe uma ameaça?
+
+</blockquote>
+
+<p>
+
+Para responder essa pergunta,
+precisamos conhecer melhor
+o Intrusion Detection System,
+mais conhecido como IDS.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 As Principais Camadas de Defesa
+
+</h2>
+
+<p>
+
+Ao longo dos anos, as organizações
+passaram a adotar diversos mecanismos
+para reduzir riscos e aumentar sua
+capacidade de proteção.
+
+</p>
+
+<p>
+
+Embora existam inúmeras tecnologias,
+algumas camadas são encontradas na
+maioria dos ambientes corporativos.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Exemplo de Defesa em Camadas
+
+</div>
+
+<pre>
+
+🌐 INTERNET
+
+      |
+
+      V
+
+🧱 FIREWALL
+
+Controle de acesso
+
+      |
+
+      V
+
+👁 IDS
+
+Detecção
+
+      |
+
+      V
+
+🛡 IPS
+
+Prevenção
+
+      |
+
+      V
+
+🖥 SERVIDORES
+
+Serviços corporativos
+
+      |
+
+      V
+
+📊 SIEM
+
+Correlação de eventos
+
+      |
+
+      V
+
+👨‍💻 SOC
+
+Resposta a incidentes
+
+</pre>
+
+</div>
+
+<p>
+
+Cada uma dessas camadas possui um
+objetivo específico.
 
 </p>
 
@@ -736,7 +626,8 @@ conhecida como Defesa em Profundidade.
 
 </strong>
 
-Controla o tráfego.
+Controla conexões
+entre redes.
 
 </div>
 
@@ -748,7 +639,8 @@ Controla o tráfego.
 
 </strong>
 
-Detecta ameaças.
+Identifica
+atividades suspeitas.
 
 </div>
 
@@ -760,7 +652,8 @@ Detecta ameaças.
 
 </strong>
 
-Pode bloquear ataques.
+Pode interromper
+ameaças.
 
 </div>
 
@@ -768,41 +661,44 @@ Pode bloquear ataques.
 
 <strong>
 
-🔒 Objetivo
+📊 SIEM
 
 </strong>
 
-Proteger a organização.
+Centraliza e
+correlaciona eventos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👨‍💻 SOC
+
+</strong>
+
+Investiga e
+responde a incidentes.
 
 </div>
 
 </div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-💡 O Conceito Mais Importante
-
-</h2>
 
 <p>
 
-Nenhuma solução isolada é capaz de proteger completamente uma empresa.
+Neste primeiro episódio não vamos
+aprofundar o funcionamento de cada
+tecnologia.
 
 </p>
 
 <p>
 
-A segurança moderna é construída em camadas.
-
-Cada mecanismo adiciona uma nova capacidade de proteção.
+Nosso objetivo é compreender que
+a proteção de uma organização é
+resultado da combinação dessas
+diversas camadas de defesa.
 
 </p>
 
@@ -810,17 +706,113 @@ Cada mecanismo adiciona uma nova capacidade de proteção.
 
 <strong>
 
-Lição Aprendida
+💡 Conceito Fundamental
 
 </strong>
 
 <br><br>
 
-Firewall, IDS e IPS trabalham juntos.
+Não existe uma solução única capaz
+de impedir todos os ataques.
 
-Quanto maior a quantidade de camadas de defesa,
-maior a capacidade de identificar e responder
-a ameaças.
+A segurança corporativa depende
+da integração de diferentes
+tecnologias e processos.
+
+</div>
+
+</div>
+
+</section>
+      
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Resumo do Episódio
+
+</h2>
+
+<p>
+
+Neste primeiro episódio da série,
+exploramos uma visão geral da
+defesa de redes corporativas.
+
+</p>
+
+<p>
+
+Partimos de um cenário simples,
+onde um colaborador executa um
+arquivo suspeito e uma sequência
+de eventos é iniciada dentro da
+infraestrutura da organização.
+
+</p>
+
+<p>
+
+Ao longo do artigo, conhecemos
+o conceito de Defesa em Profundidade
+e observamos como diferentes
+mecanismos podem trabalhar em
+conjunto para reduzir riscos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Cenário
+
+</strong>
+
+Existe uma ameaça.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 Defesa
+
+</strong>
+
+Existem camadas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚙ Estratégia
+
+</strong>
+
+Cada camada possui
+uma função.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🎯 Objetivo
+
+</strong>
+
+Reduzir riscos.
+
+</div>
 
 </div>
 
@@ -840,75 +832,42 @@ a ameaças.
 
 <ul>
 
-<li>O que são IDS e IPS.</li>
-
-<li>Por que esses mecanismos existem.</li>
-
-<li>Onde ficam posicionados na rede.</li>
-
-<li>Como trabalham junto ao Firewall.</li>
-
 <li>O conceito de Defesa em Profundidade.</li>
+
+<li>A importância das camadas de segurança.</li>
+
+<li>O papel do Firewall.</li>
+
+<li>A existência de IDS e IPS.</li>
+
+<li>O conceito de SIEM.</li>
+
+<li>O papel operacional do SOC.</li>
+
+<li>Que segurança é um processo contínuo.</li>
 
 </ul>
 
+<div class="tip">
+
+<strong>
+
+💡 Principal Mensagem
+
+</strong>
+
+<br><br>
+
+A proteção de uma organização
+não depende de uma única
+tecnologia.
+
+Ela depende da integração
+de pessoas, processos
+e diferentes mecanismos
+de segurança.
+
 </div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🔍 Uma pergunta permanece...
-
-</h2>
-
-<p>
-
-Vamos voltar ao cenário do início do artigo.
-
-</p>
-
-<p>
-
-Um usuário abriu um e-mail malicioso.
-
-</p>
-
-<p>
-
-Seu computador iniciou uma conexão suspeita.
-
-</p>
-
-<p>
-
-Agora sabemos que IDS e IPS existem.
-
-</p>
-
-<p>
-
-Mas ainda não respondemos uma pergunta importante.
-
-</p>
-
-<blockquote>
-
-Como um sistema consegue perceber
-que uma atividade é suspeita?
-
-</blockquote>
-
-<p>
-
-Essa resposta será apresentada
-no próximo episódio da série.
-
-</p>
 
 </div>
 
@@ -920,7 +879,7 @@ no próximo episódio da série.
 
 <h2>
 
-➡ Próximo Episódio
+📚 Série Técnica
 
 </h2>
 
@@ -934,55 +893,37 @@ Fundamentos da Defesa de Redes
 
 <pre>
 
-✅ Parte 1
+✅ 🌐 Visão Geral
 
-IDS e IPS
+      |
 
-Uma visão geral.
+      V
 
-|
+➡ 👁 IDS
 
-V
+      |
 
-➡ Parte 2
+      V
 
-IDS
+⬜ 🛡 IPS
 
-Quem detecta o ataque?
+      |
 
-|
+      V
 
-V
+⬜ ⚖ IDS x IPS
 
-⬜ Parte 3
+      |
 
-IPS
+      V
 
-Quem impede o ataque?
+⬜ 🛠 Ferramentas
 
-|
+      |
 
-V
+      V
 
-⬜ Parte 4
-
-IDS x IPS
-
-|
-
-V
-
-⬜ Parte 5
-
-Ferramentas
-
-|
-
-V
-
-⬜ Parte 6
-
-SOC
+⬜ 🏢 Arquitetura Corporativa
 
 </pre>
 
@@ -990,15 +931,74 @@ SOC
 
 <p>
 
-No próximo capítulo estudaremos
-o Intrusion Detection System (IDS),
-seus mecanismos de detecção,
-formas de funcionamento e exemplos
-práticos encontrados em ambientes
-corporativos.
+Cada episódio da série abordará
+um desses componentes de forma
+mais detalhada, sempre com
+exemplos práticos e cenários
+encontrados em ambientes reais.
 
 </p>
 
 </div>
 
 </section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🚀 Próximo Episódio
+
+</strong>
+
+<br><br>
+
+No próximo artigo conheceremos
+o Intrusion Detection System (IDS).
+
+Vamos entender como ele monitora
+o tráfego da rede, identifica
+comportamentos suspeitos e gera
+alertas para a equipe de segurança.
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Biblioteca Técnica
+
+</p>
+
+<p>
+
+📚 Série Técnica
+
+Fundamentos da Defesa de Redes
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
+      
+
+
+      
