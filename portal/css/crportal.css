@@ -1637,11 +1637,3 @@ color:#08111b;
 border:1px solid #d4af37;
 
 }
-
-.btn-portal:hover{
-
-transform:translateY(-2px);
-
-box-shadow:0 4px 15px rgba(212,175,55,.35);
-
-}
