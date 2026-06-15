@@ -1465,3 +1465,167 @@ font-size:1.8rem;
 
 }
 
+```css
+/* =====================================
+
+CARD EXPANSIVEL CR PORTAL
+
+===================================== */
+
+.content-card{
+
+margin:25px 0;
+
+background:#13263d;
+
+border:1px solid #28496d;
+
+border-left:5px solid #d4af37;
+
+border-radius:10px;
+
+overflow:hidden;
+
+transition:.3s;
+
+}
+
+.content-card:hover{
+
+box-shadow:0 6px 18px rgba(0,0,0,.20);
+
+}
+
+.content-card summary{
+
+list-style:none;
+
+cursor:pointer;
+
+padding:18px;
+
+font-weight:700;
+
+font-size:1.1rem;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+color:#ffffff;
+
+}
+
+.content-card summary::-webkit-details-marker{
+
+display:none;
+
+}
+
+.content-card summary::after{
+
+content:"+";
+
+font-size:1.4rem;
+
+color:#d4af37;
+
+transition:.3s;
+
+}
+
+.content-card[open] summary::after{
+
+content:"−";
+
+}
+
+.content-body{
+
+padding:0 18px 18px 18px;
+
+border-top:1px solid #28496d;
+
+}
+
+.content-body p{
+
+text-align:justify;
+
+line-height:1.7;
+
+}
+
+.content-status{
+
+margin:15px 0;
+
+font-weight:700;
+
+color:#d4af37;
+
+}
+
+.content-list{
+
+margin:15px 0;
+
+padding-left:20px;
+
+}
+
+.content-list li{
+
+margin:8px 0;
+
+}
+
+.content-button{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:10px 18px;
+
+background:#d4af37;
+
+color:#13263d;
+
+font-weight:700;
+
+text-decoration:none;
+
+border-radius:6px;
+
+transition:.3s;
+
+}
+
+.content-button:hover{
+
+opacity:.85;
+
+}
+
+@media(max-width:768px){
+
+.content-card summary{
+
+font-size:1rem;
+
+padding:15px;
+
+}
+
+.content-body{
+
+padding:15px;
+
+}
+
+}
+
+
