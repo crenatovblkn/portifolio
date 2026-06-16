@@ -76,14 +76,30 @@ body{
     max-width:850px;
 }
 .actions{
-    margin-top:25px;
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+	margin-top:25px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-wrap:wrap;
+	gap:15px;
 }
+.main-action{
+	width:100%;
+	display:flex;
+	justify-content:center;
+	margin-bottom:15px;
+}
+.sub-actions{
+	width:100%;
+	display:flex;
+	justify-content:center;
+	gap:15px;
+	flex-wrap:wrap;
+}	
 .btn{
     display:inline-block;
     min-width:180px;
+	width:220px;
     text-align:center;
     padding:12px 22px;
     border-radius:12px;
@@ -116,23 +132,6 @@ body{
     background:#dcb84a;
     transform:translateY(-2px);
     box-shadow:0 4px 15px rgba(212,175,55,.35);
-}
-.secondary-actions{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    margin-top:15px;
-    flex-wrap:wrap;
-}
-.secondary-actions .btn{
-	width:150px;
-	text-align:center;
-}
-.actions .btn-primary{
-	width:60%;
-	margin:0 auto;
-	display:block;
 }
 .tags{
     margin-top:25px;
@@ -184,15 +183,6 @@ body{
 }
 /* MOBILE */
 @media(max-width:768px){
-.secondary-actions{
-	justify-content:center;
-	gap:12px;
-}
-.secondary-actions .btn{
-    width:160px;
-    flex:none;
-    text-align:center;
-}	
 .hero{
     text-align:center;
     justify-content:center;
@@ -204,6 +194,9 @@ body{
     flex-wrap:wrap;
     align-items:center;
 }
+.sub-actions{
+	justify-content:center;
+}	
 .tags{
     justify-content:center;
 }
@@ -223,23 +216,24 @@ body{
 		Projetando, implantando e fortalecendo soluções de Cybersecurity para ambientes corporativos, governamentais, financeiros e industriais de alta criticidade.
 		</p><br>
         <div class="actions">
-			<a href="SEU_LINK_CV"
-				class="btn btn-primary">
-				📄 Download CV
-			</a>
-		<div class="secondary-actions">
-			<a href="portal/index.html"
-				class="btn btn-portal">
-				📚 CR Portal
-			</a>
-			<a href="https://www.linkedin.com/in/crenatovb/"
-				class="btn btn-secondary">
-				💼 LinkedIn
-        </a>
-
-    </div>
-
-</div>
+			<div class="main-action">
+				<a href="SEU_LINK_CV"
+					class="btn btn-primary">
+					📄 Download CV
+				</a>
+			</div>
+			<div class="sub-actions">
+				<a href="portal/index.html"
+					class="btn btn-portal">
+					📚 CR Portal
+				</a>
+				<a href="https://www.linkedin.com/in/crenatovb/"
+					class="btn btn-secondary">
+					💼 LinkedIn
+				</a>
+			</div>
+		</div>
+	</div>
         <div class="tags">
             <span class="tag">Firewall</span>
             <span class="tag">Pentest</span>
