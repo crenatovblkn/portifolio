@@ -16,8 +16,6 @@ Laboratório 01
 Monitorando Acesso SSH
 e Persistência Básica
 
-CR Portal
-
 </title>
 
 <link rel="stylesheet"
@@ -42,28 +40,26 @@ alt="Carlos Renato">
 
 <span class="categoria">
 
-🧪 LABORATÓRIO
+🧪 LABORATÓRIO PRÁTICO
 
 </span>
 
 <h1>
 
-🛡 Monitorando
-Acesso SSH
-e Persistência Básica
+🛡 Laboratório 01
 
 </h1>
 
 <h2>
 
-Snort • Auditd • Syslog
+Monitorando Acesso SSH
+e Persistência Básica
 
 </h2>
 
 <p>
 
-Primeiro laboratório
-do CR Portal.
+Snort • Auditd • Syslog
 
 </p>
 
@@ -110,11 +106,11 @@ Cybersecurity
 
 <strong>
 
-Laboratório
+Tipo
 
 </strong>
 
-Monitoramento Linux
+Laboratório Prático
 
 </div>
 
@@ -150,20 +146,6 @@ Syslog
 
 <strong>
 
-Objetivo
-
-</strong>
-
-Monitoramento
-
-Detecção
-
-</div>
-
-<div class="tech-box">
-
-<strong>
-
 Tempo
 
 </strong>
@@ -172,6 +154,19 @@ Tempo
 
 </div>
 
+<div class="tech-box">
+
+<strong>
+
+Objetivo
+
+</strong>
+
+Monitorar
+e Investigar
+
+</div>
+
 </div>
 
 </section>
@@ -182,96 +177,40 @@ Tempo
 
 <h2>
 
-🎯 O Cenário
+🎯 Objetivo
 
 </h2>
-
-<p>
-
-Imagine um servidor Linux
-disponibilizado
-para acesso remoto.
-
-</p>
-
-<p>
-
-Administradores
-e usuários autorizados
-utilizam o protocolo SSH
-para realizar
-suas atividades.
-
-</p>
-
-<p>
-
-Entretanto,
-um dos desafios
-das equipes
-de segurança
-é identificar
-quando essas conexões
-podem representar
-um comportamento
-suspeito.
-
-</p>
-
-<p>
-
-Além disso,
-alterações críticas
-no sistema operacional,
-como a criação
-de novos usuários,
-também precisam
-ser monitoradas.
-
-</p>
 
 <p>
 
 Neste laboratório,
 iremos construir
 um pequeno ambiente
-capaz de produzir
-evidências úteis
-para investigação.
+de monitoramento Linux.
 
 </p>
 
-</div>
+<p>
 
-</section>
+Ao longo das atividades,
+serão produzidos
+eventos controlados
+que permitirão observar
+como diferentes ferramentas
+registram informações
+sobre o sistema
+e sobre a rede.
 
-<section class="section">
+</p>
 
-<div class="tip">
+<p>
 
-<strong>
-
-💡 Objetivo do Laboratório
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-Este laboratório
-não tem como objetivo
-simular um ataque real.
-
-Nosso foco será
-compreender
-como diferentes
-mecanismos
-de monitoramento
-podem registrar
-eventos importantes
-do sistema operacional
-e da rede.
+Ao final,
+essas evidências
+serão utilizadas
+para compreender
+as ações realizadas
+durante a simulação.
 
 </p>
 
@@ -285,83 +224,75 @@ e da rede.
 
 <h2>
 
-🎯 O que iremos observar?
-
-</h2>
-
-<ul>
-
-<li>
-
-✅ Conexões SSH.
-
-</li>
-
-<li style="text-align: left;">
-
-✅ Alterações no arquivo /etc/passwd.
-
-</li>
-
-<li>
-
-✅ Criação de usuários.
-
-</li>
-
-<li>
-
-✅ Eventos produzidos pelo Auditd.
-
-</li>
-
-<li>
-
-✅ Alertas produzidos pelo Snort.
-
-</li>
-
-<li>
-
-✅ Registros do Syslog.
-
-</li>
-
-<li style="text-align: left;">
-
-✅ Primeiras evidências para investigação.
-
-</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🖥 Topologia
+🖥 Cenário
 
 </h2>
 
 <p>
 
-Nosso ambiente
-será composto
-por duas máquinas.
+Imagine um servidor Linux
+utilizado
+para administração remota.
 
 </p>
+
+<p>
+
+Os acessos
+são realizados
+através do SSH
+e diversas atividades
+administrativas
+são executadas
+diariamente.
+
+</p>
+
+<p>
+
+Entre essas atividades,
+podemos destacar
+a criação de usuários
+e alterações
+em arquivos críticos
+do sistema operacional.
+
+</p>
+
+<p>
+
+Mas uma pergunta
+surge naturalmente.
+
+</p>
+
+<blockquote>
+
+Como identificar
+e registrar
+essas atividades?
+
+</blockquote>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🗺 Topologia
+
+</h2>
 
 <div class="tech-flow">
 
 <div class="flow-title">
 
-Laboratório
+Ambiente do Laboratório
 
 </div>
 
@@ -419,19 +350,147 @@ Syslog
 
 <h3>
 
-🔍 Logs
+🔍 Investigação
 
 </h3>
 
 <p>
 
-Investigação
+Logs
+
+Eventos
+
+Evidências
 
 </p>
 
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Fluxo do Laboratório
+
+</h2>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Etapas
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🛠 Preparação
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+⚙ Configuração
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+👨‍💻 Simulação
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔍 Investigação
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+📊 Correlação
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🕵 Conclusão
+
+</h3>
+
+</div>
+
+</div>
+
+<p>
+
+Cada etapa
+construirá evidências
+que serão utilizadas
+nas fases seguintes
+do laboratório.
+
+</p>
 
 </div>
 
@@ -443,62 +502,84 @@ Investigação
 
 <strong>
 
-👨‍💻 O Analista Observa
+📋 Roteiro do Laboratório
 
 </strong>
 
-<br>
+<br><br>
 
-<p style="text-align: justify;">
+✅ Conexão SSH.
 
-Ao longo deste laboratório,
-não iremos apenas executar
-comandos.
+<br><br>
 
-Cada configuração
-será validada
-e posteriormente
-utilizada para produzir
-evidências que poderão
-ser analisadas.
+✅ Criação de usuários.
 
-Essa abordagem
-aproxima o laboratório
-de situações encontradas
-em ambientes corporativos.
+<br><br>
 
-</p>
+✅ Alterações no /etc/passwd.
+
+<br><br>
+
+✅ Eventos do Auditd.
+
+<br><br>
+
+✅ Alertas do Snort.
+
+<br><br>
+
+✅ Registros do Syslog.
+
+<br><br>
+
+✅ Investigação das evidências.
+
+<br><br>
+
+✅ Correlação entre eventos de rede e host.
 
 </div>
 
 </section>
+
 <section class="section">
 
 <div class="card">
 
 <h2>
 
-🛠 Preparando o Servidor
+🛠 Preparando o Ambiente
 
 </h2>
 
 <p>
 
-Nosso primeiro passo
-será preparar
-o servidor Ubuntu
-para receber conexões SSH.
+Antes de iniciar
+o monitoramento,
+precisamos preparar
+o servidor Ubuntu.
 
 </p>
 
 <p>
 
-Além disso,
-iremos verificar
-se os principais serviços
-necessários ao laboratório
-estão funcionando
-corretamente.
+Nosso ambiente
+será utilizado
+para acesso remoto
+e para geração
+dos eventos
+que serão analisados
+durante o laboratório.
+
+</p>
+
+<p>
+
+O primeiro passo
+é verificar
+se os componentes
+necessários
+estão disponíveis.
 
 </p>
 
@@ -528,9 +609,8 @@ ao servidor.
 <p>
 
 Vamos verificar
-se o serviço
-está instalado
-e em execução.
+o status
+do serviço.
 
 </p>
 
@@ -544,11 +624,9 @@ systemctl status ssh
 
 ● ssh.service
 
-Active: active (running)
-
 Loaded: loaded
 
-Main PID: 852
+Active: active (running)
 
 </pre>
 
@@ -564,10 +642,136 @@ active (running)
 
 </strong>
 
-indica que o serviço
-está disponível.
+indica que
+o serviço
+está operacional.
 
 </p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📄 Verificando o Syslog
+
+</h2>
+
+<p>
+
+Grande parte
+dos eventos
+produzidos
+pelos serviços Linux
+é registrada
+através do Syslog.
+
+</p>
+
+<p>
+
+Vamos verificar
+se o serviço
+está ativo.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~#
+
+systemctl status rsyslog
+
+● rsyslog.service
+
+Loaded: loaded
+
+Active: active (running)
+
+</pre>
+
+</div>
+
+<p>
+
+Esse serviço
+será importante
+durante
+a investigação.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📋 Primeira Validação
+
+</h2>
+
+<p>
+
+Até este momento,
+nosso ambiente
+já possui
+os serviços básicos
+necessários
+para o laboratório.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✅ SSH
+
+</strong>
+
+Ativo
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Syslog
+
+</strong>
+
+Ativo
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛠 Ubuntu
+
+</strong>
+
+Preparado
+
+</div>
+
+</div>
 
 </div>
 
@@ -579,26 +783,22 @@ está disponível.
 
 <strong>
 
-💡 O Analista Observa
+💡 Próxima Etapa
 
 </strong>
 
-<br>
+<br><br>
 
-<p style="text-align: justify;">
-
-Antes de qualquer atividade
-de monitoramento,
-é importante validar
-os serviços que serão
-utilizados no laboratório.
-
-Problemas nesta etapa
-podem gerar resultados
-inconsistentes
-durante a investigação.
-
-</p>
+Com o ambiente
+preparado,
+iremos instalar
+e configurar
+os mecanismos
+de monitoramento
+que acompanharão
+as atividades
+do sistema
+e da rede.
 
 </div>
 
@@ -616,11 +816,24 @@ durante a investigação.
 
 <p>
 
-O Snort será responsável
-por monitorar eventos
-de rede e produzir
-alertas relacionados
-às conexões observadas.
+Com o ambiente
+preparado,
+vamos instalar
+nosso primeiro
+mecanismo
+de monitoramento.
+
+</p>
+
+<p>
+
+O Snort
+será responsável
+por observar
+o tráfego
+da rede
+e produzir alertas
+durante o laboratório.
 
 </p>
 
@@ -666,7 +879,7 @@ Done.
 
 Após a instalação,
 vamos verificar
-se o serviço
+se o Snort
 está disponível.
 
 </p>
@@ -684,9 +897,8 @@ snort -V
 o" )~
 
 ''''
-Snort Version
 
-2.9.x
+Snort Version 2.9.x
 
 </pre>
 
@@ -694,9 +906,11 @@ Snort Version
 
 <p>
 
-A exibição da versão
-confirma que
-o Snort foi instalado.
+A exibição
+da versão
+confirma
+que a instalação
+foi realizada.
 
 </p>
 
@@ -717,8 +931,9 @@ o Snort foi instalado.
 <p>
 
 Enquanto o Snort
-monitora a rede,
-o Auditd acompanhará
+observa a rede,
+o Auditd
+acompanhará
 atividades importantes
 do sistema operacional.
 
@@ -756,6 +971,15 @@ Done.
 
 </h2>
 
+<p>
+
+Após a instalação,
+vamos verificar
+o estado
+do serviço.
+
+</p>
+
 <div class="terminal">
 
 <pre>
@@ -766,6 +990,8 @@ systemctl status auditd
 
 ● auditd.service
 
+Loaded: loaded
+
 Active: active (running)
 
 </pre>
@@ -774,10 +1000,11 @@ Active: active (running)
 
 <p>
 
-Com o serviço ativo,
-podemos iniciar
-a configuração
-das regras de auditoria.
+O serviço
+está ativo
+e pronto
+para receber
+configurações.
 
 </p>
 
@@ -791,52 +1018,72 @@ das regras de auditoria.
 
 <h2>
 
-📄 Verificando o Syslog
+📋 Segunda Validação
 
 </h2>
 
 <p>
 
-Diversos serviços
-do sistema operacional
-registram eventos
-através do Syslog.
+Nosso laboratório
+já possui
+os principais
+componentes
+necessários
+para o monitoramento.
 
 </p>
 
-<p>
+<div class="tech-info">
 
-Vamos verificar
-se o serviço
-está disponível.
+<div class="tech-box">
 
-</p>
+<strong>
 
-<div class="terminal">
+✅ SSH
 
-<pre>
+</strong>
 
-root@ubuntu:~#
-
-systemctl status rsyslog
-
-● rsyslog.service
-
-Active: active (running)
-
-</pre>
+Ativo
 
 </div>
 
-<p>
+<div class="tech-box">
 
-Esse componente
-será importante
-durante a consulta
-aos eventos
-do laboratório.
+<strong>
 
-</p>
+✅ Syslog
+
+</strong>
+
+Ativo
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Snort
+
+</strong>
+
+Instalado
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Auditd
+
+</strong>
+
+Instalado
+
+</div>
+
+</div>
 
 </div>
 
@@ -848,53 +1095,26 @@ do laboratório.
 
 <strong>
 
-🎯 Ambiente Preparado
+💡 Próxima Etapa
 
 </strong>
 
-<br>
-
-<p style="text-align: justify;">
-
-Neste momento,
-nosso ambiente
-já possui:
-
 <br><br>
 
-✅ OpenSSH ativo.
-
-<br>
-
-✅ Snort instalado.
-
-<br>
-
-✅ Auditd instalado.
-
-<br>
-
-✅ Syslog disponível.
-
-<br>
-
-✅ Serviços validados.
-
-<br><br>
-
-Agora estamos prontos
-para configurar
-os mecanismos
+Com os sensores
+instalados
+e validados,
+iremos configurar
+as regras
 de monitoramento
-que produzirão
-as evidências
-do laboratório.
-
-</p>
+que serão utilizadas
+durante
+o laboratório.
 
 </div>
 
-</section>
+</section>  
+
 <section class="section">
 
 <div class="card">
@@ -907,18 +1127,22 @@ do laboratório.
 
 <p>
 
-Com os serviços instalados,
-vamos configurar
-o monitoramento
-de alterações críticas
-no sistema operacional.
+Com os sensores
+instalados,
+vamos definir
+quais atividades
+serão monitoradas.
 
 </p>
 
 <p>
 
-Nosso foco será
-o arquivo
+Neste laboratório,
+o objetivo será
+acompanhar alterações
+em um dos arquivos
+mais importantes
+do Linux.
 
 </p>
 
@@ -930,9 +1154,11 @@ o arquivo
 
 <p>
 
-responsável pelas
-informações das contas
-de usuários locais.
+Esse arquivo
+contém informações
+sobre as contas
+de usuários
+do sistema operacional.
 
 </p>
 
@@ -952,7 +1178,8 @@ de usuários locais.
 
 <p>
 
-Adicione a seguinte regra
+Vamos adicionar
+uma regra simples
 ao Auditd.
 
 </p>
@@ -971,55 +1198,6 @@ nano /etc/audit/rules.d/audit.rules
 
 </div>
 
-<p>
-
-Essa configuração
-permitirá registrar
-alterações no arquivo.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-🔍 Entendendo a regra
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
--w
-
-Monitora o arquivo.
-
-<br><br>
-
--p wa
-
-Registra operações
-de escrita
-e alteração
-de atributos.
-
-<br><br>
-
--k passwd_changes
-
-Cria uma chave
-para facilitar
-consultas futuras.
-
-</p>
-
 </div>
 
 </section>
@@ -1030,9 +1208,18 @@ consultas futuras.
 
 <h2>
 
-🔄 Carregando as regras
+🔄 Aplicando a Configuração
 
 </h2>
+
+<p>
+
+Após criar
+a regra,
+precisamos
+carregá-la.
+
+</p>
 
 <div class="terminal">
 
@@ -1050,14 +1237,6 @@ systemctl restart auditd
 
 </div>
 
-<p>
-
-Após carregar as regras,
-o monitoramento
-estará ativo.
-
-</p>
-
 </div>
 
 </section>
@@ -1071,6 +1250,14 @@ estará ativo.
 ✅ Validando o Auditd
 
 </h2>
+
+<p>
+
+Vamos verificar
+se a regra
+foi carregada.
+
+</p>
 
 <div class="terminal">
 
@@ -1088,10 +1275,11 @@ auditctl -l
 
 <p>
 
-A presença da regra
-confirma que
-o monitoramento
-foi habilitado.
+A presença
+da regra
+confirma
+que o monitoramento
+está ativo.
 
 </p>
 
@@ -1105,15 +1293,16 @@ foi habilitado.
 
 <h2>
 
-👁 Criando a Regra do Snort
+👁 Configurando o Snort
 
 </h2>
 
 <p>
 
-Também iremos criar
+Também iremos
+adicionar
 uma regra simples
-para detectar
+para identificar
 conexões SSH.
 
 </p>
@@ -1144,76 +1333,19 @@ rev:1;)
 
 <section class="section">
 
-<div class="tip">
-
-<strong>
-
-💡 Entendendo a Regra
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-alert
-
-Gera um alerta.
-
-<br><br>
-
-tcp
-
-Monitora tráfego TCP.
-
-<br><br>
-
-22
-
-Porta padrão do SSH.
-
-<br><br>
-
-msg
-
-Mensagem exibida
-no alerta.
-
-<br><br>
-
-sid
-
-Identificador único
-da regra.
-
-<br><br>
-
-rev
-
-Versão da regra.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
 <div class="card">
 
 <h2>
 
-🔄 Validando a Configuração
+✅ Validando o Snort
 
 </h2>
 
 <p>
 
-Antes de iniciar
-a simulação,
-é importante verificar
-a sintaxe do Snort.
+Antes de continuar,
+vamos verificar
+a configuração.
 
 </p>
 
@@ -1236,7 +1368,8 @@ Snort exiting
 
 <p>
 
-A validação garante
+A validação
+indica
 que a configuração
 não possui erros.
 
@@ -1248,124 +1381,126 @@ não possui erros.
 
 <section class="section">
 
-<div class="tip">
-
-<strong>
-
-👨‍💻 O Analista Observa
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-Um erro bastante comum
-durante implantações
-é assumir que uma
-configuração foi aplicada
-sem realizar testes.
-
-A validação das regras
-antes da geração
-dos eventos
-reduz significativamente
-problemas futuros
-durante investigações.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
 <div class="card">
 
 <h2>
 
-🎯 Ambiente Configurado
+📋 Terceira Validação
 
 </h2>
 
 <p>
 
 Neste momento,
-nosso laboratório
-já possui:
+nosso ambiente
+já possui
+sensores configurados
+e prontos
+para utilização.
 
 </p>
 
-<ul>
+<div class="tech-info">
 
-<li>✅ OpenSSH ativo.</li>
+<div class="tech-box">
 
-<li>✅ Snort instalado.</li>
+<strong>
 
-<li>✅ Regra SSH criada.</li>
+✅ Auditd
 
-<li>✅ Auditd configurado.</li>
+</strong>
 
-<li>✅ Monitoramento do /etc/passwd.</li>
+Configurado
 
-<li>✅ Syslog ativo.</li>
+</div>
 
-<li>✅ Configurações validadas.</li>
+<div class="tech-box">
 
-</ul>
+<strong>
 
-<p>
+✅ Snort
 
-Agora estamos prontos
-para gerar eventos
-e verificar
-como nossos sensores
-se comportam.
+</strong>
 
-</p>
+Configurado
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Regras
+
+</strong>
+
+Validadas
+
+</div>
+
+</div>
 
 </div>
 
 </section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Próxima Etapa
+
+</strong>
+
+<br><br>
+
+Com o ambiente
+preparado
+e os sensores
+configurados,
+iremos iniciar
+o monitoramento
+e gerar
+os primeiros eventos
+do laboratório.
+
+</div>
+
+</section>
+
 <section class="section">
 
 <div class="card">
 
 <h2>
 
-🚀 Preparando o Monitoramento
+🚀 Iniciando o Monitoramento
 
 </h2>
 
 <p>
 
-Os componentes
-do laboratório
-já foram instalados
-e configurados.
+Com os sensores
+instalados
+e configurados,
+vamos iniciar
+o processo
+de monitoramento.
 
 </p>
 
 <p>
 
-Antes de gerar
-qualquer evento,
-vamos verificar
-se nossos sensores
-estão prontos
-para realizar
-o monitoramento.
-
-</p>
-
-<p>
-
-Essa etapa
-é importante
-para garantir
-que as evidências
-serão registradas.
+O objetivo
+desta etapa
+é garantir
+que nossos mecanismos
+estejam preparados
+para registrar
+os eventos
+do laboratório.
 
 </p>
 
@@ -1385,11 +1520,12 @@ serão registradas.
 
 <p>
 
-Vamos iniciar
-o Snort utilizando
+Vamos executar
+o Snort
+utilizando
 o arquivo
 de configuração
-do laboratório.
+do ambiente.
 
 </p>
 
@@ -1414,38 +1550,10 @@ Commencing packet processing
 <p>
 
 Neste momento,
-o Snort já está
-observando
-o tráfego da rede.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-💡 O Analista Observa
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-Durante atividades
-de monitoramento,
-é comum manter
-uma janela dedicada
-para acompanhar
-os alertas
-produzidos
-pelos sensores.
+o Snort
+já está observando
+o tráfego
+da rede.
 
 </p>
 
@@ -1467,7 +1575,7 @@ pelos sensores.
 
 Também vamos confirmar
 que o Auditd
-continua ativo.
+permanece ativo.
 
 </p>
 
@@ -1479,6 +1587,10 @@ root@ubuntu:~#
 
 systemctl status auditd
 
+● auditd.service
+
+Loaded: loaded
+
 Active: active (running)
 
 </pre>
@@ -1487,10 +1599,11 @@ Active: active (running)
 
 <p>
 
-Assim garantimos
-que alterações
-no sistema operacional
-serão registradas.
+O serviço
+está preparado
+para registrar
+alterações
+no sistema.
 
 </p>
 
@@ -1513,9 +1626,11 @@ serão registradas.
 Uma forma simples
 de observar
 os eventos
+produzidos
+pelo Auditd
 é acompanhar
-os logs
-em tempo real.
+o arquivo
+de auditoria.
 
 </p>
 
@@ -1533,7 +1648,7 @@ tail -f /var/log/audit/audit.log
 
 <p>
 
-No momento,
+Neste momento,
 nenhum evento
 relacionado
 ao laboratório
@@ -1541,11 +1656,88 @@ foi produzido.
 
 </p>
 
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Ambiente Operacional
+
+</h2>
+
 <p>
 
-Isso mudará
-quando iniciarmos
-a simulação.
+Até este momento,
+nosso laboratório
+já possui:
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+SSH
+
+</strong>
+
+Ativo
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Snort
+
+</strong>
+
+Monitorando
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Auditd
+
+</strong>
+
+Monitorando
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Syslog
+
+</strong>
+
+Ativo
+
+</div>
+
+</div>
+
+<p>
+
+Os sensores
+estão preparados
+para acompanhar
+as atividades
+que serão realizadas
+nas próximas etapas.
 
 </p>
 
@@ -1559,131 +1751,34 @@ a simulação.
 
 <strong>
 
-🔍 O que esperamos observar?
+💡 Próxima Etapa
 
 </strong>
 
-<br>
-
-<p style="text-align: justify;">
-
-Durante a próxima etapa,
-esperamos identificar:
-
 <br><br>
 
-✅ Uma conexão SSH.
-
-<br>
-
-✅ Alterações
-no arquivo
-/etc/passwd.
-
-<br>
-
-✅ Criação
-de um usuário.
-
-<br>
-
-✅ Eventos
-registrados
-pelo Auditd.
-
-<br>
-
-✅ Alertas
-produzidos
-pelo Snort.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🎯 Ambiente Pronto
-
-</h2>
-
-<p>
-
-Nosso laboratório
-já possui:
-
-</p>
-
-<ul>
-
-<li>
-
-✅ Serviços ativos.
-
-</li>
-
-<li>
-
-✅ Sensores configurados.
-
-</li>
-
-<li>
-
-✅ Regras carregadas.
-
-</li>
-
-<li>
-
-✅ Monitoramento ativo.
-
-</li>
-
-<li>
-
-✅ Consoles preparados.
-
-</li>
-
-</ul>
-
-<p>
-
-Estamos prontos
-para gerar
+Com o ambiente
+em operação,
+iremos gerar
 os primeiros eventos
-do laboratório.
-
-</p>
-
-<p>
-
-Na próxima etapa,
-iremos estabelecer
-uma conexão SSH
+do laboratório
+através
+de uma conexão SSH
 e observar
 como nossos sensores
 reagem.
 
-</p>
-
 </div>
 
 </section>
+
 <section class="section">
 
 <div class="card">
 
 <h2>
 
-🎬 Iniciando a Simulação
+👨‍💻 Gerando os Primeiros Eventos
 
 </h2>
 
@@ -1703,58 +1798,22 @@ estão ativos.
 
 <p>
 
-As regras
-foram carregadas.
-
-</p>
-
-<p>
-
 Agora iremos
-gerar os primeiros
-eventos do laboratório.
+produzir
+os primeiros eventos
+do laboratório.
 
 </p>
 
 <p>
 
-Nosso objetivo
-será estabelecer
-uma conexão SSH
-com o servidor Ubuntu.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-🎯 O que esperamos?
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-Uma conexão SSH
-é uma atividade
-normal em ambientes
-Linux.
-
-Entretanto,
-essa conexão
-deverá produzir
-evidências
-que poderão ser
-observadas
-pelos mecanismos
+O objetivo
+é verificar
+como atividades
+administrativas
+podem gerar
+registros
+nos mecanismos
 de monitoramento.
 
 </p>
@@ -1770,7 +1829,7 @@ de monitoramento.
 <h2>
 
 🔑 Estabelecendo
-a conexão SSH
+uma Conexão SSH
 
 </h2>
 
@@ -1817,318 +1876,21 @@ com sucesso.
 
 <section class="section">
 
-<div class="tip">
-
-<strong>
-
-👨‍💻 O Analista Observa
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-Uma conexão SSH
-não representa,
-necessariamente,
-um incidente.
-
-Ela pode fazer parte
-das atividades
-normais
-de administração.
-
-O contexto
-é fundamental
-durante uma investigação.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
 <div class="card">
 
 <h2>
 
-👁 O que aconteceu?
+👤 Criando
+um Novo Usuário
 
 </h2>
 
 <p>
 
-Uma ação simples
-acabou de ocorrer.
-
-</p>
-
-<p>
-
-Um usuário
-estabeleceu
-uma conexão
-com o servidor.
-
-</p>
-
-<p>
-
-Nesse momento,
-uma pergunta
-surge naturalmente.
-
-</p>
-
-<blockquote>
-
-Será que nossos
-sensores perceberam
-essa atividade?
-
-</blockquote>
-
-<p>
-
-Antes de continuar
-a simulação,
-vamos verificar
-se o Snort
-conseguiu observar
-essa conexão.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-🔍 Pergunta do Investigador
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-Existe alguma evidência
-de que uma conexão SSH
-foi estabelecida?
-
-Se existir,
-onde essa informação
-foi registrada?
-
-Como podemos
-consultá-la?
-
-Essas perguntas
-serão respondidas
-na próxima etapa
-do laboratório.
-
-</p>
-
-</div>
-
-</section>
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-👁 Verificando o IDS
-
-</h2>
-
-<p>
-
-Uma conexão SSH
-acabou de ser realizada.
-
-</p>
-
-<p>
-
-Como configuramos
-uma regra simples
-para monitorar
-esse tipo de atividade,
-vamos verificar
-se o Snort
-produziu algum alerta.
-
-</p>
-
-<div class="terminal">
-
-<pre>
-
-[**]
-
-[1:1000001:1]
-
-LAB SSH CONNECTION
-
-[**]
-
-TCP
-
-192.168.1.20:52144
-
-->
-
-192.168.1.10:22
-
-</pre>
-
-</div>
-
-<p>
-
-Nosso IDS
-identificou
-a conexão.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-🔍 Interpretando o alerta
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-192.168.1.20
-
-Origem da conexão.
-
-<br><br>
-
-192.168.1.10
-
-Servidor monitorado.
-
-<br><br>
-
-22
-
-Serviço SSH.
-
-<br><br>
-
-LAB SSH CONNECTION
-
-Mensagem definida
-na regra criada
-durante o laboratório.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-👨‍💻 O Analista Observa
-
-</h2>
-
-<p>
-
-Até este momento,
-não existe
-nenhuma evidência
-de comportamento
-malicioso.
-
-</p>
-
-<p>
-
-O IDS apenas informa
-que uma conexão
-foi estabelecida.
-
-</p>
-
-<p>
-
-Essa informação,
-isoladamente,
-não permite concluir
-que ocorreu
-um incidente.
-
-</p>
-
-<p>
-
-Entretanto,
-ela poderá ser útil
-caso novos eventos
-sejam registrados.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-⚙ Próxima ação
-
-Criando um usuário
-
-</h2>
-
-<p>
-
-Agora iremos gerar
-uma alteração
-no sistema operacional.
-
-</p>
-
-<p>
-
-Nosso objetivo
-é criar um novo usuário
-e verificar
-como os mecanismos
-de monitoramento
-reagem.
+Após acessar
+o servidor,
+vamos criar
+um novo usuário.
 
 </p>
 
@@ -2148,44 +1910,8 @@ sudo useradd laboratorio
 
 Essa operação
 provocará alterações
-em arquivos críticos
-do sistema Linux.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-💡 O que esperamos?
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-A criação
-de um usuário
-deverá gerar
-novas evidências.
-
-Como configuramos
-o Auditd
-para monitorar
-o arquivo
-
-/etc/passwd
-
-esperamos
-que essas alterações
-sejam registradas.
+em arquivos
+do sistema operacional.
 
 </p>
 
@@ -2199,91 +1925,17 @@ sejam registradas.
 
 <h2>
 
-🎯 Situação Atual
+🔒 Definindo
+uma Senha
 
 </h2>
 
 <p>
 
-Até este momento,
-nosso laboratório
-já demonstrou:
-
-</p>
-
-<ul>
-
-<li>
-
-✅ Conexão SSH.
-
-</li>
-
-<li>
-
-✅ Alerta do Snort.
-
-</li>
-
-<li>
-
-✅ Criação de usuário.
-
-</li>
-
-<li>
-
-⏳ Aguardando
-evidências
-do Auditd.
-
-</li>
-
-</ul>
-
-<p>
-
-Na próxima etapa,
-iremos verificar
-como o sistema
-registrou
-essas alterações.
-
-</p>
-
-</div>
-
-</section>
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🔒 Definindo a senha do usuário
-
-</h2>
-
-<p>
-
-O usuário foi criado
-com sucesso.
-
-</p>
-
-<p>
-
-Agora iremos definir
-uma senha para essa conta.
-
-</p>
-
-<p>
-
-Essa operação
-também produzirá
-eventos importantes
-para o laboratório.
+Vamos configurar
+uma senha
+para o usuário
+criado.
 
 </p>
 
@@ -2307,38 +1959,11 @@ password updated successfully
 
 </div>
 
-</div>
+<p>
 
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-💡 O Analista Observa
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-A criação de contas
-e alterações
-de credenciais
-fazem parte
-das atividades
-administrativas
-normais.
-
-Entretanto,
-durante uma investigação,
-essas ações
-precisam ser analisadas
-em conjunto
-com outros eventos.
+A operação
+foi concluída
+com sucesso.
 
 </p>
 
@@ -2352,48 +1977,68 @@ com outros eventos.
 
 <h2>
 
-🖥 O que aconteceu?
+📋 Eventos Produzidos
 
 </h2>
 
 <p>
 
-Até este momento,
+Durante esta etapa,
 executamos
-três atividades
-importantes.
+algumas atividades
+administrativas
+simples.
 
 </p>
 
-<ul>
+<div class="tech-info">
 
-<li>
+<div class="tech-box">
 
-✅ Conexão SSH.
+<strong>
 
-</li>
+🔑 SSH
 
-<li>
+</strong>
 
-✅ Criação de usuário.
+Conexão
 
-</li>
+</div>
 
-<li>
+<div class="tech-box">
 
-✅ Definição de senha.
+<strong>
 
-</li>
+👤 Useradd
 
-</ul>
+</strong>
+
+Novo usuário
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔒 Passwd
+
+</strong>
+
+Senha
+
+</div>
+
+</div>
 
 <p>
 
-Essas operações
-provocaram alterações
-no sistema operacional
-e produziram evidências
-que poderão ser analisadas.
+Essas atividades
+produziram
+eventos
+que poderão
+ser analisados
+nas próximas etapas.
 
 </p>
 
@@ -2407,131 +2052,45 @@ que poderão ser analisadas.
 
 <strong>
 
-🔍 Pergunta do Investigador
+💡 Próxima Etapa
 
 </strong>
 
-<br>
+<br><br>
 
-<p style="text-align: justify;">
+Os eventos
+já foram produzidos.
 
-Será que o Auditd
-registrou essas alterações?
+<br><br>
 
-Quais processos
-foram executados?
-
-Quem realizou
-essas ações?
-
-Como identificar
-essas evidências?
-
-Essas perguntas
-serão respondidas
-na próxima etapa
-do laboratório.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🧪 Status do Laboratório
-
-</h2>
-
-<ul>
-
-<li>
-
-✅ SSH realizado.
-
-</li>
-
-<li>
-
-✅ Snort detectou a conexão.
-
-</li>
-
-<li>
-
-✅ Usuário criado.
-
-</li>
-
-<li>
-
-✅ Senha definida.
-
-</li>
-
-<li>
-
-⏳ Auditd será consultado.
-
-</li>
-
-<li>
-
-⏳ Syslog será analisado.
-
-</li>
-
-<li>
-
-⏳ Investigação das evidências.
-
-</li>
-
-</ul>
-
-<p>
-
-Nosso ambiente
-já produziu
-uma quantidade
-interessante
-de eventos.
-
-</p>
-
-<p>
-
-A próxima etapa
-será assumir
+Agora iremos assumir
 o papel
 do investigador
-e analisar
-essas evidências.
-
-</p>
+e verificar
+quais evidências
+foram registradas
+pelos mecanismos
+de monitoramento.
 
 </div>
 
 </section>
+
 <section class="section">
 
 <div class="card">
 
 <h2>
 
-🔍 A Investigação Começa
+🔍 Iniciando a Investigação
 
 </h2>
 
 <p>
 
-Nossa simulação
-foi concluída.
+As atividades
+do laboratório
+foram concluídas.
 
 </p>
 
@@ -2559,34 +2118,9 @@ foi definida.
 <p>
 
 Agora precisamos
-descobrir
+verificar
 quais evidências
 foram produzidas.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-🕵 Primeira Pergunta
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-O sistema operacional
-registrou alterações
-relacionadas
-ao laboratório?
 
 </p>
 
@@ -2600,17 +2134,17 @@ ao laboratório?
 
 <h2>
 
-🖥 Consultando o Auditd
+🖥 Consultando
+o Auditd
 
 </h2>
 
 <p>
 
-Uma forma simples
-de acompanhar
+Vamos verificar
 os eventos
-é consultar
-o arquivo
+registrados
+pelo sistema
 de auditoria.
 
 </p>
@@ -2639,47 +2173,10 @@ comm="useradd"
 
 <p>
 
-O evento confirma
+O evento
+indica
 que alterações
 foram registradas.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-💡 Interpretando o Evento
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-name="/etc/passwd"
-
-Arquivo monitorado.
-
-<br><br>
-
-comm="useradd"
-
-Processo executado.
-
-<br><br>
-
-key="passwd_changes"
-
-Regra criada
-durante
-o laboratório.
 
 </p>
 
@@ -2693,16 +2190,18 @@ o laboratório.
 
 <h2>
 
-🔎 Utilizando o ausearch
+🔎 Consultando
+o ausearch
 
 </h2>
 
 <p>
 
-O Auditd
-permite realizar
-consultas específicas
-aos eventos registrados.
+Também podemos
+realizar consultas
+específicas
+aos eventos
+registrados.
 
 </p>
 
@@ -2746,53 +2245,23 @@ relacionados
 
 <section class="section">
 
-<div class="tip">
-
-<strong>
-
-👨‍💻 O Analista Observa
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-O uso
-de chaves
-durante
-a criação
-das regras
-facilita
-a localização
-dos eventos
-durante
-uma investigação.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
 <div class="card">
 
 <h2>
 
-📊 Gerando um Relatório
+📊 Gerando
+um Relatório
 
 </h2>
 
 <p>
 
-Outra forma
-de analisar
-os eventos
-é utilizar
-o comando
-aureport.
+O Auditd
+também permite
+uma visão
+mais ampla
+dos eventos
+registrados.
 
 </p>
 
@@ -2806,8 +2275,6 @@ aureport
 
 Summary Report
 
-Event Summary
-
 Login Summary
 
 File Summary
@@ -2820,11 +2287,95 @@ User Summary
 
 <p>
 
-Esse relatório
+O relatório
 fornece
-uma visão geral
+um resumo
 das atividades
-registradas.
+observadas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 O que descobrimos?
+
+</h2>
+
+<p>
+
+Nossa investigação
+já conseguiu confirmar
+que os eventos
+produzidos
+durante o laboratório
+foram registrados.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✅ Auditd
+
+</strong>
+
+Eventos
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ ausearch
+
+</strong>
+
+Consultas
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ aureport
+
+</strong>
+
+Relatórios
+
+</div>
+
+</div>
+
+<p>
+
+Já sabemos
+que o sistema
+registrou
+as alterações.
+
+</p>
+
+<p>
+
+Agora precisamos
+descobrir
+como a rede
+observou
+essas atividades.
 
 </p>
 
@@ -2838,50 +2389,34 @@ registradas.
 
 <strong>
 
-🎯 Primeiras Evidências
+💡 Próxima Etapa
 
 </strong>
 
-<br>
+<br><br>
 
-<p style="text-align: justify;">
-
-Nossa investigação
-já conseguiu confirmar:
+Já confirmamos
+que o sistema
+registrou
+as alterações.
 
 <br><br>
 
-✅ Alteração
-do /etc/passwd.
-
-<br>
-
-✅ Execução
-do useradd.
-
-<br>
-
-✅ Eventos
-registrados
-pelo Auditd.
-
-<br>
-
-✅ Consultas
-realizadas
-com ausearch.
-
-<br>
-
-✅ Relatórios
+Na próxima etapa,
+iremos consultar
+os alertas
 produzidos
-pelo aureport.
-
-</p>
+pelo Snort
+e comparar
+essas informações
+com as evidências
+obtidas
+no host.
 
 </div>
 
 </section>
+
 <section class="section">
 
 <div class="card">
@@ -2894,63 +2429,24 @@ pelo aureport.
 
 <p>
 
-Até este momento,
-nossa investigação
-confirmou alterações
-no sistema operacional.
+Já confirmamos
+que o sistema operacional
+registrou
+as atividades
+realizadas
+durante o laboratório.
 
 </p>
 
 <p>
 
-Mas ainda existe
-uma pergunta importante.
-
-</p>
-
-<blockquote>
-
-Como o usuário
-obteve acesso
-ao servidor?
-
-</blockquote>
-
-<p>
-
-Para responder
-essa questão,
-vamos consultar
-os eventos
-produzidos
-pelo Snort.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
-
-<strong>
-
-🔍 Segunda Pergunta
-
-</strong>
-
-<br>
-
-<p style="text-align: justify;">
-
-Existe alguma evidência
-de que uma conexão SSH
-foi realizada?
-
-O IDS conseguiu
-identificar essa atividade?
+Agora precisamos
+verificar
+se a infraestrutura
+de monitoramento
+da rede
+também observou
+esses eventos.
 
 </p>
 
@@ -2970,7 +2466,7 @@ identificar essa atividade?
 
 <p>
 
-Durante o laboratório,
+Durante a configuração,
 criamos uma regra
 para detectar
 conexões SSH.
@@ -2979,9 +2475,9 @@ conexões SSH.
 
 <p>
 
-Vamos verificar
-se algum alerta
-foi produzido.
+Vamos consultar
+os alertas
+produzidos.
 
 </p>
 
@@ -3019,40 +2515,82 @@ TCP
 
 <section class="section">
 
-<div class="tip">
+<div class="card">
+
+<h2>
+
+🔍 Interpretando o Alerta
+
+</h2>
+
+<p>
+
+O alerta
+fornece
+informações
+importantes
+sobre a conexão.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
 
 <strong>
 
-💡 Interpretando o Alerta
+Origem
 
 </strong>
 
-<br>
-
-<p style="text-align: justify;">
-
 192.168.1.20
 
-Origem da conexão.
+</div>
 
-<br><br>
+<div class="tech-box">
+
+<strong>
+
+Destino
+
+</strong>
 
 192.168.1.10
 
-Servidor monitorado.
+</div>
 
-<br><br>
+<div class="tech-box">
+
+<strong>
+
+Serviço
+
+</strong>
+
+SSH
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Porta
+
+</strong>
 
 22
 
-Serviço SSH.
+</div>
 
-<br><br>
+</div>
 
-LAB SSH CONNECTION
+<p>
 
-Mensagem definida
-na regra criada
+Essas informações
+permitem identificar
+a comunicação
+realizada
 durante o laboratório.
 
 </p>
@@ -3067,8 +2605,54 @@ durante o laboratório.
 
 <h2>
 
-📊 Correlacionando
-as Evidências
+🖥 O que a Rede Registrou?
+
+</h2>
+
+<p>
+
+Até este momento,
+a investigação
+da rede
+permitiu confirmar
+que uma conexão SSH
+foi observada.
+
+</p>
+
+<p>
+
+Essa informação,
+isoladamente,
+não caracteriza
+uma atividade maliciosa.
+
+</p>
+
+<p>
+
+Entretanto,
+ela representa
+uma importante
+fonte de evidência
+que poderá ser
+comparada
+com os registros
+do sistema operacional.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Resultado da Investigação
 
 </h2>
 
@@ -3076,106 +2660,60 @@ as Evidências
 
 Agora possuímos
 duas fontes
-de informações.
+de evidências.
 
 </p>
 
-<div class="tech-flow">
+<div class="tech-info">
 
-<div class="flow-title">
+<div class="tech-box">
 
-Sequência Observada
+<strong>
+
+🖥 Host
+
+</strong>
+
+Auditd
+
+ausearch
+
+aureport
 
 </div>
 
-<div class="flow-step">
+<div class="tech-box">
 
-<h3>
+<strong>
 
-👁 Snort
+🌐 Rede
 
-</h3>
+</strong>
+
+Snort
+
+Alerta SSH
+
+</div>
+
+</div>
 
 <p>
 
-Detecta
-SSH.
+As duas investigações
+foram realizadas
+de forma independente.
 
 </p>
-
-</div>
-
-<div class="flow-arrow">
-
-↓
-
-</div>
-
-<div class="flow-step">
-
-<h3>
-
-👨‍💻 Login
-
-</h3>
 
 <p>
 
-Usuário
-acessa
-o servidor.
+Na próxima etapa,
+essas informações
+serão analisadas
+em conjunto.
 
 </p>
-
-</div>
-
-<div class="flow-arrow">
-
-↓
-
-</div>
-
-<div class="flow-step">
-
-<h3>
-
-🖥 Auditd
-
-</h3>
-
-<p>
-
-Detecta
-alterações.
-
-</p>
-
-</div>
-
-<div class="flow-arrow">
-
-↓
-
-</div>
-
-<div class="flow-step">
-
-<h3>
-
-🔍 Investigação
-
-</h3>
-
-<p>
-
-Correlaciona
-os eventos.
-
-</p>
-
-</div>
-
-</div>
 
 </div>
 
@@ -3187,32 +2725,84 @@ os eventos.
 
 <strong>
 
-👨‍💻 O Analista Observa
+💡 Próxima Etapa
 
 </strong>
 
-<br>
+<br><br>
 
-<p style="text-align: justify;">
+Já sabemos
+o que aconteceu
+no host.
 
-Separadamente,
-cada evento
-possui um significado.
+<br><br>
 
-Uma conexão SSH
-pode ser legítima.
+Já sabemos
+o que aconteceu
+na rede.
 
-Uma alteração
-no arquivo
-/etc/passwd
-também pode ser esperada.
+<br><br>
 
-Entretanto,
-a combinação
-dessas evidências
-permite compreender
-o contexto
-das atividades
+Agora iremos
+comparar
+essas informações
+e reconstruir
+a sequência
+dos eventos
+produzidos
+durante o laboratório.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕵 Reconstruindo os Eventos
+
+</h2>
+
+<p>
+
+Ao longo
+do laboratório,
+produzimos
+diversos eventos
+no ambiente.
+
+</p>
+
+<p>
+
+Essas atividades
+foram registradas
+por diferentes
+mecanismos
+de monitoramento.
+
+</p>
+
+<p>
+
+Agora,
+vamos analisar
+essas informações
+em conjunto.
+
+</p>
+
+<p>
+
+O objetivo
+não é identificar
+um ataque,
+mas compreender
+a sequência
+das ações
 realizadas.
 
 </p>
@@ -3227,141 +2817,7 @@ realizadas.
 
 <h2>
 
-🎯 Situação Atual
-
-</h2>
-
-<p>
-
-Nossa investigação
-já conseguiu confirmar:
-
-</p>
-
-<ul>
-
-<li>
-
-✅ Conexão SSH.
-
-</li>
-
-<li>
-
-✅ Alerta do Snort.
-
-</li>
-
-<li>
-
-✅ Criação de usuário.
-
-</li>
-
-<li>
-
-✅ Alteração do /etc/passwd.
-
-</li>
-
-<li>
-
-✅ Eventos do Auditd.
-
-</li>
-
-<li>
-
-✅ Consultas com ausearch.
-
-</li>
-
-<li>
-
-✅ Relatórios do aureport.
-
-</li>
-
-<li>
-
-✅ Primeira correlação entre host e rede.
-
-</li>
-
-</ul>
-
-<p>
-
-Ainda falta
-uma última etapa.
-
-</p>
-
-<blockquote>
-
-Produzir uma conclusão
-sobre os eventos
-observados.
-
-</blockquote>
-
-</div>
-
-</section>
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-🕵 Parecer Técnico
-
-</h2>
-
-<p>
-
-Ao longo deste laboratório,
-construímos um ambiente
-capaz de monitorar
-eventos importantes
-de rede
-e do sistema operacional.
-
-</p>
-
-<p>
-
-As atividades realizadas
-produziram evidências
-que puderam ser
-observadas
-por diferentes mecanismos
-de segurança.
-
-</p>
-
-<p>
-
-A análise conjunta
-dos eventos
-permitiu compreender
-a sequência
-das ações executadas
-durante a simulação.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card">
-
-<h2>
-
-📊 Evidências Obtidas
+📋 Linha do Tempo
 
 </h2>
 
@@ -3369,7 +2825,7 @@ durante a simulação.
 
 <div class="flow-title">
 
-Resumo do Laboratório
+Eventos Observados
 
 </div>
 
@@ -3384,7 +2840,7 @@ Resumo do Laboratório
 <p>
 
 Conexão
-realizada.
+estabelecida
 
 </p>
 
@@ -3407,7 +2863,7 @@ realizada.
 <p>
 
 Alerta
-gerado.
+gerado
 
 </p>
 
@@ -3430,7 +2886,30 @@ gerado.
 <p>
 
 Usuário
-criado.
+criado
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔒 passwd
+
+</h3>
+
+<p>
+
+Senha
+definida
 
 </p>
 
@@ -3452,31 +2931,8 @@ criado.
 
 <p>
 
-Evento
-registrado.
-
-</p>
-
-</div>
-
-<div class="flow-arrow">
-
-↓
-
-</div>
-
-<div class="flow-step">
-
-<h3>
-
-🔍 Investigação
-
-</h3>
-
-<p>
-
 Eventos
-correlacionados.
+registrados
 
 </p>
 
@@ -3490,58 +2946,209 @@ correlacionados.
 
 <section class="section">
 
+<div class="card">
+
+<h2>
+
+🔍 Relacionando
+as Evidências
+
+</h2>
+
+<p>
+
+As informações
+obtidas
+durante o laboratório
+permitem relacionar
+eventos
+de rede
+e do sistema
+operacional.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Rede
+
+</strong>
+
+SSH
+
+Snort
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🖥 Host
+
+</strong>
+
+Auditd
+
+ausearch
+
+aureport
+
+</div>
+
+</div>
+
+<p>
+
+Embora cada ferramenta
+tenha uma função
+específica,
+todas contribuíram
+para ampliar
+a visibilidade
+do ambiente.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 O que aprendemos?
+
+</h2>
+
+<p>
+
+Este laboratório
+demonstrou
+que uma única
+atividade
+pode gerar
+múltiplos registros.
+
+</p>
+
+<p>
+
+Esses registros
+podem ser analisados
+individualmente
+ou em conjunto,
+dependendo
+do objetivo
+da investigação.
+
+</p>
+
+<p>
+
+A integração
+entre diferentes
+fontes
+de informação
+aumenta
+a capacidade
+de compreender
+o comportamento
+do ambiente.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
 <div class="tip">
 
 <strong>
 
-💡 O que aprendemos?
+💡 Próxima Etapa
 
 </strong>
 
-<br>
+<br><br>
 
-<p style="text-align: justify;">
-
-Neste laboratório
-observamos que:
+Ao longo
+do laboratório,
+preparamos
+o ambiente,
+configuramos
+os sensores,
+geramos eventos
+e analisamos
+as evidências
+produzidas.
 
 <br><br>
 
-✅ O SSH pode gerar
-eventos monitoráveis.
+Na etapa final,
+iremos consolidar
+os resultados
+obtidos
+e apresentar
+as principais
+conclusões
+do laboratório.
 
-<br>
+</div>
 
-✅ O Snort detecta
-atividades de rede.
+</section>
 
-<br>
+<section class="section">
 
-✅ O Auditd registra
-alterações críticas.
+<div class="card">
 
-<br>
+<h2>
 
-✅ O Syslog auxilia
-na centralização
-dos eventos.
+📋 Encerramento do Laboratório
 
-<br>
+</h2>
 
-✅ O ausearch facilita
-consultas específicas.
+<p>
 
-<br>
+Ao longo deste laboratório,
+construímos
+um pequeno ambiente
+de monitoramento Linux.
 
-✅ O aureport gera
-relatórios resumidos.
+</p>
 
-<br>
+<p>
 
-✅ A correlação
-entre diferentes fontes
-aumenta a visibilidade
-do ambiente.
+As atividades realizadas
+permitiram produzir
+eventos controlados
+e observar
+como diferentes
+ferramentas
+registram informações
+sobre o sistema
+e sobre a rede.
+
+</p>
+
+<p>
+
+Cada etapa
+foi desenvolvida
+de forma gradual,
+permitindo compreender
+o funcionamento
+dos componentes
+utilizados.
 
 </p>
 
@@ -3559,110 +3166,81 @@ do ambiente.
 
 </h2>
 
-<ul>
+<div class="tech-info">
 
-<li>
-
-✅ OpenSSH validado.
-
-</li>
-
-<li>
-
-✅ Snort configurado.
-
-</li>
-
-<li>
-
-✅ Regra SSH criada.
-
-</li>
-
-<li>
-
-✅ Auditd configurado.
-
-</li>
-
-<li>
-
-✅ Monitoramento do /etc/passwd.
-
-</li>
-
-<li>
-
-✅ Syslog disponível.
-
-</li>
-
-<li>
-
-✅ Eventos produzidos.
-
-</li>
-
-<li>
-
-✅ Logs consultados.
-
-</li>
-
-<li>
-
-✅ Evidências analisadas.
-
-</li>
-
-<li>
-
-✅ Correlação realizada.
-
-</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="tip">
+<div class="tech-box">
 
 <strong>
 
-🧪 Resultado do Laboratório
+✅ SSH
 
 </strong>
 
-<br>
+Validado
 
-<p style="text-align: justify;">
+</div>
 
-O ambiente construído
-durante este laboratório
-demonstrou que
-a integração
-entre diferentes
-ferramentas
-de monitoramento
-permite aumentar
-a capacidade
-de observação
-do ambiente Linux.
+<div class="tech-box">
 
-Mais importante
-do que uma ferramenta
-isolada,
-foi possível perceber
-como diferentes fontes
-de informação
-podem trabalhar
-em conjunto.
+<strong>
 
-</p>
+✅ Snort
+
+</strong>
+
+Configurado
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Auditd
+
+</strong>
+
+Configurado
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Syslog
+
+</strong>
+
+Disponível
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Eventos
+
+</strong>
+
+Produzidos
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Evidências
+
+</strong>
+
+Analisadas
+
+</div>
+
+</div>
 
 </div>
 
@@ -3674,52 +3252,96 @@ em conjunto.
 
 <h2>
 
-🚀 Próximo Laboratório
+🛠 Ferramentas Utilizadas
 
 </h2>
 
 <p>
 
-Neste laboratório,
-aprendemos
-a preparar
-um ambiente
-de monitoramento
-e interpretar
-os eventos produzidos.
+Durante o laboratório,
+utilizamos
+diferentes ferramentas,
+cada uma
+com uma finalidade
+específica.
 
 </p>
 
-<p>
+<div class="tech-info">
 
-A infraestrutura
-construída
-servirá como base
-para novos cenários
-mais avançados.
+<div class="tech-box">
 
-</p>
+<strong>
 
-<blockquote>
+OpenSSH
 
-Como essas ferramentas
-se comportariam
-durante uma sequência
-mais complexa
-de ações realizadas
-por um atacante?
+</strong>
 
-</blockquote>
+Acesso remoto
 
-<p>
+</div>
 
-Esse será
-o objetivo
-dos próximos
-laboratórios
-do CR Portal.
+<div class="tech-box">
 
-</p>
+<strong>
+
+Snort
+
+</strong>
+
+Monitoramento de rede
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Auditd
+
+</strong>
+
+Auditoria do sistema
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Syslog
+
+</strong>
+
+Centralização de eventos
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+ausearch
+
+</strong>
+
+Consultas
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+aureport
+
+</strong>
+
+Relatórios
+
+</div>
+
+</div>
 
 </div>
 
@@ -3731,36 +3353,171 @@ do CR Portal.
 
 <strong>
 
-📚 Roadmap dos Laboratórios
+💡 Principais Conceitos
 
 </strong>
 
 <br><br>
 
-✅ Monitorando Acesso SSH
-e Persistência Básica.
+✅ Monitoramento de rede.
 
 <br><br>
 
-➡ Cyber Kill Chain
-na Prática.
+✅ Auditoria do sistema operacional.
 
 <br><br>
 
-⬜ Correlação de Eventos.
+✅ Produção de eventos.
 
 <br><br>
 
-⬜ MITRE ATT&CK
-na Prática.
+✅ Consulta de logs.
 
 <br><br>
 
-⬜ DFIR em Linux.
+✅ Análise de evidências.
 
 <br><br>
 
-⬜ SIEM e Threat Hunting.
+✅ Reconstrução de atividades.
+
+<br><br>
+
+✅ Integração entre diferentes ferramentas.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximos Laboratórios
+
+</h2>
+
+<p>
+
+O ambiente construído
+neste laboratório
+servirá como base
+para novos cenários
+práticos.
+
+</p>
+
+<p>
+
+A infraestrutura
+já está preparada
+para atividades
+mais avançadas
+envolvendo
+monitoramento,
+investigação
+e defesa
+de ambientes Linux.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Roadmap
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+✅ LAB 01
+
+</h3>
+
+<p>
+
+Monitoramento
+
+Linux
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+➡ LAB 02
+
+</h3>
+
+<p>
+
+Cyber Kill Chain
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+⬜ LAB 03
+
+</h3>
+
+<p>
+
+MITRE ATT&CK
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+⬜ LAB 04
+
+</h3>
+
+<p>
+
+DFIR
+
+Linux
+
+</p>
+
+</div>
+
+</div>
 
 </div>
 
@@ -3794,4 +3551,7 @@ CR Portal • Laboratórios
 
 </body>
 
-</html>
+</html>  
+  
+
+  
