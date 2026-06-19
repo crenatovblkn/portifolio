@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Laboratório 01
+
+Cyber Kill Chain
+
+CR Portal
+
+</title>
+
+<link rel="stylesheet"
+href="../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+🧪 LABORATÓRIO
+
+</span>
+
+<h1>
+
+🛡 Cyber Kill Chain
+
+na Prática
+
+</h1>
+
+<h2>
+
+Detectando um ataque SSH
+e tentativas de persistência
+com Snort e Auditd
+
+</h2>
+
+<p>
+
+Primeiro laboratório
+oficial do CR Portal.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Laboratórios
+
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+Cybersecurity
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Laboratório
+
+</strong>
+
+Cyber Kill Chain
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+Iniciante
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Conceitos
+
+</strong>
+
+Snort
+
+Auditd
+
+Syslog
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Framework
+
+</strong>
+
+Cyber Kill Chain
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+30 minutos
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 O Cenário
+
+</h2>
+
+<p>
+
+Imagine que uma organização
+possui um servidor Linux
+publicado para acesso remoto.
+
+</p>
+
+<p>
+
+Um usuário estabelece
+uma conexão SSH
+com esse servidor.
+
+</p>
+
+<p>
+
+Após obter acesso,
+novas contas são criadas
+e arquivos críticos
+do sistema operacional
+são modificados.
+
+</p>
+
+<p>
+
+Uma pergunta surge
+naturalmente.
+
+</p>
+
+<blockquote>
+
+Como identificar
+que essas ações
+estão acontecendo?
+
+</blockquote>
+
+<p>
+
+Neste laboratório,
+vamos construir
+um ambiente simples
+capaz de detectar
+eventos de rede
+e alterações
+em arquivos críticos
+do sistema Linux.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Observação do Analista
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Este laboratório
+não pretende reproduzir
+um ataque real.
+
+Seu objetivo é demonstrar
+como diferentes mecanismos
+de segurança podem gerar
+evidências úteis
+para investigação
+e resposta a incidentes.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Objetivos
+
+</h2>
+
+<p>
+
+Ao concluir este laboratório,
+seremos capazes de observar:
+
+</p>
+
+<ul>
+
+<li>✅ Tentativas de acesso SSH.</li>
+
+<li>✅ Monitoramento do arquivo /etc/passwd.</li>
+
+<li>✅ Criação de usuários locais.</li>
+
+<li>✅ Eventos produzidos pelo Auditd.</li>
+
+<li>✅ Alertas produzidos pelo Snort.</li>
+
+<li>✅ Correlação entre eventos.</li>
+
+<li>✅ Evidências para investigação.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖥 Topologia do Laboratório
+
+</h2>
+
+<p>
+
+Nosso ambiente será
+composto por apenas
+duas máquinas.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Laboratório
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+👨‍💻 Kali
+
+</h3>
+
+<p>
+
+Atacante
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+→
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🖥 Ubuntu
+
+</h3>
+
+<p>
+
+Snort
+
+Auditd
+
+Syslog
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔍 Investigação
+
+</h3>
+
+<p>
+
+Eventos
+
+Logs
+
+Alertas
+
+</p>
+
+</div>
+
+</div>
+
+<p>
+
+Embora simples,
+essa arquitetura
+permite demonstrar
+conceitos importantes
+de Cybersecurity,
+DFIR
+e Defesa em Profundidade.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Relação com a Cyber Kill Chain
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Ao longo do laboratório,
+iremos observar diferentes
+fases de uma cadeia
+de ataque simplificada.
+
+Inicialmente,
+o atacante realiza
+o acesso ao servidor.
+
+Posteriormente,
+ações de persistência
+serão simuladas.
+
+Por fim,
+as evidências geradas
+serão utilizadas
+para investigação.
+
+</p>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛠 Preparando o Ambiente
+
+</h2>
+
+<p>
+
+Antes de iniciar
+a simulação,
+precisamos preparar
+nosso servidor Ubuntu.
+
+</p>
+
+<p>
+
+Neste laboratório
+utilizaremos três componentes
+principais.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+👁 Snort
+
+</strong>
+
+Monitoramento
+de rede.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🖥 Auditd
+
+</strong>
+
+Auditoria
+do sistema.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📄 Syslog
+
+</strong>
+
+Centralização
+de eventos.
+
+</div>
+
+</div>
+
+<p>
+
+Cada componente
+será responsável
+por produzir evidências
+que utilizaremos
+durante a investigação.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👁 Instalando o Snort
+
+</h2>
+
+<p>
+
+O primeiro componente
+do laboratório
+será o Snort.
+
+</p>
+
+<p>
+
+Sua função será
+monitorar eventos
+de rede
+e produzir alertas.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~# apt update
+
+...
+
+Reading package lists... Done
+
+root@ubuntu:~# apt install snort -y
+
+Reading package lists... Done
+
+Building dependency tree...
+
+The following NEW packages
+will be installed:
+
+snort
+
+snort-common
+
+snort-rules-default
+
+...
+
+Setting up snort...
+
+Done.
+
+</pre>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Observação do Analista
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Neste momento,
+não estamos preocupados
+com regras avançadas.
+
+Nosso objetivo
+é preparar o ambiente
+para observar
+eventos de rede.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖥 Instalando o Auditd
+
+</h2>
+
+<p>
+
+Enquanto o Snort
+observa a rede,
+o Auditd acompanha
+atividades realizadas
+no sistema operacional.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~# apt install auditd audispd-plugins -y
+
+Reading package lists... Done
+
+...
+
+Setting up auditd...
+
+Done.
+
+root@ubuntu:~# systemctl status auditd
+
+Active: active (running)
+
+</pre>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 O que o Auditd monitora?
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+O Auditd pode registrar
+alterações em arquivos,
+execução de comandos,
+criação de usuários
+e diversas outras
+atividades relevantes
+para investigação.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📄 Validando os serviços
+
+</h2>
+
+<p>
+
+Antes de prosseguir,
+vamos verificar
+se os componentes
+estão funcionando.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~# systemctl status snort
+
+Active: active (running)
+
+root@ubuntu:~# systemctl status auditd
+
+Active: active (running)
+
+</pre>
+
+</div>
+
+<p>
+
+Com os serviços ativos,
+nosso ambiente
+está preparado
+para receber
+as configurações
+do laboratório.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🔍 O Investigador Observa
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Uma boa prática
+durante qualquer
+atividade forense
+ou de resposta
+a incidentes
+é validar os serviços
+antes da coleta
+de evidências.
+
+Problemas de configuração
+podem resultar
+na perda de eventos
+importantes para
+a investigação.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Configurando o Auditd
+
+</h2>
+
+<p>
+
+Agora que o Auditd
+está instalado,
+precisamos informar
+quais eventos
+serão monitorados.
+
+</p>
+
+<p>
+
+Neste laboratório,
+nosso foco será
+acompanhar alterações
+em um dos arquivos
+mais importantes
+do Linux.
+
+</p>
+
+<blockquote>
+
+/etc/passwd
+
+</blockquote>
+
+<p>
+
+Esse arquivo contém
+informações relacionadas
+às contas de usuários
+do sistema operacional.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Por que monitorar o /etc/passwd?
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+A criação de novos usuários
+ou alterações indevidas
+podem indicar tentativas
+de persistência
+após um comprometimento
+do ambiente.
+
+Por esse motivo,
+esse arquivo costuma
+receber atenção especial
+durante investigações
+forenses.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖥 Criando a regra
+
+</h2>
+
+<p>
+
+Vamos adicionar
+uma regra simples
+ao Auditd.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~# nano /etc/audit/rules.d/audit.rules
+
+-w /etc/passwd -p wa -k passwd_changes
+
+</pre>
+
+</div>
+
+<p>
+
+Essa configuração
+informa ao Auditd
+que alterações
+nesse arquivo
+devem ser registradas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🔍 Entendendo a regra
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+-w
+
+Monitora um arquivo.
+
+<br><br>
+
+-p wa
+
+Observa operações
+de escrita
+e alteração
+de atributos.
+
+<br><br>
+
+-k passwd_changes
+
+Cria uma chave
+que facilitará
+pesquisas futuras
+durante a investigação.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Recarregando as regras
+
+</h2>
+
+<p>
+
+Após realizar
+a configuração,
+precisamos informar
+ao Auditd
+que novas regras
+foram adicionadas.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~# augenrules --load
+
+No change
+
+root@ubuntu:~# systemctl restart auditd
+
+</pre>
+
+</div>
+
+<p>
+
+A partir deste momento,
+o monitoramento
+está ativo.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✅ Validando a configuração
+
+</h2>
+
+<p>
+
+Antes de iniciar
+a simulação,
+é importante verificar
+se a regra foi carregada.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~# auditctl -l
+
+-w /etc/passwd -p wa -k passwd_changes
+
+</pre>
+
+</div>
+
+<p>
+
+A presença da regra
+indica que qualquer
+modificação futura
+no arquivo
+será registrada.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+👨‍💻 O Analista Observa
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Uma prática comum
+em equipes Blue Team
+é validar todas
+as configurações
+antes de iniciar
+a coleta
+de evidências.
+
+Detectar problemas
+nesta etapa
+é muito mais simples
+do que descobrir,
+durante uma investigação,
+que eventos importantes
+não foram registrados.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Ambiente Preparado
+
+</h2>
+
+<p>
+
+Neste momento,
+nosso laboratório
+já possui:
+
+</p>
+
+<ul>
+
+<li>✅ Snort instalado.</li>
+
+<li>✅ Auditd ativo.</li>
+
+<li>✅ Monitoramento do /etc/passwd.</li>
+
+<li>✅ Regras carregadas.</li>
+
+<li>✅ Ambiente validado.</li>
+
+</ul>
+
+<p>
+
+Tudo está pronto
+para a próxima fase
+do laboratório.
+
+</p>
+
+<blockquote>
+
+A chegada do atacante.
+
+</blockquote>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👨‍💻 A Chegada do Atacante
+
+</h2>
+
+<p>
+
+Nosso ambiente
+está preparado.
+
+</p>
+
+<p>
+
+O Snort está ativo.
+
+</p>
+
+<p>
+
+O Auditd monitora
+alterações importantes
+do sistema operacional.
+
+</p>
+
+<p>
+
+Agora iremos simular
+uma pequena sequência
+de ações realizadas
+por um possível invasor.
+
+</p>
+
+<p>
+
+O objetivo não é
+realizar um ataque,
+mas gerar evidências
+que possam ser
+observadas e investigadas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Relação com a Cyber Kill Chain
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Nesta etapa,
+iremos observar
+algumas fases
+de uma cadeia
+de ataque simplificada.
+
+Inicial Access.
+
+Execution.
+
+Persistence.
+
+Cada ação produzirá
+evidências importantes
+para investigação.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔑 Primeira ação
+
+Estabelecendo acesso
+
+</h2>
+
+<p>
+
+Nosso atacante
+inicia uma conexão SSH
+com o servidor Ubuntu.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+kali@attacker:~$ ssh aluno@192.168.1.10
+
+aluno@192.168.1.10's password:
+
+Welcome to Ubuntu
+
+Last login:
+
+aluno@ubuntu:~$
+
+</pre>
+
+</div>
+
+<p>
+
+Do ponto de vista
+do sistema operacional,
+essa ação é legítima.
+
+</p>
+
+<p>
+
+Entretanto,
+dependendo do contexto,
+ela pode representar
+o início de uma atividade
+maliciosa.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 O Analista Observa
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Uma conexão SSH,
+por si só,
+não representa
+um incidente.
+
+Entretanto,
+durante uma investigação,
+o horário,
+a origem
+e o contexto
+da conexão
+podem fornecer
+informações importantes.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Segunda ação
+
+Criando persistência
+
+</h2>
+
+<p>
+
+Após obter acesso,
+o atacante decide
+criar um novo usuário.
+
+</p>
+
+<p>
+
+Essa técnica é bastante
+conhecida e pode permitir
+acessos futuros
+ao ambiente.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+aluno@ubuntu:~$ sudo useradd invasor
+
+aluno@ubuntu:~$ sudo passwd invasor
+
+New password:
+
+Retype new password:
+
+passwd:
+
+password updated successfully
+
+</pre>
+
+</div>
+
+<p>
+
+Essa ação provocará
+uma alteração
+no arquivo
+
+</p>
+
+<blockquote>
+
+/etc/passwd
+
+</blockquote>
+
+<p>
+
+que está sendo
+monitorado pelo Auditd.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+⚠ Simulação Controlada
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Neste laboratório,
+a criação do usuário
+serve apenas para
+gerar evidências.
+
+Em um incidente real,
+essa atividade poderia
+indicar uma tentativa
+de persistência
+do atacante.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 O que esperamos?
+
+</h2>
+
+<p>
+
+Até este momento,
+duas atividades
+importantes ocorreram.
+
+</p>
+
+<ul>
+
+<li>
+
+✅ Uma conexão SSH.
+
+</li>
+
+<li>
+
+✅ Uma alteração
+no arquivo /etc/passwd.
+
+</li>
+
+</ul>
+
+<p>
+
+Essas ações deverão
+produzir evidências
+que poderão ser
+observadas pelos
+mecanismos de segurança
+do laboratório.
+
+</p>
+
+<p>
+
+A próxima etapa
+será verificar
+o que nossos sensores
+conseguiram registrar.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🔍 Pergunta do Investigador
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Será que nossos mecanismos
+de segurança perceberam
+essas atividades?
+
+Quais evidências
+foram produzidas?
+
+Como podemos
+encontrá-las?
+
+Essas perguntas
+serão respondidas
+na próxima etapa
+do laboratório.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔍 A Investigação Começa
+
+</h2>
+
+<p>
+
+Nossa simulação terminou.
+
+</p>
+
+<p>
+
+Uma conexão SSH
+foi estabelecida.
+
+</p>
+
+<p>
+
+Um novo usuário
+foi criado.
+
+</p>
+
+<p>
+
+O arquivo
+
+</p>
+
+<blockquote>
+
+/etc/passwd
+
+</blockquote>
+
+<p>
+
+foi alterado.
+
+</p>
+
+<p>
+
+Agora chegou o momento
+mais importante
+do laboratório.
+
+</p>
+
+<blockquote>
+
+Quais evidências
+foram produzidas?
+
+</blockquote>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🕵 Perguntas do Investigador
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Uma investigação
+normalmente começa
+com algumas perguntas.
+
+Quem realizou a ação?
+
+Quando aconteceu?
+
+Qual processo foi utilizado?
+
+Qual arquivo foi afetado?
+
+Existe alguma relação
+entre os eventos?
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖥 Primeira Evidência
+
+Auditd
+
+</h2>
+
+<p>
+
+Como configuramos
+o monitoramento
+do arquivo
+
+</p>
+
+<blockquote>
+
+/etc/passwd
+
+</blockquote>
+
+<p>
+
+esperamos encontrar
+um evento relacionado
+à criação do usuário.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~#
+
+tail -f /var/log/audit/audit.log
+
+type=SYSCALL
+
+type=PATH
+
+name="/etc/passwd"
+
+key="passwd_changes"
+
+auid=1000
+
+uid=0
+
+comm="useradd"
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🔍 Interpretando a Evidência
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+name="/etc/passwd"
+
+Identifica
+o arquivo alterado.
+
+<br><br>
+
+comm="useradd"
+
+Mostra o processo
+responsável.
+
+<br><br>
+
+uid=0
+
+Indica privilégios
+administrativos.
+
+<br><br>
+
+auid=1000
+
+Permite identificar
+o usuário que iniciou
+a sessão.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👨‍💻 O Analista Observa
+
+</h2>
+
+<p>
+
+Perceba que
+o Auditd não apenas
+informa que um arquivo
+foi alterado.
+
+</p>
+
+<p>
+
+Ele fornece
+informações importantes
+para reconstruir
+o incidente.
+
+</p>
+
+<ul>
+
+<li>
+
+✅ Qual arquivo.
+
+</li>
+
+<li>
+
+✅ Qual processo.
+
+</li>
+
+<li>
+
+✅ Quem executou.
+
+</li>
+
+<li>
+
+✅ Com quais privilégios.
+
+</li>
+
+</ul>
+
+<p>
+
+Esses dados serão
+fundamentais para
+a correlação
+dos eventos.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Relação com DFIR
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Durante uma investigação
+forense,
+eventos isolados
+raramente são suficientes.
+
+O objetivo do analista
+é reunir diferentes
+evidências
+e reconstruir
+a sequência
+das ações realizadas
+no ambiente.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Primeira Descoberta
+
+</h2>
+
+<p>
+
+Nossa investigação
+já conseguiu confirmar
+que:
+
+</p>
+
+<ul>
+
+<li>
+
+✅ O arquivo /etc/passwd
+foi alterado.
+
+</li>
+
+<li>
+
+✅ O processo useradd
+foi executado.
+
+</li>
+
+<li>
+
+✅ A ação ocorreu
+com privilégios elevados.
+
+</li>
+
+<li>
+
+✅ Existem evidências
+úteis para investigação.
+
+</li>
+
+</ul>
+
+<p>
+
+Mas ainda existe
+uma pergunta importante.
+
+</p>
+
+<blockquote>
+
+Como identificar
+o momento em que
+o atacante chegou
+ao servidor?
+
+</blockquote>
+
+<p>
+
+Para responder
+essa pergunta,
+iremos consultar
+nosso IDS.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👁 Segunda Evidência
+
+O IDS responde
+
+</h2>
+
+<p>
+
+Nossa investigação
+confirmou que
+um novo usuário
+foi criado.
+
+</p>
+
+<p>
+
+Mas ainda precisamos
+responder uma pergunta
+fundamental.
+
+</p>
+
+<blockquote>
+
+Como o atacante
+obteve acesso
+ao servidor?
+
+</blockquote>
+
+<p>
+
+Para isso,
+iremos consultar
+nosso IDS.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 O papel do Snort
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Enquanto o Auditd
+observa atividades
+realizadas no sistema
+operacional,
+o Snort monitora
+eventos de rede.
+
+Neste laboratório,
+utilizaremos uma regra
+simples para identificar
+tentativas de conexão SSH.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖥 Consultando os alertas
+
+</h2>
+
+<p>
+
+Após a conexão SSH,
+esperamos encontrar
+um evento correspondente.
+
+</p>
+
+<div class="terminal">
+
+<pre>
+
+root@ubuntu:~#
+
+tail -f /var/log/snort/alert
+
+[**]
+
+[1:1000001:1]
+
+LAB SSH CONNECTION DETECTED
+
+[**]
+
+TCP
+
+192.168.1.20:54321
+
+->
+
+192.168.1.10:22
+
+</pre>
+
+</div>
+
+<p>
+
+Nosso IDS registrou
+a tentativa de conexão.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🔍 Interpretando a Evidência
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+192.168.1.20
+
+Representa
+o possível atacante.
+
+<br><br>
+
+192.168.1.10
+
+Servidor monitorado.
+
+<br><br>
+
+Porta 22
+
+Serviço SSH.
+
+<br><br>
+
+LAB SSH CONNECTION DETECTED
+
+Mensagem produzida
+pela regra criada
+durante o laboratório.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Correlacionando os eventos
+
+</h2>
+
+<p>
+
+Agora possuímos
+duas fontes
+de evidências.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Linha do Tempo
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+👁 Snort
+
+</h3>
+
+<p>
+
+Detecta
+SSH.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+👨‍💻 Atacante
+
+</h3>
+
+<p>
+
+Obtém
+acesso.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🖥 Auditd
+
+</h3>
+
+<p>
+
+Detecta
+useradd.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔍 Investigação
+
+</h3>
+
+<p>
+
+Reconstrói
+o incidente.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+👨‍💻 O Analista Observa
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Separadamente,
+os eventos possuem
+valor limitado.
+
+Uma conexão SSH
+não representa,
+necessariamente,
+uma ameaça.
+
+Uma alteração
+no arquivo
+/etc/passwd
+também pode ser
+uma atividade legítima.
+
+Entretanto,
+a correlação
+dessas evidências
+permite compreender
+o contexto
+do incidente.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Reconstruindo a História
+
+</h2>
+
+<p>
+
+Nossa investigação
+já conseguiu estabelecer
+uma sequência lógica
+dos acontecimentos.
+
+</p>
+
+<ul>
+
+<li>
+
+✅ Uma conexão SSH
+foi identificada.
+
+</li>
+
+<li>
+
+✅ Um usuário
+obteve acesso.
+
+</li>
+
+<li>
+
+✅ Um novo usuário
+foi criado.
+
+</li>
+
+<li>
+
+✅ O arquivo
+/etc/passwd
+foi alterado.
+
+</li>
+
+<li>
+
+✅ Existem evidências
+de rede
+e de host.
+
+</li>
+
+</ul>
+
+<p>
+
+Mas ainda resta
+uma última tarefa.
+
+</p>
+
+<blockquote>
+
+Produzir uma conclusão
+para a investigação.
+
+</blockquote>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕵 Conclusão do Investigador
+
+</h2>
+
+<p>
+
+Após analisar
+as evidências coletadas,
+foi possível reconstruir
+a sequência dos eventos
+ocorridos no ambiente.
+
+</p>
+
+<p>
+
+Inicialmente,
+uma conexão SSH
+foi estabelecida
+com o servidor.
+
+</p>
+
+<p>
+
+Posteriormente,
+um novo usuário
+foi criado,
+provocando alterações
+em arquivos críticos
+do sistema operacional.
+
+</p>
+
+<p>
+
+Os mecanismos
+de monitoramento
+implantados
+no laboratório
+foram capazes
+de registrar
+essas atividades.
+
+</p>
+
+<p>
+
+A correlação
+entre eventos
+de rede
+e de host
+permitiu reconstruir
+a cadeia
+das ações realizadas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Linha do Tempo do Incidente
+
+</strong>
+
+<br>
+
+<div class="tech-flow">
+
+<div class="flow-step">
+
+<h3>
+
+👁 IDS
+
+</h3>
+
+<p>
+
+Detecta
+SSH.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+👨‍💻 Acesso
+
+</h3>
+
+<p>
+
+Usuário
+obtém acesso.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+⚙ Persistência
+
+</h3>
+
+<p>
+
+Novo usuário.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🖥 Auditd
+
+</h3>
+
+<p>
+
+Registra
+alterações.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔍 Investigação
+
+</h3>
+
+<p>
+
+Reconstrói
+o incidente.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Relação com a Cyber Kill Chain
+
+</h2>
+
+<p>
+
+Embora simplificado,
+o laboratório permitiu
+observar algumas fases
+da Cyber Kill Chain.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔑 Initial Access
+
+</strong>
+
+Conexão SSH.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚙ Execution
+
+</strong>
+
+Execução
+de comandos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔒 Persistence
+
+</strong>
+
+Criação
+de usuário.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔍 Detection
+
+</strong>
+
+Snort
+e Auditd.
+
+</div>
+
+</div>
+
+<p>
+
+Na prática,
+essas fases
+podem ser muito
+mais complexas,
+mas o laboratório
+demonstra como
+diferentes mecanismos
+de segurança
+podem produzir
+evidências úteis.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 O que aprendemos?
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Neste laboratório
+observamos que:
+
+<br><br>
+
+✔ Um IDS pode detectar
+eventos de rede.
+
+<br>
+
+✔ O Auditd monitora
+atividades do sistema.
+
+<br>
+
+✔ Arquivos críticos
+podem ser protegidos.
+
+<br>
+
+✔ Eventos podem ser
+correlacionados.
+
+<br>
+
+✔ Evidências permitem
+reconstruir incidentes.
+
+<br>
+
+✔ Defesa em profundidade
+aumenta a visibilidade
+do ambiente.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximos Desafios
+
+</h2>
+
+<p>
+
+Este laboratório
+demonstrou uma pequena
+cadeia de ataque
+controlada.
+
+</p>
+
+<p>
+
+A partir desse conceito,
+novos cenários
+podem ser explorados.
+
+</p>
+
+<ul>
+
+<li>
+
+⬜ Tentativas
+de força bruta SSH.
+
+</li>
+
+<li>
+
+⬜ Alteração
+de grupos administrativos.
+
+</li>
+
+<li>
+
+⬜ Backdoors
+e persistência.
+
+</li>
+
+<li>
+
+⬜ Exfiltração
+de dados.
+
+</li>
+
+<li>
+
+⬜ Correlação
+com SIEM.
+
+</li>
+
+<li>
+
+⬜ Investigações DFIR
+mais avançadas.
+
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🧪 Primeiro Laboratório
+do CR Portal
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Este laboratório
+foi desenvolvido
+com fins educacionais,
+buscando demonstrar
+como conceitos
+de IDS,
+Linux,
+Cyber Kill Chain,
+Blue Team
+e DFIR
+podem trabalhar
+em conjunto.
+
+Mais do que executar
+comandos,
+o objetivo foi compreender
+como evidências
+são produzidas,
+interpretadas
+e utilizadas
+durante uma investigação.
+
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Laboratórios
+
+</p>
+
+<p>
+
+🧪 Aprender • Investigar • Evoluir
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+  
