@@ -134,11 +134,7 @@ Ferramentas
 
 </strong>
 
-Snort
-
-Auditd
-
-Syslog
+Snort | Auditd | Syslog
 
 </div>
 
@@ -328,13 +324,7 @@ Cliente SSH
 
 <p>
 
-OpenSSH
-
-Snort
-
-Auditd
-
-Syslog
+OpenSSH | Snort | Auditd | Syslog
 
 </p>
 
@@ -356,11 +346,7 @@ Syslog
 
 <p>
 
-Logs
-
-Eventos
-
-Evidências
+Logs | Eventos | Evidências
 
 </p>
 
@@ -686,6 +672,7 @@ está ativo.
 Ubuntu Server
 </div>
 <pre>
+  
 root@ubuntu:~#systemctl status rsyslog
 
 ● rsyslog.service
@@ -839,8 +826,8 @@ durante o laboratório.
 <div class="terminal-header">
 Ubuntu Server
 </div>
-
 <pre>
+  
 root@ubuntu:~#apt update
 ...
 root@ubuntu:~#apt install snort -y
@@ -880,7 +867,6 @@ está disponível.
 <div class="terminal-header">
 Ubuntu Server
 </div>
-
 <pre>
 
 root@ubuntu:~#snort -V
@@ -969,19 +955,14 @@ do serviço.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-systemctl status auditd
+root@ubuntu:~#systemctl status auditd
 
 ● auditd.service
-
 Loaded: loaded
-
 Active: active (running)
 
 </pre>
@@ -989,7 +970,7 @@ Active: active (running)
 </div>
 
 <p>
-
+<br>
 O serviço
 está ativo
 e pronto
@@ -1177,15 +1158,11 @@ ao Auditd.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-nano /etc/audit/rules.d/audit.rules
-
+root@ubuntu:~#nano /etc/audit/rules.d/audit.rules
 -w /etc/passwd -p wa -k passwd_changes
 
 </pre>
@@ -1218,18 +1195,12 @@ carregá-la.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-augenrules --load
-
-root@ubuntu:~#
-
-systemctl restart auditd
+root@ubuntu:~#augenrules --load
+root@ubuntu:~#systemctl restart auditd
 
 </pre>
 
@@ -1260,15 +1231,11 @@ foi carregada.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-auditctl -l
-
+root@ubuntu:~#auditctl -l
 -w /etc/passwd -p wa -k passwd_changes
 
 </pre>
@@ -1312,21 +1279,15 @@ conexões SSH.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-nano /etc/snort/rules/local.rules
+root@ubuntu:~#nano /etc/snort/rules/local.rules
 
 alert tcp any any -> any 22
-
 (msg:"LAB SSH CONNECTION";
-
 sid:1000001;
-
 rev:1;)
 
 </pre>
@@ -1358,14 +1319,11 @@ a configuração.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-snort -T -c /etc/snort/snort.conf
+root@ubuntu:~#snort -T -c /etc/snort/snort.conf
 
 Snort successfully validated
 the configuration.
@@ -1377,7 +1335,7 @@ Snort exiting
 </div>
 
 <p>
-
+<br>
 A validação
 indica
 que a configuração
@@ -1542,19 +1500,15 @@ do ambiente.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-snort -A console \
+root@ubuntu:~#snort -A console \
 -c /etc/snort/snort.conf \
 -i eth0
 
 Running in packet dump mode
-
 Commencing packet processing
 
 </pre>
@@ -1562,7 +1516,7 @@ Commencing packet processing
 </div>
 
 <p>
-
+<br>
 Neste momento,
 o Snort
 já está observando
@@ -1596,19 +1550,14 @@ permanece ativo.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-systemctl status auditd
+root@ubuntu:~#systemctl status auditd
 
 ● auditd.service
-
 Loaded: loaded
-
 Active: active (running)
 
 </pre>
@@ -1655,14 +1604,11 @@ de auditoria.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-tail -f /var/log/audit/audit.log
+root@ubuntu:~#tail -f /var/log/audit/audit.log
 
 </pre>
 
@@ -1867,21 +1813,14 @@ com o servidor Ubuntu.
 <div class="terminal">
 
 <div class="terminal-header">
-
-kali@kali:~$
-
+Kali linux
+</div>  
 <pre>
 
-kali@kali:~$
-
-ssh aluno@192.168.1.10
-
+kali@kali:~$ssh aluno@192.168.1.10
 aluno@192.168.1.10's password:
-
 Welcome to Ubuntu
-
 Last login:
-
 aluno@ubuntu:~$
 
 </pre>
@@ -1889,7 +1828,7 @@ aluno@ubuntu:~$
 </div>
 
 <p>
-
+<br>
 A conexão
 foi estabelecida
 com sucesso.
@@ -1922,18 +1861,19 @@ um novo usuário.
 
 <div class="terminal">
 
+<div class="terminal-header">
+Kali linux
+</div>  
 <pre>
 
-aluno@ubuntu:~$
-
-sudo useradd laboratorio
+aluno@ubuntu:~$sudo useradd laboratorio
 
 </pre>
 
 </div>
 
 <p>
-
+<br>
 Essa operação
 provocará alterações
 em arquivos
@@ -1967,19 +1907,15 @@ criado.
 
 <div class="terminal">
 
+<div class="terminal-header">
+Kali linux
+</div>  
 <pre>
 
-aluno@ubuntu:~$
-
-sudo passwd laboratorio
-
+aluno@ubuntu:~$sudo passwd laboratorio
 New password:
-
 Retype new password:
-
-passwd:
-
-password updated successfully
+passwd:password updated successfully
 
 </pre>
 
@@ -2178,23 +2114,16 @@ de auditoria.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-tail -f /var/log/audit/audit.log
-
+root@ubuntu:~#tail -f /var/log/audit/audit.log
+...
 type=SYSCALL
-
 type=PATH
-
 name="/etc/passwd"
-
 key="passwd_changes"
-
 comm="useradd"
 
 </pre>
@@ -2202,7 +2131,7 @@ comm="useradd"
 </div>
 
 <p>
-
+<br>
 O evento
 indica
 que alterações
@@ -2238,25 +2167,16 @@ registrados.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-ausearch -k passwd_changes
-
+root@ubuntu:~#ausearch -k passwd_changes
 ----
-
 time->
-
 type=SYSCALL
-
 comm="useradd"
-
 name="/etc/passwd"
-
 key="passwd_changes"
 
 </pre>
@@ -2264,7 +2184,7 @@ key="passwd_changes"
 </div>
 
 <p>
-
+<br>
 A pesquisa
 retornou
 os eventos
@@ -2302,21 +2222,15 @@ registrados.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-aureport
+root@ubuntu:~#aureport
 
 Summary Report
-
 Login Summary
-
 File Summary
-
 User Summary
 
 </pre>
@@ -2324,7 +2238,7 @@ User Summary
 </div>
 
 <p>
-
+<br>
 O relatório
 fornece
 um resumo
@@ -2522,29 +2436,19 @@ produzidos.
 <div class="terminal">
 
 <div class="terminal-header">
-
-root@ubuntu:~#
-
+Ubuntu Server
+</div>  
 <pre>
 
-root@ubuntu:~#
-
-tail -f /var/log/snort/alert
+root@ubuntu:~#tail -f /var/log/snort/alert
 
 [**]
-
 [1:1000001:1]
-
 LAB SSH CONNECTION
-
 [**]
-
 TCP
-
 192.168.1.20:52144
-
 ->
-
 192.168.1.10:22
 
 </pre>
@@ -3399,7 +3303,7 @@ Relatórios
 
 </strong>
 
-<br><br>
+<br>
 
 ✅ Monitoramento de rede.
 
