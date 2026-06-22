@@ -563,8 +563,6 @@ o FoxyProxy não conseguirá encaminhar corretamente o tráfego do navegador par
 
 </div>
      
-</div>
-
 </section>
 
 <section class="section">
@@ -636,12 +634,8 @@ para o Burp Suite.
 
 </p>
 
-<br>
-
 <!-- INSERIR IMAGEM 03 -->
-
 <div class="article-image">
-
 <img src="img/foxyproxy_configuracao.png"
      alt="Configuração do FoxyProxy para integração com Burp Suite">
 
@@ -661,8 +655,8 @@ Figura 3 - Configuração do perfil Burp Suite no FoxyProxy utilizando o endere�
 
 </strong>
 
-<br><br>
-
+<br>
+<p style="text-align: justify;">
 O Host 127.0.0.1 indica que o Burp Suite está sendo executado na própria máquina.
 
 <br><br>
@@ -672,7 +666,7 @@ A porta 8080 deve corresponder à porta configurada no Proxy Listener do Burp Su
 <br><br>
 
 Após salvar a configuração, o perfil estará disponível para encaminhar o tráfego do Firefox para o Burp.
-
+</p>
 </div>
 
 </div>
@@ -766,17 +760,42 @@ Parar requisições
 
 <!-- INSERIR IMAGEM 06 -->
 
+<div class="article-image">
+
+<img src="img/burp_intercept_on.png"
+     alt="Burp Suite com Intercept ativado">
+
+<p class="image-caption">
+
+Figura 6 - O modo Intercept está habilitado. Neste estado, as requisições enviadas pelo navegador são temporariamente interrompidas antes de serem encaminhadas ao servidor.
+
+</p>
+
+</div>
+
 <div class="tip">
 
-🖼 Imagem sugerida:
+<strong>
 
-Burp Suite
+💡 Observação
 
-Proxy
+</strong>
 
-Intercept
+<br><br>
+
+Quando o botão
+
+<strong>
 
 Intercept is ON
+
+</strong>
+
+está ativo, o Burp Suite assume o controle das requisições HTTP e HTTPS, permitindo sua inspeção e modificação antes do envio.
+
+<br><br>
+
+Esse recurso é amplamente utilizado durante análises de segurança, validação de controles de acesso e testes de aplicações web.
 
 </div>
 
