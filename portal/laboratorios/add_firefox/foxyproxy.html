@@ -214,7 +214,7 @@ com o Burp Suite.
 
 </strong>
 
-<br><br>
+<br>
 
 ✅ Burp Suite
 
@@ -451,8 +451,6 @@ Figura 1 - Instalação da extensão FoxyProxy Standard no Firefox.
 
 </div>
 
-</div>
-
 </section>
 
 <section class="section">
@@ -531,8 +529,6 @@ na porta 8080.
 
 </p>
 
-<br>
-
 <!-- INSERIR IMAGEM 02 -->
 
 <div class="article-image">
@@ -556,11 +552,11 @@ Figura 2 - O Proxy Listener é responsável por receber as requisições encamin
 
 </strong>
 
-<br><br>
-
+<br>
+<p style="text-align: justify;">
 Caso o Listener não esteja configurado ou esteja utilizando outra porta,
 o FoxyProxy não conseguirá encaminhar corretamente o tráfego do navegador para o Burp Suite.
-
+</p>
 </div>
 
 </p>
@@ -644,19 +640,38 @@ para o Burp Suite.
 
 <!-- INSERIR IMAGEM 03 -->
 
+<div class="article-image">
+
+<img src="img/foxyproxy_configuracao.png"
+     alt="Configuração do FoxyProxy para integração com Burp Suite">
+
+<p class="image-caption">
+
+Figura 3 - Configuração do perfil Burp Suite no FoxyProxy utilizando o endereço 127.0.0.1 e a porta 8080.
+
+</p>
+
+</div>
+
 <div class="tip">
 
-🖼 Imagem sugerida:
+<strong>
 
-FoxyProxy
+💡 Observação
 
-Name: Burp Suite
+</strong>
 
-Host: 127.0.0.1
+<br><br>
 
-Port: 8080
+O Host 127.0.0.1 indica que o Burp Suite está sendo executado na própria máquina.
 
-Botão Save
+<br><br>
+
+A porta 8080 deve corresponder à porta configurada no Proxy Listener do Burp Suite.
+
+<br><br>
+
+Após salvar a configuração, o perfil estará disponível para encaminhar o tráfego do Firefox para o Burp.
 
 </div>
 
