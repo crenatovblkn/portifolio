@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+FoxyProxy
+
+CR Portal
+
+</title>
+
+<link rel="stylesheet"
+href="../../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+🌐 FIREFOX PARA PENTEST
+
+</span>
+
+<h1>
+
+🦊 FoxyProxy
+
+</h1>
+
+<p>
+
+Interceptando e analisando
+tráfego web com Burp Suite.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Cybersecurity
+
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+Firefox Add-ons
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Ferramenta
+
+</strong>
+
+FoxyProxy
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Integração
+
+</strong>
+
+Burp Suite
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivo
+
+</strong>
+
+Proxy Web
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+Iniciante
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+5 minutos
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Resumo Executivo
+
+</h2>
+
+<p>
+
+O FoxyProxy é uma extensão
+para Firefox que simplifica
+o gerenciamento de proxies.
+
+</p>
+
+<p>
+
+Com apenas alguns cliques,
+é possível encaminhar
+todo o tráfego do navegador
+para ferramentas como
+Burp Suite,
+OWASP ZAP,
+Fiddler
+e Charles Proxy.
+
+</p>
+
+<p>
+
+Neste artigo,
+vamos configurar
+o FoxyProxy
+e validar sua integração
+com o Burp Suite.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🎯 Quando utilizar?
+
+</strong>
+
+<br><br>
+
+✅ Burp Suite
+
+<br><br>
+
+✅ OWASP ZAP
+
+<br><br>
+
+✅ Análise de Tráfego
+
+<br><br>
+
+✅ Pentest Web
+
+<br><br>
+
+✅ Testes de Segurança
+
+<br><br>
+
+✅ Interceptação HTTP/HTTPS
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏗 Arquitetura
+
+</h2>
+
+<p>
+
+Antes de iniciar
+a configuração,
+é importante entender
+como o FoxyProxy
+se integra ao Burp Suite.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Fluxo Simplificado
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🌐 Firefox
+
+</h3>
+
+<p>
+
+Navegação Web
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🦊 FoxyProxy
+
+</h3>
+
+<p>
+
+Gerenciamento de Proxy
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🛠 Burp Suite
+
+</h3>
+
+<p>
+
+Interceptação
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🌍 Aplicação Web
+
+</h3>
+
+<p>
+
+Destino
+
+</p>
+
+</div>
+
+</div>
+
+<p>
+
+O FoxyProxy
+não intercepta tráfego.
+
+</p>
+
+<p>
+
+Sua função
+é encaminhar
+as requisições
+do navegador
+para ferramentas
+especializadas,
+como o Burp Suite.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Instalação
+
+</h2>
+
+<p>
+
+O processo de instalação
+é extremamente simples.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+1️⃣ Acessar
+
+</strong>
+
+addons.mozilla.org
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+2️⃣ Pesquisar
+
+</strong>
+
+FoxyProxy Standard
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+3️⃣ Instalar
+
+</strong>
+
+Adicionar ao Firefox
+
+</div>
+
+</div>
+
+<br>
+
+<!-- INSERIR IMAGEM 01 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Firefox Add-ons
+
+Pesquisa por FoxyProxy Standard
+
+Botão "Adicionar ao Firefox"
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔧 Configuração do Burp Suite
+
+</h2>
+
+<p>
+
+Antes de configurar
+o FoxyProxy,
+precisamos verificar
+o Listener do Burp Suite.
+
+</p>
+
+<p>
+
+No Burp Suite,
+acesse:
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Proxy
+
+</strong>
+
+Menu Principal
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Options
+
+</strong>
+
+Configuração
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Proxy Listener
+
+</strong>
+
+127.0.0.1:8080
+
+</div>
+
+</div>
+
+<p>
+
+Por padrão,
+o Burp Suite
+utiliza o endereço
+127.0.0.1
+na porta 8080.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 02 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Tela do Burp Suite
+
+Proxy Listener
+
+127.0.0.1:8080
+
+Status Running
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🦊 Configurando o FoxyProxy
+
+</h2>
+
+<p>
+
+Agora vamos criar
+um perfil de proxy
+para integração
+com o Burp Suite.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Nome
+
+</strong>
+
+Burp Suite
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Host
+
+</strong>
+
+127.0.0.1
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Porta
+
+</strong>
+
+8080
+
+</div>
+
+</div>
+
+<p>
+
+Após salvar,
+o FoxyProxy estará pronto
+para encaminhar
+as requisições
+para o Burp Suite.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 03 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+FoxyProxy
+
+Name: Burp Suite
+
+Host: 127.0.0.1
+
+Port: 8080
+
+Botão Save
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚦 Interceptando Requisições
+
+</h2>
+
+<p>
+
+Até este momento,
+utilizamos o Burp Suite
+apenas para visualizar
+o tráfego gerado
+pelo navegador.
+
+</p>
+
+<p>
+
+Agora iremos utilizar
+uma das funcionalidades
+mais conhecidas
+da ferramenta:
+a interceptação
+de requisições.
+
+</p>
+
+<p>
+
+Com esse recurso,
+é possível analisar
+e modificar informações
+antes que elas sejam
+enviadas ao servidor.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Proxy
+
+</strong>
+
+Intercept
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Status
+
+</strong>
+
+Intercept is ON
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Função
+
+</strong>
+
+Parar requisições
+
+</div>
+
+</div>
+
+<br>
+
+<!-- INSERIR IMAGEM 06 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Burp Suite
+
+Proxy
+
+Intercept
+
+Intercept is ON
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📝 Primeira Requisição Interceptada
+
+</h2>
+
+<p>
+
+Após ativar
+o modo Intercept,
+acesse novamente
+o site de testes.
+
+</p>
+
+<p>
+
+A requisição
+não seguirá imediatamente
+para o servidor.
+
+</p>
+
+<p>
+
+Ela ficará temporariamente
+retida no Burp Suite.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Burp Suite - Intercept
+
+</div>
+
+<pre>
+
+GET / HTTP/1.1
+
+Host: neverssl.com
+
+User-Agent: Mozilla/5.0
+
+</pre>
+
+</div>
+
+<p>
+
+Nesse momento,
+temos controle total
+sobre a requisição.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 07 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Janela Intercept
+
+GET /
+
+Host: neverssl.com
+
+User-Agent: Mozilla/5.0
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✏ Modificando o User-Agent
+
+</h2>
+
+<p>
+
+Uma das alterações
+mais simples
+é modificar
+o cabeçalho
+User-Agent.
+
+</p>
+
+<p>
+
+Originalmente
+a requisição contém:
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Original
+
+</div>
+
+<pre>
+
+User-Agent: Mozilla/5.0
+
+</pre>
+
+</div>
+
+<p>
+
+Altere para:
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Modificado
+
+</div>
+
+<pre>
+
+User-Agent: PentestLab
+
+</pre>
+
+</div>
+
+<p>
+
+Essa alteração
+permite verificar
+como aplicações
+tratam diferentes clientes
+ou dispositivos.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 08 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Destaque visual
+
+Mozilla/5.0
+
+↓
+
+PentestLab
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+➡ Encaminhando a Requisição
+
+</h2>
+
+<p>
+
+Após concluir
+as alterações desejadas,
+clique em:
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Forward
+
+</strong>
+
+Encaminhar
+
+</div>
+
+</div>
+
+<p>
+
+O Burp Suite enviará
+a versão modificada
+da requisição
+para a aplicação.
+
+</p>
+
+<p>
+
+A partir desse momento,
+o servidor responderá
+com base nos dados
+alterados.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 09 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Botão Forward
+
+Destacado
+
+Requisição seguindo
+para o servidor
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Por que isso é importante?
+
+</strong>
+
+<br><br>
+
+A capacidade
+de modificar requisições
+permite validar
+controles de segurança,
+regras de autorização
+e mecanismos
+de validação
+implementados
+pela aplicação.
+
+<br><br>
+
+Essa é uma das atividades
+mais comuns
+durante testes
+de segurança web.
+
+</div>
+
+</section>
+
+  
+
+<div class="card">
+
+<h2>
+
+🧪 Primeiro Teste
+
+</h2>
+
+<p>
+
+Com o FoxyProxy configurado
+e o Burp Suite em execução,
+podemos realizar
+nosso primeiro teste.
+
+</p>
+
+<p>
+
+O objetivo é validar
+se o tráfego do Firefox
+está sendo encaminhado
+corretamente para o Burp.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Firefox
+
+</strong>
+
+Navegador
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+FoxyProxy
+
+</strong>
+
+Ativado
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Burp Suite
+
+</strong>
+
+Listener Ativo
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌍 Acessando neverssl.com
+
+</h2>
+
+<p>
+
+Para validar a configuração,
+acesse o endereço:
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+URL de Teste
+
+</div>
+
+<pre>
+
+http://neverssl.com
+
+</pre>
+
+</div>
+
+<p>
+
+O site neverssl.com
+é frequentemente utilizado
+em testes iniciais
+porque utiliza HTTP simples,
+eliminando questões
+relacionadas a certificados.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 04 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Firefox acessando
+
+http://neverssl.com
+
+FoxyProxy habilitado
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📜 HTTP History
+
+</h2>
+
+<p>
+
+Após acessar o site,
+abra o Burp Suite
+e navegue até:
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Proxy
+
+</strong>
+
+Módulo Principal
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+HTTP History
+
+</strong>
+
+Histórico de Requisições
+
+</div>
+
+</div>
+
+<p>
+
+Uma nova entrada
+deverá aparecer
+na lista de eventos.
+
+</p>
+
+<p>
+
+Isso confirma que
+o FoxyProxy encaminhou
+o tráfego do navegador
+para o Burp Suite.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 05 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Burp Suite
+
+HTTP History
+
+GET /
+
+Host: neverssl.com
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚦 Validando o Redirecionamento
+
+</h2>
+
+<p>
+
+Quando a requisição aparece
+no HTTP History,
+podemos concluir que:
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✅ Firefox
+
+</strong>
+
+Gerou a requisição
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ FoxyProxy
+
+</strong>
+
+Encaminhou o tráfego
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Burp Suite
+
+</strong>
+
+Capturou o evento
+
+</div>
+
+</div>
+
+<p>
+
+Essa validação
+é importante,
+pois servirá de base
+para as próximas etapas
+de interceptação
+e manipulação
+de requisições.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Observação
+
+</strong>
+
+<br><br>
+
+Se nenhuma requisição
+aparecer no HTTP History,
+verifique:
+
+<br><br>
+
+• FoxyProxy ativado
+
+<br><br>
+
+• Host configurado corretamente
+
+<br><br>
+
+• Porta 8080 configurada
+
+<br><br>
+
+• Burp Suite em execução
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 Testando Controle de Acesso
+
+</h2>
+
+<p>
+
+Um dos usos mais comuns
+do Burp Suite
+é a validação
+de mecanismos
+de autorização.
+
+</p>
+
+<p>
+
+Em muitas aplicações,
+informações relacionadas
+ao perfil do usuário
+são transmitidas
+por meio de cookies
+ou parâmetros
+presentes na requisição.
+
+</p>
+
+<p>
+
+Ao interceptar
+essas informações,
+podemos verificar
+como a aplicação
+reage a alterações
+realizadas pelo cliente.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🍪 Manipulando Cookies
+
+</h2>
+
+<p>
+
+Imagine um cenário
+em que um usuário comum
+acessa sua área pessoal.
+
+</p>
+
+<p>
+
+A requisição original
+pode conter:
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Requisição Original
+
+</div>
+
+<pre>
+
+GET /profile HTTP/1.1
+
+Cookie: role=user
+
+</pre>
+
+</div>
+
+<p>
+
+Agora alteramos
+o valor do cookie
+antes de encaminhar
+a requisição.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Requisição Modificada
+
+</div>
+
+<pre>
+
+GET /profile HTTP/1.1
+
+Cookie: role=admin
+
+</pre>
+
+</div>
+
+<br>
+
+<!-- INSERIR IMAGEM 10 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+role=user
+
+↓
+
+role=admin
+
+com destaque visual
+na alteração
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏴 Broken Access Control
+
+</h2>
+
+<p>
+
+Após encaminhar
+a requisição modificada,
+devemos observar
+o comportamento
+da aplicação.
+
+</p>
+
+<p>
+
+Se o sistema permitir
+o acesso
+a funcionalidades
+administrativas
+apenas porque
+o valor do cookie
+foi alterado,
+isso pode indicar
+uma vulnerabilidade.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+OWASP Top 10
+
+</strong>
+
+A01
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+Broken Access Control
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Impacto
+
+</strong>
+
+Escalada de privilégios
+
+</div>
+
+</div>
+
+<p>
+
+Esse tipo de falha
+continua figurando
+entre os riscos
+mais críticos
+em aplicações web.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Testando Cabeçalhos HTTP
+
+</h2>
+
+<p>
+
+Além dos cookies,
+também podemos
+modificar cabeçalhos
+HTTP enviados
+pela aplicação.
+
+</p>
+
+<p>
+
+Alguns sistemas vulneráveis
+utilizam cabeçalhos
+fornecidos pelo cliente
+para tomar decisões
+de autorização.
+
+</p>
+
+<p>
+
+Exemplos:
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Cabeçalhos Personalizados
+
+</div>
+
+<pre>
+
+X-Forwarded-For: 127.0.0.1
+
+X-Admin: true
+
+</pre>
+
+</div>
+
+<p>
+
+A presença desses valores
+não significa,
+por si só,
+que existe uma vulnerabilidade.
+
+</p>
+
+<p>
+
+Entretanto,
+eles podem auxiliar
+na identificação
+de falhas
+de implementação.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 11 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Janela do Burp
+
+Destacando:
+
+X-Forwarded-For
+
+X-Admin
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔍 Inspecionando Sessões
+
+</h2>
+
+<p>
+
+Outra atividade importante
+durante uma análise
+de segurança web
+é a avaliação
+dos cookies de sessão.
+
+</p>
+
+<p>
+
+Exemplo:
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+Cookie de Sessão
+
+</div>
+
+<pre>
+
+Cookie: sessionid=abc123
+
+</pre>
+
+</div>
+
+<p>
+
+Durante a análise,
+devemos verificar
+se mecanismos adicionais
+de proteção
+estão presentes.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔒 Secure
+
+</strong>
+
+Somente HTTPS
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🚫 HttpOnly
+
+</strong>
+
+Proteção contra JavaScript
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 SameSite
+
+</strong>
+
+Mitigação de CSRF
+
+</div>
+
+</div>
+
+<p>
+
+A ausência
+desses controles
+pode aumentar
+a exposição
+da aplicação
+a diferentes ataques.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 12 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Cookie Inspector
+
+sessionid=abc123
+
+✔ Secure
+
+✔ HttpOnly
+
+✔ SameSite
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Observação do Analista
+
+</strong>
+
+<br><br>
+
+O objetivo desses testes
+não é explorar sistemas,
+mas validar se os controles
+de segurança implementados
+pela aplicação
+funcionam corretamente.
+
+<br><br>
+
+Toda atividade deve ser realizada
+apenas em ambientes autorizados
+e destinados a testes.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚠ Problema Comum: HTTPS
+
+</h2>
+
+<p>
+
+Após configurar
+o FoxyProxy
+e o Burp Suite,
+é comum encontrar
+erros relacionados
+a certificados digitais.
+
+</p>
+
+<p>
+
+Ao acessar aplicações HTTPS,
+o navegador poderá exibir
+mensagens de aviso
+ou bloqueio da conexão.
+
+</p>
+
+<p>
+
+Isso ocorre porque
+o Burp Suite
+está realizando
+a interceptação TLS
+entre o navegador
+e a aplicação.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+TLS Interception
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🌐 Firefox
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+↔
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🛠 Burp Suite
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+↔
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🌍 Aplicação Web
+
+</h3>
+
+</div>
+
+</div>
+
+<p>
+
+Como o navegador
+não confia
+automaticamente
+no certificado gerado
+pelo Burp Suite,
+o alerta é exibido.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔒 Instalando o Certificado do Burp
+
+</h2>
+
+<p>
+
+Para permitir
+a inspeção segura
+de conexões HTTPS,
+é necessário instalar
+o certificado da Autoridade
+Certificadora (CA)
+do Burp Suite.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+1️⃣ Acessar
+
+</strong>
+
+http://burpsuite
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+2️⃣ Baixar
+
+</strong>
+
+CA Certificate
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+3️⃣ Importar
+
+</strong>
+
+Firefox
+
+</div>
+
+</div>
+
+<p>
+
+Após a importação,
+o navegador passará
+a confiar
+nas conexões interceptadas
+pelo Burp Suite.
+
+</p>
+
+<br>
+
+<!-- INSERIR IMAGEM 13 -->
+
+<div class="tip">
+
+🖼 Imagem sugerida:
+
+Página
+
+http://burpsuite
+
+Botão
+
+CA Certificate
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 Resumo
+
+</h2>
+
+<p>
+
+Neste artigo,
+aprendemos a utilizar
+o FoxyProxy
+para integrar
+o Firefox
+ao Burp Suite.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✅ Instalação
+
+</strong>
+
+FoxyProxy Standard
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Configuração
+
+</strong>
+
+127.0.0.1:8080
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Interceptação
+
+</strong>
+
+HTTP e HTTPS
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Manipulação
+
+</strong>
+
+Cabeçalhos e Cookies
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Testes
+
+</strong>
+
+Controle de Acesso
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✅ Validação
+
+</strong>
+
+Segurança Web
+
+</div>
+
+</div>
+
+<p>
+
+O FoxyProxy
+é uma ferramenta simples,
+mas extremamente útil
+para qualquer profissional
+que trabalhe
+com análise
+e testes
+de aplicações web.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Artigo
+
+</h2>
+
+<p>
+
+Agora que o navegador
+já está integrado
+ao Burp Suite,
+podemos avançar
+para recursos
+mais avançados
+de organização
+e identificação visual
+de sessões.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Próximo Passo
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🦊 FoxyProxy
+
+</h3>
+
+<p>
+
+Proxy e Interceptação
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🦊⚡ PwnFox
+
+</h3>
+
+<p>
+
+Perfis e Containers
+
+</p>
+
+</div>
+
+</div>
+
+<p>
+
+O PwnFox facilita
+a identificação visual
+de múltiplas sessões
+durante testes
+de segurança,
+sendo especialmente útil
+em cenários
+de controle de acesso
+e gestão de usuários.
+
+</p>
+
+<a href="pwnfox.html"
+class="content-button">
+
+➡ Próximo Artigo
+
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Firefox para Pentest
+
+</p>
+
+<p>
+
+🦊 FoxyProxy • Burp Suite • Segurança Web
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
+
+  
+  
+
+
+  
