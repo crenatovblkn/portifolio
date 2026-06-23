@@ -647,7 +647,7 @@ Figura 3 - Configuração do perfil Burp Suite no FoxyProxy utilizando o endere�
 
 </div>
 
-<div class="tip">
+<div class="alert">
 
 <strong>
 
@@ -769,7 +769,7 @@ Figura 4 - O modo Intercept está habilitado. Neste estado, as requisições env
 
 </div>
 
-<div class="tip">
+<div class="alert">
 
 <strong>
 
@@ -782,8 +782,8 @@ Figura 4 - O modo Intercept está habilitado. Neste estado, as requisições env
 Quando o botão
 
 <strong>
-
-Intercept is ON
+<br>
+"Intercept is ON"
 
 </strong>
 <p style="text-align: justify;">
@@ -874,7 +874,7 @@ Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada a
 
 </div>
 
-<div class="tip">
+<div class="alert">
 
 <strong>
 
@@ -884,19 +884,19 @@ Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada a
 
 <br>
 <p style="text-align: justify;">
-<strong>GET /</strong>
+<strong>"GET /"</strong>
 
 indica uma requisição para a página principal do site.
 
 <br><br>
 
-<strong>Host: neverssl.com</strong>
+<strong>"Host: neverssl.com"</strong>
 
 identifica o servidor de destino.
 
 <br><br>
 
-<strong>User-Agent: Mozilla/5.0</strong>
+<strong>"User-Agent: Mozilla/5.0"</strong>
 
 informa ao servidor qual navegador está realizando a requisição.
 
@@ -998,7 +998,7 @@ Figura 6 - Alteração do cabeçalho User-Agent utilizando o recurso de intercep
 
 </div>
 
-<div class="tip">
+<div class="alert">
 
 <strong>
 
@@ -1012,7 +1012,7 @@ Valor original:
 
 <strong>
 
-Mozilla/5.0
+"Mozilla/5.0"
 
 </strong>
 
@@ -1022,7 +1022,7 @@ Valor alterado:
 
 <strong>
 
-PentestLab
+"PentestLab"
 
 </strong>
 
@@ -1105,7 +1105,7 @@ Figura 7 - Após concluir a análise ou modificação da requisição, o botão 
 
 </div>
 
-<div class="tip">
+<div class="alert">
 
 <strong>
 
@@ -1300,19 +1300,30 @@ Figura 8 - Firefox acessando http://neverssl.com com o FoxyProxy habilitado e o 
 <p style="text-align: justify;">
 </strong>
 
+<br>
+
+O endereço
+<strong> 
+"http://neverssl.com"
+</strong> 
+deve ser carregado normalmente.
+
+<br>
+
+O FoxyProxy deve exibir o perfil
+<strong>
+"Burp Suite"
+</strong> 
+como ativo.
+
 <br><br>
 
-O endereço<strong> http://neverssl.com</strong> deve ser carregado normalmente.
+Todo o tráfego gerado pelo navegador será encaminhado para o Proxy Listener configurado em
+<strong>
+"127.0.0.1:8080"
+</strong>.
 
-<br><br>
-
-O FoxyProxy deve exibir o perfil<strong> Burp Suite</strong> como ativo.
-
-<br><br>
-
-Todo o tráfego gerado pelo navegador será encaminhado para o Proxy Listener configurado em<strong> 127.0.0.1:8080</strong>.
-
-<br><br>
+<br>
 
 Essa validação confirma que a integração entre Firefox, FoxyProxy e Burp Suite está funcionando corretamente.
 </p>
