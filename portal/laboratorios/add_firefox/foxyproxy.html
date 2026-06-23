@@ -548,7 +548,7 @@ Figura 2 - O Proxy Listener é responsável por receber as requisições encamin
 
 <strong>
 
-⚠ Observação
+📝 Observação
 
 </strong>
 
@@ -651,7 +651,7 @@ Figura 3 - Configuração do perfil Burp Suite no FoxyProxy utilizando o endere�
 
 <strong>
 
-⚠ Observação
+📝 Observação
 
 </strong>
 
@@ -773,7 +773,7 @@ Figura 4 - O modo Intercept está habilitado. Neste estado, as requisições env
 
 <strong>
 
-⚠ Observação
+📝 Observação
 
 </strong>
 
@@ -876,7 +876,7 @@ Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada a
 
 <strong>
 
-⚠ O que estamos observando?
+📝 O que estamos observando?
 
 </strong>
 
@@ -1000,7 +1000,7 @@ Figura 6 - Alteração do cabeçalho User-Agent utilizando o recurso de intercep
 
 <strong>
 
-⚠ O que mudou?
+📝 O que mudou?
 
 </strong>
 
@@ -1107,7 +1107,7 @@ Figura 7 - Após concluir a análise ou modificação da requisição, o botão 
 
 <strong>
 
-⚠ O que acontece ao clicar em Forward?
+📝 O que acontece ao clicar em Forward?
 <p style="text-align: justify;">
 </strong>
 
@@ -1294,7 +1294,7 @@ Figura 8 - Firefox acessando http://neverssl.com com o FoxyProxy habilitado e o 
 
 <strong>
 
-⚠ O que validar nesta etapa?
+📝 O que validar nesta etapa?
 <p style="text-align: justify;">
 </strong>
 
@@ -1393,22 +1393,63 @@ o tráfego do navegador
 para o Burp Suite.
 
 </p>
+     
+<!-- INSERIR IMAGEM 09 -->
+<div class="article-image">
+<img src="img/burp_http_history.png"
+     alt="HTTP History do Burp Suite exibindo a requisição para neverssl.com">
 
-<br>
+<p class="image-caption">
 
-<!-- INSERIR IMAGEM 05 -->
+Figura 9 - A requisição GET para o site neverssl.com foi capturada com sucesso pelo Burp Suite e registrada no módulo HTTP History.
 
-<div class="tip">
+</p>
 
-🖼 Imagem sugerida:
+</div>
 
-Burp Suite
+<div class="tip-orange">
 
-HTTP History
+<strong>
 
-GET /
+📝 Nota
 
-Host: neverssl.com
+</strong>
+
+<br><br>
+
+O módulo
+
+<strong>
+
+"HTTP History"
+
+</strong>
+
+armazena todas as requisições e respostas processadas pelo proxy.
+
+<br><br>
+
+Cada entrada registrada pode ser analisada individualmente, permitindo a inspeção de cabeçalhos HTTP, parâmetros, cookies e conteúdo retornado pela aplicação.
+
+<br><br>
+
+A presença da requisição
+
+<strong>
+
+"GET /"
+
+</strong>
+
+com o host
+
+<strong>
+
+"neverssl.com"
+
+</strong>
+
+confirma que o FoxyProxy está encaminhando corretamente o tráfego do Firefox para o Burp Suite.
 
 </div>
 
