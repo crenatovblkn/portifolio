@@ -861,22 +861,49 @@ sobre a requisição.
 
 </p>
 
-<br>
-
 <!-- INSERIR IMAGEM 07 -->
+<div class="article-image">
+<img src="img/burp_intercept_request.png"
+     alt="Primeira requisição interceptada pelo Burp Suite">
+
+<p class="image-caption">
+
+Figura 7 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada ao servidor. Observe os campos Host e User-Agent disponíveis para análise e modificação.
+
+</p>
+
+</div>
 
 <div class="tip">
 
-🖼 Imagem sugerida:
+<strong>
 
-Janela Intercept
+💡 O que estamos observando?
 
-GET /
+</strong>
 
-Host: neverssl.com
+<br>
+<p style="text-align: justify;">
+<strong>GET /</strong>
 
-User-Agent: Mozilla/5.0
+indica uma requisição para a página principal do site.
 
+<br><br>
+
+<strong>Host: neverssl.com</strong>
+
+identifica o servidor de destino.
+
+<br><br>
+
+<strong>User-Agent: Mozilla/5.0</strong>
+
+informa ao servidor qual navegador está realizando a requisição.
+
+<br><br>
+
+Todos esses campos podem ser analisados ou alterados antes do envio utilizando o recurso de interceptação do Burp Suite.
+</p>
 </div>
 
 </div>
