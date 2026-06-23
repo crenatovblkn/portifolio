@@ -876,7 +876,7 @@ Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada a
      
 <br>
 O que estamos observando?
-<br>     
+<br><br>     
 <p style="text-align: justify;">
 <b>"GET /"</b> indica uma requisição para a página principal do site.
 
@@ -994,10 +994,8 @@ Figura 6 - Alteração do cabeçalho User-Agent utilizando o recurso de intercep
 <p style="text-align: justify;">
 </strong>
 <br>
-     
 O que mudou?
-     
-<br>
+<br><br>
 
 Valor original: <b>Mozilla/5.0</b>
 
@@ -1005,7 +1003,7 @@ Valor original: <b>Mozilla/5.0</b>
 
 Valor alterado:<b>PentestLab</b>
 
-<br><br>
+<br>
 <p style="text-align: justify;">
 Essa modificação demonstra como o Burp Suite permite editar requisições HTTP em tempo real antes que elas sejam processadas pela aplicação.
 
@@ -1096,7 +1094,7 @@ Figura 7 - Após concluir a análise ou modificação da requisição, o botão 
      
 O que acontece ao clicar em Forward?
      
-<br>
+<br><br>
 
 A requisição deixa o estado de interceptação e segue normalmente para o servidor.
 
@@ -1283,10 +1281,10 @@ Figura 8 - Firefox acessando http://neverssl.com com o FoxyProxy habilitado e o 
 <p style="text-align: justify;">
 </strong>
 <br>
-     
+
 O que validar nesta etapa?  
      
-<br>
+<br><br>
 
 O endereço<b> http://neverssl.com</b> deve ser carregado normalmente.
 
@@ -1491,10 +1489,10 @@ de requisições.
 <strong>
 
 💡 Observação
-
+<p style="text-align: justify;">
 </strong>
 
-<br><br>
+<br>
 
 Se nenhuma requisição
 aparecer no HTTP History,
@@ -1515,7 +1513,7 @@ verifique:
 <br><br>
 
 • Burp Suite em execução
-
+</p>
 </div>
 
 </section>
@@ -2158,7 +2156,7 @@ TLS Interception
 </div>
 
 <p>
-
+<br>
 Como o navegador
 não confia
 automaticamente
@@ -2248,18 +2246,39 @@ pelo Burp Suite.
 
 <!-- INSERIR IMAGEM 13 -->
 
-<div class="tip">
+<div class="article-image">
 
-🖼 Imagem sugerida:
+<img src="img/burp_ca_certificate.png"
+     alt="Página local do Burp Suite para download do certificado CA">
 
-Página
+<p class="image-caption">
 
-http://burpsuite
+Figura 13 - Página local do Burp Suite utilizada para download do certificado da Autoridade Certificadora (CA).
 
-Botão
+</p>
 
-CA Certificate
+</div>
 
+<div class="tip-orange">
+
+<strong>
+
+📝 Nota
+
+</strong>
+<p style="text-align: justify;">
+<br>
+
+Quando o Burp Suite intercepta conexões HTTPS, ele atua como intermediário entre o navegador e a aplicação.
+
+<br><br>
+
+Para que o Firefox confie nos certificados gerados dinamicamente pelo Burp Suite, é necessário importar o certificado da Autoridade Certificadora (CA) disponibilizado na página: <b>http://burpsuite</b>
+
+<br><br>
+
+Após a importação, o navegador passará a confiar nas conexões interceptadas, permitindo a inspeção de tráfego HTTPS sem exibir alertas de certificado.
+</p>
 </div>
 
 </div>
@@ -2453,7 +2472,7 @@ Perfis e Containers
 </div>
 
 <p>
-
+<br>
 O PwnFox facilita
 a identificação visual
 de múltiplas sessões
@@ -2466,7 +2485,7 @@ e gestão de usuários.
 
 </p>
 
-<a href="pwnfox.html"
+<a
 class="content-button">
 
 ➡ Próximo Artigo
