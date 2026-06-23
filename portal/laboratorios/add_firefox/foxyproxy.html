@@ -781,7 +781,7 @@ Figura 4 - O modo Intercept está habilitado. Neste estado, as requisições env
 
 Quando o botão <b>Intercept is ON</b> está ativo, o Burp Suite assume o controle das requisições HTTP e HTTPS, permitindo sua inspeção e modificação antes do envio.
 
-<br>
+<br><br>
 
 Esse recurso é amplamente utilizado durante análises de segurança, validação de controles de acesso e testes de aplicações web.
 </p>
@@ -878,15 +878,15 @@ Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada a
 <p style="text-align: justify;">
 <b>"GET /"</b> indica uma requisição para a página principal do site.
 
-<br>
+<br><br>
 
 <b>"Host: neverssl.com"</b> identifica o servidor de destino.
 
-<br>
+<br><br>
 
 <b>"User-Agent: Mozilla/5.0"</b> informa ao servidor qual navegador está realizando a requisição.
 
-<br>
+<br><br>
 
 Todos esses campos podem ser analisados ou alterados antes do envio utilizando o recurso de interceptação do Burp Suite.
 </p>
@@ -989,7 +989,7 @@ Figura 6 - Alteração do cabeçalho User-Agent utilizando o recurso de intercep
 <strong>
 
 📝 O que mudou?
-
+<p style="text-align: justify;">
 </strong>
 
 <br>
@@ -1000,7 +1000,7 @@ Valor original: <b>Mozilla/5.0</b>
 
 Valor alterado:<b>PentestLab</b>
 
-<br>
+<br><br>
 <p style="text-align: justify;">
 Essa modificação demonstra como o Burp Suite permite editar requisições HTTP em tempo real antes que elas sejam processadas pela aplicação.
 
@@ -1008,6 +1008,7 @@ Essa modificação demonstra como o Burp Suite permite editar requisições HTTP
 
 Em cenários de Pentest, alterações semelhantes são utilizadas para validar controles de acesso, regras de negócio e mecanismos de autenticação.
 </p>
+</p>     
 </div>
 
 </div>
@@ -1276,17 +1277,17 @@ Figura 8 - Firefox acessando http://neverssl.com com o FoxyProxy habilitado e o 
 
 <br>
 
-O endereço<b>http://neverssl.com</b> deve ser carregado normalmente.
+O endereço<b> http://neverssl.com</b> deve ser carregado normalmente.
 
-<br>
+<br><br>
 
-O FoxyProxy deve exibir o perfil<b>Burp Suite</b> como ativo.
+O FoxyProxy deve exibir o perfil <b>Burp Suite</b> como ativo.
 
-<br>
+<br><br>
 
-Todo o tráfego gerado pelo navegador será encaminhado para o Proxy Listener configurado em<b>127.0.0.1:8080</b>.
+Todo o tráfego gerado pelo navegador será encaminhado para o Proxy Listener configurado em <b>127.0.0.1:8080</b>.
 
-<br>
+<br><br>
 
 Essa validação confirma que a integração entre Firefox, FoxyProxy e Burp Suite está funcionando corretamente.
 </p>
@@ -1377,21 +1378,21 @@ Figura 9 - A requisição GET para o site neverssl.com foi capturada com sucesso
 <strong>
 
 📝 Nota
-
+<p style="text-align: justify;">
 </strong>
 
 <br><br>
 
-O módulo<b>HTTP History</b> armazena todas as requisições e respostas processadas pelo proxy.
+O módulo <b>HTTP History</b> armazena todas as requisições e respostas processadas pelo proxy.
 
-<br>
+<br><br>
 
 Cada entrada registrada pode ser analisada individualmente, permitindo a inspeção de cabeçalhos HTTP, parâmetros, cookies e conteúdo retornado pela aplicação.
 
 <br><br>
 
-A presença da requisição<b>GET /"</b> com o host<b>neverssl.com</b> confirma que o FoxyProxy está encaminhando corretamente o tráfego do Firefox para o Burp Suite.
-
+A presença da requisição <b>GET /"</b> com o host <b>neverssl.com</b> confirma que o FoxyProxy está encaminhando corretamente o tráfego do Firefox para o Burp Suite.
+</p>
 </div>
 
 </div>
@@ -1639,26 +1640,26 @@ Figura 10 - Modificação do parâmetro role durante a interceptação da requis
 
 </div>
 
-<div class="tip-orange">
+<div class="alert">
 
 <strong>
 
 📝 Nota
-
+<p style="text-align: justify;">
 </strong>
 
-<br>
+<br><br>
 
 A alteração de parâmetros durante a interceptação permite avaliar se a aplicação valida corretamente os privilégios do usuário no lado do servidor.
 
-<br>
+<br><br>
 
-Em aplicações seguras, a simples modificação de um parâmetro como<b>role=admin</b> não deve conceder privilégios adicionais.
+Em aplicações seguras, a simples modificação de um parâmetro como <b>role=admin</b> não deve conceder privilégios adicionais.
 
-<br>
+<br><br>
 
-Esse tipo de validação é frequentemente utilizado durante testes relacionados ao OWASP Top 10, especialmente na categoria<b>Broken Access Control (A01)</b>.
-
+Esse tipo de validação é frequentemente utilizado durante testes relacionados ao OWASP Top 10, especialmente na categoria <b>Broken Access Control (A01)</b>.
+</p>
 </div>
 
 </div>
