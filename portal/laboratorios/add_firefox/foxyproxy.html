@@ -871,10 +871,12 @@ Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada a
 <strong>
 
 📝 Nota
+
+</strong>
+     
 <br>
 O que estamos observando?
-</strong>
-<br>
+<br>     
 <p style="text-align: justify;">
 <b>"GET /"</b> indica uma requisição para a página principal do site.
 
@@ -988,10 +990,13 @@ Figura 6 - Alteração do cabeçalho User-Agent utilizando o recurso de intercep
 
 <strong>
 
-📝 O que mudou?
+📝 Nota
 <p style="text-align: justify;">
 </strong>
-
+<br>
+     
+O que mudou?
+     
 <br>
 
 Valor original: <b>Mozilla/5.0</b>
@@ -1084,10 +1089,13 @@ Figura 7 - Após concluir a análise ou modificação da requisição, o botão 
 
 <strong>
 
-📝 O que acontece ao clicar em Forward?
+📝 Nota
 <p style="text-align: justify;">
 </strong>
-
+<br>
+     
+O que acontece ao clicar em Forward?
+     
 <br>
 
 A requisição deixa o estado de interceptação e segue normalmente para o servidor.
@@ -1271,10 +1279,13 @@ Figura 8 - Firefox acessando http://neverssl.com com o FoxyProxy habilitado e o 
 
 <strong>
 
-📝 O que validar nesta etapa?
+📝 Nota
 <p style="text-align: justify;">
 </strong>
-
+<br>
+     
+O que validar nesta etapa?  
+     
 <br>
 
 O endereço<b> http://neverssl.com</b> deve ser carregado normalmente.
@@ -1978,20 +1989,46 @@ a diferentes ataques.
 
 <!-- INSERIR IMAGEM 12 -->
 
-<div class="tip">
+<div class="article-image">
+<img src="img/burp_cookie_inspector.png"
+     alt="Cookie Inspector exibindo os atributos de segurança do cookie">
 
-🖼 Imagem sugerida:
+<p class="image-caption">
 
-Cookie Inspector
+Figura 12 - Inspeção de um cookie de sessão utilizando o Cookie Inspector. Observe a presença dos atributos Secure, HttpOnly e SameSite.
 
-sessionid=abc123
+</p>
 
-✔ Secure
+</div>
 
-✔ HttpOnly
+<div class="alert">
 
-✔ SameSite
+<strong>
 
+📝 Nota
+<p style="text-align: justify;">
+</strong>
+
+<br>
+
+Os atributos de segurança dos cookies ajudam a proteger sessões autenticadas contra diferentes tipos de ataques.
+
+<br><br>
+
+✔ Secure - garante que o cookie seja transmitido apenas por conexões HTTPS.
+
+<br><br>
+
+✔ HttpOnly - impede o acesso ao cookie por scripts executados no navegador.
+
+<br><br>
+
+✔ SameSite - reduz o risco de ataques de Cross-Site Request Forgery (CSRF).
+
+<br><br>
+
+Durante uma avaliação de segurança, a verificação desses atributos é uma etapa importante da análise de gerenciamento de sessões.
+</p>
 </div>
 
 </div>
