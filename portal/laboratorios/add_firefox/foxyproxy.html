@@ -756,14 +756,14 @@ Parar requisições
 
 </div>
 
-<!-- INSERIR IMAGEM 06 -->
+<!-- INSERIR IMAGEM 04 -->
 <div class="article-image">
 <img src="img/burp_intercept_on.png"
      alt="Burp Suite com Intercept ativado">
 
 <p class="image-caption">
 
-Figura 6 - O modo Intercept está habilitado. Neste estado, as requisições enviadas pelo navegador são temporariamente interrompidas antes de serem encaminhadas ao servidor.
+Figura 4 - O modo Intercept está habilitado. Neste estado, as requisições enviadas pelo navegador são temporariamente interrompidas antes de serem encaminhadas ao servidor.
 
 </p>
 
@@ -861,14 +861,14 @@ sobre a requisição.
 
 </p>
 
-<!-- INSERIR IMAGEM 07 -->
+<!-- INSERIR IMAGEM 05 -->
 <div class="article-image">
 <img src="img/burp_intercept_request.png"
      alt="Primeira requisição interceptada pelo Burp Suite">
 
 <p class="image-caption">
 
-Figura 7 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada ao servidor. Observe os campos Host e User-Agent disponíveis para análise e modificação.
+Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada ao servidor. Observe os campos Host e User-Agent disponíveis para análise e modificação.
 
 </p>
 
@@ -985,14 +985,14 @@ ou dispositivos.
 
 </p>
 
-<!-- INSERIR IMAGEM 08 -->
+<!-- INSERIR IMAGEM 06 -->
 <div class="article-image">
 <img src="img/burp_useragent_modificado.png"
      alt="Alteração do User-Agent no Burp Suite">
 
 <p class="image-caption">
 
-Figura 8 - Alteração do cabeçalho User-Agent utilizando o recurso de interceptação do Burp Suite. A requisição original foi modificada antes do envio ao servidor.
+Figura 6 - Alteração do cabeçalho User-Agent utilizando o recurso de interceptação do Burp Suite. A requisição original foi modificada antes do envio ao servidor.
 
 </p>
 
@@ -1092,14 +1092,14 @@ alterados.
 
 </p>
 
-<!-- INSERIR IMAGEM 09 -->
+<!-- INSERIR IMAGEM 07 -->
 <div class="article-image">
 <img src="img/burp_forward_request.png"
      alt="Encaminhando requisição utilizando o botão Forward">
 
 <p class="image-caption">
 
-Figura 9 - Após concluir a análise ou modificação da requisição, o botão Forward permite encaminhar a mensagem para o servidor de destino.
+Figura 7 - Após concluir a análise ou modificação da requisição, o botão Forward permite encaminhar a mensagem para o servidor de destino.
 
 </p>
 
@@ -1279,21 +1279,65 @@ eliminando questões
 relacionadas a certificados.
 
 </p>
+<!-- INSERIR IMAGEM 08 -->
+<div class="article-image">
+<img src="img/firefox_neverssl_foxyproxy.png"
+     alt="Firefox acessando neverssl.com com FoxyProxy habilitado">
 
-<br>
+<p class="image-caption">
 
-<!-- INSERIR IMAGEM 04 -->
+Figura 8 - Firefox acessando http://neverssl.com com o FoxyProxy habilitado e o perfil Burp Suite ativo (127.0.0.1:8080).
+
+</p>
+
+</div>
 
 <div class="tip">
 
-🖼 Imagem sugerida:
+<strong>
 
-Firefox acessando
+💡 O que validar nesta etapa?
+<p style="text-align: justify;">
+</strong>
+
+<br><br>
+
+O endereço
+
+<strong>
 
 http://neverssl.com
 
-FoxyProxy habilitado
+</strong>
 
+deve ser carregado normalmente.
+
+<br><br>
+
+O FoxyProxy deve exibir o perfil
+
+<strong>
+
+Burp Suite
+
+</strong>
+
+como ativo.
+
+<br><br>
+
+Todo o tráfego gerado pelo navegador será encaminhado para o Proxy Listener configurado em
+
+<strong>
+
+127.0.0.1:8080
+
+</strong>.
+
+<br><br>
+
+Essa validação confirma que a integração entre Firefox, FoxyProxy e Burp Suite está funcionando corretamente.
+</p>
 </div>
 
 </div>
