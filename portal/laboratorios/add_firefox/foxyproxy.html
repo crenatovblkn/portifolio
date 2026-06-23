@@ -554,7 +554,7 @@ Figura 2 - O Proxy Listener é responsável por receber as requisições encamin
 
 <br>
 <p style="text-align: justify;">
-Caso o Listener não esteja configurado ou esteja utilizando outra porta,
+Caso o <b>Listener</b> não esteja configurado ou esteja utilizando outra porta,
 o FoxyProxy não conseguirá encaminhar corretamente o tráfego do navegador para o Burp Suite.
 </p>
 </div>
@@ -657,11 +657,11 @@ Figura 3 - Configuração do perfil Burp Suite no FoxyProxy utilizando o endere�
 
 <br>
 <p style="text-align: justify;">
-O Host 127.0.0.1 indica que o Burp Suite está sendo executado na própria máquina.
+O Host <b>127.0.0.1</b> indica que o Burp Suite está sendo executado na própria máquina.
 
 <br><br>
 
-A porta 8080 deve corresponder à porta configurada no Proxy Listener do Burp Suite.
+A porta <b>8080</b> deve corresponder à porta configurada no Proxy Listener do Burp Suite.
 
 <br><br>
 
@@ -876,23 +876,17 @@ Figura 5 - Requisição HTTP interceptada pelo Burp Suite antes de ser enviada a
 
 <br>
 <p style="text-align: justify;">
-<strong>"GET /"</strong>
+<b>"GET /"</b> indica uma requisição para a página principal do site.
 
-indica uma requisição para a página principal do site.
+<br>
 
-<br><br>
+<b>"Host: neverssl.com"</b> identifica o servidor de destino.
 
-<strong>"Host: neverssl.com"</strong>
+<br>
 
-identifica o servidor de destino.
+<b>"User-Agent: Mozilla/5.0"</b> informa ao servidor qual navegador está realizando a requisição.
 
-<br><br>
-
-<strong>"User-Agent: Mozilla/5.0"</strong>
-
-informa ao servidor qual navegador está realizando a requisição.
-
-<br><br>
+<br>
 
 Todos esses campos podem ser analisados ou alterados antes do envio utilizando o recurso de interceptação do Burp Suite.
 </p>
@@ -1000,23 +994,11 @@ Figura 6 - Alteração do cabeçalho User-Agent utilizando o recurso de intercep
 
 <br>
 
-Valor original:
-
-<strong>
-
-"Mozilla/5.0"
-
-</strong>
+Valor original: <b>Mozilla/5.0</b>
 
 <br>
 
-Valor alterado:
-
-<strong>
-
-"PentestLab"
-
-</strong>
+Valor alterado:<b>PentestLab</b>
 
 <br>
 <p style="text-align: justify;">
@@ -1294,25 +1276,15 @@ Figura 8 - Firefox acessando http://neverssl.com com o FoxyProxy habilitado e o 
 
 <br>
 
-O endereço
-<strong> 
-"http://neverssl.com"
-</strong> 
-deve ser carregado normalmente.
+O endereço<b>http://neverssl.com</b> deve ser carregado normalmente.
 
-<br><br>
+<br>
 
-O FoxyProxy deve exibir o perfil
-<strong>
-"Burp Suite"
-</strong> como ativo.
+O FoxyProxy deve exibir o perfil<b>Burp Suite</b> como ativo.
 
-<br><br>
+<br>
 
-Todo o tráfego gerado pelo navegador será encaminhado para o Proxy Listener configurado em
-<strong>
-"127.0.0.1:8080"
-</strong>.
+Todo o tráfego gerado pelo navegador será encaminhado para o Proxy Listener configurado em<b>127.0.0.1:8080</b>.
 
 <br>
 
@@ -1410,39 +1382,15 @@ Figura 9 - A requisição GET para o site neverssl.com foi capturada com sucesso
 
 <br><br>
 
-O módulo
+O módulo<b>HTTP History</b> armazena todas as requisições e respostas processadas pelo proxy.
 
-<strong>
-
-"HTTP History"
-
-</strong>
-
-armazena todas as requisições e respostas processadas pelo proxy.
-
-<br><br>
+<br>
 
 Cada entrada registrada pode ser analisada individualmente, permitindo a inspeção de cabeçalhos HTTP, parâmetros, cookies e conteúdo retornado pela aplicação.
 
 <br><br>
 
-A presença da requisição
-
-<strong>
-
-"GET /"
-
-</strong>
-
-com o host
-
-<strong>
-
-"neverssl.com"
-
-</strong>
-
-confirma que o FoxyProxy está encaminhando corretamente o tráfego do Firefox para o Burp Suite.
+A presença da requisição<b>GET /"</b> com o host<b>neverssl.com</b> confirma que o FoxyProxy está encaminhando corretamente o tráfego do Firefox para o Burp Suite.
 
 </div>
 
@@ -1677,22 +1625,39 @@ Cookie: role=admin
 
 </div>
 
+<!-- INSERIR IMAGEM 10 -->
+<div class="article-image">
+
+<img src="img/burp_role_user_admin.png"
+     alt="Alteração do parâmetro role de user para admin">
+
+<p class="image-caption">
+
+Figura 10 - Modificação do parâmetro role durante a interceptação da requisição. O valor original foi alterado de user para admin antes do encaminhamento ao servidor.
+
+</p>
+
+</div>
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Nota
+
+</strong>
+
 <br>
 
-<!-- INSERIR IMAGEM 10 -->
+A alteração de parâmetros durante a interceptação permite avaliar se a aplicação valida corretamente os privilégios do usuário no lado do servidor.
 
-<div class="tip">
+<br>
 
-🖼 Imagem sugerida:
+Em aplicações seguras, a simples modificação de um parâmetro como<b>role=admin</b> não deve conceder privilégios adicionais.
 
-role=user
+<br>
 
-↓
-
-role=admin
-
-com destaque visual
-na alteração
+Esse tipo de validação é frequentemente utilizado durante testes relacionados ao OWASP Top 10, especialmente na categoria<b>Broken Access Control (A01)</b>.
 
 </div>
 
