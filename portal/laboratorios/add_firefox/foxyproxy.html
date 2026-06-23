@@ -434,7 +434,7 @@ Adicionar ao Firefox
 
 </div>
 
-<!-- INSERIR IMAGEM 01 -->
+<!-- INSERIR  01 -->
 
 <div class="article-image">
 
@@ -529,7 +529,7 @@ na porta 8080.
 
 </p>
 
-<!-- INSERIR IMAGEM 02 -->
+<!-- INSERIR  02 -->
 
 <div class="article-image">
 
@@ -634,7 +634,7 @@ para o Burp Suite.
 
 </p>
 
-<!-- INSERIR IMAGEM 03 -->
+<!-- INSERIR  03 -->
 <div class="article-image">
 <img src="img/foxyproxy_configuracao.png"
      alt="Configuração do FoxyProxy para integração com Burp Suite">
@@ -756,7 +756,7 @@ Parar requisições
 
 </div>
 
-<!-- INSERIR IMAGEM 04 -->
+<!-- INSERIR  04 -->
 <div class="article-image">
 <img src="img/burp_intercept_on.png"
      alt="Burp Suite com Intercept ativado">
@@ -853,7 +853,7 @@ sobre a requisição.
 
 </p>
 
-<!-- INSERIR IMAGEM 05 -->
+<!-- INSERIR  05 -->
 <div class="article-image">
 <img src="img/burp_intercept_request.png"
      alt="Primeira requisição interceptada pelo Burp Suite">
@@ -971,7 +971,7 @@ ou dispositivos.
 
 </p>
 
-<!-- INSERIR IMAGEM 06 -->
+<!-- INSERIR  06 -->
 <div class="article-image">
 <img src="img/burp_useragent_modificado.png"
      alt="Alteração do User-Agent no Burp Suite">
@@ -1067,7 +1067,7 @@ alterados.
 
 </p>
 
-<!-- INSERIR IMAGEM 07 -->
+<!-- INSERIR  07 -->
 <div class="article-image">
 <img src="img/burp_forward_request.png"
      alt="Encaminhando requisição utilizando o botão Forward">
@@ -1254,7 +1254,7 @@ eliminando questões
 relacionadas a certificados.
 
 </p>
-<!-- INSERIR IMAGEM 08 -->
+<!-- INSERIR  08 -->
 <div class="article-image">
 <img src="img/firefox_neverssl_foxyproxy.png"
      alt="Firefox acessando neverssl.com com FoxyProxy habilitado">
@@ -1381,7 +1381,7 @@ Figura 9 - A requisição GET para o site neverssl.com foi capturada com sucesso
 <p style="text-align: justify;">
 </strong>
 
-<br><br>
+<br>
 
 O módulo <b>HTTP History</b> armazena todas as requisições e respostas processadas pelo proxy.
 
@@ -1648,7 +1648,7 @@ Figura 10 - Modificação do parâmetro role durante a interceptação da requis
 <p style="text-align: justify;">
 </strong>
 
-<br><br>
+<br>
 
 A alteração de parâmetros durante a interceptação permite avaliar se a aplicação valida corretamente os privilégios do usuário no lado do servidor.
 
@@ -1827,22 +1827,44 @@ de implementação.
 
 </p>
 
+<!-- INSERIR IMAGEM 11 -->
+<div class="article-image">
+
+<img src="img/burp_headers_xforwardedfor_xadmin.png"
+     alt="Análise dos cabeçalhos X-Forwarded-For e X-Admin">
+
+<p class="image-caption">
+
+Figura 11 - Análise de cabeçalhos HTTP personalizados utilizando o Burp Suite. Os campos X-Forwarded-For e X-Admin podem influenciar o comportamento de aplicações mal configuradas.
+
+</p>
+
+</div>
+
+<div class="alert">
+
+<strong>
+
+📝 Nota
+<p style="text-align: justify;">
+</strong>
+
 <br>
 
-<!-- INSERIR IMAGEM 11 -->
+Cabeçalhos HTTP personalizados podem ser utilizados por aplicações para transportar informações adicionais entre clientes, proxies e servidores.
 
-<div class="tip">
+<br><br>
 
-🖼 Imagem sugerida:
+O cabeçalho<b> X-Forwarded-For</b> é frequentemente utilizado para informar o endereço IP original do cliente quando existem proxies ou balanceadores de carga no caminho.
 
-Janela do Burp
+<br><br>
 
-Destacando:
+Já cabeçalhos como<b> X-Admin</b> podem ser utilizados por aplicações para habilitar funcionalidades específicas ou indicar perfis privilegiados.
 
-X-Forwarded-For
+<br><br>
 
-X-Admin
-
+Durante uma análise de segurança, é importante verificar se a aplicação valida essas informações adequadamente no lado do servidor.
+</p>
 </div>
 
 </div>
