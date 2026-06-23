@@ -985,8 +985,6 @@ ou dispositivos.
 
 </p>
 
-<br>
-
 <!-- INSERIR IMAGEM 08 -->
 <div class="article-image">
 <img src="img/burp_useragent_modificado.png"
@@ -1018,7 +1016,7 @@ Mozilla/5.0
 
 </strong>
 
-<br><br>
+<br>
 
 Valor alterado:
 
@@ -1028,7 +1026,7 @@ PentestLab
 
 </strong>
 
-<br><br>
+<br>
 <p style="text-align: justify;">
 Essa modificação demonstra como o Burp Suite permite editar requisições HTTP em tempo real antes que elas sejam processadas pela aplicação.
 
@@ -1094,21 +1092,39 @@ alterados.
 
 </p>
 
-<br>
-
 <!-- INSERIR IMAGEM 09 -->
+<div class="article-image">
+<img src="img/burp_forward_request.png"
+     alt="Encaminhando requisição utilizando o botão Forward">
+
+<p class="image-caption">
+
+Figura 9 - Após concluir a análise ou modificação da requisição, o botão Forward permite encaminhar a mensagem para o servidor de destino.
+
+</p>
+
+</div>
 
 <div class="tip">
 
-🖼 Imagem sugerida:
+<strong>
 
-Botão Forward
+💡 O que acontece ao clicar em Forward?
 
-Destacado
+</strong>
 
-Requisição seguindo
-para o servidor
+<br><br>
+<p style="text-align: justify;">
+A requisição deixa o estado de interceptação e segue normalmente para o servidor.
 
+<br><br>
+
+Caso tenha sido modificada anteriormente, o servidor receberá exatamente a versão alterada da requisição.
+
+<br><br>
+
+Essa funcionalidade permite validar como aplicações respondem a parâmetros, cabeçalhos e cookies manipulados durante um teste de segurança.
+</p>
 </div>
 
 </div>
@@ -1125,8 +1141,8 @@ para o servidor
 
 </strong>
 
-<br><br>
-
+<br>
+<p style="text-align: justify;">
 A capacidade
 de modificar requisições
 permite validar
@@ -1143,7 +1159,7 @@ Essa é uma das atividades
 mais comuns
 durante testes
 de segurança web.
-
+</p>
 </div>
 
 </section>
