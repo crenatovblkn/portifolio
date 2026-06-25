@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+LAB 02 - Cyber Kill Chain
+
+</title>
+
+<link rel="stylesheet"
+href="../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+🧪 LABORATÓRIO PRÁTICO
+
+</span>
+
+<h1>
+
+🔥 LAB 02 - Cyber Kill Chain
+
+</h1>
+
+<p>
+
+Acompanhando um ataque
+em tempo real através
+das evidências produzidas
+no sistema operacional
+e na rede.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Laboratórios
+
+</a>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Objetivo
+
+</h2>
+
+<p>
+
+No laboratório anterior
+aprendemos a configurar
+o ambiente de monitoramento
+e interpretar evidências
+produzidas por ferramentas
+como Auditd, Syslog
+e Snort.
+
+</p>
+
+<p>
+
+Agora iremos utilizar
+esse mesmo ambiente
+para acompanhar
+as fases de um ataque,
+observando quais evidências
+são produzidas
+em cada etapa.
+
+</p>
+
+<p>
+
+O objetivo não é aprender
+como realizar um ataque,
+mas compreender
+como um analista
+de segurança consegue
+identificar atividades
+suspeitas utilizando
+logs, eventos
+e tráfego de rede.
+
+</p>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Cenário do Laboratório
+
+</h2>
+
+<p>
+
+Imagine que você faz parte
+da equipe de Segurança
+de uma empresa responsável
+por monitorar servidores Linux
+que hospedam aplicações
+corporativas.
+
+</p>
+
+<p>
+
+Durante um turno
+de monitoramento,
+um alerta é gerado
+indicando atividades
+suspeitas relacionadas
+ao servidor.
+
+</p>
+
+<p>
+
+Sua missão será acompanhar
+cada fase desse incidente,
+identificando quais evidências
+são produzidas e quais
+ferramentas podem auxiliar
+na investigação.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Ambiente Monitorado
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🥷 Kali Linux
+
+</h3>
+
+<p>
+
+Origem da atividade
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🐧 Ubuntu Server
+
+</h3>
+
+<p>
+
+Servidor Monitorado
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🛡 Analista SOC
+
+</h3>
+
+<p>
+
+Investigação
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🧰 Ferramentas Utilizadas
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Snort
+
+</strong>
+
+Monitoramento da rede
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📋 Auditd
+
+</strong>
+
+Auditoria do sistema
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📜 Syslog
+
+</strong>
+
+Eventos do sistema
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📖 journalctl
+
+</strong>
+
+Logs do systemd
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔍 ausearch
+
+</strong>
+
+Pesquisa de eventos
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📊 aureport
+
+</strong>
+
+Relatórios de auditoria
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📡 tcpdump
+
+</strong>
+
+Captura de pacotes
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔐 OpenSSH
+
+</strong>
+
+Acesso remoto
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Nota
+
+</strong>
+
+<br><br>
+
+Todas as atividades apresentadas
+neste laboratório são executadas
+em um ambiente controlado
+e possuem finalidade exclusivamente
+educacional.
+
+<br><br>
+
+Nosso foco será compreender
+quais evidências são produzidas
+durante cada fase da Cyber Kill Chain
+e como um analista pode correlacionar
+essas informações para identificar
+um possível incidente de segurança.
+
+</div>
+
+</section>
+
+  <section class="section">
+
+<div class="card">
+
+<h2>
+
+🔥 Fase 01 — Reconnaissance (Reconhecimento)
+
+</h2>
+
+<p>
+
+Toda invasão começa
+com a coleta de informações.
+
+</p>
+
+<p>
+
+Antes de tentar acessar
+um servidor,
+o atacante procura descobrir
+quais serviços estão disponíveis,
+quais portas estão abertas
+e quais tecnologias
+estão sendo utilizadas.
+
+</p>
+
+<p>
+
+Essa etapa é conhecida como
+<strong>Reconnaissance</strong>
+e normalmente ocorre
+sem qualquer autenticação
+no sistema alvo.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Cyber Kill Chain
+
+</div>
+
+<div class="flow-step active">
+
+<h3>
+
+🔍 Reconnaissance
+
+</h3>
+
+<p>
+
+Em execução
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🚪 Initial Access
+
+</h3>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+⚙ Persistência
+
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👀 O que o analista observa?
+
+</h2>
+
+<p>
+
+Durante essa fase,
+o atacante ainda
+não comprometeu
+o servidor.
+
+</p>
+
+<p>
+
+Mesmo assim,
+a atividade pode gerar
+diversas evidências
+na rede.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Snort
+
+</strong>
+
+Tentativas de varredura
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📡 tcpdump
+
+</strong>
+
+Pacotes capturados
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📜 Firewall
+
+</strong>
+
+Conexões recebidas
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📊 Logs
+
+</strong>
+
+Múltiplas tentativas
+
+</div>
+
+</div>
+
+<p>
+
+Neste momento,
+o sistema operacional
+ainda pode não registrar
+nenhuma alteração.
+
+</p>
+
+<p>
+
+As principais evidências
+estão relacionadas
+ao tráfego de rede.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Nota
+
+</strong>
+
+<br><br>
+
+Nem toda conexão recebida
+representa um ataque.
+
+<br><br>
+
+Um dos desafios
+de um analista SOC
+é diferenciar
+atividades legítimas
+de comportamentos
+que indicam reconhecimento
+ou preparação
+para uma possível invasão.
+
+</div>
+
+</section>
+
+ <section class="section">
+
+<div class="card">
+
+<h2>
+
+🧪 Laboratório 01 — Detectando o Reconhecimento
+
+</h2>
+
+<p>
+
+Nosso objetivo será observar
+como uma simples atividade
+de reconhecimento pode gerar
+evidências na rede,
+mesmo sem que exista
+qualquer acesso ao servidor.
+
+</p>
+
+<p>
+
+O Kali Linux iniciará
+uma tentativa de conexão
+ao serviço SSH disponível
+no Ubuntu Server.
+
+</p>
+
+<p>
+
+Embora essa ação seja simples,
+ela será suficiente para produzir
+eventos que poderão ser
+identificados pelas ferramentas
+de monitoramento.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Fluxo da Atividade
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🥷 Kali Linux
+
+</h3>
+
+<p>
+
+Tentativa de conexão
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🐧 Ubuntu Server
+
+</h3>
+
+<p>
+
+Recebe a conexão
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🛡 Ferramentas
+
+</h3>
+
+<p>
+
+Registram evidências
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Evidências Esperadas
+
+</h2>
+
+<p>
+
+Ao final desta etapa,
+esperamos encontrar
+as seguintes evidências.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Snort
+
+</strong>
+
+Nova conexão detectada
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📡 tcpdump
+
+</strong>
+
+Pacotes TCP capturados
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📜 journalctl
+
+</strong>
+
+Atividade do serviço SSH
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📋 Syslog
+
+</strong>
+
+Eventos registrados
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Nota
+
+</strong>
+
+<br><br>
+
+Observe que nesta fase
+ainda não existe
+qualquer alteração
+no sistema operacional.
+
+<br><br>
+
+Não haverá criação
+de usuários,
+alteração de arquivos
+ou persistência.
+
+<br><br>
+
+As evidências estão
+concentradas na camada
+de rede e nos serviços
+que recebem conexões.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕒 Linha do Tempo do Incidente
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+SOC Timeline
+
+</div>
+
+<pre>
+
+10:15:23
+
+Aguardando atividade...
+
+Status:
+
+🟢 Ambiente monitorado.
+
+Nenhum evento detectado.
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚨 O Incidente Começa
+
+</h2>
+
+<p>
+
+Durante o monitoramento,
+uma nova conexão
+é recebida pelo servidor.
+
+</p>
+
+<p>
+
+Neste momento,
+o analista ainda não sabe
+se trata-se de uma atividade
+legítima ou de uma tentativa
+de comprometimento.
+
+</p>
+
+<p>
+
+A primeira ação
+consiste em verificar
+quais evidências
+foram produzidas
+pelas ferramentas
+de monitoramento.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Cenário
+
+</strong>
+
+<br><br>
+
+Um computador executando
+Kali Linux
+inicia uma conexão
+SSH contra
+o servidor Ubuntu.
+
+<br><br>
+
+Nosso objetivo
+não é analisar
+o atacante,
+mas compreender
+quais evidências
+essa atividade
+gera para o defensor.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔍 Passo 01 — Verificando o Snort
+
+</h2>
+
+<p>
+
+O primeiro indício
+de atividade suspeita
+normalmente aparece
+na camada de rede.
+
+</p>
+
+<p>
+
+Vamos verificar
+os alertas gerados
+pelo Snort.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+sudo tail -f /var/log/snort/alert
+
+</pre>
+
+</div>
+
+<p>
+
+Caso exista
+uma tentativa
+de conexão,
+novos eventos
+serão exibidos
+em tempo real.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/snort_primeiro_alerta.png"
+alt="Primeiro alerta gerado pelo Snort">
+
+<p class="image-caption">
+
+Figura 1 - O Snort identifica
+uma nova conexão
+recebida pelo servidor.
+
+</p>
+
+</div>
+
+<div class="tip-orange">
+
+<strong>
+
+📝 O que observar?
+
+</strong>
+
+<br><br>
+
+✔ Endereço IP de origem
+
+<br><br>
+
+✔ Porta de destino
+
+<br><br>
+
+✔ Horário do evento
+
+<br><br>
+
+✔ Tipo de alerta
+
+<br><br>
+
+Essas informações
+serão utilizadas
+nas próximas etapas
+da investigação.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕒 Linha do Tempo do Incidente
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+SOC Timeline
+
+</div>
+
+<pre>
+
+10:15:23
+
+✔ Nova conexão detectada.
+
+10:15:24
+
+✔ Snort gera alerta.
+
+Status
+
+🟡 Investigação iniciada.
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔎 Passo 02 — O serviço SSH recebeu a conexão?
+
+</h2>
+
+<p>
+
+Após identificar
+uma atividade suspeita
+na rede,
+o próximo passo
+é verificar
+se o serviço SSH
+registrou
+a tentativa
+de conexão.
+
+</p>
+
+<p>
+
+Essa validação
+permite confirmar
+se o tráfego
+identificado pelo Snort
+chegou efetivamente
+ao servidor.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Consultando o Journal
+
+</h2>
+
+<p>
+
+Como o serviço SSH
+é gerenciado
+pelo systemd,
+podemos consultar
+seus eventos
+utilizando
+o journalctl.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+sudo journalctl -u ssh --since "10 minutes ago"
+
+</pre>
+
+</div>
+
+<p>
+
+O comando exibe
+os eventos recentes
+relacionados
+ao serviço SSH.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/journalctl_ssh_conexao.png"
+alt="Eventos do serviço SSH registrados pelo journalctl">
+
+<p class="image-caption">
+
+Figura 2 - Eventos registrados pelo serviço SSH após a tentativa de conexão.
+
+</p>
+
+</div>
+
+<div class="tip-orange">
+
+<strong>
+
+📝 O que observar?
+
+</strong>
+
+<br><br>
+
+✔ Horário da conexão.
+
+<br><br>
+
+✔ Endereço IP de origem.
+
+<br><br>
+
+✔ Usuário informado (quando existir).
+
+<br><br>
+
+✔ Mensagens de autenticação.
+
+<br><br>
+
+Essas informações
+permitem correlacionar
+os eventos
+com o alerta
+gerado anteriormente
+pelo Snort.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Correlacionando Evidências
+
+</h2>
+
+<p>
+
+Agora possuímos
+duas fontes
+de informação.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Snort
+
+</strong>
+
+Detectou a conexão.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📖 journalctl
+
+</strong>
+
+Confirmou que
+o SSH recebeu
+a conexão.
+
+</div>
+
+</div>
+
+<p>
+
+Observe que,
+neste momento,
+ainda não sabemos
+se houve
+autenticação.
+
+</p>
+
+<p>
+
+Sabemos apenas
+que alguém
+tentou estabelecer
+uma sessão SSH.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕒 Linha do Tempo do Incidente
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+SOC Timeline
+
+</div>
+
+<pre>
+
+10:15:23
+
+✔ Nova conexão detectada.
+
+10:15:24
+
+✔ Snort gera alerta.
+
+10:15:25
+
+✔ SSH registra
+recebimento da conexão.
+
+Status
+
+🟡 Conexão confirmada.
+
+Autenticação ainda
+não identificada.
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 Passo 03 — A autenticação foi bem-sucedida?
+
+</h2>
+
+<p>
+
+Nem toda tentativa
+de conexão resulta
+em um login válido.
+
+</p>
+
+<p>
+
+Antes de elevar
+o nível do incidente,
+o analista deve verificar
+se a autenticação
+foi concluída
+com sucesso
+ou rejeitada.
+
+</p>
+
+<p>
+
+Essa informação
+normalmente está presente
+nos logs do OpenSSH.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Consultando os Eventos de Autenticação
+
+</h2>
+
+<p>
+
+No Ubuntu,
+os eventos relacionados
+à autenticação
+podem ser consultados
+utilizando o journalctl.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+sudo journalctl -u ssh | grep "Accepted\|Failed"
+
+</pre>
+
+</div>
+
+<p>
+
+Esse comando
+filtra apenas
+os eventos relacionados
+a tentativas
+de autenticação.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/ssh_login_success.png"
+alt="Autenticação SSH registrada pelo journalctl">
+
+<p class="image-caption">
+
+Figura 3 - Registro de autenticação SSH indicando um login bem-sucedido.
+
+</p>
+
+</div>
+
+<div class="tip-orange">
+
+<strong>
+
+📝 O que observar?
+
+</strong>
+
+<br><br>
+
+✔ Login aceito (Accepted)
+
+<br><br>
+
+✔ Usuário autenticado
+
+<br><br>
+
+✔ Endereço IP de origem
+
+<br><br>
+
+✔ Horário do evento
+
+<br><br>
+
+Essas informações
+confirmam que
+a conexão evoluiu
+para uma sessão válida.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Correlacionando os Eventos
+
+</h2>
+
+<p>
+
+Neste momento,
+a investigação
+já possui evidências
+oriundas
+de diferentes fontes.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Snort
+
+</strong>
+
+Detectou a conexão
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📖 journalctl
+
+</strong>
+
+Recebimento da conexão
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔐 OpenSSH
+
+</strong>
+
+Login aceito
+
+</div>
+
+</div>
+
+<p>
+
+A correlação dessas informações
+permite concluir
+que a atividade
+não se limitou
+a uma tentativa
+de conexão.
+
+</p>
+
+<p>
+
+Agora existe
+uma sessão SSH
+ativa no servidor.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Nota do Analista
+
+</strong>
+
+<br><br>
+
+Uma autenticação bem-sucedida
+não representa,
+necessariamente,
+um incidente de segurança.
+
+<br><br>
+
+Ela deve ser analisada
+em conjunto com o contexto,
+como horário,
+origem da conexão,
+usuário utilizado
+e comportamento
+observado após o login.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕒 Linha do Tempo do Incidente
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+SOC Timeline
+
+</div>
+
+<pre>
+
+10:15:23
+
+✔ Nova conexão detectada.
+
+10:15:24
+
+✔ Snort gera alerta.
+
+10:15:25
+
+✔ SSH recebe a conexão.
+
+10:15:31
+
+✔ Login SSH realizado
+com sucesso.
+
+Status
+
+🟠 Sessão autenticada.
+
+Investigação continua.
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👣 Passo 04 — O que aconteceu após o login?
+
+</h2>
+
+<p>
+
+Após confirmar
+que a autenticação
+foi realizada com sucesso,
+o próximo passo
+é identificar
+o comportamento
+da sessão SSH.
+
+</p>
+
+<p>
+
+Neste momento,
+o analista procura responder
+algumas perguntas importantes.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+👤 Quem está conectado?
+
+</strong>
+
+Sessões ativas
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🕒 Quando entrou?
+
+</strong>
+
+Horário do login
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌐 De onde veio?
+
+</strong>
+
+Endereço IP
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚙ O que está executando?
+
+</strong>
+
+Processos
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👤 Verificando usuários conectados
+
+</h2>
+
+<p>
+
+O comando
+<code>who</code>
+permite visualizar
+os usuários
+que possuem sessões
+ativas no servidor.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+who
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/who_logged_users.png"
+alt="Usuários conectados ao servidor">
+
+<p class="image-caption">
+
+Figura 4 - O comando <strong>who</strong> exibe as sessões atualmente ativas no servidor.
+
+</p>
+
+</div>
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Nota
+
+</strong>
+
+<br><br>
+
+Observe principalmente:
+
+<br><br>
+
+✔ Nome do usuário
+
+<br><br>
+
+✔ Terminal utilizado
+
+<br><br>
+
+✔ Horário da conexão
+
+<br><br>
+
+✔ Endereço IP remoto
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Consultando atividades da sessão
+
+</h2>
+
+<p>
+
+O comando
+<code>w</code>
+apresenta
+informações adicionais
+sobre cada sessão ativa.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+w
+
+</pre>
+
+</div>
+
+<p>
+
+Além do usuário,
+podemos visualizar
+o tempo de conexão
+e o comando
+executado naquele momento.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/w_command_session.png"
+alt="Informações detalhadas das sessões utilizando o comando w">
+
+<p class="image-caption">
+
+Figura 5 - O comando <strong>w</strong> fornece detalhes sobre as sessões ativas e os processos executados pelos usuários.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📜 Histórico de Logins
+
+</h2>
+
+<p>
+
+Também podemos verificar
+os últimos acessos
+registrados
+no servidor.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+last
+
+</pre>
+
+</div>
+
+<p>
+
+Esse comando
+permite reconstruir
+o histórico
+das conexões SSH.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/last_login_history.png"
+alt="Histórico de logins utilizando o comando last">
+
+<p class="image-caption">
+
+Figura 6 - Histórico das últimas autenticações registradas no servidor.
+
+</p>
+
+</div>
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Correlação de Evidências
+
+</strong>
+
+<br><br>
+
+Neste ponto,
+já conseguimos responder
+algumas perguntas importantes.
+
+<br><br>
+
+✔ O Snort detectou a conexão.
+
+<br><br>
+
+✔ O SSH aceitou o login.
+
+<br><br>
+
+✔ Existe uma sessão ativa.
+
+<br><br>
+
+✔ O histórico confirma o acesso.
+
+<br><br>
+
+A investigação evolui
+de um simples alerta
+para um incidente
+com evidências
+correlacionadas.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕒 Linha do Tempo do Incidente
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+SOC Timeline
+
+</div>
+
+<pre>
+
+10:15:23
+
+✔ Nova conexão detectada.
+
+10:15:24
+
+✔ Snort gera alerta.
+
+10:15:25
+
+✔ SSH recebe a conexão.
+
+10:15:31
+
+✔ Login autenticado.
+
+10:15:34
+
+✔ Sessão ativa identificada.
+
+10:15:36
+
+✔ Histórico de login confirmado.
+
+Status
+
+🟠 Usuário autenticado
+e em atividade.
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Passo 05 — Detectando Persistência
+
+</h2>
+
+<p>
+
+Até este momento,
+as evidências indicavam
+apenas que um usuário
+havia estabelecido
+uma sessão SSH
+no servidor.
+
+</p>
+
+<p>
+
+Agora a investigação
+ganha um novo nível
+de criticidade.
+
+</p>
+
+<p>
+
+Durante a sessão,
+o usuário realiza
+alterações no sistema
+com o objetivo
+de manter acesso
+ao ambiente.
+
+</p>
+
+<p>
+
+Na Cyber Kill Chain,
+essa etapa corresponde
+à fase de
+<strong>Installation (Persistência)</strong>.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Cenário
+
+</strong>
+
+<br><br>
+
+Durante a investigação,
+o analista identifica
+que um novo usuário
+foi criado
+no servidor.
+
+<br><br>
+
+Essa alteração
+pode representar
+uma tentativa
+de persistência
+caso não exista
+uma justificativa
+administrativa.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👤 Simulando a Criação de um Usuário
+
+</h2>
+
+<p>
+
+Para reproduzir
+o cenário,
+criaremos
+um novo usuário.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+sudo useradd laboratorio
+
+sudo passwd laboratorio
+
+</pre>
+
+</div>
+
+<p>
+
+Esses comandos
+serão monitorados
+pelo Auditd,
+conforme configurado
+no LAB 01.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔎 Consultando os Eventos do Auditd
+
+</h2>
+
+<p>
+
+Agora vamos verificar
+quais registros
+foram produzidos
+pela auditoria.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+sudo ausearch -k identity
+
+</pre>
+
+</div>
+
+<p>
+
+O Auditd exibirá
+os eventos relacionados
+às alterações
+de identidade
+do sistema.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/auditd_identity_event.png"
+alt="Evento de criação de usuário registrado pelo Auditd">
+
+<p class="image-caption">
+
+Figura 7 - O Auditd registra a criação de um novo usuário através da chave de auditoria <strong>identity</strong>.
+
+</p>
+
+</div>
+
+<div class="tip-orange">
+
+<strong>
+
+📝 O que observar?
+
+</strong>
+
+<br><br>
+
+✔ Horário da alteração.
+
+<br><br>
+
+✔ Usuário que executou a ação.
+
+<br><br>
+
+✔ Processo responsável.
+
+<br><br>
+
+✔ Chave de auditoria utilizada.
+
+<br><br>
+
+✔ Resultado da operação.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Gerando um Relatório
+
+</h2>
+
+<p>
+
+Além da consulta detalhada,
+o Auditd permite gerar
+relatórios resumidos.
+
+</p>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+root@ubuntu:~#
+
+</div>
+
+<pre>
+
+sudo aureport --auth
+
+</pre>
+
+</div>
+
+<p>
+
+O relatório facilita
+a identificação
+de eventos
+relacionados
+à autenticação
+e alterações
+de identidade.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="article-image">
+
+<img src="img/aureport_auth.png"
+alt="Relatório de autenticação do Auditd">
+
+<p class="image-caption">
+
+Figura 8 - Relatório resumido de autenticação e alterações de identidade gerado pelo aureport.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Correlação de Evidências
+
+</strong>
+
+<br><br>
+
+Agora a investigação
+possui evidências
+oriundas
+de múltiplas fontes.
+
+<br><br>
+
+🌐 Snort
+
+Detectou a conexão.
+
+<br><br>
+
+📖 journalctl
+
+Registrou o login.
+
+<br><br>
+
+👤 who / w
+
+Confirmaram
+a sessão ativa.
+
+<br><br>
+
+📋 Auditd
+
+Registrou
+a criação
+do novo usuário.
+
+<br><br>
+
+A combinação
+dessas evidências
+indica
+que a atividade
+evoluiu
+para uma alteração
+no sistema operacional.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕒 Linha do Tempo do Incidente
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+SOC Timeline
+
+</div>
+
+<pre>
+
+10:15:23
+
+✔ Nova conexão detectada.
+
+10:15:24
+
+✔ Snort gera alerta.
+
+10:15:25
+
+✔ SSH recebe a conexão.
+
+10:15:31
+
+✔ Login autenticado.
+
+10:15:34
+
+✔ Sessão ativa identificada.
+
+10:15:36
+
+✔ Histórico de login confirmado.
+
+10:16:02
+
+✔ Novo usuário criado.
+
+10:16:03
+
+✔ Auditd registra
+alteração de identidade.
+
+Status
+
+🔴 Persistência detectada.
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🧩 Passo 06 — Reconstruindo o Incidente
+
+</h2>
+
+<p>
+
+Ao longo deste laboratório,
+coletamos diversas evidências
+produzidas por ferramentas
+distintas.
+
+</p>
+
+<p>
+
+Individualmente,
+cada evento possui
+pouco significado.
+
+</p>
+
+<p>
+
+Entretanto,
+quando correlacionados,
+eles permitem reconstruir
+todo o ciclo do incidente,
+identificando sua evolução
+desde a primeira conexão
+até a persistência
+no sistema operacional.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Correlação das Evidências
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Snort
+
+</strong>
+
+Primeira conexão
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📖 journalctl
+
+</strong>
+
+Recebimento pelo SSH
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔐 OpenSSH
+
+</strong>
+
+Autenticação
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 who / w
+
+</strong>
+
+Sessão ativa
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📋 Auditd
+
+</strong>
+
+Alterações no sistema
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📊 aureport
+
+</strong>
+
+Resumo dos eventos
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕒 Linha do Tempo Consolidada
+
+</h2>
+
+<div class="terminal">
+
+<div class="terminal-header">
+
+SOC Incident Timeline
+
+</div>
+
+<pre>
+
+10:15:23
+
+Snort detecta
+nova conexão SSH.
+
+↓
+
+10:15:25
+
+SSH recebe
+a conexão.
+
+↓
+
+10:15:31
+
+Usuário autenticado.
+
+↓
+
+10:15:34
+
+Sessão SSH ativa.
+
+↓
+
+10:16:02
+
+Novo usuário criado.
+
+↓
+
+10:16:03
+
+Auditd registra
+alteração de identidade.
+
+↓
+
+10:16:05
+
+Persistência estabelecida.
+
+</pre>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Relacionando com a Cyber Kill Chain
+
+</h2>
+
+<p>
+
+Agora podemos relacionar
+cada evidência coletada
+com as fases
+da Cyber Kill Chain.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Evolução do Incidente
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔍 Reconnaissance
+
+</h3>
+
+<p>
+
+Snort
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🚪 Initial Access
+
+</h3>
+
+<p>
+
+SSH
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔐 Authentication
+
+</h3>
+
+<p>
+
+journalctl
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+⚙ Persistence
+
+</h3>
+
+<p>
+
+Auditd
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Conclusão da Investigação
+
+</strong>
+
+<br><br>
+
+A investigação demonstrou
+como eventos aparentemente
+independentes podem ser
+correlacionados para revelar
+a evolução de um incidente.
+
+<br><br>
+
+Essa capacidade de análise
+é uma das principais atividades
+desempenhadas por equipes
+de SOC (Security Operations Center)
+e DFIR (Digital Forensics and
+Incident Response).
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 Conclusão
+
+</h2>
+
+<p>
+
+Ao longo deste laboratório,
+acompanhamos a evolução
+de um incidente de segurança
+sob a perspectiva
+de um analista SOC.
+
+</p>
+
+<p>
+
+Em vez de analisar
+apenas um evento isolado,
+correlacionamos informações
+provenientes de diferentes
+fontes de monitoramento.
+
+</p>
+
+<p>
+
+Essa abordagem permitiu
+identificar a progressão
+do incidente desde
+a primeira conexão
+até o estabelecimento
+de persistência
+no sistema operacional.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Resumo da Investigação
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Snort
+
+</strong>
+
+Detectou
+a conexão inicial.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📖 journalctl
+
+</strong>
+
+Registrou
+o serviço SSH.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔐 OpenSSH
+
+</strong>
+
+Confirmou
+a autenticação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 who / w
+
+</strong>
+
+Validaram
+a sessão ativa.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📋 Auditd
+
+</strong>
+
+Detectou
+alterações
+no sistema.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📊 aureport
+
+</strong>
+
+Consolidou
+os eventos.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 O que aprendemos?
+
+</h2>
+
+<ul class="content-list">
+
+<li>
+
+✅ Monitorar conexões de rede utilizando o Snort.
+
+</li>
+
+<li>
+
+✅ Confirmar tentativas de acesso através do journalctl.
+
+</li>
+
+<li>
+
+✅ Identificar autenticações SSH.
+
+</li>
+
+<li>
+
+✅ Verificar sessões ativas no servidor.
+
+</li>
+
+<li>
+
+✅ Detectar alterações críticas utilizando o Auditd.
+
+</li>
+
+<li>
+
+✅ Correlacionar eventos para reconstruir um incidente.
+
+</li>
+
+<li>
+
+✅ Relacionar evidências às fases da Cyber Kill Chain.
+
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip-orange">
+
+<strong>
+
+📝 Considerações Finais
+
+</strong>
+
+<br><br>
+
+O principal objetivo deste laboratório
+não foi demonstrar técnicas ofensivas,
+mas desenvolver a capacidade
+de identificar,
+correlacionar
+e interpretar evidências
+produzidas durante um incidente.
+
+<br><br>
+
+Em ambientes corporativos,
+essa habilidade é fundamental
+para reduzir o tempo
+de detecção,
+resposta
+e contenção
+de ameaças.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Laboratório
+
+</h2>
+
+<p>
+
+No próximo laboratório,
+continuaremos a evolução
+do incidente utilizando
+a matriz MITRE ATT&CK.
+
+</p>
+
+<p>
+
+Enquanto a Cyber Kill Chain
+descreve a progressão
+de um ataque,
+a MITRE ATT&CK
+permite identificar
+as técnicas utilizadas
+pelo invasor
+em cada etapa,
+facilitando
+a investigação
+e a criação
+de mecanismos
+de detecção.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Continuação da Série
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔥 LAB 02
+
+</h3>
+
+<p>
+
+Cyber Kill Chain
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+➡
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🎯 LAB 03
+
+</h3>
+
+<p>
+
+MITRE ATT&CK
+
+</p>
+
+</div>
+
+</div>
+
+<br>
+
+<a href="lab03.html"
+class="content-button">
+
+➡ Acessar o LAB 03
+
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Monitoramento Linux
+
+</p>
+
+<p>
+
+Laboratórios Práticos em Cybersecurity
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>  
