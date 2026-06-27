@@ -231,7 +231,14 @@ a{
     font-size:20px;
 
 }
-
+   
+.table-responsive{
+    width:100%;
+   overflow-x:auto;
+   margin:25px 0;
+   -webkit-overflow-scrolling:touch;
+}
+   
 }
 
 /* BOTÕES */
