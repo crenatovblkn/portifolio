@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Fundamentos da Segurança da Informação
+
+Tríade CIA
+
+</title>
+
+<link rel="stylesheet"
+href="../../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+📚 SÉRIE TÉCNICA
+
+</span>
+
+<h1>
+
+🛡 Fundamentos da Segurança da Informação
+
+</h1>
+
+<h2>
+
+🔺 Tríade CIA
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Tríade CIA representa os três princípios fundamentais da Segurança da Informação.
+Independentemente da tecnologia utilizada, toda estratégia de proteção busca preservar
+a Confidencialidade, a Integridade e a Disponibilidade das informações.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Cybersecurity
+
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+Cybersecurity
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Série
+
+</strong>
+
+Fundamentos da Segurança da Informação
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Capítulo
+
+</strong>
+
+🔺 Tríade CIA
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+Iniciante
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Conceitos
+
+</strong>
+
+Confidencialidade
+
+Integridade
+
+Disponibilidade
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+20 minutos
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Resumo Executivo
+
+</h2>
+
+<p>
+
+Imagine que uma empresa armazene todas as informações de seus clientes em um banco de dados corporativo.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esses dados incluem documentos pessoais, contratos, informações financeiras,
+histórico de compras e registros internos. Agora imagine três situações distintas.
+
+</p>
+
+<ul>
+
+<li>Um invasor consegue visualizar informações sigilosas.</li>
+
+<li>Os registros financeiros são alterados indevidamente.</li>
+
+<li>O servidor fica indisponível durante todo o expediente.</li>
+
+</ul>
+
+<p>
+
+Embora sejam problemas diferentes, todos representam falhas em princípios fundamentais
+da Segurança da Informação.
+
+</p>
+
+<blockquote>
+
+Como proteger as informações contra acessos indevidos, alterações não autorizadas
+e indisponibilidade dos serviços?
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+A resposta está na Tríade CIA, um modelo utilizado mundialmente como referência para
+o desenvolvimento de políticas, processos e controles de segurança. Esses três pilares
+servem de base para normas internacionais, auditorias, programas de governança e
+arquiteturas de proteção utilizadas por organizações públicas e privadas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🎯 Objetivo deste capítulo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Compreender os três princípios fundamentais da Segurança da Informação e entender
+como eles orientam a implementação de controles técnicos e administrativos capazes
+de proteger ativos digitais contra diferentes tipos de ameaças.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖼 Figura de Referência
+
+</h2>
+
+<p>
+
+A ilustração abaixo apresenta a Tríade CIA e a relação entre seus três pilares.
+
+</p>
+
+<figure>
+
+<img src="../images/cia/figura01-triade-cia.png"
+alt="Representação da Tríade CIA">
+
+<figcaption>
+
+Figura 1 – Representação da Tríade CIA destacando os princípios de
+Confidencialidade, Integridade e Disponibilidade.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔺 O que é a Tríade CIA?
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Tríade CIA é um modelo conceitual utilizado para orientar a implementação de
+controles de Segurança da Informação. Seu nome é formado pelas iniciais dos
+três princípios fundamentais que sustentam esse modelo:
+
+</p>
+
+<ul>
+
+<li><strong>Confidencialidade (Confidentiality)</strong></li>
+
+<li><strong>Integridade (Integrity)</strong></li>
+
+<li><strong>Disponibilidade (Availability)</strong></li>
+
+</ul>
+
+<p style="text-align: justify;">
+
+Embora esses conceitos sejam apresentados separadamente para facilitar o estudo,
+eles trabalham de forma integrada. Uma falha em qualquer um dos pilares pode
+comprometer a segurança de uma organização, mesmo que os demais estejam
+corretamente implementados.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito Fundamental
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+A Segurança da Informação não consiste apenas em impedir invasões.
+Seu principal objetivo é garantir que as informações permaneçam protegidas,
+íntegras e disponíveis durante todo o seu ciclo de vida.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Visão Geral da Tríade CIA
+
+</h2>
+
+<p>
+
+Os três pilares da Tríade CIA podem ser representados pelo diagrama abaixo.
+
+</p>
+
+<div class="tech-flow">
+
+<div class="flow-title">
+
+Princípios Fundamentais da Segurança da Informação
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🔒 Confidencialidade
+
+</h3>
+
+<p>
+
+Protege informações contra acessos não autorizados.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+🛡 Integridade
+
+</h3>
+
+<p>
+
+Garante que os dados permaneçam corretos, completos e sem alterações indevidas.
+
+</p>
+
+</div>
+
+<div class="flow-arrow">
+
+↓
+
+</div>
+
+<div class="flow-step">
+
+<h3>
+
+⚡ Disponibilidade
+
+</h3>
+
+<p>
+
+Assegura que sistemas e informações possam ser acessados quando necessários.
+
+</p>
+
+</div>
+
+<div class="flow-note">
+
+Os três princípios trabalham em conjunto. A ausência de qualquer um deles reduz
+o nível de segurança da organização.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Onde a Tríade CIA é aplicada?
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Tríade CIA é utilizada como referência no desenvolvimento de políticas,
+procedimentos e controles de segurança adotados por empresas privadas,
+órgãos públicos e instituições financeiras.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🏦 Bancos
+
+</strong>
+
+Proteção de contas, transações financeiras e informações dos clientes.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏥 Saúde
+
+</strong>
+
+Proteção de prontuários médicos e dados sensíveis dos pacientes.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏭 Indústria
+
+</strong>
+
+Proteção de projetos, propriedade intelectual e sistemas industriais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏛 Governo
+
+</strong>
+
+Proteção de informações estratégicas e serviços públicos essenciais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+☁ Cloud Computing
+
+</strong>
+
+Proteção de ambientes em nuvem, aplicações e armazenamento de dados.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+💻 Ambientes Corporativos
+
+</strong>
+
+Controle de acesso, continuidade operacional e proteção das informações.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖼 Aplicação da Tríade CIA
+
+</h2>
+
+<p>
+
+O exemplo abaixo apresenta uma visão simplificada de como os três pilares
+atuam sobre uma mesma informação.
+
+</p>
+
+<figure>
+
+<img src="../images/cia/figura02-aplicacao-cia.png"
+alt="Aplicação da Tríade CIA">
+
+<figcaption>
+
+Figura 2 – Os princípios de Confidencialidade, Integridade e Disponibilidade
+atuando de forma conjunta para proteger informações corporativas.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🔎 Você Sabia?
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+A Tríade CIA é considerada um dos conceitos mais importantes da Segurança da
+Informação e serve como base para diversas normas e frameworks, incluindo
+a ISO/IEC 27001, o NIST Cybersecurity Framework e o CIS Controls.
+
+</p>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔒 Confidencialidade (Confidentiality)
+
+</h2>
+
+<p style="text-align: justify;">
+
+A <strong>Confidencialidade</strong> tem como objetivo garantir que as
+informações sejam acessadas apenas por pessoas, processos ou sistemas
+devidamente autorizados. Em outras palavras, esse princípio protege os
+dados contra divulgação, cópia ou utilização indevida.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sempre que uma informação confidencial é exposta sem autorização, ocorre
+uma violação de segurança que pode gerar prejuízos financeiros, danos à
+reputação da organização e até mesmo implicações legais.
+
+</p>
+
+<figure>
+
+<img src="../images/cia/figura03-confidencialidade.png"
+alt="Confidencialidade">
+
+<figcaption>
+
+Figura 3 – A Confidencialidade protege as informações contra acessos não autorizados.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔑 Senhas Fortes
+
+</strong>
+
+Primeira camada de autenticação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔐 Criptografia
+
+</strong>
+
+Protege dados em repouso e em trânsito.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 Controle de Acesso
+
+</strong>
+
+Permite que cada usuário visualize apenas os recursos autorizados.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📱 MFA
+
+</strong>
+
+Adiciona uma segunda etapa de autenticação.
+
+</div>
+
+</div>
+
+<p>
+
+Exemplos de informações que exigem confidencialidade:
+
+</p>
+
+<ul>
+
+<li>Senhas e credenciais de acesso.</li>
+
+<li>Dados bancários.</li>
+
+<li>Informações pessoais de clientes.</li>
+
+<li>Projetos e propriedade intelectual.</li>
+
+<li>Prontuários médicos.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Integridade (Integrity)
+
+</h2>
+
+<p style="text-align: justify;">
+
+A <strong>Integridade</strong> garante que as informações permaneçam
+corretas, completas e consistentes durante todo o seu ciclo de vida.
+Os dados não devem ser alterados sem autorização, seja de forma
+acidental ou maliciosa.
+
+</p>
+
+<p style="text-align: justify;">
+
+Imagine um sistema bancário onde o saldo de uma conta seja alterado por
+um invasor. Mesmo que ninguém tenha acessado indevidamente a informação,
+ela deixou de ser confiável. Nesse caso, ocorreu uma violação da
+integridade.
+
+</p>
+
+<figure>
+
+<img src="../images/cia/figura04-integridade.png"
+alt="Integridade">
+
+<figcaption>
+
+Figura 4 – A Integridade assegura que as informações permaneçam corretas e confiáveis.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+#️⃣ Hash
+
+</strong>
+
+Permite verificar alterações em arquivos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✍ Assinatura Digital
+
+</strong>
+
+Comprova autenticidade e integridade.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📜 Logs
+
+</strong>
+
+Registram alterações realizadas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🗂 Controle de Versões
+
+</strong>
+
+Mantém histórico das modificações.
+
+</div>
+
+</div>
+
+<p>
+
+Exemplos de informações cuja integridade é essencial:
+
+</p>
+
+<ul>
+
+<li>Contratos eletrônicos.</li>
+
+<li>Registros financeiros.</li>
+
+<li>Prontuários médicos.</li>
+
+<li>Logs de auditoria.</li>
+
+<li>Documentos jurídicos.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚡ Disponibilidade (Availability)
+
+</h2>
+
+<p style="text-align: justify;">
+
+A <strong>Disponibilidade</strong> garante que usuários autorizados possam
+acessar informações e serviços sempre que necessário. Não basta proteger
+os dados; eles também precisam estar acessíveis no momento certo.
+
+</p>
+
+<p style="text-align: justify;">
+
+Ataques de negação de serviço (DoS e DDoS), falhas de hardware, problemas
+elétricos e desastres naturais podem comprometer esse princípio caso não
+existam mecanismos adequados de redundância e recuperação.
+
+</p>
+
+<figure>
+
+<img src="../images/cia/figura05-disponibilidade.png"
+alt="Disponibilidade">
+
+<figcaption>
+
+Figura 5 – A Disponibilidade assegura o acesso contínuo aos sistemas e às informações.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+💾 Backup
+
+</strong>
+
+Permite recuperar informações perdidas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🖥 Cluster
+
+</strong>
+
+Mantém serviços funcionando mesmo durante falhas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Balanceamento
+
+</strong>
+
+Distribui a carga entre múltiplos servidores.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔋 Redundância
+
+</strong>
+
+Evita interrupções causadas por falhas de infraestrutura.
+
+</div>
+
+</div>
+
+<p>
+
+Exemplos de recursos que dependem da disponibilidade:
+
+</p>
+
+<ul>
+
+<li>Internet Banking.</li>
+
+<li>Serviços em nuvem.</li>
+
+<li>Correio eletrônico corporativo.</li>
+
+<li>Prontuários eletrônicos.</li>
+
+<li>Sistemas ERP.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+⚠ Erro Comum
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+É comum associar Segurança da Informação apenas à confidencialidade.
+Na prática, um ambiente só pode ser considerado seguro quando os três
+princípios da Tríade CIA são preservados de forma equilibrada.
+Um sistema extremamente protegido, mas indisponível para os usuários,
+continua representando um problema de segurança.
+
+</p>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Estudo de Caso – Aplicando a Tríade CIA em uma Empresa
+
+</h2>
+
+<p style="text-align: justify;">
+
+Imagine uma empresa de comércio eletrônico que realiza milhares de
+transações diariamente. Seus sistemas armazenam informações pessoais dos
+clientes, processam pagamentos, controlam o estoque e gerenciam pedidos.
+Nesse ambiente, os três princípios da Tríade CIA precisam atuar de forma
+integrada para garantir a segurança das operações.
+
+</p>
+
+<figure>
+
+<img src="../images/cia/figura06-estudo-caso.png"
+alt="Aplicação da Tríade CIA em uma empresa">
+
+<figcaption>
+
+Figura 6 – Aplicação da Tríade CIA em um ambiente corporativo.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔒 Confidencialidade
+
+</strong>
+
+Os dados pessoais dos clientes são protegidos por criptografia,
+autenticação multifator e controles de acesso.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 Integridade
+
+</strong>
+
+Todas as transações financeiras são verificadas para impedir alterações
+não autorizadas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚡ Disponibilidade
+
+</strong>
+
+Os servidores utilizam redundância, balanceamento de carga e backups para
+garantir a continuidade do serviço.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Caso qualquer um desses princípios seja comprometido, a empresa poderá
+enfrentar prejuízos financeiros, perda de confiança dos clientes e
+interrupção das operações.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Relacionando Controles de Segurança à Tríade CIA
+
+</h2>
+
+<p>
+
+Os mecanismos de segurança implementados nas organizações normalmente
+protegem um ou mais pilares da Tríade CIA.
+
+</p>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Controle de Segurança</th>
+
+<th>Confidencialidade</th>
+
+<th>Integridade</th>
+
+<th>Disponibilidade</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Criptografia</td>
+
+<td>✅</td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Autenticação Multifator (MFA)</td>
+
+<td>✅</td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Controle de Acesso</td>
+
+<td>✅</td>
+
+<td>✅</td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Hash Criptográfico</td>
+
+<td></td>
+
+<td>✅</td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Assinatura Digital</td>
+
+<td></td>
+
+<td>✅</td>
+
+<td></td>
+
+</tr>
+
+<tr>
+
+<td>Backup</td>
+
+<td></td>
+
+<td></td>
+
+<td>✅</td>
+
+</tr>
+
+<tr>
+
+<td>Cluster de Servidores</td>
+
+<td></td>
+
+<td></td>
+
+<td>✅</td>
+
+</tr>
+
+<tr>
+
+<td>Balanceamento de Carga</td>
+
+<td></td>
+
+<td></td>
+
+<td>✅</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p style="text-align: justify;">
+
+Observe que alguns controles atuam em mais de um princípio. O controle de
+acesso, por exemplo, impede que usuários não autorizados visualizem dados
+(confidencialidade) e também evita alterações indevidas
+(integridade).
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔍 A Tríade CIA no Dia a Dia
+
+</h2>
+
+<p>
+
+Mesmo fora do ambiente corporativo, utilizamos diariamente tecnologias
+baseadas na Tríade CIA.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+📱 Aplicativos Bancários
+
+</strong>
+
+Protegem dados financeiros e mantêm os serviços disponíveis.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+☁ Armazenamento em Nuvem
+
+</strong>
+
+Mantém arquivos protegidos, íntegros e acessíveis.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛒 Comércio Eletrônico
+
+</strong>
+
+Protege informações de pagamento e garante a disponibilidade da loja.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏥 Sistemas Hospitalares
+
+</strong>
+
+Protegem prontuários médicos e garantem acesso rápido às informações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🎓 Plataformas de Ensino
+
+</strong>
+
+Garantem a proteção dos dados dos alunos e a continuidade das aulas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏢 Ambientes Corporativos
+
+</strong>
+
+Protegem informações estratégicas e asseguram a continuidade das operações.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Boas Práticas
+
+</strong>
+
+<br><br>
+
+<ul>
+
+<li>Utilize autenticação multifator sempre que possível.</li>
+
+<li>Classifique as informações conforme seu nível de sensibilidade.</li>
+
+<li>Implemente políticas de controle de acesso baseadas no menor privilégio.</li>
+
+<li>Realize backups periódicos e testes de recuperação.</li>
+
+<li>Monitore continuamente eventos de segurança.</li>
+
+<li>Mantenha sistemas e aplicações sempre atualizados.</li>
+
+<li>Capacite os usuários sobre boas práticas de segurança.</li>
+
+</ul>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 A Tríade CIA e os Ataques Cibernéticos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Os ataques cibernéticos nem sempre possuem o mesmo objetivo. Alguns buscam
+roubar informações confidenciais, outros tentam modificar dados ou impedir
+o funcionamento de sistemas críticos. Por esse motivo, compreender a Tríade
+CIA também significa entender quais princípios são afetados por cada tipo de
+ameaça.
+
+</p>
+
+<p style="text-align: justify;">
+
+A tabela a seguir apresenta alguns exemplos comuns encontrados em ambientes
+corporativos.
+
+</p>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Ataque</th>
+
+<th>Objetivo</th>
+
+<th>Pilar Afetado</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Phishing</td>
+
+<td>Roubo de credenciais de acesso.</td>
+
+<td>🔒 Confidencialidade</td>
+
+</tr>
+
+<tr>
+
+<td>Ransomware</td>
+
+<td>Criptografar arquivos e interromper operações.</td>
+
+<td>⚡ Disponibilidade<br>🛡 Integridade</td>
+
+</tr>
+
+<tr>
+
+<td>SQL Injection</td>
+
+<td>Consultar ou alterar informações em bancos de dados.</td>
+
+<td>🔒 Confidencialidade<br>🛡 Integridade</td>
+
+</tr>
+
+<tr>
+
+<td>DDoS</td>
+
+<td>Tornar um serviço indisponível.</td>
+
+<td>⚡ Disponibilidade</td>
+
+</tr>
+
+<tr>
+
+<td>Insider Threat</td>
+
+<td>Uso indevido de privilégios internos.</td>
+
+<td>🔒 Confidencialidade<br>🛡 Integridade</td>
+
+</tr>
+
+<tr>
+
+<td>Malware</td>
+
+<td>Alterar, destruir ou exfiltrar informações.</td>
+
+<td>Todos os pilares</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p style="text-align: justify;">
+
+Embora cada ataque possua características específicas, todos eles procuram
+comprometer um ou mais princípios da Tríade CIA. É justamente por isso que
+esse modelo continua sendo utilizado como referência na construção de
+estratégias modernas de Segurança da Informação.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖼 Relação entre Ataques e a Tríade CIA
+
+</h2>
+
+<p>
+
+A figura abaixo ilustra como diferentes ameaças podem impactar cada um dos
+três pilares da Segurança da Informação.
+
+</p>
+
+<figure>
+
+<img src="../images/cia/figura07-ataques-cia.png"
+alt="Ataques e Tríade CIA">
+
+<figcaption>
+
+Figura 7 – Exemplos de ataques cibernéticos associados aos princípios da
+Confidencialidade, Integridade e Disponibilidade.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Mensagem Principal
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+A Tríade CIA não representa apenas um conceito teórico. Ela orienta a criação
+de políticas de segurança, a implementação de controles técnicos, a gestão de
+riscos e a resposta a incidentes em organizações de todos os portes.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sempre que um novo controle de segurança for estudado, pergunte-se:
+
+</p>
+
+<blockquote>
+
+Qual princípio da Tríade CIA este controle protege?
+
+</blockquote>
+
+<p>
+
+Essa simples pergunta facilitará a compreensão de praticamente todos os
+conceitos abordados em Segurança da Informação.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>O conceito da Tríade CIA.</li>
+
+<li>O significado de Confidencialidade.</li>
+
+<li>O papel da Integridade na proteção das informações.</li>
+
+<li>A importância da Disponibilidade para a continuidade dos serviços.</li>
+
+<li>Como diferentes controles de segurança protegem cada princípio.</li>
+
+<li>A relação entre ataques cibernéticos e a Tríade CIA.</li>
+
+<li>A importância desse modelo para normas e frameworks internacionais.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Capítulo
+
+</h2>
+
+<p>
+
+Agora que conhecemos os três pilares fundamentais da Segurança da
+Informação, iniciaremos o estudo detalhado de cada um deles.
+
+</p>
+
+<p>
+
+O próximo capítulo abordará exclusivamente a
+<strong>Confidencialidade</strong>, explorando os mecanismos utilizados para
+proteger informações contra acessos não autorizados.
+
+</p>
+
+<p>
+
+Serão apresentados conceitos como autenticação, autorização, criptografia,
+controle de acesso, autenticação multifator (MFA), gestão de identidades e
+boas práticas para proteção de dados sensíveis.
+
+</p>
+
+<br>
+
+<a href="confidencialidade.html"
+class="content-button">
+
+➡ Ler o próximo capítulo
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Série Técnica
+
+</strong>
+
+<br><br>
+
+✅ 🔺 Tríade CIA
+
+<br><br>
+
+➡ 🔒 Confidencialidade
+
+<br><br>
+
+⬜ 🛡 Integridade
+
+<br><br>
+
+⬜ ⚡ Disponibilidade
+
+<br><br>
+
+⬜ 🔐 Criptografia
+
+<br><br>
+
+⬜ 👥 Controle de Acesso
+
+<br><br>
+
+⬜ 📊 Classificação da Informação
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Biblioteca Técnica
+
+</p>
+
+<p>
+
+📚 Série Técnica
+
+Fundamentos da Segurança da Informação
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
