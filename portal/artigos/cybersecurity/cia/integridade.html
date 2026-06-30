@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Fundamentos da Segurança da Informação
+
+Integridade (I)
+
+</title>
+
+<link rel="stylesheet" href="../../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+📚 SÉRIE TÉCNICA
+
+</span>
+
+<h1>
+
+🔰 Fundamentos da Segurança da Informação
+
+</h1>
+
+<h2>
+
+🛡 Integridade (I)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Como garantir que as informações permaneçam corretas,
+íntegras e confiáveis durante todo o seu ciclo de vida.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Cybersecurity
+
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+Cybersecurity
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Série
+
+</strong>
+
+Fundamentos da Segurança da Informação
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Capítulo
+
+</strong>
+
+Integridade
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+Iniciante
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Conceitos
+
+</strong>
+
+Hash
+
+Assinatura Digital
+
+Checksum
+
+Versionamento
+
+Logs
+
+File Integrity Monitoring
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+18 minutos
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Resumo Executivo
+
+</h2>
+
+<p>
+
+Imagine que um colaborador possua acesso ao sistema financeiro de uma organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Ele altera o número da conta bancária cadastrada para um fornecedor antes da realização de um pagamento.
+
+O sistema continua funcionando normalmente.
+
+Os dados permanecem disponíveis.
+
+Nenhuma informação foi excluída.
+
+</p>
+
+<p>
+
+No entanto, um problema crítico ocorreu.
+
+</p>
+
+<blockquote>
+
+As informações deixaram de representar a realidade.
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+Mesmo que ninguém tenha acessado indevidamente os dados e que o sistema continue operacional, a organização passa a tomar decisões baseadas em informações incorretas.
+
+Nesse cenário, o princípio comprometido não é a Confidencialidade nem a Disponibilidade.
+
+É a Integridade.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🎯 Objetivo deste capítulo
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Compreender como garantir que informações permaneçam corretas, completas e confiáveis durante todo o seu ciclo de vida, além de conhecer os principais mecanismos utilizados para detectar alterações não autorizadas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 O que é Integridade?
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Integridade representa a capacidade de preservar a exatidão, a consistência e a confiabilidade das informações.
+
+Seu objetivo é assegurar que os dados não sejam modificados de forma indevida, acidental ou maliciosa durante seu armazenamento, processamento ou transmissão.
+
+</p>
+
+<p style="text-align: justify;">
+
+Quando falamos em Integridade, não estamos dizendo que os dados nunca poderão ser alterados.
+
+Alterações fazem parte do funcionamento normal de qualquer organização.
+
+O ponto central é garantir que toda modificação seja autorizada, registrada e realizada por processos legítimos.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura01-integridade.png"
+alt="Conceito de Integridade">
+
+<figcaption class="image-caption">
+
+Figura 1 – A Integridade assegura que as informações permaneçam corretas, completas e livres de alterações não autorizadas.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito Fundamental
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Integridade significa poder confiar que uma informação representa exatamente a realidade e que nenhuma alteração indevida ocorreu desde sua criação.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Por que a Integridade é importante?
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Integridade está diretamente relacionada à confiança que depositamos nas informações utilizadas diariamente pelas organizações. Empresas tomam milhares de decisões com base em dados armazenados em bancos de dados, planilhas, sistemas ERP, aplicações financeiras e documentos eletrônicos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Quando essas informações são alteradas sem autorização ou de forma incorreta, as consequências podem envolver prejuízos financeiros, interrupção de processos, falhas operacionais, problemas jurídicos e até riscos à vida humana em ambientes hospitalares.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em outras palavras, informações incorretas podem ser tão perigosas quanto informações vazadas.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura02-integridade-exemplos.png"
+alt="Exemplos de informações críticas">
+
+<figcaption class="image-caption">
+
+Figura 2 – Exemplos de informações cuja alteração pode causar impactos financeiros, operacionais e legais para uma organização.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🏦 Setor Financeiro
+
+</strong>
+
+Alteração de saldos bancários, valores de pagamentos ou dados de fornecedores pode gerar prejuízos milionários.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏥 Saúde
+
+</strong>
+
+Mudanças em prontuários médicos, prescrições ou resultados de exames podem comprometer tratamentos e colocar pacientes em risco.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚖ Área Jurídica
+
+</strong>
+
+Contratos alterados indevidamente podem invalidar acordos ou gerar disputas judiciais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏭 Indústria
+
+</strong>
+
+Parâmetros incorretos em sistemas de automação podem interromper linhas de produção e causar acidentes.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✏ Alteração autorizada × Alteração não autorizada
+
+</h2>
+
+<p style="text-align: justify;">
+
+Um dos maiores equívocos ao estudar Integridade é acreditar que qualquer modificação representa um incidente de segurança. Na realidade, sistemas corporativos existem justamente para permitir alterações constantes nas informações.
+
+</p>
+
+<p style="text-align: justify;">
+
+O fator determinante é verificar se essa alteração foi realizada por uma pessoa autorizada, utilizando um processo legítimo e devidamente registrado.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✅ Alterações autorizadas
+
+</strong>
+
+<ul>
+
+<li>Atualizar cadastro de clientes.</li>
+
+<li>Alterar endereço de entrega.</li>
+
+<li>Registrar pagamentos.</li>
+
+<li>Modificar salários autorizados.</li>
+
+<li>Atualizar inventário.</li>
+
+</ul>
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+❌ Alterações não autorizadas
+
+</strong>
+
+<ul>
+
+<li>Modificar saldo bancário.</li>
+
+<li>Alterar notas de alunos.</li>
+
+<li>Excluir registros de auditoria.</li>
+
+<li>Modificar contratos.</li>
+
+<li>Trocar dados de fornecedores.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Lembre-se
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+A Integridade não impede alterações. Ela garante que toda modificação seja legítima, autorizada e passível de auditoria.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Como garantir a Integridade?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Proteger a Integridade exige a combinação de diferentes controles técnicos e administrativos. Nenhuma tecnologia, isoladamente, consegue impedir todas as formas de alteração indevida das informações.
+
+</p>
+
+<p style="text-align: justify;">
+
+As organizações adotam mecanismos capazes de detectar modificações, validar autenticidade, registrar alterações e permitir a recuperação de versões anteriores sempre que necessário.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura03-mecanismos-integridade.png"
+alt="Mecanismos de Integridade">
+
+<figcaption class="image-caption">
+
+Figura 3 – Principais mecanismos utilizados para garantir a Integridade das informações.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+#️⃣ Funções Hash
+
+</strong>
+
+Geram uma impressão digital única dos dados, permitindo detectar qualquer alteração.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✍ Assinatura Digital
+
+</strong>
+
+Confirma a autenticidade da origem e garante que o conteúdo não foi alterado.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📑 Checksum
+
+</strong>
+
+Verifica a integridade de arquivos durante armazenamento ou transmissão.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📂 Versionamento
+
+</strong>
+
+Permite acompanhar alterações e restaurar versões anteriores de documentos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📋 Logs e Auditoria
+
+</strong>
+
+Registram quem realizou alterações, quando ocorreram e quais dados foram modificados.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 File Integrity Monitoring (FIM)
+
+</strong>
+
+Monitora continuamente arquivos críticos e gera alertas sempre que alterações não autorizadas são identificadas.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Nos próximos tópicos conheceremos cada um desses mecanismos e entenderemos como eles trabalham em conjunto para preservar a confiabilidade das informações corporativas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+#️⃣ Funções Hash
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma das técnicas mais utilizadas para verificar a Integridade das informações
+é a utilização de funções Hash. Um algoritmo Hash recebe um conjunto de dados
+de qualquer tamanho e produz uma sequência única de caracteres, conhecida como
+<strong>valor Hash</strong> ou <strong>resumo criptográfico</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse valor funciona como uma impressão digital do arquivo. Caso um único bit
+seja alterado, um novo Hash completamente diferente será gerado, indicando que
+o conteúdo sofreu alguma modificação.
+
+</p>
+
+<p style="text-align: justify;">
+
+É importante destacar que o Hash não protege o arquivo contra alterações. Seu
+objetivo é permitir que essas alterações sejam detectadas de maneira rápida e
+confiável.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura04-funcao-hash.png"
+alt="Funcionamento de uma função Hash">
+
+<figcaption class="image-caption">
+
+Figura 4 – Funcionamento de uma função Hash demonstrando como pequenas
+alterações geram valores completamente diferentes.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Um arquivo ISO baixado do site oficial do fabricante normalmente possui um
+Hash SHA-256 publicado juntamente com o download. Após concluir o download,
+o usuário calcula o Hash localmente e compara com o valor informado pelo
+fabricante. Se ambos forem idênticos, há uma forte indicação de que o arquivo
+permaneceu íntegro durante a transferência.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 Principais Algoritmos Hash
+
+</h2>
+
+<p style="text-align: justify;">
+
+Diversos algoritmos Hash foram desenvolvidos ao longo dos anos. Alguns deles
+já não são considerados seguros para aplicações criptográficas devido à
+existência de colisões conhecidas, enquanto outros continuam sendo amplamente
+utilizados em ambientes corporativos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+MD5
+
+</strong>
+
+Produz um Hash de 128 bits.
+
+Embora ainda seja utilizado para validação simples de arquivos,
+não é recomendado para aplicações de segurança devido à existência
+de colisões conhecidas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+SHA-1
+
+</strong>
+
+Produz um Hash de 160 bits.
+
+Também deixou de ser recomendado para aplicações criptográficas
+devido à descoberta de colisões práticas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+SHA-256
+
+</strong>
+
+Pertencente à família SHA-2.
+
+É atualmente um dos algoritmos mais utilizados para validação de
+integridade, assinaturas digitais e certificados digitais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+SHA-512
+
+</strong>
+
+Também faz parte da família SHA-2.
+
+Oferece um nível ainda maior de segurança para aplicações críticas.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+✔ Boa prática
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Sempre que possível utilize algoritmos modernos, como SHA-256 ou SHA-512,
+evitando o uso de MD5 e SHA-1 em novos projetos relacionados à segurança da
+informação.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✍ Assinatura Digital
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora o Hash permita detectar alterações em um arquivo, ele não informa quem
+realizou a alteração nem comprova a origem da informação. Para resolver esse
+problema utiliza-se a Assinatura Digital.
+
+</p>
+
+<p style="text-align: justify;">
+
+A Assinatura Digital combina funções Hash com criptografia assimétrica para
+garantir três propriedades fundamentais:
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✔ Integridade
+
+</strong>
+
+Permite verificar se o conteúdo permaneceu inalterado desde sua assinatura.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 Autenticidade
+
+</strong>
+
+Confirma a identidade do emissor da informação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚖ Não Repúdio
+
+</strong>
+
+Impede que o autor negue posteriormente a autoria da informação assinada.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Por esse motivo, assinaturas digitais são amplamente utilizadas em contratos
+eletrônicos, certificados digitais, documentos fiscais, sistemas bancários e
+comunicações governamentais.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura05-assinatura-digital.png"
+alt="Funcionamento da Assinatura Digital">
+
+<figcaption class="image-caption">
+
+Figura 5 – Funcionamento simplificado de uma Assinatura Digital utilizando
+funções Hash e criptografia assimétrica.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Importante
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+A Assinatura Digital não criptografa todo o documento. Na prática, o Hash do
+arquivo é calculado e assinado com a chave privada do emissor, permitindo que
+qualquer alteração posterior seja detectada durante a validação.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📂 Versionamento de Arquivos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Outro mecanismo importante para preservar a Integridade é o versionamento.
+Sempre que um documento sofre alterações, uma nova versão é criada,
+permitindo recuperar estados anteriores caso erros ou modificações
+indevidas sejam identificados.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse recurso é amplamente utilizado em plataformas colaborativas,
+repositórios de código-fonte e sistemas de gerenciamento documental.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🐙 Git
+
+</strong>
+
+Controle de versões para desenvolvimento de software.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+☁ Google Drive
+
+</strong>
+
+Mantém histórico de versões de documentos armazenados na nuvem.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏢 SharePoint
+
+</strong>
+
+Versionamento de documentos corporativos e colaboração entre equipes.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📄 GED
+
+</strong>
+
+Sistemas de Gestão Eletrônica de Documentos registram alterações e histórico de versões.
+
+</div>
+
+</div>
+
+<figure class="article-image">
+
+<img src="img/figura06-versionamento.png"
+alt="Versionamento de Arquivos">
+
+<figcaption class="image-caption">
+
+Figura 6 – Histórico de versões permitindo restaurar arquivos alterados
+incorretamente.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖥 Monitoramento da Integridade de Arquivos (FIM)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Mesmo utilizando controles de acesso, criptografia e assinaturas digitais,
+ainda é necessário monitorar continuamente os arquivos críticos da
+infraestrutura. Esse processo é conhecido como
+<strong>File Integrity Monitoring (FIM)</strong> e consiste em detectar
+alterações não autorizadas em arquivos, diretórios e configurações do
+sistema operacional.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sempre que um arquivo monitorado sofre alguma modificação, seu novo Hash é
+calculado e comparado com o valor previamente registrado. Caso seja
+identificada qualquer diferença, um alerta pode ser gerado para a equipe de
+Segurança da Informação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa abordagem permite identificar rapidamente alterações realizadas por
+malwares, invasores, falhas operacionais ou até mesmo por usuários internos
+que possuam privilégios elevados.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura07-file-integrity-monitoring.png"
+alt="File Integrity Monitoring">
+
+<figcaption class="image-caption">
+
+Figura 7 – Monitoramento contínuo da Integridade de arquivos críticos por
+meio de File Integrity Monitoring (FIM).
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🛡 Wazuh
+
+</strong>
+
+Monitora alterações em arquivos, diretórios e registros do sistema,
+integrando os eventos a um SIEM.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📋 Auditd
+
+</strong>
+
+Registra eventos do sistema operacional Linux e permite auditar alterações
+em arquivos críticos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔍 AIDE
+
+</strong>
+
+Calcula e compara Hashes de arquivos para detectar modificações
+não autorizadas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🧩 Tripwire
+
+</strong>
+
+Ferramenta clássica de File Integrity Monitoring utilizada para detectar
+alterações em arquivos sensíveis.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔍 Estudo de Caso – Detectando uma Alteração Indevida
+
+</h2>
+
+<p style="text-align: justify;">
+
+Imagine um servidor Linux responsável pela autenticação dos usuários da
+organização. Entre seus arquivos mais importantes está o
+<strong>/etc/passwd</strong>, que contém informações sobre as contas
+existentes no sistema.
+
+</p>
+
+<p style="text-align: justify;">
+
+Durante uma tentativa de invasão, um atacante obtém acesso privilegiado e
+modifica esse arquivo para criar um novo usuário administrativo oculto.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora a alteração passe despercebida pelos usuários, o sistema de File
+Integrity Monitoring identifica imediatamente que o Hash do arquivo mudou e
+gera um alerta para a equipe responsável pela segurança.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura08-estudo-caso-fim.png"
+alt="Fluxo de detecção de alteração de arquivos">
+
+<figcaption class="image-caption">
+
+Figura 8 – Exemplo de detecção de alteração em arquivo crítico utilizando
+File Integrity Monitoring.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+🎯 Fluxo simplificado
+
+</strong>
+
+<br><br>
+
+1️⃣ Arquivo monitorado é alterado.
+
+<br><br>
+
+2️⃣ Novo Hash é calculado automaticamente.
+
+<br><br>
+
+3️⃣ O Hash é comparado com o valor armazenado.
+
+<br><br>
+
+4️⃣ A divergência é identificada.
+
+<br><br>
+
+5️⃣ Um alerta é enviado ao SIEM ou à equipe do SOC.
+
+<br><br>
+
+6️⃣ A investigação é iniciada para identificar a origem da alteração.
+
+</div>
+
+<p style="text-align: justify;">
+
+Esse processo reduz significativamente o tempo necessário para detectar
+comprometimentos e aumenta a capacidade da organização de responder a
+incidentes antes que provoquem impactos maiores.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📈 A Integridade no Centro das Operações de Segurança
+
+</h2>
+
+<p style="text-align: justify;">
+
+Em um Centro de Operações de Segurança (SOC), milhares de eventos são
+analisados diariamente. Alterações inesperadas em arquivos de sistema,
+configurações de servidores, registros de auditoria ou bancos de dados são
+tratadas como indicadores importantes de comprometimento.
+
+</p>
+
+<p style="text-align: justify;">
+
+Quando ferramentas de monitoramento identificam mudanças não autorizadas,
+esses eventos são correlacionados com outras evidências, como tentativas de
+login, execução de processos suspeitos, conexões de rede e alterações de
+privilégios. Essa correlação permite diferenciar atividades legítimas de
+possíveis ataques.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+💡 Integração entre controles
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+A Integridade torna-se ainda mais eficiente quando combinada com
+monitoramento contínuo, registros de auditoria, SIEM, EDR e processos de
+resposta a incidentes. Juntos, esses mecanismos aumentam significativamente
+a capacidade de detectar e investigar alterações indevidas.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚨 Principais Ameaças à Integridade
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Integridade pode ser comprometida tanto por ataques cibernéticos quanto por
+falhas operacionais, erros humanos ou problemas de software. Em muitos casos,
+o objetivo do atacante não é roubar informações, mas modificar seu conteúdo de
+forma que decisões incorretas sejam tomadas ou que a organização perca a
+confiança em seus próprios dados.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura09-ataques-integridade.png"
+alt="Ataques contra a Integridade">
+
+<figcaption class="image-caption">
+
+Figura 9 – Principais ataques que comprometem a Integridade das informações.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🦠 Malware
+
+</strong>
+
+Pode alterar arquivos, configurações do sistema e registros importantes sem
+o conhecimento do usuário.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔐 Ransomware
+
+</strong>
+
+Além de criptografar arquivos, muitos ransomwares modificam estruturas de
+dados e registros críticos antes da criptografia.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+💉 SQL Injection
+
+</strong>
+
+Permite alterar registros armazenados em bancos de dados quando aplicações
+não validam corretamente as entradas dos usuários.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 Insider Threat
+
+</strong>
+
+Funcionários ou terceiros com privilégios elevados podem modificar
+informações de forma intencional ou acidental.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📄 Alteração de Logs
+
+</strong>
+
+Invasores frequentemente tentam modificar ou apagar registros para ocultar
+suas ações e dificultar investigações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📦 Supply Chain Attack
+
+</strong>
+
+Compromete softwares ou atualizações legítimas, distribuindo arquivos
+alterados para milhares de organizações.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Controles que Preservam a Integridade
+
+</h2>
+
+<p style="text-align: justify;">
+
+Garantir a Integridade exige a combinação de diversos controles de segurança,
+cada um atuando em uma etapa específica do ciclo de vida da informação.
+Enquanto alguns mecanismos detectam alterações, outros registram atividades,
+validam autenticidade ou permitem recuperar versões anteriores.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura10-controles-integridade.png"
+alt="Controles de Integridade">
+
+<figcaption class="image-caption">
+
+Figura 10 – Principais controles utilizados para preservar a Integridade das
+informações.
+
+</figcaption>
+
+</figure>
+
+<p style="text-align: justify;">
+
+Entre os controles mais utilizados destacam-se funções Hash, Assinaturas
+Digitais, Versionamento, File Integrity Monitoring (FIM), registros de
+auditoria, gestão de mudanças, backups, controle de acesso e monitoramento
+contínuo dos ambientes corporativos.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Boas Práticas
+
+</strong>
+
+<br>
+
+<ul>
+
+<li style="text-align: justify;">Utilize algoritmos Hash modernos, como SHA-256 ou SHA-512.</li>
+
+<li style="text-align: justify;">Implemente Assinaturas Digitais em documentos eletrônicos críticos.</li>
+
+<li style="text-align: justify;">Mantenha registros completos de auditoria.</li>
+
+<li style="text-align: justify;">Implemente File Integrity Monitoring em servidores críticos.</li>
+
+<li style="text-align: justify;">Adote processos formais de gestão de mudanças.</li>
+
+<li style="text-align: justify;">Revise periodicamente permissões administrativas.</li>
+
+<li style="text-align: justify;">Mantenha backups íntegros e realize testes periódicos de restauração.</li>
+
+<li style="text-align: justify;">Correlacione alertas de Integridade com eventos registrados no SIEM.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+⚠ Erros Comuns
+
+</strong>
+
+<br>
+
+<ul>
+
+<li style="text-align: justify;">Utilizar apenas MD5 para validação de arquivos críticos.</li>
+
+<li style="text-align: justify;">Não monitorar alterações em arquivos de sistema.</li>
+
+<li style="text-align: justify;">Permitir alterações diretas em ambientes de produção sem controle.</li>
+
+<li style="text-align: justify;">Não registrar quem realizou modificações.</li>
+
+<li style="text-align: justify;">Ignorar alertas gerados por ferramentas de monitoramento.</li>
+
+<li style="text-align: justify;">Não validar a Integridade de backups antes da restauração.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>O conceito de Integridade na Segurança da Informação.</li>
+
+<li>A diferença entre alterações autorizadas e não autorizadas.</li>
+
+<li>A importância das funções Hash.</li>
+
+<li>Os principais algoritmos Hash utilizados atualmente.</li>
+
+<li>O funcionamento básico das Assinaturas Digitais.</li>
+
+<li>O papel do Versionamento na preservação das informações.</li>
+
+<li>Como funciona o File Integrity Monitoring (FIM).</li>
+
+<li>A importância dos registros de auditoria.</li>
+
+<li>As principais ameaças contra a Integridade.</li>
+
+<li>Os controles utilizados para preservar a confiabilidade das informações.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Capítulo
+
+</h2>
+
+<p>
+
+Até este momento estudamos como garantir que as informações permaneçam
+corretas, completas e confiáveis. Entretanto, de pouco adianta proteger a
+Confidencialidade e a Integridade se os sistemas não estiverem disponíveis
+quando forem necessários.
+
+</p>
+
+<p>
+
+No próximo capítulo estudaremos o terceiro pilar da Tríade CIA:
+<strong>Disponibilidade</strong>.
+
+</p>
+
+<p>
+
+Conheceremos os mecanismos utilizados para manter serviços, aplicações e
+informações acessíveis, mesmo diante de falhas, ataques cibernéticos ou
+desastres.
+
+</p>
+
+<br>
+
+<a
+class="content-button">
+
+➡ Ler o próximo capítulo
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Série Técnica
+
+</strong>
+
+<br><br>
+
+✅ 🔺 Tríade CIA
+
+<br><br>
+
+✅ 🔒 Confidencialidade
+
+<br><br>
+
+✅ 🛡 Integridade
+
+<br><br>
+
+➡ ⚡ Disponibilidade
+
+<br><br>
+
+⬜ 🔐 Criptografia
+
+<br><br>
+
+⬜ 👥 Controle de Acesso
+
+<br><br>
+
+⬜ 📊 Classificação da Informação
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Biblioteca Técnica
+
+</p>
+
+<p>
+
+📚 Série Técnica
+
+Fundamentos da Segurança da Informação
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
+  
+  
+  
+
+  
+  
