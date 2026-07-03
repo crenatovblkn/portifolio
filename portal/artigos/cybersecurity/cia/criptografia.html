@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Fundamentos da Segurança da Informação
+
+Criptografia
+
+</title>
+
+<link rel="stylesheet"
+href="../../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+📚 SÉRIE TÉCNICA
+
+</span>
+
+<h1>
+
+🛡 Fundamentos da Segurança da Informação
+
+</h1>
+
+<h2>
+
+🔐 Criptografia
+
+</h2>
+
+<p style="text-align: justify;">
+
+Protegendo informações em repouso e em trânsito por meio de
+algoritmos criptográficos utilizados diariamente por pessoas,
+empresas e governos.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Cybersecurity
+
+</a>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+Cybersecurity
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Série
+
+</strong>
+
+Fundamentos da Segurança da Informação
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Capítulo
+
+</strong>
+
+🔐 Criptografia
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+Iniciante / Intermediário
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Conceitos
+
+</strong>
+
+AES<br>
+
+RSA<br>
+
+ECC<br>
+
+Hash<br>
+
+PKI<br>
+
+TLS<br>
+
+Certificados Digitais
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+30 minutos
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Resumo Executivo
+
+</h2>
+
+<p style="text-align: justify;">
+
+Imagine enviar uma mensagem contendo informações bancárias por
+meio da Internet. Durante o percurso, diversos equipamentos
+intermediários participam da comunicação até que a mensagem
+alcance seu destino.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sem mecanismos de proteção, qualquer pessoa que consiga
+interceptar esse tráfego poderá visualizar seu conteúdo,
+alterar informações ou até assumir a identidade de um dos
+participantes da comunicação.
+
+</p>
+
+<p style="text-align: justify;">
+
+A Criptografia surgiu exatamente para resolver esse problema.
+Ela transforma informações legíveis em dados cifrados,
+garantindo que apenas pessoas autorizadas consigam compreender
+o conteúdo original.
+
+</p>
+
+<blockquote>
+
+Grande parte da segurança existente na Internet depende da
+Criptografia.
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+Sempre que acessamos um site HTTPS, realizamos uma transação
+financeira, utilizamos um aplicativo de mensagens ou conectamos
+uma VPN, algoritmos criptográficos trabalham em segundo plano
+protegendo nossas informações.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🎯 Objetivo deste capítulo
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Apresentar os principais conceitos da Criptografia, compreender
+como funcionam os algoritmos criptográficos mais utilizados e
+entender de que forma essa tecnologia contribui para preservar
+a Confidencialidade, a Integridade e a Autenticidade das
+informações.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 O que é Criptografia?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Criptografia é a ciência responsável por proteger informações
+por meio de técnicas matemáticas que transformam dados legíveis
+(texto claro) em informações aparentemente aleatórias
+(texto cifrado).
+
+</p>
+
+<p style="text-align: justify;">
+
+Somente quem possui a chave criptográfica correta consegue
+reverter esse processo e recuperar a informação original.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora sua origem remonte à Antiguidade, a Criptografia moderna
+é baseada em algoritmos matemáticos extremamente complexos,
+capazes de proteger bilhões de transações realizadas diariamente
+em todo o mundo.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura01-conceito-criptografia.png"
+alt="Conceito de Criptografia">
+
+<figcaption class="image-caption">
+
+Figura 1 – A Criptografia transforma informações legíveis em
+dados cifrados, permitindo que apenas usuários autorizados
+tenham acesso ao conteúdo original.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito Fundamental
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Criptografia não significa esconder informações, mas protegê-las
+por meio de algoritmos matemáticos que tornam sua leitura
+praticamente impossível sem a chave adequada.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌎 Onde Utilizamos Criptografia?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Mesmo sem perceber, utilizamos Criptografia diversas vezes ao
+longo do dia. Ela está presente em praticamente todos os serviços
+digitais modernos.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura02-aplicacoes-criptografia.png"
+alt="Aplicações da Criptografia">
+
+<figcaption class="image-caption">
+
+Figura 2 – Exemplos do uso cotidiano da Criptografia em serviços
+digitais.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 HTTPS
+
+</strong>
+
+Protege a comunicação entre navegadores e servidores Web.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+💬 Aplicativos de Mensagens
+
+</strong>
+
+WhatsApp, Signal e outros utilizam criptografia ponta a ponta.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🏦 Bancos Digitais
+
+</strong>
+
+Transações financeiras utilizam algoritmos criptográficos para
+proteger dados sensíveis.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔒 VPN
+
+</strong>
+
+Cria túneis criptografados para comunicação segura entre redes.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📶 Wi-Fi
+
+</strong>
+
+Protocolos como WPA2 e WPA3 utilizam criptografia para proteger
+redes sem fio.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+💾 Armazenamento
+
+</strong>
+
+Discos e arquivos podem ser criptografados para impedir acesso
+não autorizado.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔑 Criptografia Simétrica
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Criptografia Simétrica é o modelo mais antigo e também um dos
+mais rápidos utilizados atualmente. Nesse método, a mesma chave é
+utilizada tanto para cifrar quanto para decifrar as informações.
+
+</p>
+
+<p style="text-align: justify;">
+
+Isso significa que remetente e destinatário precisam conhecer e
+proteger exatamente a mesma chave criptográfica. Caso essa chave
+seja comprometida, todas as informações protegidas por ela poderão
+ser acessadas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Por apresentar excelente desempenho, esse modelo é amplamente
+empregado para proteger grandes volumes de dados, discos,
+backups, VPNs e conexões HTTPS após o estabelecimento da sessão.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura03-criptografia-simetrica.png"
+alt="Criptografia Simétrica">
+
+<figcaption class="image-caption">
+
+Figura 3 – Funcionamento da Criptografia Simétrica utilizando uma
+única chave para cifrar e decifrar informações.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔐 AES
+
+</strong>
+
+Padrão mundial utilizado em VPNs, HTTPS, BitLocker,
+criptografia de discos e armazenamento em nuvem.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚡ ChaCha20
+
+</strong>
+
+Algoritmo moderno otimizado para dispositivos móveis
+e ambientes com menor capacidade de processamento.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🚀 Vantagens
+
+</strong>
+
+Alto desempenho.
+
+Baixo consumo de processamento.
+
+Ideal para grandes volumes de dados.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚠ Limitação
+
+</strong>
+
+A distribuição segura da chave continua sendo o maior desafio
+da criptografia simétrica.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 Criptografia Assimétrica
+
+</h2>
+
+<p style="text-align: justify;">
+
+Para resolver o problema do compartilhamento de chaves surgiu a
+Criptografia Assimétrica, também conhecida como criptografia de
+chave pública.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse modelo cada usuário possui duas chaves matematicamente
+relacionadas:
+
+</p>
+
+<ul>
+
+<li>🔓 Chave Pública</li>
+
+<li>🔒 Chave Privada</li>
+
+</ul>
+
+<p style="text-align: justify;">
+
+A chave pública pode ser distribuída livremente para qualquer
+pessoa, enquanto a chave privada deve permanecer protegida pelo
+proprietário.
+
+</p>
+
+<p style="text-align: justify;">
+
+Uma informação cifrada utilizando a chave pública somente poderá
+ser decifrada utilizando sua respectiva chave privada.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura04-criptografia-assimetrica.png"
+alt="Criptografia Assimétrica">
+
+<figcaption class="image-caption">
+
+Figura 4 – Funcionamento da Criptografia Assimétrica utilizando
+um par de chaves pública e privada.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔑 RSA
+
+</strong>
+
+Algoritmo amplamente utilizado em certificados digitais,
+TLS, VPNs e assinaturas digitais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🟢 ECC
+
+</strong>
+
+Utiliza curvas elípticas para oferecer elevado nível de
+segurança utilizando chaves menores.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✔ Vantagens
+
+</strong>
+
+Elimina o problema do compartilhamento seguro de chaves.
+
+Permite autenticação e assinaturas digitais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚠ Limitação
+
+</strong>
+
+Consome mais processamento quando comparado à criptografia
+simétrica.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🤝 Criptografia Híbrida
+
+</h2>
+
+<p style="text-align: justify;">
+
+Na prática, a maior parte das aplicações modernas utiliza uma
+combinação entre criptografia simétrica e assimétrica.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse modelo é conhecido como Criptografia Híbrida e reúne as
+principais vantagens de ambos os métodos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Inicialmente, algoritmos assimétricos realizam a autenticação
+entre as partes e estabelecem uma chave de sessão segura.
+
+Após essa etapa, toda a comunicação passa a utilizar
+criptografia simétrica, muito mais rápida e eficiente.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura05-tls-handshake.png"
+alt="Handshake TLS">
+
+<figcaption class="image-caption">
+
+Figura 5 – Fluxo simplificado do Handshake TLS utilizando
+criptografia assimétrica para troca segura da chave de sessão e
+criptografia simétrica para proteger a comunicação.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo Prático
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Quando você acessa um site HTTPS, seu navegador utiliza
+criptografia assimétrica apenas durante os primeiros instantes
+da conexão. Após a negociação da chave de sessão, toda a troca
+de informações passa a utilizar algoritmos simétricos como o
+AES, proporcionando muito mais desempenho.
+
+</p>
+
+</div>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 HTTPS
+
+</strong>
+
+TLS combina RSA ou ECC com AES ou ChaCha20.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔒 VPN
+
+</strong>
+
+Negocia as chaves utilizando criptografia assimétrica e protege
+os dados com algoritmos simétricos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+☁ Aplicações Modernas
+
+</strong>
+
+A maioria dos protocolos seguros atuais utiliza criptografia
+híbrida.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+#️⃣ Funções Hash
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao estudar Criptografia é comum acreditar que todas as técnicas
+servem para ocultar informações. Entretanto, existe uma categoria
+de algoritmos cujo objetivo é completamente diferente.
+
+</p>
+
+<p style="text-align: justify;">
+
+As funções Hash não foram desenvolvidas para criptografar dados,
+mas para produzir uma representação matemática única de uma
+informação. Esse valor, conhecido como <strong>Hash</strong>,
+funciona como uma impressão digital do conteúdo original.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sempre que uma informação sofre qualquer alteração, mesmo que
+apenas um único caractere seja modificado, um novo Hash é
+gerado, completamente diferente do anterior.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura06-hash.png"
+alt="Função Hash">
+
+<figcaption class="image-caption">
+
+Figura 6 – Funcionamento de uma função Hash demonstrando como
+pequenas alterações produzem valores completamente diferentes.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔢 SHA-256
+
+</strong>
+
+Amplamente utilizado em certificados digitais, Blockchain,
+assinaturas digitais e protocolos de segurança.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 SHA-3
+
+</strong>
+
+Nova família de algoritmos desenvolvida para complementar
+a família SHA-2.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚡ BLAKE2
+
+</strong>
+
+Oferece excelente desempenho mantendo elevado nível
+de segurança.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🚀 BLAKE3
+
+</strong>
+
+Versão moderna otimizada para processamento paralelo e
+grandes volumes de dados.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Importante
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Hash não é criptografia reversível. Não existe um processo para
+recuperar o conteúdo original a partir do valor Hash.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✍ Assinaturas Digitais
+
+</h2>
+
+<p style="text-align: justify;">
+
+As Assinaturas Digitais utilizam funções Hash e criptografia
+assimétrica para garantir que uma informação realmente foi
+produzida pelo seu autor e que não sofreu alterações durante
+a transmissão.
+
+</p>
+
+<p style="text-align: justify;">
+
+Primeiramente é calculado o Hash do documento. Em seguida,
+esse Hash é cifrado utilizando a chave privada do remetente.
+
+</p>
+
+<p style="text-align: justify;">
+
+Ao receber o documento, o destinatário calcula novamente o Hash
+do arquivo e compara esse resultado com o Hash recuperado por
+meio da chave pública do emissor.
+
+</p>
+
+<p style="text-align: justify;">
+
+Se ambos os valores forem iguais, é possível concluir que o
+arquivo permanece íntegro e que foi assinado pelo proprietário
+da chave privada correspondente.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura07-assinatura-digital.png"
+alt="Assinatura Digital">
+
+<figcaption class="image-caption">
+
+Figura 7 – Funcionamento simplificado de uma Assinatura Digital
+utilizando funções Hash e criptografia assimétrica.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✔ Integridade
+
+</strong>
+
+Permite verificar se o documento sofreu alterações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 Autenticidade
+
+</strong>
+
+Confirma a identidade do emissor.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚖ Não Repúdio
+
+</strong>
+
+Impede que o autor negue posteriormente a autoria da assinatura.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📄 Documentos
+
+</strong>
+
+Muito utilizada em contratos eletrônicos, NF-e,
+eSocial, ICP-Brasil e certificados digitais.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏛 Infraestrutura de Chaves Públicas (PKI)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Em ambientes corporativos seria inviável cada organização criar
+e distribuir suas próprias chaves públicas sem qualquer mecanismo
+de validação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Para resolver esse problema foi criada a Infraestrutura de
+Chaves Públicas, conhecida internacionalmente como
+<strong>PKI (Public Key Infrastructure)</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse modelo, Autoridades Certificadoras (CAs) emitem
+Certificados Digitais que associam uma identidade a uma chave
+pública, permitindo que navegadores, sistemas operacionais e
+aplicações verifiquem automaticamente a autenticidade dessa
+informação.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura08-pki.png"
+alt="Infraestrutura de Chaves Públicas">
+
+<figcaption class="image-caption">
+
+Figura 8 – Infraestrutura de Chaves Públicas (PKI) envolvendo
+Autoridade Certificadora, Certificados Digitais e usuários.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🏢 Autoridade Certificadora
+
+</strong>
+
+Emite e assina Certificados Digitais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📄 Certificado Digital
+
+</strong>
+
+Documento eletrônico que associa uma identidade
+à sua chave pública.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌐 HTTPS
+
+</strong>
+
+Utiliza Certificados Digitais para autenticar
+servidores Web.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔒 TLS
+
+</strong>
+
+Valida certificados antes do estabelecimento
+de uma conexão segura.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Curiosidade
+
+</strong>
+
+<br>
+
+<p style="text-align: justify;">
+
+Sempre que o navegador exibe o cadeado ao lado da URL de um site,
+há um Certificado Digital válido sendo utilizado para autenticar
+o servidor e estabelecer uma comunicação criptografada.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+💼 Aplicações Práticas da Criptografia
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora muitas pessoas associem a Criptografia apenas ao acesso
+de sites HTTPS, sua utilização está presente em praticamente
+todos os ambientes modernos de Tecnologia da Informação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Empresas utilizam mecanismos criptográficos para proteger
+comunicações, armazenar informações sensíveis, autenticar
+usuários e preservar a confidencialidade dos dados durante todo
+o seu ciclo de vida.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura09-aplicacoes-criptografia.png"
+alt="Aplicações da Criptografia">
+
+<figcaption class="image-caption">
+
+Figura 9 – Principais aplicações da Criptografia em ambientes
+corporativos.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🌐 HTTPS
+
+</strong>
+
+Protege a comunicação entre navegadores e servidores Web
+utilizando TLS.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔒 SSH
+
+</strong>
+
+Permite administração remota segura de servidores.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌍 VPN
+
+</strong>
+
+Cria túneis criptografados para comunicação segura entre redes.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+💾 BitLocker
+
+</strong>
+
+Criptografia de discos utilizada no Microsoft Windows.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🐧 LUKS
+
+</strong>
+
+Criptografia de discos amplamente utilizada em sistemas Linux.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📶 WPA3
+
+</strong>
+
+Protege redes Wi-Fi contra acesso não autorizado.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚠ Principais Ataques Relacionados à Criptografia
+
+</h2>
+
+<p style="text-align: justify;">
+
+Apesar da robustez dos algoritmos modernos, diversos ataques
+buscam explorar implementações incorretas, falhas de
+configuração ou o comprometimento das chaves criptográficas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Na maioria das situações, o problema não está no algoritmo, mas
+na forma como ele foi implementado ou administrado.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura10-ataques-criptografia.png"
+alt="Ataques relacionados à Criptografia">
+
+<figcaption class="image-caption">
+
+Figura 10 – Principais ataques relacionados ao uso da
+Criptografia.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔨 Brute Force
+
+</strong>
+
+Tentativas sucessivas de descobrir senhas ou chaves
+criptográficas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌈 Rainbow Tables
+
+</strong>
+
+Utilização de tabelas pré-calculadas para descobrir senhas a
+partir de valores Hash.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🕵 Man-in-the-Middle
+
+</strong>
+
+Interceptação da comunicação entre duas partes para capturar ou
+alterar informações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⬇ Downgrade Attack
+
+</strong>
+
+Força a utilização de versões antigas e menos seguras dos
+protocolos criptográficos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🗝 Roubo de Chaves
+
+</strong>
+
+Comprometimento da chave privada, tornando inúteis os mecanismos
+de proteção.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚙ Má Configuração
+
+</strong>
+
+Uso de algoritmos obsoletos, chaves pequenas ou certificados
+expirados.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+💡 Boas Práticas
+
+</strong>
+
+<br>
+
+<ul>
+
+<li>Utilizar AES-256 para criptografia simétrica.</li>
+
+<li>Preferir TLS 1.3 sempre que possível.</li>
+
+<li>Utilizar algoritmos modernos como SHA-256 ou SHA-3.</li>
+
+<li>Proteger adequadamente as chaves privadas.</li>
+
+<li>Implementar rotação periódica de chaves.</li>
+
+<li>Utilizar certificados digitais emitidos por Autoridades Certificadoras confiáveis.</li>
+
+<li>Desabilitar protocolos criptográficos obsoletos.</li>
+
+<li>Implementar HSM para proteção de chaves críticas.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+⚠ Erros Comuns
+
+</strong>
+
+<br>
+
+<ul>
+
+<li>Utilizar MD5 para proteger senhas.</li>
+
+<li>Armazenar chaves privadas em texto claro.</li>
+
+<li>Utilizar certificados expirados.</li>
+
+<li>Compartilhar chaves entre diferentes aplicações.</li>
+
+<li>Utilizar TLS 1.0 ou SSL.</li>
+
+<li>Não validar certificados digitais.</li>
+
+<li>Ignorar atualizações criptográficas.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>O conceito de Criptografia.</li>
+
+<li>Onde a Criptografia é utilizada no dia a dia.</li>
+
+<li>As diferenças entre criptografia simétrica e assimétrica.</li>
+
+<li>Como funciona a criptografia híbrida.</li>
+
+<li>O papel das funções Hash.</li>
+
+<li>Como funcionam as Assinaturas Digitais.</li>
+
+<li>Os conceitos básicos da Infraestrutura de Chaves Públicas (PKI).</li>
+
+<li>As principais aplicações da Criptografia.</li>
+
+<li>Os ataques mais comuns relacionados aos mecanismos criptográficos.</li>
+
+<li>As principais boas práticas para utilização da Criptografia.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Capítulo
+
+</h2>
+
+<p>
+
+Agora que compreendemos como a Criptografia protege informações,
+vamos estudar quem pode acessá-las.
+
+</p>
+
+<p>
+
+No próximo capítulo conheceremos os fundamentos do
+<strong>Controle de Acesso</strong>, responsável por definir
+quais usuários podem visualizar, modificar ou administrar os
+recursos de uma organização.
+
+</p>
+
+<p>
+
+Estudaremos conceitos como autenticação, autorização,
+identidades digitais, RBAC, ABAC, DAC, MAC, MFA e os princípios
+do Menor Privilégio e Need to Know.
+
+</p>
+
+<br>
+
+<a class="content-button">
+
+➡ Ler o próximo capítulo
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Série Técnica
+
+</strong>
+
+<br><br>
+
+✅ 🔺 Tríade CIA
+
+<br><br>
+
+✅ 🔒 Confidencialidade
+
+<br><br>
+
+✅ 🛡 Integridade
+
+<br><br>
+
+✅ ⚡ Disponibilidade
+
+<br><br>
+
+✅ 🔐 Criptografia
+
+<br><br>
+
+➡ 👥 Controle de Acesso
+
+<br><br>
+
+⬜ 🪪 Autenticação
+
+<br><br>
+
+⬜ 🏷 Classificação da Informação
+
+<br><br>
+
+⬜ 🏛 Governança de Segurança
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Biblioteca Técnica
+
+</p>
+
+<p>
+
+📚 Série Técnica
+
+Fundamentos da Segurança da Informação
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>  
+  
+
+  
+  
