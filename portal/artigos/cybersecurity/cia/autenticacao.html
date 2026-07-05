@@ -579,11 +579,11 @@ Vantagens
 
 </strong>
 
-• Simples implementação<br>
+✔ Simples implementação<br>
 
-• Baixo custo<br>
+✔ Baixo custo<br>
 
-• Compatibilidade universal
+✔ Compatibilidade universal
 
 </div>
 
@@ -755,15 +755,15 @@ Exemplos
 
 </strong>
 
-• Impressão digital
+• Impressão digital<br>
 
-• Face ID
+• Face ID<br>
 
-• Reconhecimento facial
+• Reconhecimento facial<br>
 
-• Íris
+• Íris<br>
 
-• Retina
+• Retina<br>
 
 • Voz
 
@@ -777,11 +777,11 @@ Vantagens
 
 </strong>
 
-✔ Conveniência
+✔ Conveniência<br>
 
-✔ Rapidez
+✔ Rapidez<br>
 
-✔ Difícil compartilhamento
+✔ Difícil compartilhamento<br>
 
 ✔ Boa experiência do usuário
 
@@ -795,11 +795,11 @@ Limitações
 
 </strong>
 
-• Falsos positivos
+• Falsos positivos<br>
 
-• Privacidade
+• Privacidade<br>
 
-• Custo
+• Custo<br>
 
 • Equipamentos específicos
 
@@ -856,11 +856,11 @@ Exemplos
 
 </strong>
 
-• Dinâmica de digitação
+• Dinâmica de digitação<br>
 
-• Movimentação do mouse
+• Movimentação do mouse<br>
 
-• Forma de caminhar
+• Forma de caminhar<br>
 
 • Comportamento de navegação
 
@@ -874,13 +874,13 @@ Aplicações
 
 </strong>
 
-Bancos
+• Bancos<br>
 
-Fintechs
+• Fintechs<br>
 
-Soluções antifraude
+• Soluções antifraude<br>
 
-Detecção contínua de identidade
+• Detecção contínua de identidade
 
 </div>
 
@@ -928,15 +928,15 @@ Exemplos
 
 </strong>
 
-• País
+• País<br>
 
-• Cidade
+• Cidade<br>
 
-• GPS
+• GPS<br>
 
-• Endereço IP
+• Endereço IP<br>
 
-• Rede Corporativa
+• Rede Corporativa<br>
 
 • VPN
 
@@ -950,15 +950,15 @@ Utilização
 
 </strong>
 
-Zero Trust
+• Zero Trust<br>
 
-Microsoft Entra ID
+• Microsoft Entra ID<br>
 
-Google Workspace
+• Google Workspace<br>
 
-Cloud IAM
+• Cloud IAM<br>
 
-Soluções de Risco Adaptativo
+• Soluções de Risco Adaptativo
 
 </div>
 
@@ -1208,21 +1208,21 @@ distintos.
 
 <p style="text-align: justify;">
 
-Usuário A
+Usuário A<br>
 
-Senha: senha123
+Senha: senha123<br>
 
-Salt: X7@P9
+Salt: X7@P9<br>
 
 → Hash A
 
 <br><br>
 
-Usuário B
+Usuário B<br>
 
-Senha: senha123
+Senha: senha123<br>
 
-Salt: K4#ZT
+Salt: K4#ZT<br>
 
 → Hash B
 
@@ -1365,9 +1365,14 @@ Na maioria dos grandes vazamentos de credenciais ocorridos nos
 últimos anos, o problema não estava na existência de senhas, mas
 na forma como elas eram armazenadas. Organizações que utilizavam
 algoritmos obsoletos, como MD5 ou SHA-1, tiveram milhões de
-credenciais comprometidas. Atualmente, recomenda-se o uso de
-<strong>Argon2</strong>, <strong>bcrypt</strong> ou
-<strong>PBKDF2</strong>, sempre combinados com Salt exclusivo
+credenciais comprometidas.<br>
+  
+Atualmente, recomenda-se o uso de:<br>
+<strong>Argon2</strong><br>
+<strong>bcrypt</strong><br>
+<strong>PBKDF2</strong><br>
+
+Sempre combinados com Salt exclusivo
 para cada usuário.
 
 </p>
@@ -1827,13 +1832,13 @@ um provedor de identidade a múltiplas aplicações.
 
 </strong>
 
-• Melhor experiência do usuário.
+• Melhor experiência do usuário.<br>
 
-• Menor quantidade de senhas.
+• Menor quantidade de senhas.<br>
 
-• Administração centralizada.
+• Administração centralizada.<br>
 
-• Maior produtividade.
+• Maior produtividade.<br>
 
 </div>
 
@@ -1845,9 +1850,9 @@ Protocolos
 
 </strong>
 
-• SAML 2.0
+• SAML 2.0<br>
 
-• OAuth 2.0
+• OAuth 2.0<br>
 
 • OpenID Connect
 
@@ -1861,13 +1866,13 @@ Exemplos
 
 </strong>
 
-Microsoft Entra ID
+Microsoft Entra ID<br>
 
-Google Workspace
+Google Workspace<br>
 
-Okta
+Okta<br>
 
-Keycloak
+Keycloak<br>
 
 Ping Identity
 
@@ -2154,35 +2159,47 @@ de autenticação.
 
 </figure>
 
-<div class="tip">
+<section class="section">
+
+<div class="tips">
 
 <strong>
 
 ✔ Recomendações
 
 </strong>
-
+<p style="text-align: justify;">
 <br>
 
-<ul>
+• Implementar MFA para contas privilegiadas e usuários finais.
 
-<li>Implementar MFA para contas privilegiadas e usuários finais.</li>
+<br><br>   
 
-<li>Utilizar Passkeys sempre que disponíveis.</li>
+• Utilizar Passkeys sempre que disponíveis.
 
-<li>Adotar gerenciadores de senhas.</li>
+<br><br> 
+  
+• Adotar gerenciadores de senhas.
 
-<li>Utilizar algoritmos modernos para armazenamento de senhas.</li>
+<br><br>
+  
+• Utilizar algoritmos modernos para armazenamento de senhas.
 
-<li>Bloquear tentativas sucessivas de autenticação.</li>
+<br><br>
+  
+• Bloquear tentativas sucessivas de autenticação.
 
-<li>Monitorar eventos de login em tempo real.</li>
+<br><br>
+  
+• Monitorar eventos de login em tempo real.
 
-<li>Implementar autenticação adaptativa baseada em risco.</li>
+<br><br>
+  
+• Implementar autenticação adaptativa baseada em risco.
 
-<li>Revisar periodicamente políticas de autenticação.</li>
-
-</ul>
+<br><br>
+  
+• Revisar periodicamente políticas de autenticação.
 
 </div>
 
