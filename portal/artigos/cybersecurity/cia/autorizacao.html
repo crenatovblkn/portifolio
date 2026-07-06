@@ -1,1 +1,3412 @@
+<!DOCTYPE html>
 
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Fundamentos da Segurança da Informação
+
+Autorização
+
+</title>
+
+<link rel="stylesheet"
+href="../../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+📚 SÉRIE TÉCNICA
+
+</span>
+
+<h1>
+
+🛡 Fundamentos da Segurança da Informação
+
+</h1>
+
+<h2>
+
+✔ Autorização
+
+</h2>
+
+<p style="text-align: justify;">
+
+Determinando quais recursos um usuário autenticado pode acessar
+e quais operações ele está autorizado a realizar em ambientes
+corporativos.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Cybersecurity
+
+</a>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+<br>
+
+Cybersecurity
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Série
+
+</strong>
+
+<br>
+
+Fundamentos da Segurança da Informação
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Capítulo
+
+</strong>
+
+<br>
+
+✔ Autorização
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+<br>
+
+Iniciante / Intermediário
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Conceitos
+
+</strong>
+
+<br>
+
+Permissões<br>
+
+Privilégios<br>
+
+RBAC<br>
+
+ABAC<br>
+
+ACL<br>
+
+Policies<br>
+
+Least Privilege<br>
+
+IAM
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+<br>
+
+35 minutos
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Resumo Executivo
+
+</h2>
+
+<p style="text-align: justify;">
+
+Imagine que um colaborador realizou login com sucesso no sistema
+corporativo utilizando senha e autenticação multifator. Isso
+significa que ele pode acessar qualquer informação da empresa?
+
+</p>
+
+<p style="text-align: justify;">
+
+A resposta é não.
+
+</p>
+
+<p style="text-align: justify;">
+
+Após confirmar a identidade do usuário por meio da
+<strong>Autenticação</strong>, o sistema precisa responder outra
+pergunta igualmente importante:
+
+</p>
+
+<blockquote>
+
+O que esse usuário está autorizado a fazer?
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+É exatamente essa decisão que pertence ao processo de
+<strong>Autorização</strong>. Ela determina quais recursos poderão
+ser acessados, quais operações poderão ser executadas e quais ações
+serão bloqueadas de acordo com as políticas definidas pela
+organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em um ambiente corporativo, diferentes usuários possuem funções
+distintas. Um analista financeiro necessita acessar sistemas
+contábeis, enquanto um profissional de Recursos Humanos deve
+consultar informações de colaboradores. Já um administrador de
+infraestrutura poderá gerenciar servidores e equipamentos de rede,
+atividades que não devem estar disponíveis aos demais usuários.
+
+</p>
+
+<p style="text-align: justify;">
+
+Por esse motivo, a Autorização representa um dos pilares da
+Segurança da Informação, reduzindo riscos de vazamento de dados,
+fraudes, alterações indevidas e abuso de privilégios.
+
+</p>
+
+<blockquote>
+
+Autorização é o processo responsável por determinar quais recursos
+um usuário autenticado poderá acessar e quais operações ele poderá
+executar.
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+Neste capítulo estudaremos como essas decisões são tomadas,
+conheceremos os diferentes modelos de autorização utilizados nas
+organizações e veremos como tecnologias modernas implementam
+controles granulares para proteger informações corporativas.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🎯 Objetivo deste capítulo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Compreender como funcionam os mecanismos de Autorização,
+entender a diferença entre autenticar e autorizar, conhecer
+os principais modelos utilizados em ambientes corporativos
+e identificar boas práticas para concessão segura de
+permissões e privilégios.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✔ O que é Autorização?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Autorização é o processo que ocorre após a autenticação e tem
+como finalidade decidir quais recursos estarão disponíveis para
+um usuário autenticado.
+
+</p>
+
+<p style="text-align: justify;">
+
+Enquanto a Autenticação confirma a identidade do usuário,
+a Autorização verifica quais permissões foram atribuídas a essa
+identidade e quais operações poderão ser realizadas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Na prática, cada solicitação de acesso pode resultar em uma
+decisão diferente. Um mesmo usuário pode possuir permissão para
+consultar um documento, mas não para alterá-lo. Da mesma forma,
+um administrador pode gerenciar servidores sem necessariamente
+ter acesso aos sistemas financeiros da organização.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura01-autorizacao.png"
+alt="Fluxo de Autorização">
+
+<figcaption class="image-caption">
+
+Figura 1 – Fluxo mostrando um usuário autenticado solicitando
+acesso a um recurso e o sistema consultando as permissões antes
+de conceder ou negar o acesso.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito Fundamental
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+A Autorização responde à pergunta:
+
+<strong>
+
+"O que você pode fazer?"
+
+</strong>
+
+<br><br>
+
+Já a Autenticação responde:
+
+<strong>
+
+"Quem é você?"
+
+</strong>
+
+<br><br>
+
+Ambos os processos são complementares e indispensáveis para a
+implementação de um Controle de Acesso seguro.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Autenticação × Autorização
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora ocorram em sequência durante um processo de acesso,
+Autenticação e Autorização possuem objetivos completamente
+diferentes.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🆔 Autenticação
+
+</strong>
+
+<br><br>
+
+Confirma a identidade do usuário.<br><br>
+
+Exemplos:<br>
+
+• Senha<br>
+
+• Biometria<br>
+
+• Certificado Digital<br>
+
+• MFA
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✔ Autorização
+
+</strong>
+
+<br><br>
+
+Determina os recursos disponíveis para o usuário.<br><br>
+
+Exemplos:<br>
+
+• Ler arquivos<br>
+
+• Alterar registros<br>
+
+• Excluir documentos<br>
+
+• Administrar sistemas
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Em outras palavras, autenticar significa provar quem você é.
+Autorizar significa definir o que você poderá fazer após sua
+identidade ser confirmada.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Como Funciona uma Decisão de Autorização
+
+</h2>
+
+<p style="text-align: justify;">
+
+Sempre que um usuário tenta acessar um recurso, o sistema precisa
+decidir se aquela operação será permitida ou bloqueada.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa decisão não ocorre de forma aleatória. Ela segue uma sequência
+de verificações baseada nas políticas de segurança da organização,
+nas permissões atribuídas ao usuário e no contexto da solicitação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em grandes ambientes corporativos, esse processo acontece em
+milissegundos e pode envolver diretórios de identidade, bancos de
+dados, serviços IAM, aplicações e mecanismos de auditoria.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura02-decisao-autorizacao.png"
+alt="Fluxo da decisão de autorização">
+
+<figcaption class="image-caption">
+
+Figura 2 – Fluxo completo da decisão de autorização.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📥 Etapa 1 – Solicitação de Acesso
+
+</h2>
+
+<p style="text-align: justify;">
+
+Todo processo de autorização inicia quando um usuário autenticado
+solicita acesso a um recurso específico.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse recurso pode ser um arquivo, uma pasta, um banco de dados,
+uma aplicação, uma API, um servidor ou qualquer outro ativo
+protegido.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+📄 Abrir um documento.<br>
+
+🗄 Consultar um banco de dados.<br>
+
+🌐 Acessar uma aplicação Web.<br>
+
+🖥 Conectar em um servidor.<br>
+
+☁ Utilizar um serviço em nuvem.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Informações enviadas
+
+</strong>
+
+<br><br>
+
+Usuário autenticado.<br>
+
+Recurso solicitado.<br>
+
+Operação desejada.<br>
+
+Horário.<br>
+
+Origem da conexão.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📋 Etapa 2 – Consulta às Políticas
+
+</h2>
+
+<p style="text-align: justify;">
+
+Após receber a solicitação, o sistema consulta as políticas de
+autorização previamente definidas pela organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essas políticas estabelecem quais usuários ou grupos podem acessar
+cada recurso e quais operações são permitidas em cada situação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Dependendo da arquitetura utilizada, essas regras podem estar
+armazenadas em um Active Directory, Microsoft Entra ID, serviço
+IAM, banco de dados ou diretamente na aplicação.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Política:
+
+<br><br>
+
+• Analistas Financeiros podem consultar relatórios financeiros.<br>
+
+• Apenas Gerentes Financeiros podem aprovar pagamentos.<br>
+
+• Usuários externos não possuem acesso ao ERP.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔍 Etapa 3 – Avaliação das Permissões
+
+</h2>
+
+<p style="text-align: justify;">
+
+Com as políticas carregadas, o mecanismo de autorização compara
+as permissões do usuário com o recurso solicitado.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa análise pode considerar diversos fatores, como grupos,
+papéis (roles), atributos, localização geográfica, dispositivo
+utilizado, horário do acesso e classificação da informação.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Critérios avaliados
+
+</strong>
+
+<br><br>
+
+✔ Papel do usuário.<br>
+
+✔ Departamento.<br>
+
+✔ Grupos de segurança.<br>
+
+✔ Classificação do recurso.<br>
+
+✔ Localização.<br>
+
+✔ Dispositivo.<br>
+
+✔ Horário.<br>
+
+✔ Nível de risco.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Modelos utilizados
+
+</strong>
+
+<br><br>
+
+RBAC.<br>
+
+ABAC.<br>
+
+ACL.<br>
+
+Policies.<br>
+
+Zero Trust.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✔ Etapa 4 – Decisão da Autorização
+
+</h2>
+
+<p style="text-align: justify;">
+
+Após avaliar todas as regras, o sistema toma uma decisão.
+
+</p>
+
+<p style="text-align: justify;">
+
+Caso todas as condições sejam atendidas, o acesso é concedido.
+Caso contrário, a solicitação é bloqueada e o usuário recebe uma
+mensagem informando que não possui autorização suficiente.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🟢 Permitir
+
+</strong>
+
+<br><br>
+
+O usuário possui todas as permissões necessárias para executar a
+operação solicitada.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔴 Negar
+
+</strong>
+
+<br><br>
+
+O usuário não possui privilégios suficientes ou alguma política
+de segurança impede a operação.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Importante
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Na maioria dos ambientes corporativos modernos, prevalece o
+princípio do <strong>Default Deny</strong>: todo acesso é negado
+por padrão até que exista uma regra explícita permitindo sua
+execução.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📝 Etapa 5 – Registro em Auditoria
+
+</h2>
+
+<p style="text-align: justify;">
+
+Independentemente do resultado da autorização, a tentativa de
+acesso normalmente é registrada em logs de auditoria.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esses registros permitem rastrear quem tentou acessar determinado
+recurso, quando a tentativa ocorreu, qual operação foi realizada e
+qual foi a decisão tomada pelo sistema.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Informações registradas
+
+</strong>
+
+<br><br>
+
+👤 Usuário.<br>
+
+🕒 Data e horário.<br>
+
+🌍 Origem da conexão.<br>
+
+📄 Recurso solicitado.<br>
+
+⚙ Operação executada.<br>
+
+✔ Resultado da autorização.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+Auditoria.<br>
+
+Investigação Forense.<br>
+
+Conformidade.<br>
+
+Detecção de incidentes.<br>
+
+Rastreabilidade.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+A decisão de autorização não representa o fim do processo de
+segurança. Em arquiteturas modernas baseadas em <strong>Zero
+Trust</strong>, cada nova solicitação pode ser reavaliada
+continuamente considerando mudanças de contexto, risco,
+dispositivo utilizado e comportamento do usuário, permitindo que
+acessos anteriormente autorizados sejam revogados caso sejam
+identificados indícios de comprometimento.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 Permissões e Privilégios
+
+</h2>
+
+<p style="text-align: justify;">
+
+Após decidir que um usuário pode acessar determinado recurso,
+o sistema ainda precisa definir exatamente quais operações
+estarão disponíveis para esse usuário.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essas operações são conhecidas como <strong>permissões</strong>.
+Cada permissão representa uma ação específica que poderá ser
+executada sobre um recurso, como visualizar um arquivo,
+alterá-lo, excluí-lo ou executá-lo.
+
+</p>
+
+<p style="text-align: justify;">
+
+Já os <strong>privilégios</strong> representam capacidades mais
+amplas, normalmente associadas à administração de sistemas,
+configuração de serviços e gerenciamento de outros usuários.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora os dois conceitos estejam relacionados, eles possuem
+objetivos diferentes e são utilizados em níveis distintos da
+infraestrutura.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura03-permissoes.png"
+alt="Permissões sobre arquivos">
+
+<figcaption class="image-caption">
+
+Figura 3 – Exemplo das permissões aplicadas sobre um arquivo ou pasta.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📄 Permissões
+
+</h2>
+
+<p style="text-align: justify;">
+
+As permissões determinam exatamente quais operações poderão ser
+executadas sobre um recurso específico.
+
+</p>
+
+<p style="text-align: justify;">
+
+Dependendo do sistema operacional ou da aplicação, o conjunto de
+permissões pode variar, porém algumas operações são praticamente
+universais.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+👁 Read (Leitura)
+
+</strong>
+
+<br><br>
+
+Permite visualizar informações sem realizar alterações.
+
+<br><br>
+
+Exemplos:<br>
+
+• Abrir documentos.<br>
+
+• Consultar registros.<br>
+
+• Visualizar relatórios.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✏ Write (Gravação)
+
+</strong>
+
+<br><br>
+
+Permite criar ou gravar novas informações.
+
+<br><br>
+
+Exemplos:<br>
+
+• Criar arquivos.<br>
+
+• Inserir registros.<br>
+
+• Salvar alterações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📝 Modify (Modificar)
+
+</strong>
+
+<br><br>
+
+Permite alterar conteúdos existentes.
+
+<br><br>
+
+Exemplos:<br>
+
+• Editar documentos.<br>
+
+• Atualizar registros.<br>
+
+• Renomear arquivos.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Permissões Avançadas
+
+</h2>
+
+<p style="text-align: justify;">
+
+Além das permissões básicas, diversos sistemas oferecem controles
+mais específicos para operações administrativas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+▶ Execute
+
+</strong>
+
+<br><br>
+
+Permite executar programas, scripts ou comandos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🗑 Delete
+
+</strong>
+
+<br><br>
+
+Permite remover arquivos, diretórios ou registros.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👑 Full Control
+
+</strong>
+
+<br><br>
+
+Concede todas as permissões disponíveis sobre o recurso,
+inclusive alterar permissões e assumir propriedade.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um colaborador pode possuir permissão para visualizar um
+relatório financeiro (<strong>Read</strong>), mas não possuir
+autorização para alterá-lo (<strong>Modify</strong>) ou excluí-lo
+(<strong>Delete</strong>).
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👑 Privilégios
+
+</h2>
+
+<p style="text-align: justify;">
+
+Enquanto as permissões controlam operações sobre recursos,
+os privilégios controlam capacidades administrativas atribuídas
+a determinados usuários ou serviços.
+
+</p>
+
+<p style="text-align: justify;">
+
+Usuários privilegiados normalmente conseguem modificar
+configurações do sistema, instalar aplicações, administrar
+contas, alterar políticas de segurança e executar tarefas que
+não estão disponíveis para usuários comuns.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos de privilégios
+
+</strong>
+
+<br><br>
+
+✔ Criar usuários.<br>
+
+✔ Excluir usuários.<br>
+
+✔ Alterar grupos.<br>
+
+✔ Instalar softwares.<br>
+
+✔ Reiniciar servidores.<br>
+
+✔ Modificar políticas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Contas privilegiadas
+
+</strong>
+
+<br><br>
+
+Administrador Windows.<br>
+
+root (Linux).<br>
+
+Administrador de Banco de Dados.<br>
+
+Administrador Cloud.<br>
+
+Administrador de Rede.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+⚠ Atenção
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Quanto maiores forem os privilégios atribuídos a uma conta,
+maior será o impacto caso essa identidade seja comprometida.
+Por esse motivo, contas administrativas devem ser utilizadas
+apenas quando estritamente necessário.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚖ Permissões × Privilégios
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora muitas vezes utilizados como sinônimos, permissões e
+privilégios representam conceitos distintos dentro da Segurança
+da Informação.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Permissões
+
+</strong>
+
+<br><br>
+
+Controlam ações sobre um recurso.<br><br>
+
+Exemplos:<br>
+
+• Ler.<br>
+
+• Alterar.<br>
+
+• Executar.<br>
+
+• Excluir.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Privilégios
+
+</strong>
+
+<br><br>
+
+Controlam capacidades administrativas.<br><br>
+
+Exemplos:<br>
+
+• Criar contas.<br>
+
+• Alterar políticas.<br>
+
+• Gerenciar servidores.<br>
+
+• Administrar sistemas.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Grande parte dos incidentes envolvendo escalada de privilégios
+ocorre porque contas comuns recebem privilégios administrativos
+desnecessários. A aplicação consistente do
+<strong>Princípio do Menor Privilégio (Least Privilege)</strong>
+reduz significativamente esse risco e constitui uma das práticas
+mais importantes recomendadas por normas como ISO/IEC 27001,
+NIST Cybersecurity Framework e CIS Controls.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📋 Access Control List (ACL)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Depois que um usuário é autenticado e suas permissões são
+consultadas, o sistema precisa verificar exatamente quais regras
+foram definidas para o recurso solicitado.
+
+</p>
+
+<p style="text-align: justify;">
+
+Na maioria dos sistemas modernos essa verificação é realizada por
+meio de uma <strong>Access Control List (ACL)</strong>, ou Lista
+de Controle de Acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Uma ACL é uma estrutura que relaciona usuários, grupos ou papéis
+às permissões existentes sobre determinado recurso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sempre que ocorre uma tentativa de acesso, o sistema consulta a
+ACL correspondente para decidir se a operação deverá ser
+permitida ou bloqueada.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura04-acl.png"
+alt="Access Control List">
+
+<figcaption class="image-caption">
+
+Figura 4 – Estrutura simplificada de uma Access Control List.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📝 Access Control Entry (ACE)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Cada linha existente dentro de uma ACL recebe o nome de
+<strong>Access Control Entry (ACE)</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Cada ACE descreve um conjunto específico de permissões atribuídas
+a um usuário, grupo ou serviço.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Uma ACE normalmente contém
+
+</strong>
+
+<br><br>
+
+👤 Usuário ou Grupo.<br>
+
+📄 Recurso.<br>
+
+✔ Permissões.<br>
+
+🟢 Permitir ou Negar.<br>
+
+🔁 Tipo de herança.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Exemplo
+
+</strong>
+
+<br><br>
+
+Grupo Financeiro<br>
+
+Permissão: Read + Modify<br>
+
+Status: Allow
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Um único arquivo pode possuir diversas ACEs, cada uma concedendo
+ou negando permissões para diferentes usuários ou grupos.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔁 Herança de Permissões
+
+</h2>
+
+<p style="text-align: justify;">
+
+Para simplificar a administração, muitos sistemas permitem que
+permissões sejam herdadas automaticamente entre diretórios,
+pastas, objetos e recursos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Isso significa que um arquivo pode receber permissões definidas
+na pasta onde está armazenado, evitando configurações
+individuais para milhares de objetos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+✔ Permissões Herdadas
+
+</strong>
+
+<br><br>
+
+Recebidas automaticamente do recurso pai.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+✔ Permissões Explícitas
+
+</strong>
+
+<br><br>
+
+Configuradas diretamente no próprio recurso.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Administração simplificada.<br>
+
+✔ Padronização.<br>
+
+✔ Menor esforço operacional.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Uma pasta denominada "Financeiro" pode conceder automaticamente
+permissões de leitura para todos os arquivos existentes em seu
+interior.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🟢 Permitir × 🔴 Negar
+
+</h2>
+
+<p style="text-align: justify;">
+
+Além das permissões propriamente ditas, a maioria das ACLs também
+define se determinada operação será explicitamente permitida ou
+explicitamente negada.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em muitos sistemas operacionais e serviços corporativos, regras
+de negação possuem prioridade sobre regras de permissão.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🟢 Allow
+
+</strong>
+
+<br><br>
+
+Autoriza a execução da operação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🔴 Deny
+
+</strong>
+
+<br><br>
+
+Impede explicitamente o acesso ao recurso.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Boas práticas
+
+</strong>
+
+<br><br>
+
+Utilizar regras Deny apenas quando realmente necessárias para
+evitar conflitos e facilitar a administração.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+⚠ Atenção
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+ACLs excessivamente complexas podem dificultar auditorias e
+provocar erros de configuração, resultando em acessos indevidos
+ou bloqueios inesperados.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌐 Onde as ACLs são utilizadas?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora normalmente associadas aos sistemas operacionais, as ACLs
+estão presentes em praticamente todos os ambientes modernos de
+Tecnologia da Informação.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🪟 Windows
+
+</strong>
+
+<br><br>
+
+NTFS.<br>
+
+Active Directory.<br>
+
+Compartilhamentos SMB.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🐧 Linux
+
+</strong>
+
+<br><br>
+
+POSIX ACL.<br>
+
+setfacl.<br>
+
+getfacl.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+☁ Cloud
+
+</strong>
+
+<br><br>
+
+AWS S3.<br>
+
+Azure Storage.<br>
+
+Google Cloud Storage.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🗄 Banco de Dados
+
+</strong>
+
+<br><br>
+
+SQL Server.<br>
+
+Oracle.<br>
+
+PostgreSQL.<br>
+
+MySQL.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Equipamentos de Rede
+
+</strong>
+
+<br><br>
+
+Firewalls.<br>
+
+Roteadores.<br>
+
+Switches.<br>
+
+Controladores Wireless.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📂 Aplicações
+
+</strong>
+
+<br><br>
+
+ERPs.<br>
+
+CRMs.<br>
+
+Portais Web.<br>
+
+Sistemas Corporativos.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Embora o conceito de ACL exista há décadas, ele continua sendo um
+dos mecanismos mais utilizados para implementação da autorização.
+Mesmo plataformas modernas de nuvem, como Microsoft Azure, AWS e
+Google Cloud, utilizam estruturas conceitualmente semelhantes às
+ACLs para controlar o acesso a recursos, serviços e dados,
+frequentemente combinadas com modelos como RBAC e ABAC.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏛 Políticas de Autorização
+
+</h2>
+
+<p style="text-align: justify;">
+
+As permissões armazenadas em ACLs representam apenas uma parte do
+processo de autorização. Em ambientes corporativos modernos, as
+decisões de acesso normalmente são baseadas em políticas que
+consideram diferentes informações antes de conceder ou negar uma
+solicitação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Uma política de autorização define as regras que determinam
+quem pode acessar determinado recurso, em quais condições esse
+acesso será permitido e quais operações poderão ser executadas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Dependendo da tecnologia utilizada, essas decisões podem considerar
+papéis organizacionais, atributos do usuário, localização,
+dispositivo utilizado, classificação da informação e diversos
+outros fatores.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura05-politicas-autorizacao.png"
+alt="Políticas de Autorização">
+
+<figcaption class="image-caption">
+
+Figura 5 – Comparação entre diferentes políticas de autorização.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👥 Políticas Baseadas em Papéis (RBAC)
+
+</h2>
+
+<p style="text-align: justify;">
+
+No modelo <strong>Role-Based Access Control (RBAC)</strong>,
+as permissões são atribuídas aos papéis desempenhados pelos
+usuários dentro da organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Cada colaborador recebe um ou mais papéis e herda automaticamente
+as permissões definidas para essas funções.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos de papéis
+
+</strong>
+
+<br><br>
+
+👨‍💼 Recursos Humanos.<br>
+
+💰 Financeiro.<br>
+
+🛡 Analista SOC.<br>
+
+🖥 Administrador.<br>
+
+💻 Desenvolvedor.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Vantagens
+
+</strong>
+
+<br><br>
+
+✔ Administração simplificada.<br>
+
+✔ Padronização.<br>
+
+✔ Escalabilidade.<br>
+
+✔ Facilidade para auditorias.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Por esse motivo, o RBAC tornou-se o modelo predominante em
+ambientes corporativos e integra diversas soluções de Identity
+and Access Management (IAM).
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Políticas Baseadas em Atributos (ABAC)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Enquanto o RBAC considera principalmente o papel exercido pelo
+usuário, o <strong>Attribute-Based Access Control (ABAC)</strong>
+utiliza diversos atributos para tomar uma decisão.
+
+</p>
+
+<p style="text-align: justify;">
+
+Cada tentativa de acesso pode ser analisada considerando
+informações relacionadas ao usuário, ao recurso solicitado e ao
+contexto da conexão.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Atributos do usuário
+
+</strong>
+
+<br><br>
+
+Departamento.<br>
+
+Cargo.<br>
+
+Grupo.<br>
+
+Nível hierárquico.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Atributos do recurso
+
+</strong>
+
+<br><br>
+
+Classificação.<br>
+
+Tipo do documento.<br>
+
+Sensibilidade.<br>
+
+Proprietário.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Atributos do contexto
+
+</strong>
+
+<br><br>
+
+🌎 Localização.<br>
+
+🕒 Horário.<br>
+
+💻 Dispositivo.<br>
+
+📶 Rede.<br>
+
+🔒 Nível de risco.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um colaborador poderá acessar informações financeiras apenas
+durante o horário comercial, utilizando um notebook corporativo
+e conectado à VPN da empresa.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📜 Políticas Baseadas em Regras (PBAC)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Algumas organizações adotam políticas baseadas em regras
+específicas de negócio, modelo conhecido como
+<strong>Policy-Based Access Control (PBAC)</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse cenário, o mecanismo de autorização avalia um conjunto de
+condições previamente definidas antes de conceder acesso ao
+recurso solicitado.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos de regras
+
+</strong>
+
+<br><br>
+
+✔ Horário comercial.<br>
+
+✔ País autorizado.<br>
+
+✔ VPN obrigatória.<br>
+
+✔ Antivírus ativo.<br>
+
+✔ Disco criptografado.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Aplicações
+
+</strong>
+
+<br><br>
+
+Zero Trust.<br>
+
+Cloud IAM.<br>
+
+Microsoft Entra ID.<br>
+
+AWS IAM.<br>
+
+Google Cloud IAM.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Na prática, RBAC, ABAC e PBAC costumam ser utilizados em conjunto,
+permitindo decisões muito mais flexíveis e aderentes às políticas
+de segurança da organização.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+☁ Autorização Baseada em Contexto
+
+</h2>
+
+<p style="text-align: justify;">
+
+O crescimento da computação em nuvem, do trabalho remoto e dos
+dispositivos móveis tornou insuficiente confiar apenas na
+identidade do usuário.
+
+</p>
+
+<p style="text-align: justify;">
+
+Hoje, muitas soluções de autorização avaliam continuamente o
+contexto da solicitação antes de permitir qualquer operação.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Contexto analisado
+
+</strong>
+
+<br><br>
+
+🌍 Localização.<br>
+
+💻 Dispositivo.<br>
+
+📱 Tipo de autenticação.<br>
+
+🕒 Horário.<br>
+
+🌐 Endereço IP.<br>
+
+📈 Nível de risco.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Decisões dinâmicas.<br>
+
+✔ Redução de fraudes.<br>
+
+✔ Menor risco de comprometimento.<br>
+
+✔ Melhor proteção para ambientes híbridos.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+As arquiteturas modernas baseadas em <strong>Zero Trust</strong>
+partem do princípio de que nenhuma solicitação deve ser considerada
+confiável por padrão. Em vez disso, cada acesso é continuamente
+avaliado utilizando identidade, contexto, dispositivo, localização,
+nível de risco e comportamento do usuário. Essa abordagem reduz a
+dependência de perímetros tradicionais e permite decisões de
+autorização muito mais precisas e adaptáveis.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Autorização em Ambientes Corporativos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Os conceitos apresentados até aqui são utilizados diariamente em
+empresas de todos os portes. Sistemas operacionais, aplicações,
+serviços em nuvem, bancos de dados e equipamentos de rede utilizam
+mecanismos de autorização para controlar quais recursos poderão ser
+acessados por cada usuário.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora cada tecnologia possua características próprias, todas
+seguem o mesmo princípio: após autenticar a identidade do usuário,
+o sistema consulta políticas e permissões para decidir quais
+operações serão autorizadas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa abordagem permite implementar controles granulares, reduzir
+riscos de acesso indevido e atender requisitos de governança,
+auditoria e conformidade.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura06-autorizacao-corporativa.png"
+alt="Autorização em ambientes corporativos">
+
+<figcaption class="image-caption">
+
+Figura 6 – Arquitetura mostrando diferentes sistemas consultando
+um serviço central de autorização.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🪟 Microsoft Active Directory
+
+</h2>
+
+<p style="text-align: justify;">
+
+Em ambientes Windows, o Active Directory desempenha papel
+fundamental na autorização dos usuários.
+
+</p>
+
+<p style="text-align: justify;">
+
+Após a autenticação realizada pelo Kerberos, o sistema consulta os
+grupos de segurança aos quais o usuário pertence para determinar
+quais recursos poderão ser acessados.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Recursos controlados
+
+</strong>
+
+<br><br>
+
+📂 Pastas compartilhadas.<br>
+
+🖨 Impressoras.<br>
+
+🖥 Servidores.<br>
+
+📄 Arquivos NTFS.<br>
+
+⚙ GPOs.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Base da decisão
+
+</strong>
+
+<br><br>
+
+✔ Grupos.<br>
+
+✔ ACLs.<br>
+
+✔ NTFS Permissions.<br>
+
+✔ Security Groups.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+☁ Microsoft Entra ID
+
+</h2>
+
+<p style="text-align: justify;">
+
+Em ambientes de nuvem, o Microsoft Entra ID amplia o conceito de
+autorização incorporando identidade, contexto e risco da sessão.
+
+</p>
+
+<p style="text-align: justify;">
+
+Além das permissões tradicionais, políticas de
+<strong>Conditional Access</strong> permitem avaliar fatores como
+dispositivo utilizado, localização, nível de risco e método de
+autenticação antes de conceder acesso.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+🌍 País de origem.<br>
+
+💻 Dispositivo corporativo.<br>
+
+📱 MFA obrigatório.<br>
+
+🔒 Compliance do equipamento.<br>
+
+📈 Identity Protection.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Zero Trust.<br>
+
+✔ Conditional Access.<br>
+
+✔ Identity Governance.<br>
+
+✔ Autorização adaptativa.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+☁ Plataformas de Cloud Computing
+
+</h2>
+
+<p style="text-align: justify;">
+
+Provedores de nuvem utilizam mecanismos extremamente granulares
+para controlar a autorização dos recursos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de conceder permissões diretamente aos usuários, essas
+plataformas normalmente trabalham com papéis, políticas e
+atributos, permitindo grande flexibilidade na administração dos
+acessos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+AWS IAM
+
+</strong>
+
+<br><br>
+
+Policies.<br>
+
+Roles.<br>
+
+Users.<br>
+
+Groups.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Google Cloud IAM
+
+</strong>
+
+<br><br>
+
+Roles.<br>
+
+Bindings.<br>
+
+Policies.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Microsoft Azure
+
+</strong>
+
+<br><br>
+
+RBAC.<br>
+
+Conditional Access.<br>
+
+Privileged Identity Management.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Embora utilizem terminologias diferentes, todas seguem o mesmo
+conceito de conceder apenas as permissões necessárias para cada
+identidade.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🐧 Linux e Sistemas Unix
+
+</h2>
+
+<p style="text-align: justify;">
+
+Nos sistemas Linux e Unix, a autorização normalmente é baseada em
+usuários, grupos e permissões atribuídas aos arquivos e
+diretórios.
+
+</p>
+
+<p style="text-align: justify;">
+
+Ferramentas como <strong>sudo</strong> permitem conceder
+privilégios administrativos temporários sem necessidade de
+utilizar continuamente a conta <strong>root</strong>, reduzindo
+os riscos associados às contas privilegiadas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Recursos
+
+</strong>
+
+<br><br>
+
+Usuários.<br>
+
+Grupos.<br>
+
+Permissões POSIX.<br>
+
+ACLs.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Ferramentas
+
+</strong>
+
+<br><br>
+
+sudo.<br>
+
+chmod.<br>
+
+chown.<br>
+
+setfacl.<br>
+
+getfacl.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🗄 Bancos de Dados e Aplicações
+
+</h2>
+
+<p style="text-align: justify;">
+
+Sistemas gerenciadores de bancos de dados e aplicações
+corporativas também implementam mecanismos próprios de
+autorização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em muitos casos, usuários recebem permissões específicas para
+consultar tabelas, executar procedimentos armazenados ou alterar
+informações, sempre respeitando o princípio do menor privilégio.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Permissões comuns
+
+</strong>
+
+<br><br>
+
+SELECT.<br>
+
+INSERT.<br>
+
+UPDATE.<br>
+
+DELETE.<br>
+
+EXECUTE.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Aplicações
+
+</strong>
+
+<br><br>
+
+ERP.<br>
+
+CRM.<br>
+
+Portal Corporativo.<br>
+
+Sistemas Financeiros.<br>
+
+Aplicações Web.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um dos erros mais comuns encontrados em auditorias de segurança é
+a concessão de permissões diretamente aos usuários. Em ambientes
+corporativos, recomenda-se atribuir permissões a grupos ou papéis
+(RBAC) e, posteriormente, associar os usuários a esses grupos.
+Essa abordagem simplifica a administração, reduz erros de
+configuração e facilita auditorias e processos de conformidade.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚨 Principais Erros de Autorização
+
+</h2>
+
+<p style="text-align: justify;">
+
+Mesmo organizações que implementam mecanismos modernos de
+autorização podem apresentar falhas decorrentes de configurações
+inadequadas, permissões excessivas ou ausência de processos de
+governança.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esses erros podem permitir acesso indevido a informações
+confidenciais, facilitar ataques de escalada de privilégios e
+comprometer a segurança de toda a organização.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura07-erros-autorizacao.png"
+alt="Erros de autorização">
+
+<figcaption class="image-caption">
+
+Figura 7 – Principais erros encontrados na implementação da
+autorização em ambientes corporativos.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔓 Permissões Excessivas
+
+</strong>
+
+<br><br>
+
+Usuários recebem mais privilégios do que realmente necessitam.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 Contas Órfãs
+
+</strong>
+
+<br><br>
+
+Contas permanecem ativas após desligamento ou mudança de função.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📋 ACLs Incorretas
+
+</strong>
+
+<br><br>
+
+Permissões configuradas de forma inadequada ou conflitante.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📂 Herança Indevida
+
+</strong>
+
+<br><br>
+
+Permissões herdadas acabam expondo recursos sensíveis.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📈 Escalada de Privilégios
+
+</strong>
+
+<br><br>
+
+Usuários conseguem obter permissões superiores às autorizadas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+⚠ Falta de Revisão
+
+</strong>
+
+<br><br>
+
+Permissões antigas permanecem válidas durante anos.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Boas Práticas para Autorização
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma estratégia eficiente de autorização depende não apenas da
+tecnologia utilizada, mas também de processos contínuos de
+governança, revisão e auditoria.
+
+</p>
+
+<p style="text-align: justify;">
+
+As organizações devem revisar periodicamente suas permissões,
+garantindo que cada usuário possua apenas os acessos necessários
+para desempenhar suas atividades.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura08-boas-praticas-autorizacao.png"
+alt="Boas práticas de autorização">
+
+<figcaption class="image-caption">
+
+Figura 8 – Principais boas práticas para implementação da
+autorização.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+✔ Recomendações
+
+</strong>
+
+<br><br>
+
+<ul>
+
+<li>Aplicar o Princípio do Menor Privilégio.</li>
+
+<li>Adotar o conceito Need to Know.</li>
+
+<li>Utilizar grupos e papéis em vez de permissões individuais.</li>
+
+<li>Revisar permissões periodicamente.</li>
+
+<li>Implementar recertificação de acessos.</li>
+
+<li>Monitorar alterações de privilégios.</li>
+
+<li>Auditar continuamente contas privilegiadas.</li>
+
+<li>Integrar autorização com soluções de IAM.</li>
+
+<li>Aplicar políticas de Zero Trust.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+💼 Estudo de Caso
+
+</h2>
+
+<p style="text-align: justify;">
+
+Considere uma organização com diferentes perfis de usuários.
+Embora todos tenham sido autenticados com sucesso, cada um
+receberá permissões distintas de acordo com sua função.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura09-estudo-caso-autorizacao.png"
+alt="Exemplo prático de autorização">
+
+<figcaption class="image-caption">
+
+Figura 9 – Exemplo de usuários distintos recebendo permissões
+específicas sobre os mesmos recursos.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+👨‍💼 Recursos Humanos
+
+</strong>
+
+<br><br>
+
+Consultar e atualizar dados cadastrais dos colaboradores.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+💰 Financeiro
+
+</strong>
+
+<br><br>
+
+Consultar relatórios financeiros e aprovar pagamentos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🛡 Analista SOC
+
+</strong>
+
+<br><br>
+
+Consultar eventos de segurança e gerenciar incidentes.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🖥 Administrador
+
+</strong>
+
+<br><br>
+
+Gerenciar infraestrutura e políticas de segurança.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🤝 Fornecedor
+
+</strong>
+
+<br><br>
+
+Acesso restrito apenas ao portal de fornecedores.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌐 Aplicação Web
+
+</strong>
+
+<br><br>
+
+Permissões limitadas às APIs previamente autorizadas.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>O conceito de Autorização.</li>
+
+<li>A diferença entre Autenticação e Autorização.</li>
+
+<li>Como ocorre uma decisão de acesso.</li>
+
+<li>Os conceitos de permissões e privilégios.</li>
+
+<li>O funcionamento das ACLs e ACEs.</li>
+
+<li>As principais políticas de autorização (RBAC, ABAC e PBAC).</li>
+
+<li>Como a autorização é implementada em ambientes corporativos.</li>
+
+<li>Os erros mais comuns encontrados em processos de autorização.</li>
+
+<li>As principais boas práticas para gerenciamento de permissões.</li>
+
+<li>A importância da governança e da revisão contínua dos acessos.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Capítulo
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao longo deste capítulo aprendemos como os sistemas decidem quais
+recursos poderão ser acessados por um usuário autenticado.
+
+</p>
+
+<p style="text-align: justify;">
+
+Entretanto, uma pergunta continua extremamente relevante:
+
+</p>
+
+<blockquote>
+
+Como reduzir o risco de comprometimento das credenciais, mesmo
+quando uma senha é descoberta por um atacante?
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+Essa resposta será apresentada no próximo capítulo da série,
+dedicado à <strong>Autenticação Multifator (MFA)</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Estudaremos conceitos como HOTP, TOTP, Push Authentication,
+FIDO2, Chaves de Segurança, Smart Cards, Certificados Digitais,
+Passkeys, além dos principais ataques direcionados aos mecanismos
+multifator e suas estratégias de mitigação.
+
+</p>
+
+<br>
+
+<a class="content-button">
+
+➡ Ler o próximo capítulo
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Série Técnica
+
+</strong>
+
+<br><br>
+
+✅ 🔺 Tríade CIA
+
+<br><br>
+
+✅ 🔒 Confidencialidade
+
+<br><br>
+
+✅ 🛡 Integridade
+
+<br><br>
+
+✅ ⚡ Disponibilidade
+
+<br><br>
+
+✅ 🔐 Criptografia
+
+<br><br>
+
+✅ 👥 Controle de Acesso
+
+<br><br>
+
+✅ 🆔 Autenticação
+
+<br><br>
+
+✅ ✔ Autorização
+
+<br><br>
+
+➡ 🔑 Autenticação Multifator (MFA)
+
+<br><br>
+
+⬜ 🏛 IAM
+
+<br><br>
+
+⬜ ☁ Zero Trust
+
+<br><br>
+
+⬜ 🔐 PAM
+
+<br><br>
+
+⬜ 🌐 Active Directory
+
+<br><br>
+
+⬜ ☁ Microsoft Entra ID
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Biblioteca Técnica
+
+</p>
+
+<p>
+
+📚 Série Técnica
+
+Fundamentos da Segurança da Informação
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>  
+
+
+
+  
