@@ -1,0 +1,4093 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Fundamentos da Segurança da Informação
+
+Identity and Access Management (IAM)
+
+</title>
+
+<link rel="stylesheet"
+href="../../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+📚 SÉRIE TÉCNICA
+
+</span>
+
+<h1>
+
+🛡 Fundamentos da Segurança da Informação
+
+</h1>
+
+<h2>
+
+🏛 Identity and Access Management (IAM)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Como gerenciar identidades digitais, autenticação,
+autorizações e permissões durante todo o ciclo de vida dos
+usuários em ambientes corporativos.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Cybersecurity
+
+</a>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+<br>
+
+Cybersecurity
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Série
+
+</strong>
+
+<br>
+
+Fundamentos da Segurança da Informação
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Capítulo
+
+</strong>
+
+<br>
+
+🏛 Identity and Access Management (IAM)
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+<br>
+
+Intermediário
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Conceitos
+
+</strong>
+
+<br>
+
+IAM<br>
+
+Identidade Digital<br>
+
+Identity Lifecycle<br>
+
+Provisioning<br>
+
+Deprovisioning<br>
+
+Identity Governance<br>
+
+SSO<br>
+
+Federação<br>
+
+RBAC<br>
+
+ABAC<br>
+
+SCIM
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+<br>
+
+50 minutos
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Resumo Executivo
+
+</h2>
+
+<p style="text-align: justify;">
+
+Nas organizações modernas, praticamente todas as atividades
+dependem de identidades digitais. Funcionários, prestadores de
+serviço, parceiros comerciais, aplicações e até dispositivos
+necessitam de uma identidade para acessar recursos corporativos.
+
+</p>
+
+<p style="text-align: justify;">
+
+À medida que o número de usuários e sistemas cresce, administrar
+essas identidades manualmente torna-se inviável. Criar contas,
+atribuir permissões, remover acessos e garantir que cada usuário
+possua apenas os privilégios necessários passa a exigir processos
+estruturados e altamente automatizados.
+
+</p>
+
+<p style="text-align: justify;">
+
+É nesse contexto que surge o
+<strong>Identity and Access Management (IAM)</strong>, um conjunto
+de processos, políticas e tecnologias responsável por controlar
+todo o ciclo de vida das identidades digitais e dos respectivos
+acessos aos recursos da organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Uma solução de IAM não se limita ao processo de autenticação.
+Ela integra autenticação, autorização, governança, auditoria,
+Single Sign-On, provisionamento automático, federação de
+identidades e revisão periódica de permissões.
+
+</p>
+
+<p style="text-align: justify;">
+
+Quando implementado corretamente, o IAM reduz riscos de acessos
+indevidos, melhora a experiência do usuário, simplifica a
+administração dos ambientes corporativos e auxilia no atendimento
+a requisitos de conformidade previstos em normas como ISO/IEC
+27001, NIST Cybersecurity Framework, CIS Controls e LGPD.
+
+</p>
+
+<blockquote>
+
+Identity and Access Management é o conjunto de processos e
+tecnologias responsável por gerenciar quem pode acessar quais
+recursos, em quais condições e durante todo o ciclo de vida das
+identidades digitais.
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+Neste capítulo compreenderemos como o IAM funciona, conheceremos
+seus principais componentes e veremos como ele se tornou um dos
+pilares da Segurança da Informação nas organizações modernas.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🎯 Objetivo deste capítulo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Compreender o funcionamento do Identity and Access Management,
+identificar seus principais componentes, conhecer o ciclo de vida
+das identidades digitais e entender como soluções de IAM
+automatizam o gerenciamento de usuários, permissões e acessos em
+ambientes corporativos.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏛 O que é Identity and Access Management?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Identity and Access Management (IAM) é o conjunto de políticas,
+processos e tecnologias utilizado para administrar identidades
+digitais e controlar o acesso aos recursos de uma organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Seu objetivo é garantir que cada identidade possua acesso apenas
+aos recursos necessários para desempenhar suas atividades,
+respeitando políticas de segurança, requisitos regulatórios e o
+Princípio do Menor Privilégio.
+
+</p>
+
+<p style="text-align: justify;">
+
+Na prática, uma plataforma IAM acompanha toda a jornada de uma
+identidade, desde sua criação até sua remoção definitiva,
+automatizando processos que anteriormente dependiam de atividades
+manuais.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura01-arquitetura-iam.png"
+alt="Arquitetura conceitual do IAM">
+
+<figcaption class="image-caption">
+
+Figura 1 – Arquitetura conceitual do IAM conectando usuários,
+diretórios, aplicações e políticas de acesso.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito Fundamental
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+O IAM não é apenas um software.
+
+<br><br>
+
+Ele representa um conjunto integrado de processos, pessoas,
+políticas e tecnologias que trabalham em conjunto para garantir
+que a identidade certa tenha acesso ao recurso certo, pelo tempo
+certo e utilizando o menor privilégio necessário.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Objetivos do IAM
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma solução de Identity and Access Management busca equilibrar
+segurança, produtividade e governança. Para isso, centraliza a
+administração das identidades e automatiza tarefas relacionadas
+ao gerenciamento de usuários e permissões.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Segurança
+
+</strong>
+
+<br><br>
+
+✔ Redução de acessos indevidos.<br>
+
+✔ Proteção de identidades.<br>
+
+✔ Controle de privilégios.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Eficiência
+
+</strong>
+
+<br><br>
+
+✔ Provisionamento automático.<br>
+
+✔ Redução de tarefas manuais.<br>
+
+✔ Integração entre sistemas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Governança
+
+</strong>
+
+<br><br>
+
+✔ Auditoria.<br>
+
+✔ Conformidade.<br>
+
+✔ Revisão periódica de acessos.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Esses objetivos tornam o IAM uma peça fundamental para
+organizações que utilizam ambientes híbridos, serviços em nuvem e
+um grande número de aplicações corporativas.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👤 O Conceito de Identidade Digital
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma identidade digital representa qualquer entidade capaz de ser
+autenticada e autorizada dentro de um ambiente computacional.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora normalmente associada a pessoas, identidades também podem
+representar aplicações, serviços, dispositivos, máquinas
+virtuais, contas técnicas e APIs.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos de identidades
+
+</strong>
+
+<br><br>
+
+👤 Funcionários.<br>
+
+🤝 Terceiros.<br>
+
+🏢 Parceiros.<br>
+
+💻 Aplicações.<br>
+
+⚙ Serviços.<br>
+
+☁ Workloads.<br>
+
+📱 Dispositivos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Informações associadas
+
+</strong>
+
+<br><br>
+
+Nome.<br>
+
+E-mail.<br>
+
+Departamento.<br>
+
+Cargo.<br>
+
+Grupos.<br>
+
+Papéis.<br>
+
+Permissões.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Em ambientes corporativos modernos, o número de identidades não
+humanas frequentemente supera o de usuários. Contas de serviço,
+aplicações, APIs, containers, máquinas virtuais e dispositivos de
+IoT também precisam ser gerenciados e protegidos por soluções de
+IAM, ampliando significativamente a importância da gestão de
+identidades para a segurança da organização.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏗 Componentes de uma Solução IAM
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma plataforma de Identity and Access Management é composta por
+diversos componentes que trabalham de forma integrada para
+autenticar usuários, conceder permissões, aplicar políticas de
+segurança e registrar todas as operações relacionadas às
+identidades digitais.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora diferentes fabricantes utilizem nomenclaturas próprias,
+praticamente todas as soluções IAM compartilham uma arquitetura
+semelhante baseada em diretórios de identidade, provedores de
+identidade, aplicações corporativas e mecanismos de autenticação
+e autorização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Compreender esses componentes facilita o entendimento de como
+ocorrem processos como Single Sign-On (SSO), Federação de
+Identidade, Provisionamento Automático e Governança de Acessos.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura02-componentes-iam.png"
+alt="Componentes do IAM">
+
+<figcaption class="image-caption">
+
+Figura 2 – Componentes internos de uma plataforma de Identy and Access Management (IAM).
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👤 Identity Provider (IdP)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O <strong>Identity Provider (IdP)</strong> é o componente
+responsável por autenticar usuários e emitir informações que
+comprovam sua identidade para outras aplicações.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de cada sistema manter sua própria base de usuários, as
+aplicações delegam a autenticação ao provedor de identidade,
+centralizando políticas de segurança, autenticação multifator,
+auditoria e gerenciamento de credenciais.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Principais funções
+
+</strong>
+
+<br><br>
+
+✔ Autenticação.<br>
+
+✔ MFA.<br>
+
+✔ Emissão de Tokens.<br>
+
+✔ Single Sign-On.<br>
+
+✔ Federação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Microsoft Entra ID.<br>
+
+Okta.<br>
+
+Keycloak.<br>
+
+Ping Identity.<br>
+
+Google Cloud Identity.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+O Identity Provider é a autoridade responsável por confirmar a
+identidade do usuário. Após essa validação, ele fornece às
+aplicações informações suficientes para que elas decidam se o
+acesso deverá ou não ser concedido.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🖥 Service Provider (SP)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O <strong>Service Provider (SP)</strong> representa a aplicação ou
+serviço que será acessado pelo usuário.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de solicitar usuário e senha diretamente, o Service
+Provider confia na autenticação realizada pelo Identity Provider,
+simplificando o gerenciamento de credenciais e reduzindo riscos
+de segurança.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Microsoft 365.<br>
+
+Salesforce.<br>
+
+GitHub.<br>
+
+SAP.<br>
+
+ServiceNow.<br>
+
+Aplicações internas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Responsabilidades
+
+</strong>
+
+<br><br>
+
+Receber a identidade autenticada.<br>
+
+Validar tokens.<br>
+
+Aplicar autorização.<br>
+
+Liberar recursos.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Essa separação entre autenticação e consumo do serviço reduz a
+complexidade das aplicações e facilita sua integração com outras
+plataformas corporativas.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📂 Diretório de Identidades
+
+</h2>
+
+<p style="text-align: justify;">
+
+O diretório de identidades armazena as informações utilizadas
+para representar usuários, grupos, dispositivos, aplicações e
+demais identidades digitais existentes na organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Além dos dados cadastrais, normalmente são armazenados atributos
+como departamento, cargo, grupos de segurança, papéis,
+permissões e outras informações utilizadas pelos mecanismos de
+autorização.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Informações armazenadas
+
+</strong>
+
+<br><br>
+
+Nome.<br>
+
+E-mail.<br>
+
+Departamento.<br>
+
+Cargo.<br>
+
+Grupos.<br>
+
+Papéis.<br>
+
+Permissões.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Active Directory.<br>
+
+Microsoft Entra ID.<br>
+
+OpenLDAP.<br>
+
+Apache Directory.<br>
+
+FreeIPA.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 Políticas de Segurança
+
+</h2>
+
+<p style="text-align: justify;">
+
+As políticas de segurança definem como a autenticação e a
+autorização deverão ocorrer dentro da organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Elas estabelecem requisitos mínimos para autenticação, utilização
+de MFA, critérios de acesso, revisão de permissões e demais
+controles relacionados às identidades.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Exigir MFA.<br>
+
+Senha mínima.<br>
+
+Bloquear países.<br>
+
+Permitir apenas dispositivos corporativos.<br>
+
+Limitar horário de acesso.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivos
+
+</strong>
+
+<br><br>
+
+✔ Redução de riscos.<br>
+
+✔ Padronização.<br>
+
+✔ Conformidade.<br>
+
+✔ Automação.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Integração Entre os Componentes
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora cada componente possua responsabilidades específicas,
+todos trabalham de maneira integrada durante uma autenticação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Quando um usuário solicita acesso a uma aplicação, o Service
+Provider redireciona a autenticação ao Identity Provider, que
+consulta o diretório de identidades, aplica as políticas de
+segurança e, caso todas as validações sejam concluídas com
+sucesso, emite um token contendo as informações necessárias para
+que o acesso seja concedido.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Uma das maiores vantagens das plataformas IAM modernas é a
+centralização da autenticação. Em vez de cada aplicação manter
+sua própria base de usuários, todas passam a confiar em um único
+provedor de identidade. Essa arquitetura reduz a quantidade de
+credenciais administradas, simplifica a implementação de MFA,
+facilita auditorias e permite aplicar políticas de segurança de
+forma uniforme em todo o ambiente corporativo.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 O Ciclo de Vida das Identidades
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma das principais responsabilidades de uma solução de Identity
+and Access Management consiste em administrar todo o ciclo de
+vida das identidades digitais.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em uma organização, usuários ingressam, mudam de função,
+assumem novas responsabilidades e, eventualmente, deixam a
+empresa. Cada uma dessas mudanças exige adaptações imediatas nas
+permissões concedidas, garantindo que os acessos permaneçam
+compatíveis com a função desempenhada.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sem processos automatizados, essas alterações costumam depender
+de solicitações manuais, aumentando a probabilidade de erros,
+atrasos e permanência de permissões desnecessárias.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura03-ciclo-vida-identidade.png"
+alt="Ciclo de Vida das Identidades">
+
+<figcaption class="image-caption">
+
+Figura 3 – Fluxo completo do ciclo de vida de uma identidade.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👤 Joiner (Ingresso)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O termo <strong>Joiner</strong> representa a entrada de uma nova
+identidade na organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa identidade pode representar um colaborador recém-contratado,
+um prestador de serviços, um parceiro comercial, uma aplicação,
+uma conta técnica ou qualquer outra entidade que necessite
+interagir com recursos corporativos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse momento ocorre o provisionamento inicial da identidade,
+incluindo criação da conta, definição de grupos, atribuição de
+papéis e aplicação das políticas de segurança.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Atividades executadas
+
+</strong>
+
+<br><br>
+
+✔ Criação da identidade.<br>
+
+✔ Cadastro no diretório.<br>
+
+✔ Associação a grupos.<br>
+
+✔ Atribuição de papéis.<br>
+
+✔ Habilitação de MFA.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivo
+
+</strong>
+
+<br><br>
+
+Disponibilizar ao usuário apenas os acessos necessários para
+iniciar suas atividades.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Quando um novo colaborador ingressa na empresa, sua conta pode
+ser criada automaticamente a partir das informações do sistema de
+Recursos Humanos, recebendo grupos, permissões e aplicações
+compatíveis com seu cargo.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Mover (Mudança de Função)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Durante sua permanência na organização, um usuário pode mudar de
+departamento, assumir novas responsabilidades ou ser promovido.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nessas situações, a solução IAM ajusta automaticamente suas
+permissões, removendo acessos que deixaram de ser necessários e
+concedendo aqueles compatíveis com a nova função.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse processo reduz significativamente o acúmulo de privilégios,
+um dos problemas mais comuns encontrados em auditorias de
+segurança.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Mudança de departamento.<br>
+
+Promoção.<br>
+
+Nova função.<br>
+
+Transferência de unidade.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Ações executadas
+
+</strong>
+
+<br><br>
+
+✔ Remoção de grupos antigos.<br>
+
+✔ Inclusão em novos grupos.<br>
+
+✔ Atualização de papéis.<br>
+
+✔ Revisão de privilégios.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚪 Leaver (Desligamento)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O processo de <strong>Leaver</strong> ocorre quando a identidade
+deixa de possuir vínculo com a organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse momento, todos os acessos concedidos anteriormente devem
+ser removidos de forma rápida e controlada para evitar riscos de
+segurança.
+
+</p>
+
+<p style="text-align: justify;">
+
+A demora no bloqueio de contas representa uma das principais
+causas de existência de contas órfãs, frequentemente exploradas
+em ataques contra ambientes corporativos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Atividades
+
+</strong>
+
+<br><br>
+
+✔ Bloqueio da conta.<br>
+
+✔ Revogação de tokens.<br>
+
+✔ Remoção de grupos.<br>
+
+✔ Cancelamento de MFA.<br>
+
+✔ Encerramento da identidade.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+Redução de riscos.<br>
+
+Conformidade.<br>
+
+Proteção contra acessos indevidos.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+⚠ Atenção
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Contas que permanecem ativas após o desligamento de um
+colaborador representam uma vulnerabilidade crítica. Caso suas
+credenciais sejam comprometidas, poderão ser utilizadas para
+acessar recursos corporativos sem despertar suspeitas imediatas.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Automatização do Ciclo de Vida
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma das maiores vantagens das plataformas IAM modernas é a
+automatização de todas as etapas do ciclo de vida das
+identidades.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de depender de processos manuais executados por diferentes
+equipes, o IAM integra sistemas corporativos e executa
+automaticamente as alterações necessárias sempre que ocorre uma
+mudança na situação do usuário.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Integrações comuns
+
+</strong>
+
+<br><br>
+
+Sistema de RH.<br>
+
+ERP.<br>
+
+Active Directory.<br>
+
+Microsoft Entra ID.<br>
+
+Google Workspace.<br>
+
+ServiceNow.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Resultados
+
+</strong>
+
+<br><br>
+
+✔ Menor tempo de provisionamento.<br>
+
+✔ Redução de erros.<br>
+
+✔ Menor esforço operacional.<br>
+
+✔ Maior conformidade.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Além de aumentar a eficiência operacional, a automatização reduz
+o intervalo entre uma mudança organizacional e a atualização dos
+acessos do usuário, fortalecendo a segurança da informação.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+O modelo <strong>Joiner–Mover–Leaver (JML)</strong> é considerado
+uma das práticas fundamentais de Governança de Identidades.
+Organizações maduras integram seus sistemas de Recursos Humanos
+ao IAM para que admissões, movimentações internas e desligamentos
+disparem automaticamente workflows de provisionamento e
+desprovisionamento. Essa integração reduz significativamente a
+existência de contas órfãs, privilégios excessivos e atrasos na
+atualização dos acessos, fortalecendo a postura de segurança e o
+atendimento a requisitos de conformidade.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Provisionamento Automático
+
+</h2>
+
+<p style="text-align: justify;">
+
+Criar, atualizar e remover contas manualmente torna-se uma tarefa
+complexa quando uma organização possui centenas ou milhares de
+usuários distribuídos entre diferentes aplicações e ambientes.
+
+</p>
+
+<p style="text-align: justify;">
+
+Para reduzir esse esforço operacional, as plataformas de Identity
+and Access Management utilizam mecanismos de provisionamento
+automático capazes de sincronizar identidades entre diversos
+sistemas corporativos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa automação garante que alterações realizadas em uma fonte
+confiável de dados sejam propagadas rapidamente para todos os
+serviços integrados, reduzindo atrasos, inconsistências e riscos
+de segurança.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura04-provisionamento-scim.png"
+alt="Provisionamento automático utilizando SCIM">
+
+<figcaption class="image-caption">
+
+Figura 4 – Fluxo de provisionamento automático de usuários
+utilizando SCIM.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📤 O que é Provisionamento?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Provisionamento é o processo responsável por criar e configurar
+automaticamente identidades digitais e conceder os acessos
+necessários para que um usuário possa desempenhar suas atividades.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse processo normalmente envolve a criação da conta, definição
+de grupos, atribuição de papéis, habilitação da autenticação
+multifator e integração com aplicações corporativas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Atividades realizadas
+
+</strong>
+
+<br><br>
+
+✔ Criar conta.<br>
+
+✔ Definir grupos.<br>
+
+✔ Atribuir papéis.<br>
+
+✔ Configurar MFA.<br>
+
+✔ Liberar aplicações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+Redução de erros.<br>
+
+Maior agilidade.<br>
+
+Padronização.<br>
+
+Automação.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📥 O que é Desprovisionamento?
+
+</h2>
+
+<p style="text-align: justify;">
+
+O desprovisionamento corresponde ao processo inverso, removendo
+ou revogando automaticamente os acessos quando uma identidade
+deixa de necessitar deles.
+
+</p>
+
+<p style="text-align: justify;">
+
+Além do desligamento de colaboradores, esse processo também é
+executado quando ocorre mudança de função, encerramento de
+contratos, substituição de aplicações ou expiração de acessos
+temporários.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Atividades
+
+</strong>
+
+<br><br>
+
+Bloquear contas.<br>
+
+Remover grupos.<br>
+
+Revogar tokens.<br>
+
+Cancelar MFA.<br>
+
+Excluir permissões.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivos
+
+</strong>
+
+<br><br>
+
+✔ Eliminar contas órfãs.<br>
+
+✔ Reduzir privilégios.<br>
+
+✔ Atender auditorias.<br>
+
+✔ Aumentar a segurança.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Importante
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Em organizações maduras, o desprovisionamento costuma ser
+executado imediatamente após o desligamento do colaborador,
+reduzindo significativamente a janela de exposição da empresa.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 SCIM (System for Cross-domain Identity Management)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O <strong>SCIM</strong> é um padrão aberto desenvolvido para
+simplificar o gerenciamento automatizado de identidades entre
+diferentes plataformas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Por meio de APIs padronizadas, uma solução IAM pode criar,
+alterar, bloquear ou remover usuários em aplicações compatíveis,
+eliminando a necessidade de integrações específicas para cada
+sistema.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa padronização facilita a integração entre provedores de
+identidade e aplicações SaaS, reduzindo custos de implementação e
+manutenção.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Operações suportadas
+
+</strong>
+
+<br><br>
+
+Criar usuários.<br>
+
+Atualizar atributos.<br>
+
+Bloquear contas.<br>
+
+Excluir identidades.<br>
+
+Gerenciar grupos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Padronização.<br>
+
+✔ Automação.<br>
+
+✔ Integração simplificada.<br>
+
+✔ Redução de erros.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📡 APIs e Workflows
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora o SCIM seja amplamente utilizado, muitas organizações
+também empregam APIs proprietárias e mecanismos de workflow para
+automatizar processos de provisionamento.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esses workflows podem incluir etapas de aprovação,
+validações de conformidade, notificações automáticas e execução
+de tarefas administrativas antes da criação definitiva da conta.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Fluxo típico
+
+</strong>
+
+<br><br>
+
+Solicitação.<br>
+
+Aprovação.<br>
+
+Provisionamento.<br>
+
+Notificação.<br>
+
+Auditoria.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Integrações
+
+</strong>
+
+<br><br>
+
+ServiceNow.<br>
+
+SAP.<br>
+
+Oracle.<br>
+
+Microsoft Entra ID.<br>
+
+Active Directory.<br>
+
+Google Workspace.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Benefícios da Automação
+
+</h2>
+
+<p style="text-align: justify;">
+
+Automatizar o provisionamento e o desprovisionamento reduz a
+dependência de atividades manuais e aumenta significativamente a
+qualidade da gestão de identidades.
+
+</p>
+
+<p style="text-align: justify;">
+
+Além da redução do tempo necessário para disponibilizar novos
+acessos, a automação melhora a consistência das permissões,
+simplifica auditorias e reduz a ocorrência de falhas humanas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Resultados Operacionais
+
+</strong>
+
+<br><br>
+
+✔ Provisionamento em minutos.<br>
+
+✔ Atualizações automáticas.<br>
+
+✔ Menor carga administrativa.<br>
+
+✔ Integração entre plataformas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Resultados de Segurança
+
+</strong>
+
+<br><br>
+
+✔ Menos contas órfãs.<br>
+
+✔ Menos privilégios excessivos.<br>
+
+✔ Revisões facilitadas.<br>
+
+✔ Melhor conformidade.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um dos principais indicadores de maturidade em Identity and
+Access Management é o nível de automação do ciclo de vida das
+identidades. Organizações que utilizam SCIM, APIs e workflows
+integrados conseguem reduzir drasticamente o tempo entre uma
+alteração organizacional e a atualização efetiva dos acessos,
+diminuindo riscos operacionais e fortalecendo a governança de
+identidades.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔑 Single Sign-On (SSO)
+
+</h2>
+
+<p style="text-align: justify;">
+
+À medida que as organizações passaram a utilizar dezenas ou até
+centenas de aplicações diferentes, tornou-se impraticável exigir
+que os usuários realizassem uma autenticação independente para
+cada sistema.
+
+</p>
+
+<p style="text-align: justify;">
+
+O <strong>Single Sign-On (SSO)</strong> surgiu para resolver esse
+problema, permitindo que o usuário realize uma única autenticação
+e utilize diversas aplicações sem a necessidade de informar suas
+credenciais repetidamente.
+
+</p>
+
+<p style="text-align: justify;">
+
+Além de melhorar significativamente a experiência do usuário, o
+SSO reduz o número de senhas administradas, simplifica a adoção
+da autenticação multifator e fortalece o controle centralizado de
+identidades.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura05-single-sign-on.png"
+alt="Funcionamento do Single Sign-On">
+
+<figcaption class="image-caption">
+
+Figura 5 – Funcionamento do Single Sign-On integrando diversas
+aplicações.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚙ Como Funciona o SSO
+
+</h2>
+
+<p style="text-align: justify;">
+
+Em uma arquitetura de Single Sign-On, as aplicações deixam de
+realizar autenticação diretamente e passam a confiar em um único
+provedor de identidade.
+
+</p>
+
+<p style="text-align: justify;">
+
+Quando o usuário tenta acessar uma aplicação, ela verifica se já
+existe uma sessão autenticada. Caso não exista, o usuário é
+redirecionado para o Identity Provider.
+
+</p>
+
+<p style="text-align: justify;">
+
+Após concluir a autenticação, o provedor de identidade emite um
+token contendo informações sobre a identidade do usuário e o
+retorna à aplicação solicitante.
+
+</p>
+
+<p style="text-align: justify;">
+
+Enquanto essa sessão permanecer válida, novas aplicações poderão
+ser acessadas sem exigir novo processo de autenticação.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+💡 Fluxo Simplificado
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Usuário → Identity Provider → Autenticação →
+Emissão de Token → Aplicação → Acesso concedido.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Benefícios para os Usuários
+
+</h2>
+
+<p style="text-align: justify;">
+
+O Single Sign-On melhora significativamente a experiência de uso,
+reduzindo o número de autenticações necessárias durante a rotina
+de trabalho.
+
+</p>
+
+<p style="text-align: justify;">
+
+Como consequência, diminui a necessidade de memorizar múltiplas
+senhas e reduz a tendência de reutilização de credenciais entre
+diferentes aplicações.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Experiência
+
+</strong>
+
+<br><br>
+
+✔ Um único login.<br>
+
+✔ Menos senhas.<br>
+
+✔ Acesso mais rápido.<br>
+
+✔ Maior produtividade.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Segurança
+
+</strong>
+
+<br><br>
+
+✔ Menor reutilização de senhas.<br>
+
+✔ MFA centralizado.<br>
+
+✔ Sessões controladas.<br>
+
+✔ Menor exposição de credenciais.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Benefícios para a Organização
+
+</h2>
+
+<p style="text-align: justify;">
+
+Para a organização, o SSO simplifica a administração das
+identidades e reduz significativamente os custos operacionais
+relacionados ao gerenciamento de credenciais.
+
+</p>
+
+<p style="text-align: justify;">
+
+Como todas as autenticações passam pelo Identity Provider, torna-
+se possível aplicar políticas centralizadas de segurança, exigir
+Autenticação Multifator, registrar eventos de auditoria e
+bloquear rapidamente acessos comprometidos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Gestão
+
+</strong>
+
+<br><br>
+
+✔ Administração centralizada.<br>
+
+✔ Políticas únicas.<br>
+
+✔ Auditoria simplificada.<br>
+
+✔ Integração entre aplicações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Operação
+
+</strong>
+
+<br><br>
+
+✔ Menos chamados de suporte.<br>
+
+✔ Redução de redefinições de senha.<br>
+
+✔ Provisionamento facilitado.<br>
+
+✔ Melhor governança.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚠ Limitações e Cuidados
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora o Single Sign-On ofereça inúmeras vantagens, sua adoção
+também exige alguns cuidados importantes.
+
+</p>
+
+<p style="text-align: justify;">
+
+Como diversas aplicações passam a depender do mesmo provedor de
+identidade, a disponibilidade e a segurança desse componente
+tornam-se críticas para o funcionamento da organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Da mesma forma, o comprometimento da identidade de um usuário
+pode permitir acesso a múltiplos sistemas caso mecanismos
+adicionais de proteção não estejam implementados.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Riscos
+
+</strong>
+
+<br><br>
+
+Comprometimento da conta.<br>
+
+Indisponibilidade do IdP.<br>
+
+Sessões excessivamente longas.<br>
+
+Tokens comprometidos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Mitigações
+
+</strong>
+
+<br><br>
+
+MFA obrigatório.<br>
+
+Conditional Access.<br>
+
+Sessões limitadas.<br>
+
+Monitoramento contínuo.<br>
+
+Identity Protection.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um erro comum é considerar o Single Sign-On apenas uma solução de
+conveniência. Na realidade, ele representa também um importante
+mecanismo de fortalecimento da segurança, pois permite concentrar
+a autenticação em um único ponto, aplicar políticas consistentes,
+habilitar MFA para todas as aplicações integradas e registrar
+eventos de auditoria de forma centralizada. Quando combinado com
+Autenticação Adaptativa e Zero Trust, o SSO torna-se um dos
+principais componentes das arquiteturas modernas de identidade.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌐 Federação de Identidade
+
+</h2>
+
+<p style="text-align: justify;">
+
+À medida que as organizações passaram a utilizar serviços em
+nuvem e aplicações fornecidas por terceiros, tornou-se inviável
+manter uma base de usuários independente para cada sistema.
+
+</p>
+
+<p style="text-align: justify;">
+
+A <strong>Federação de Identidade</strong> surgiu para permitir
+que diferentes organizações ou aplicações estabeleçam uma relação
+de confiança, possibilitando que uma identidade autenticada em um
+ambiente seja reconhecida por outro sem necessidade de criar uma
+nova conta.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de armazenar credenciais em cada aplicação, os serviços
+passam a confiar na autenticação realizada por um Identity
+Provider, reduzindo a quantidade de senhas administradas e
+simplificando a experiência do usuário.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura06-federacao-identidade.png"
+alt="Fluxo de Federação de Identidade">
+
+<figcaption class="image-caption">
+
+Figura 6 – Fluxo simplificado de Federação de Identidade entre
+organizações.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🤝 Relação de Confiança
+
+</h2>
+
+<p style="text-align: justify;">
+
+O elemento central da Federação de Identidade é o
+<strong>relacionamento de confiança (Trust)</strong> estabelecido
+entre as partes envolvidas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse modelo, a aplicação deixa de validar diretamente a
+identidade do usuário e passa a confiar nas informações emitidas
+por um provedor de identidade previamente autorizado.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa confiança é construída por meio de certificados digitais,
+assinaturas criptográficas, troca de metadados e protocolos
+padronizados.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Participantes
+
+</strong>
+
+<br><br>
+
+👤 Usuário.<br>
+
+🏛 Identity Provider.<br>
+
+🖥 Service Provider.<br>
+
+🔐 Relação de confiança.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivos
+
+</strong>
+
+<br><br>
+
+✔ Evitar múltiplas contas.<br>
+
+✔ Compartilhar autenticação.<br>
+
+✔ Simplificar integrações.<br>
+
+✔ Centralizar segurança.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📄 SAML (Security Assertion Markup Language)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O <strong>SAML</strong> é um dos protocolos mais utilizados para
+Federação de Identidade em aplicações corporativas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Após autenticar o usuário, o Identity Provider gera uma
+<strong>Assertion</strong>, um documento digital assinado
+criptograficamente contendo informações sobre a identidade e seus
+atributos.
+
+</p>
+
+<p style="text-align: justify;">
+
+O Service Provider valida essa Assertion e concede acesso ao
+usuário sem solicitar novas credenciais.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Características
+
+</strong>
+
+<br><br>
+
+Baseado em XML.<br>
+
+Assertions assinadas.<br>
+
+Amplamente utilizado em ambientes corporativos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Microsoft 365.<br>
+
+Salesforce.<br>
+
+SAP.<br>
+
+ServiceNow.<br>
+
+Workday.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔑 OAuth 2.0 e OpenID Connect
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora frequentemente mencionados em conjunto, OAuth 2.0 e
+OpenID Connect possuem finalidades diferentes.
+
+</p>
+
+<p style="text-align: justify;">
+
+O <strong>OAuth 2.0</strong> foi desenvolvido para delegação de
+acesso, permitindo que uma aplicação utilize recursos de outra em
+nome do usuário, sem conhecer sua senha.
+
+</p>
+
+<p style="text-align: justify;">
+
+Já o <strong>OpenID Connect (OIDC)</strong> adiciona uma camada de
+autenticação ao OAuth 2.0, permitindo comprovar a identidade do
+usuário e fornecer informações sobre ela de maneira padronizada.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+OAuth 2.0
+
+</strong>
+
+<br><br>
+
+Delegação de acesso.<br>
+
+Tokens de autorização.<br>
+
+Permissões entre aplicações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+OpenID Connect
+
+</strong>
+
+<br><br>
+
+Autenticação.<br>
+
+Identity Tokens.<br>
+
+Informações do usuário.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Importante
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+OAuth 2.0 não foi criado para autenticar usuários.
+
+<br><br>
+
+Sua função principal é conceder autorização para que uma
+aplicação utilize recursos protegidos. Quando há necessidade de
+identificar o usuário autenticado, normalmente utiliza-se OpenID
+Connect sobre o OAuth 2.0.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+☁ Federação em Ambientes Modernos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Atualmente, a Federação de Identidade está presente na maioria
+das arquiteturas corporativas, permitindo integrar aplicações
+internas, serviços SaaS, ambientes híbridos e plataformas em
+nuvem.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa abordagem reduz significativamente o número de credenciais
+administradas e possibilita que políticas de autenticação,
+Autenticação Multifator, Conditional Access e auditoria sejam
+aplicadas de forma centralizada.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Cenários comuns
+
+</strong>
+
+<br><br>
+
+Microsoft Entra ID.<br>
+
+Google Workspace.<br>
+
+AWS.<br>
+
+GitHub Enterprise.<br>
+
+Salesforce.<br>
+
+Aplicações internas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Experiência unificada.<br>
+
+✔ Segurança centralizada.<br>
+
+✔ Menos senhas.<br>
+
+✔ Integração simplificada.<br>
+
+✔ Melhor governança.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Federação de Identidade é um dos principais pilares das
+arquiteturas modernas de IAM. Ao estabelecer relações de
+confiança entre organizações e aplicações, torna-se possível
+centralizar autenticação, aplicar políticas de segurança
+consistentes e integrar centenas de sistemas sem duplicar bases
+de usuários. Esse modelo é amplamente utilizado por provedores de
+serviços em nuvem e constitui a base para soluções de Single
+Sign-On, Zero Trust e colaboração entre diferentes ambientes
+corporativos.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏛 Identity Governance
+
+</h2>
+
+<p style="text-align: justify;">
+
+Administrar identidades não significa apenas criar contas e
+conceder acessos. Também é necessário garantir que esses acessos
+permaneçam corretos durante todo o ciclo de vida do usuário.
+
+</p>
+
+<p style="text-align: justify;">
+
+A <strong>Identity Governance</strong> reúne processos e controles
+voltados para auditoria, revisão de acessos, certificação de
+permissões e conformidade, permitindo que a organização tenha
+visibilidade contínua sobre quem possui acesso a cada recurso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Seu principal objetivo é assegurar que todas as permissões
+permaneçam justificadas, reduzindo privilégios excessivos e
+identificando rapidamente situações que possam representar riscos
+para a organização.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura07-governanca-identidades.png"
+alt="Fluxo de Governança de Identidades">
+
+<figcaption class="image-caption">
+
+Figura 7 – Fluxo de Governança de Identidades envolvendo revisão
+e aprovação de acessos.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📋 Revisão Periódica de Acessos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao longo do tempo, usuários mudam de função, assumem novas
+responsabilidades ou deixam de utilizar determinadas aplicações.
+Caso essas alterações não sejam acompanhadas, permissões antigas
+podem permanecer ativas sem necessidade.
+
+</p>
+
+<p style="text-align: justify;">
+
+Por esse motivo, soluções IAM realizam revisões periódicas dos
+acessos concedidos, permitindo que gestores confirmem quais
+permissões continuam sendo necessárias.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Itens revisados
+
+</strong>
+
+<br><br>
+
+Grupos.<br>
+
+Papéis.<br>
+
+Perfis.<br>
+
+Aplicações.<br>
+
+Privilégios.<br>
+
+Contas administrativas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Resultados
+
+</strong>
+
+<br><br>
+
+✔ Remoção de excessos.<br>
+
+✔ Atualização de permissões.<br>
+
+✔ Maior conformidade.<br>
+
+✔ Redução de riscos.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✔ Certificação de Acessos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Durante uma campanha de certificação, gestores recebem uma lista
+com os acessos concedidos aos usuários sob sua responsabilidade.
+
+</p>
+
+<p style="text-align: justify;">
+
+Cada permissão deve ser analisada e classificada como
+<strong>aprovada</strong>, <strong>revogada</strong> ou
+<strong>necessitando de ajustes</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse processo garante que somente acessos realmente necessários
+permaneçam ativos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Participantes
+
+</strong>
+
+<br><br>
+
+Gestor.<br>
+
+RH.<br>
+
+Segurança.<br>
+
+Auditoria.<br>
+
+Administrador IAM.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Controle contínuo.<br>
+
+✔ Evidências para auditoria.<br>
+
+✔ Redução de privilégios.<br>
+
+✔ Maior governança.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um gerente recebe trimestralmente uma relação contendo todos os
+acessos concedidos à sua equipe. Após revisar cada item, ele
+confirma apenas aqueles indispensáveis às atividades dos
+colaboradores, solicitando a remoção dos acessos desnecessários.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚖ Segregação de Funções (SoD)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Outro conceito importante dentro da Governança de Identidades é a
+<strong>Segregação de Funções (Segregation of Duties — SoD)</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Seu objetivo é impedir que um único usuário acumule permissões
+capazes de permitir fraudes, erros ou conflitos de interesse.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em processos financeiros, por exemplo, o usuário responsável por
+aprovar pagamentos não deve possuir permissão para cadastrá-los,
+reduzindo a possibilidade de fraudes internas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos de conflito
+
+</strong>
+
+<br><br>
+
+Criar fornecedor.<br>
+
+Aprovar pagamento.<br>
+
+Liberar compra.<br>
+
+Auditar o próprio processo.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivos
+
+</strong>
+
+<br><br>
+
+✔ Redução de fraudes.<br>
+
+✔ Separação de responsabilidades.<br>
+
+✔ Controles internos.<br>
+
+✔ Atendimento a normas.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📑 Auditoria e Conformidade
+
+</h2>
+
+<p style="text-align: justify;">
+
+As soluções IAM registram eventos relacionados à criação de
+contas, autenticações, alterações de permissões, campanhas de
+certificação e demais operações executadas sobre as identidades
+digitais.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esses registros permitem demonstrar conformidade durante
+auditorias e facilitam investigações de incidentes de segurança.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Eventos registrados
+
+</strong>
+
+<br><br>
+
+Logins.<br>
+
+Alteração de grupos.<br>
+
+Mudança de papéis.<br>
+
+Provisionamento.<br>
+
+Desprovisionamento.<br>
+
+Aprovações.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Normas atendidas
+
+</strong>
+
+<br><br>
+
+ISO/IEC 27001.<br>
+
+LGPD.<br>
+
+NIST CSF.<br>
+
+CIS Controls.<br>
+
+SOX.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Benefícios da Governança de Identidades
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao combinar revisão periódica, certificação de acessos,
+Segregação de Funções e auditoria contínua, o IAM passa a oferecer
+uma visão completa sobre todas as identidades existentes na
+organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa governança reduz riscos operacionais, facilita o atendimento
+a requisitos regulatórios e fortalece o controle sobre acessos
+críticos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Segurança
+
+</strong>
+
+<br><br>
+
+✔ Menor privilégio.<br>
+
+✔ Menos contas órfãs.<br>
+
+✔ Menos privilégios excessivos.<br>
+
+✔ Maior rastreabilidade.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Governança
+
+</strong>
+
+<br><br>
+
+✔ Auditorias simplificadas.<br>
+
+✔ Conformidade.<br>
+
+✔ Evidências.<br>
+
+✔ Transparência.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+A maturidade de um programa de IAM não é medida apenas pela
+capacidade de autenticar usuários, mas pela capacidade de
+governar continuamente as identidades. Organizações maduras sabem
+quem possui acesso a cada recurso, por qual motivo esse acesso foi
+concedido, quem o aprovou, quando deverá ser revisado e quais
+evidências demonstram sua conformidade. Essa visibilidade é um dos
+principais diferenciais das arquiteturas modernas de Identity and
+Access Management.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚨 Principais Ameaças ao IAM
+
+</h2>
+
+<p style="text-align: justify;">
+
+Assim como qualquer componente crítico da infraestrutura de TI,
+uma solução de Identity and Access Management também pode ser alvo
+de ataques.
+
+</p>
+
+<p style="text-align: justify;">
+
+Na maioria das situações, os criminosos não procuram explorar
+falhas do software IAM propriamente dito, mas sim abusar de
+credenciais comprometidas, permissões excessivas ou processos de
+governança inadequados.
+
+</p>
+
+<p style="text-align: justify;">
+
+Compreender essas ameaças permite implementar controles capazes
+de reduzir significativamente a superfície de ataque relacionada
+às identidades digitais.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura08-ameacas-iam.png"
+alt="Principais ameaças ao IAM">
+
+<figcaption class="image-caption">
+
+Figura 8 – Principais riscos relacionados ao gerenciamento de
+identidades.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👻 Contas Órfãs
+
+</h2>
+
+<p style="text-align: justify;">
+
+Contas órfãs são identidades que permanecem ativas mesmo após o
+encerramento do vínculo do usuário com a organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse cenário normalmente ocorre quando processos de
+desprovisionamento não são executados corretamente ou dependem de
+atividades manuais.
+
+</p>
+
+<p style="text-align: justify;">
+
+Como essas contas deixam de ser utilizadas regularmente, muitas
+vezes passam despercebidas durante auditorias e representam um
+alvo atrativo para atacantes.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Causas
+
+</strong>
+
+<br><br>
+
+Desligamentos.<br>
+
+Projetos encerrados.<br>
+
+Contas técnicas esquecidas.<br>
+
+Falhas no desprovisionamento.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Impactos
+
+</strong>
+
+<br><br>
+
+✔ Acesso não autorizado.<br>
+
+✔ Persistência do atacante.<br>
+
+✔ Não conformidade.<br>
+
+✔ Aumento da superfície de ataque.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔐 Contas Privilegiadas
+
+</h2>
+
+<p style="text-align: justify;">
+
+Contas administrativas possuem permissões capazes de alterar
+configurações críticas, administrar usuários, modificar políticas
+e acessar informações sensíveis.
+
+</p>
+
+<p style="text-align: justify;">
+
+Caso uma dessas identidades seja comprometida, o impacto tende a
+ser muito maior do que o comprometimento de uma conta comum.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Administrador de domínio.<br>
+
+Administrador Entra ID.<br>
+
+Root Linux.<br>
+
+Administrador AWS.<br>
+
+Administrador Banco de Dados.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Mitigações
+
+</strong>
+
+<br><br>
+
+PAM.<br>
+
+MFA.<br>
+
+Just-In-Time.<br>
+
+Just Enough Administration.<br>
+
+Auditoria contínua.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📈 Privilégios Excessivos
+
+</h2>
+
+<p style="text-align: justify;">
+
+O acúmulo gradual de permissões é um problema frequente em
+ambientes corporativos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Ao longo dos anos, usuários mudam de função, participam de novos
+projetos e recebem acessos adicionais, sem que os privilégios
+antigos sejam removidos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse cenário viola o Princípio do Menor Privilégio e amplia o
+impacto potencial de uma credencial comprometida.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Consequências
+
+</strong>
+
+<br><br>
+
+Maior impacto de invasões.<br>
+
+Movimentação lateral.<br>
+
+Acesso desnecessário.<br>
+
+Riscos de fraude.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Boas práticas
+
+</strong>
+
+<br><br>
+
+RBAC.<br>
+
+ABAC.<br>
+
+Revisões periódicas.<br>
+
+Certificação de acessos.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🕵 Shadow IT e Identidades Não Gerenciadas
+
+</h2>
+
+<p style="text-align: justify;">
+
+Shadow IT corresponde ao uso de aplicações, serviços ou recursos
+não aprovados pela organização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Além de dificultar a governança, esses serviços frequentemente
+mantêm identidades fora do controle do IAM, impedindo a aplicação
+de políticas corporativas de autenticação e auditoria.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Serviços SaaS.<br>
+
+Armazenamento em nuvem.<br>
+
+Aplicativos colaborativos.<br>
+
+Ferramentas gratuitas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Riscos
+
+</strong>
+
+<br><br>
+
+Falta de auditoria.<br>
+
+Credenciais reutilizadas.<br>
+
+Ausência de MFA.<br>
+
+Vazamento de dados.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Boas Práticas para Implementação do IAM
+
+</h2>
+
+<p style="text-align: justify;">
+
+A adoção de uma plataforma IAM deve ser acompanhada por políticas
+e processos capazes de garantir que as identidades permaneçam
+seguras durante todo o seu ciclo de vida.
+
+</p>
+
+<p style="text-align: justify;">
+
+Mais do que implantar uma tecnologia, é necessário estabelecer
+uma estratégia contínua de governança, automação e monitoramento.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura09-boas-praticas-iam.png"
+alt="Boas práticas para IAM">
+
+<figcaption class="image-caption">
+
+Figura 9 – Boas práticas para implementação de IAM.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+✔ Recomendações
+
+</strong>
+
+<br><br>
+
+<ul>
+
+<li>Automatizar o ciclo de vida das identidades.</li>
+
+<li>Aplicar o Princípio do Menor Privilégio.</li>
+
+<li>Exigir MFA para todos os usuários.</li>
+
+<li>Utilizar Single Sign-On.</li>
+
+<li>Realizar revisões periódicas de acessos.</li>
+
+<li>Eliminar contas órfãs rapidamente.</li>
+
+<li>Monitorar contas privilegiadas.</li>
+
+<li>Centralizar autenticação em um Identity Provider.</li>
+
+<li>Auditar continuamente eventos relacionados às identidades.</li>
+
+<li>Integrar o IAM à estratégia de Zero Trust.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 IAM em Ambientes Corporativos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Atualmente, praticamente todas as grandes organizações utilizam
+alguma solução de Identity and Access Management para administrar
+identidades e controlar acessos aos seus recursos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essas plataformas concentram autenticação, Single Sign-On,
+Federação de Identidade, MFA, provisionamento automático e
+governança em um único ambiente.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura10-arquitetura-iam-corporativa.png"
+alt="Arquitetura corporativa IAM">
+
+<figcaption class="image-caption">
+
+Figura 10 – Exemplo de arquitetura corporativa utilizando uma
+plataforma IAM centralizada.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Microsoft Entra ID.<br>
+
+Okta.<br>
+
+Google Cloud Identity.<br>
+
+Ping Identity.<br>
+
+Keycloak.<br>
+
+AWS IAM.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Administração centralizada.<br>
+
+✔ Melhor experiência do usuário.<br>
+
+✔ Redução de riscos.<br>
+
+✔ Conformidade.<br>
+
+✔ Escalabilidade.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>O conceito de Identity and Access Management (IAM).</li>
+
+<li>Os principais componentes de uma solução IAM.</li>
+
+<li>O ciclo de vida das identidades digitais.</li>
+
+<li>Como funciona o provisionamento e o desprovisionamento.</li>
+
+<li>O papel do SCIM na automação de identidades.</li>
+
+<li>O funcionamento do Single Sign-On.</li>
+
+<li>Os conceitos de Federação de Identidade, SAML, OAuth 2.0 e OpenID Connect.</li>
+
+<li>A importância da Governança de Identidades.</li>
+
+<li>As principais ameaças relacionadas ao IAM.</li>
+
+<li>As boas práticas para implementação em ambientes corporativos.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Capítulo
+
+</h2>
+
+<p style="text-align: justify;">
+
+Neste capítulo vimos como o Identity and Access Management
+centraliza a administração das identidades digitais, automatiza o
+ciclo de vida dos usuários e fortalece a governança dos acessos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Entretanto, existe um conjunto de identidades que exige controles
+ainda mais rigorosos: as contas privilegiadas.
+
+</p>
+
+<blockquote>
+
+Como proteger administradores de domínio, contas Root, contas de
+serviço e demais identidades com privilégios elevados?
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+Essa será a temática do próximo capítulo da série, dedicado ao
+<strong>Privileged Access Management (PAM)</strong>, onde
+estudaremos cofres de credenciais, acesso Just-In-Time (JIT),
+Just Enough Administration (JEA), gerenciamento de sessões
+privilegiadas e monitoramento de contas críticas.
+
+</p>
+
+<br>
+
+<a class="content-button">
+
+➡ Ler o próximo capítulo
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Série Técnica
+
+</strong>
+
+<br><br>
+
+✅ 🔺 Tríade CIA
+
+<br><br>
+
+✅ 🔒 Confidencialidade
+
+<br><br>
+
+✅ 🛡 Integridade
+
+<br><br>
+
+✅ ⚡ Disponibilidade
+
+<br><br>
+
+✅ 🔐 Criptografia
+
+<br><br>
+
+✅ 👥 Controle de Acesso
+
+<br><br>
+
+✅ 🆔 Autenticação
+
+<br><br>
+
+✅ ✔ Autorização
+
+<br><br>
+
+✅ 🔑 Autenticação Multifator (MFA)
+
+<br><br>
+
+✅ 🏛 Identity and Access Management (IAM)
+
+<br><br>
+
+➡ ☁ Zero Trust
+
+<br><br>
+
+⬜ 🔐 Privileged Access Management (PAM)
+
+<br><br>
+
+⬜ 🌐 Active Directory e Microsoft Entra ID
+
+<br><br>
+
+⬜ 🔑 Single Sign-On e Federação de Identidade
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Biblioteca Técnica
+
+</p>
+
+<p>
+
+📚 Série Técnica
+
+Fundamentos da Segurança da Informação
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>  
+  
+
+
+
+  
