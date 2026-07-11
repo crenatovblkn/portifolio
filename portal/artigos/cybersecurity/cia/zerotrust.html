@@ -1,0 +1,4029 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Fundamentos da Segurança da Informação
+
+Zero Trust
+
+</title>
+
+<link rel="stylesheet"
+href="../../../css/crportal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="photo">
+
+<img src="../../../foto.jpeg"
+alt="Carlos Renato">
+
+</div>
+
+<div class="hero-content">
+
+<span class="categoria">
+
+📚 SÉRIE TÉCNICA
+
+</span>
+
+<h1>
+
+🛡 Fundamentos da Segurança da Informação
+
+</h1>
+
+<h2>
+
+☁ Zero Trust
+
+</h2>
+
+<p style="text-align: justify;">
+
+Never Trust, Always Verify: compreendendo o modelo moderno de
+segurança baseado na verificação contínua de identidades,
+dispositivos e acessos.
+
+</p>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<a href="../index.html"
+class="back-button">
+
+← Voltar para Cybersecurity
+
+</a>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+📋 Guia Rápido
+
+</h2>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Categoria
+
+</strong>
+
+<br>
+
+Cybersecurity
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Série
+
+</strong>
+
+<br>
+
+Fundamentos da Segurança da Informação
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Capítulo
+
+</strong>
+
+<br>
+
+☁ Zero Trust
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Nível
+
+</strong>
+
+<br>
+
+Intermediário / Avançado
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Conceitos
+
+</strong>
+
+<br>
+
+Zero Trust<br>
+
+Least Privilege<br>
+
+Continuous Verification<br>
+
+Identity-Centric Security<br>
+
+Conditional Access<br>
+
+Microsegmentação<br>
+
+ZTNA<br>
+
+Device Trust<br>
+
+Policy Engine<br>
+
+Policy Decision Point<br>
+
+Policy Enforcement Point
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Tempo
+
+</strong>
+
+<br>
+
+55 minutos
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📖 Resumo Executivo
+
+</h2>
+
+<p style="text-align: justify;">
+
+Durante muitos anos, a segurança das organizações foi construída
+sobre um modelo baseado em perímetro. Firewalls, VPNs e redes
+internas eram considerados suficientes para proteger os recursos
+corporativos. Uma vez dentro da rede, usuários e dispositivos
+passavam a ser tratados como confiáveis.
+
+</p>
+
+<p style="text-align: justify;">
+
+A transformação digital modificou completamente esse cenário.
+Serviços em nuvem, aplicações SaaS, dispositivos móveis, trabalho
+remoto e identidades distribuídas tornaram insuficiente o modelo
+tradicional de proteção baseado apenas na localização do usuário.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse contexto surgiu o <strong>Zero Trust</strong>, um modelo de
+segurança que parte do princípio de que nenhuma identidade,
+dispositivo ou aplicação deve ser considerada confiável por
+padrão, independentemente de sua localização.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de confiar implicitamente na rede interna, o Zero Trust
+baseia todas as decisões de acesso em verificações contínuas de
+identidade, contexto, risco, postura do dispositivo e políticas
+corporativas.
+
+</p>
+
+<blockquote>
+
+Never Trust, Always Verify.
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+Mais do que uma tecnologia, Zero Trust representa uma estratégia
+de segurança capaz de integrar Identity and Access Management,
+Autenticação Multifator, Governança de Identidades,
+Microsegmentação, monitoramento contínuo e análise de risco em um
+único modelo de proteção.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+🎯 Objetivo deste capítulo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Compreender os fundamentos do modelo Zero Trust, conhecer seus
+princípios, componentes arquiteturais, mecanismos de decisão de
+acesso e entender como esse paradigma substitui o modelo
+tradicional baseado em perímetro.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+☁ O que é Zero Trust?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Zero Trust é um modelo de segurança que elimina o conceito de
+confiança implícita.
+
+</p>
+
+<p style="text-align: justify;">
+
+Independentemente de o usuário estar conectado na rede interna,
+em uma filial, utilizando VPN ou acessando aplicações em nuvem,
+cada solicitação de acesso deve ser avaliada individualmente.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa avaliação considera diversos fatores, incluindo identidade,
+nível de privilégio, dispositivo utilizado, localização,
+comportamento observado, horário do acesso e nível de risco
+calculado pela plataforma de segurança.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura01-modelo-tradicional-vs-zero-trust.png"
+alt="Modelo tradicional versus Zero Trust">
+
+<figcaption class="image-caption">
+
+Figura 1 – Comparação entre o modelo tradicional baseado em
+perímetro e o modelo Zero Trust.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito Fundamental
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Zero Trust não significa "não confiar em ninguém".
+
+<br><br>
+
+Significa que toda solicitação de acesso deve ser validada,
+autorizada e monitorada continuamente, independentemente da
+origem da conexão.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌍 A Evolução do Modelo Tradicional
+
+</h2>
+
+<p style="text-align: justify;">
+
+Historicamente, a maioria das organizações concentrou seus
+esforços de segurança na proteção do perímetro da rede.
+
+</p>
+
+<p style="text-align: justify;">
+
+Firewalls, IDS, IPS e VPNs atuavam como barreiras responsáveis
+por impedir acessos externos não autorizados. Após ultrapassar
+esse perímetro, usuários normalmente recebiam amplo acesso aos
+recursos internos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse modelo funcionava relativamente bem quando aplicações,
+usuários e servidores permaneciam dentro do mesmo ambiente
+corporativo.
+
+</p>
+
+<p style="text-align: justify;">
+
+Entretanto, a adoção massiva de computação em nuvem, trabalho
+remoto, dispositivos pessoais (BYOD) e aplicações distribuídas
+eliminou a noção tradicional de perímetro.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Modelo Tradicional
+
+</strong>
+
+<br><br>
+
+✔ Confiança baseada na rede.<br>
+
+✔ Proteção do perímetro.<br>
+
+✔ VPN.<br>
+
+✔ Firewall como principal defesa.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Zero Trust
+
+</strong>
+
+<br><br>
+
+✔ Confiança baseada em identidade.<br>
+
+✔ Verificação contínua.<br>
+
+✔ Avaliação de risco.<br>
+
+✔ Acesso contextual.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Os Três Princípios Fundamentais do Zero Trust
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora o Zero Trust seja composto por diversos controles e
+tecnologias, sua implementação é baseada em três princípios
+fundamentais que orientam todas as decisões de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esses princípios foram amplamente difundidos por organizações
+como o NIST e representam a base das arquiteturas modernas de
+segurança centradas na identidade.
+
+</p>
+
+<p style="text-align: justify;">
+
+Toda solução Zero Trust procura responder continuamente três
+perguntas:
+
+</p>
+
+<ul>
+
+<li>Quem está solicitando o acesso?</li>
+
+<li>O acesso realmente é necessário?</li>
+
+<li>E se o ambiente já estiver comprometido?</li>
+
+</ul>
+
+<figure class="article-image">
+
+<img src="img/figura02-pilares-zero-trust.png"
+alt="Os três pilares fundamentais do Zero Trust">
+
+<figcaption class="image-caption">
+
+Figura 2 – Os três pilares fundamentais do Zero Trust.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✔ Verify Explicitly
+
+</h2>
+
+<p style="text-align: justify;">
+
+O primeiro princípio determina que toda solicitação de acesso
+deve ser validada explicitamente utilizando o maior número
+possível de informações disponíveis.
+
+</p>
+
+<p style="text-align: justify;">
+
+Não basta conhecer apenas o usuário. Também é necessário avaliar
+o dispositivo utilizado, sua postura de segurança, localização,
+horário, comportamento, sensibilidade do recurso solicitado e
+outros fatores de risco.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Informações avaliadas
+
+</strong>
+
+<br><br>
+
+👤 Identidade.<br>
+
+💻 Dispositivo.<br>
+
+📍 Localização.<br>
+
+🕒 Horário.<br>
+
+🌎 Endereço IP.<br>
+
+📱 Tipo de equipamento.<br>
+
+⚠ Nível de risco.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivo
+
+</strong>
+
+<br><br>
+
+Garantir que toda decisão de acesso seja baseada no contexto
+completo da solicitação.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um colaborador realiza login utilizando suas credenciais
+corretas, porém tenta acessar uma aplicação crítica a partir de
+um dispositivo desconhecido localizado em outro país. Mesmo com a
+senha correta, a plataforma poderá solicitar MFA adicional ou
+bloquear completamente o acesso.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔒 Least Privilege
+
+</h2>
+
+<p style="text-align: justify;">
+
+O segundo princípio estabelece que toda identidade deve possuir
+apenas os privilégios estritamente necessários para executar suas
+atividades.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse conceito reduz significativamente a superfície de ataque e
+limita o impacto causado pelo comprometimento de uma conta.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em arquiteturas Zero Trust, permissões são concedidas de forma
+granular e revisadas continuamente para evitar privilégios
+excessivos.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Aplicações
+
+</strong>
+
+<br><br>
+
+RBAC.<br>
+
+ABAC.<br>
+
+JIT.<br>
+
+JEA.<br>
+
+PAM.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Menor impacto de ataques.<br>
+
+✔ Redução da movimentação lateral.<br>
+
+✔ Melhor governança.<br>
+
+✔ Maior conformidade.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚨 Assume Breach
+
+</h2>
+
+<p style="text-align: justify;">
+
+O terceiro princípio parte da premissa de que uma invasão pode já
+ter ocorrido ou poderá ocorrer a qualquer momento.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de confiar que o ambiente está completamente protegido, a
+arquitetura Zero Trust procura limitar continuamente o impacto de
+um eventual comprometimento.
+
+</p>
+
+<p style="text-align: justify;">
+
+Esse princípio incentiva o monitoramento constante, a
+microsegmentação da infraestrutura, a análise comportamental e a
+detecção precoce de atividades suspeitas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Controles utilizados
+
+</strong>
+
+<br><br>
+
+EDR.<br>
+
+SIEM.<br>
+
+UEBA.<br>
+
+Threat Intelligence.<br>
+
+Microsegmentação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Resultados
+
+</strong>
+
+<br><br>
+
+✔ Contenção rápida.<br>
+
+✔ Menor movimentação lateral.<br>
+
+✔ Resposta a incidentes.<br>
+
+✔ Redução do impacto.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+⚠ Importante
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Assume Breach não significa considerar que todos os sistemas
+estão comprometidos, mas sim projetar a arquitetura de forma que
+um comprometimento isolado não permita ao invasor alcançar todo o
+ambiente corporativo.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Os Princípios Trabalhando em Conjunto
+
+</h2>
+
+<p style="text-align: justify;">
+
+Os três princípios do Zero Trust não atuam de forma isolada.
+
+</p>
+
+<p style="text-align: justify;">
+
+Cada decisão de acesso resulta da combinação entre verificação
+explícita da identidade, concessão do menor privilégio possível e
+monitoramento contínuo considerando que qualquer recurso poderá
+ser alvo de comprometimento.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Verify Explicitly
+
+</strong>
+
+<br><br>
+
+Quem está acessando?<br>
+
+De onde?<br>
+
+Com qual dispositivo?<br>
+
+Qual o risco?
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Least Privilege
+
+</strong>
+
+<br><br>
+
+Qual acesso é realmente necessário?<br>
+
+Por quanto tempo?<br>
+
+Quais recursos?
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Assume Breach
+
+</strong>
+
+<br><br>
+
+Como limitar o impacto?<br>
+
+Como detectar rapidamente?<br>
+
+Como conter o incidente?
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+O maior diferencial do Zero Trust não está em uma tecnologia
+específica, mas na mudança de paradigma. Em vez de confiar na
+localização do usuário ou no perímetro da rede, todas as decisões
+passam a considerar identidade, contexto, risco e comportamento
+em tempo real. Essa abordagem torna o modelo muito mais adequado
+para ambientes híbridos, serviços em nuvem e organizações com
+força de trabalho distribuída.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏗 Arquitetura Zero Trust
+
+</h2>
+
+<p style="text-align: justify;">
+
+O Zero Trust não é um produto, mas um modelo arquitetural
+composto por diversos componentes que trabalham de forma integrada
+para avaliar continuamente cada solicitação de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de permitir conexões baseadas apenas na autenticação
+inicial do usuário, a arquitetura Zero Trust utiliza informações
+de identidade, dispositivos, telemetria, comportamento,
+classificação de risco e políticas corporativas para decidir se
+um acesso deverá ser concedido, limitado ou bloqueado.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora diferentes fabricantes utilizem implementações próprias,
+os principais componentes permanecem praticamente os mesmos em
+todas as arquiteturas modernas.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura03-arquitetura-zero-trust.png"
+alt="Arquitetura simplificada de uma solução Zero Trust">
+
+<figcaption class="image-caption">
+
+Figura 3 – Arquitetura simplificada de uma solução Zero Trust.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👤 Identity Provider (IdP)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O Identity Provider continua sendo um dos principais elementos de
+uma arquitetura Zero Trust.
+
+</p>
+
+<p style="text-align: justify;">
+
+Sua responsabilidade é autenticar usuários, emitir tokens de
+identidade, aplicar Autenticação Multifator e disponibilizar as
+informações necessárias para que outros componentes possam tomar
+decisões de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Além da autenticação inicial, o IdP também fornece atributos como
+grupos, papéis, departamentos, nível de privilégio e demais
+informações utilizadas durante a avaliação das políticas de
+segurança.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Responsabilidades
+
+</strong>
+
+<br><br>
+
+✔ Autenticação.<br>
+
+✔ MFA.<br>
+
+✔ Emissão de Tokens.<br>
+
+✔ Informações da identidade.<br>
+
+✔ Sessões.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Microsoft Entra ID.<br>
+
+Okta.<br>
+
+Keycloak.<br>
+
+Google Cloud Identity.<br>
+
+Ping Identity.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🧠 Policy Engine (PE)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O <strong>Policy Engine</strong> representa o cérebro da
+arquitetura Zero Trust.
+
+</p>
+
+<p style="text-align: justify;">
+
+É nesse componente que as políticas de segurança são avaliadas,
+considerando identidade, contexto, nível de risco, localização,
+dispositivo utilizado e demais atributos relacionados à
+solicitação de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Com base nessas informações, o mecanismo determina qual deverá
+ser a decisão aplicada ao usuário.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Informações analisadas
+
+</strong>
+
+<br><br>
+
+Identidade.<br>
+
+Dispositivo.<br>
+
+Localização.<br>
+
+Aplicação.<br>
+
+Classificação do recurso.<br>
+
+Nível de risco.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Decisões possíveis
+
+</strong>
+
+<br><br>
+
+✔ Permitir.<br>
+
+✔ Negar.<br>
+
+✔ Solicitar MFA.<br>
+
+✔ Acesso limitado.<br>
+
+✔ Sessão monitorada.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Conceito
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+O Policy Engine não executa diretamente as políticas. Sua função
+é analisar as informações disponíveis e determinar qual decisão
+deverá ser aplicada para cada solicitação de acesso.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚖ Policy Decision Point (PDP)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O <strong>Policy Decision Point (PDP)</strong> recebe as
+informações fornecidas pelo Policy Engine e formaliza a decisão
+que será enviada ao componente responsável por aplicá-la.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa decisão pode envolver autorização completa, restrições
+parciais, solicitação de autenticação adicional ou bloqueio da
+conexão.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Entradas
+
+</strong>
+
+<br><br>
+
+Políticas.<br>
+
+Identidade.<br>
+
+Dispositivo.<br>
+
+Risco.<br>
+
+Telemetria.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Saídas
+
+</strong>
+
+<br><br>
+
+Permitir.<br>
+
+Negar.<br>
+
+Exigir MFA.<br>
+
+Acesso temporário.<br>
+
+Bloqueio imediato.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚪 Policy Enforcement Point (PEP)
+
+</h2>
+
+<p style="text-align: justify;">
+
+O <strong>Policy Enforcement Point (PEP)</strong> é o componente
+responsável por aplicar efetivamente a decisão tomada pelo
+Policy Decision Point.
+
+</p>
+
+<p style="text-align: justify;">
+
+Dependendo da arquitetura utilizada, o PEP pode estar presente em
+gateways, proxies reversos, soluções ZTNA, firewalls, APIs,
+aplicações corporativas ou serviços em nuvem.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Onde pode estar
+
+</strong>
+
+<br><br>
+
+ZTNA.<br>
+
+Proxy.<br>
+
+Firewall.<br>
+
+API Gateway.<br>
+
+Aplicações.<br>
+
+Cloud.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Função
+
+</strong>
+
+<br><br>
+
+✔ Aplicar políticas.<br>
+
+✔ Liberar acesso.<br>
+
+✔ Bloquear conexões.<br>
+
+✔ Solicitar reautenticação.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 Telemetria e Inteligência
+
+</h2>
+
+<p style="text-align: justify;">
+
+As decisões de uma arquitetura Zero Trust não dependem apenas da
+identidade do usuário.
+
+</p>
+
+<p style="text-align: justify;">
+
+Diversas fontes de telemetria fornecem informações que ajudam a
+calcular continuamente o nível de risco associado a cada sessão.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Fontes de Dados
+
+</strong>
+
+<br><br>
+
+EDR.<br>
+
+SIEM.<br>
+
+UEBA.<br>
+
+Threat Intelligence.<br>
+
+MDM.<br>
+
+Logs de autenticação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivos
+
+</strong>
+
+<br><br>
+
+✔ Detectar anomalias.<br>
+
+✔ Calcular risco.<br>
+
+✔ Monitorar sessões.<br>
+
+✔ Atualizar decisões.
+
+</div>
+
+</div>
+
+<p style="text-align: justify;">
+
+Sempre que uma dessas fontes identificar alterações relevantes,
+como um dispositivo comprometido, comportamento suspeito ou
+mudança de localização, uma nova avaliação poderá ser realizada,
+mesmo durante uma sessão já estabelecida.
+
+</p>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Uma arquitetura Zero Trust moderna funciona como um sistema vivo.
+A decisão de acesso não acontece apenas no momento do login.
+Durante toda a sessão, informações provenientes de ferramentas
+como SIEM, EDR, MDM, Threat Intelligence e análise comportamental
+alimentam continuamente o mecanismo de decisão. Caso o risco
+aumente, o acesso pode ser restringido, exigir uma nova
+autenticação ou ser encerrado imediatamente, sem depender de
+intervenção manual.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚖ Processo de Decisão de Acesso
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma das maiores diferenças entre o modelo tradicional de
+segurança e o Zero Trust está na forma como o acesso é concedido.
+
+</p>
+
+<p style="text-align: justify;">
+
+Enquanto arquiteturas tradicionais normalmente tomam a decisão
+apenas durante o login inicial, o Zero Trust reavalia
+constantemente cada solicitação de acesso considerando diversas
+informações contextuais.
+
+</p>
+
+<p style="text-align: justify;">
+
+Isso significa que duas solicitações realizadas pelo mesmo
+usuário podem receber decisões diferentes caso o contexto tenha
+sido alterado.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura04-decisao-acesso-risco.png"
+alt="Fluxo completo da decisão de acesso baseada em risco">
+
+<figcaption class="image-caption">
+
+Figura 4 – Fluxo completo da decisão de acesso baseada em risco.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+👤 A Identidade é Apenas o Início
+
+</h2>
+
+<p style="text-align: justify;">
+
+Confirmar a identidade do usuário continua sendo uma etapa
+fundamental, porém ela representa apenas um dos elementos
+avaliados durante a decisão de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Mesmo após uma autenticação bem-sucedida, a plataforma Zero Trust
+continua analisando diversos fatores antes de conceder acesso aos
+recursos solicitados.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Informações da identidade
+
+</strong>
+
+<br><br>
+
+Usuário.<br>
+
+Cargo.<br>
+
+Departamento.<br>
+
+Grupos.<br>
+
+Papéis.<br>
+
+Privilégios.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Pergunta respondida
+
+</strong>
+
+<br><br>
+
+Quem está tentando acessar o recurso?
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+💻 Avaliação do Dispositivo
+
+</h2>
+
+<p style="text-align: justify;">
+
+O dispositivo utilizado também influencia diretamente a decisão
+de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Antes de permitir a conexão, a arquitetura verifica se o
+equipamento atende aos requisitos mínimos de segurança definidos
+pela organização.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Itens avaliados
+
+</strong>
+
+<br><br>
+
+Sistema operacional.<br>
+
+Antivírus.<br>
+
+EDR.<br>
+
+Criptografia.<br>
+
+Firewall.<br>
+
+Correções instaladas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Resultados
+
+</strong>
+
+<br><br>
+
+✔ Dispositivo confiável.<br>
+
+✔ Acesso restrito.<br>
+
+✔ MFA adicional.<br>
+
+✔ Bloqueio da conexão.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um colaborador utiliza suas credenciais corretas, porém tenta
+acessar uma aplicação corporativa a partir de um notebook sem
+antivírus atualizado. A plataforma poderá permitir acesso apenas
+a recursos de baixo risco ou bloquear completamente a conexão até
+que o dispositivo esteja em conformidade.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📍 Contexto e Nível de Risco
+
+</h2>
+
+<p style="text-align: justify;">
+
+Além da identidade e do dispositivo, o Zero Trust avalia o
+contexto em que a solicitação ocorre.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essas informações permitem calcular dinamicamente o nível de
+risco associado à sessão e ajustar automaticamente a política de
+acesso.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Contexto
+
+</strong>
+
+<br><br>
+
+Localização.<br>
+
+Horário.<br>
+
+Rede utilizada.<br>
+
+Geolocalização.<br>
+
+Endereço IP.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Comportamento
+
+</strong>
+
+<br><br>
+
+Padrão de uso.<br>
+
+Histórico.<br>
+
+Anomalias.<br>
+
+Velocidade de acesso.<br>
+
+Mudança de país.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Classificação
+
+</strong>
+
+<br><br>
+
+Baixo risco.<br>
+
+Médio risco.<br>
+
+Alto risco.<br>
+
+Crítico.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Decisões Possíveis
+
+</h2>
+
+<p style="text-align: justify;">
+
+Após analisar todas as informações disponíveis, a arquitetura
+Zero Trust determina qual será a resposta para aquela tentativa
+de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+A decisão não precisa ser simplesmente permitir ou negar. Em
+muitos casos, o acesso pode ser concedido de maneira parcial ou
+condicionada ao cumprimento de requisitos adicionais.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Permitir
+
+</strong>
+
+<br><br>
+
+O usuário recebe acesso normalmente.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Permitir com MFA
+
+</strong>
+
+<br><br>
+
+Exige uma autenticação adicional antes da liberação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Permitir parcialmente
+
+</strong>
+
+<br><br>
+
+Libera apenas aplicações ou recursos específicos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Monitorar
+
+</strong>
+
+<br><br>
+
+Mantém a sessão sob observação reforçada.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Negar
+
+</strong>
+
+<br><br>
+
+Bloqueia completamente a tentativa de acesso.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Conditional Access
+
+</h2>
+
+<p style="text-align: justify;">
+
+Uma das implementações mais conhecidas desse processo de decisão
+é o <strong>Conditional Access</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse modelo, políticas são aplicadas dinamicamente conforme o
+contexto apresentado pela solicitação de acesso.
+
+</p>
+
+<p style="text-align: justify;">
+
+Assim, dois usuários pertencentes ao mesmo grupo podem receber
+tratamentos diferentes caso utilizem dispositivos distintos,
+estejam localizados em regiões diferentes ou apresentem níveis de
+risco diferentes.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Exigir MFA.<br>
+
+Bloquear países.<br>
+
+Permitir apenas dispositivos corporativos.<br>
+
+Restringir horários.<br>
+
+Solicitar nova autenticação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Segurança dinâmica.<br>
+
+✔ Menor impacto para o usuário.<br>
+
+✔ Redução de riscos.<br>
+
+✔ Melhor experiência.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+No modelo Zero Trust, a decisão de acesso deixa de ser um evento
+pontual e passa a ser um processo contínuo. A identidade do
+usuário continua importante, mas ela é apenas um dos diversos
+elementos considerados pelo mecanismo de decisão. Essa abordagem
+permite equilibrar segurança e produtividade, concedendo acesso
+somente quando o contexto apresentado demonstra um nível de risco
+aceitável.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔄 Continuous Verification
+
+</h2>
+
+<p style="text-align: justify;">
+
+Um dos conceitos mais importantes do Zero Trust é a
+<strong>Verificação Contínua (Continuous Verification)</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nos modelos tradicionais, a autenticação normalmente ocorre
+apenas no início da sessão. Após o login, o usuário permanece
+autenticado até efetuar logout ou até que sua sessão expire.
+
+</p>
+
+<p style="text-align: justify;">
+
+No Zero Trust essa lógica muda completamente. A plataforma
+continua avaliando continuamente o nível de confiança daquela
+sessão durante todo o período de utilização dos recursos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Caso alguma informação relevante seja alterada, uma nova decisão
+de acesso poderá ser tomada imediatamente.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura05-verificacao-continua.png"
+alt="Fluxo de verificação contínua">
+
+<figcaption class="image-caption">
+
+Figura 5 – Fluxo de verificação contínua durante toda a sessão do
+usuário.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📊 O Que é Monitorado?
+
+</h2>
+
+<p style="text-align: justify;">
+
+Durante toda a sessão, diferentes componentes da arquitetura
+coletam informações que ajudam a calcular continuamente o nível
+de risco da identidade.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa análise acontece de forma transparente para o usuário e
+permite que decisões sejam adaptadas conforme mudanças no
+contexto operacional.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+👤 Identidade
+
+</strong>
+
+<br><br>
+
+Mudança de privilégios.<br>
+
+Alteração de grupos.<br>
+
+Reset de senha.<br>
+
+Novo MFA registrado.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+💻 Dispositivo
+
+</strong>
+
+<br><br>
+
+Antivírus.<br>
+
+EDR.<br>
+
+Patch Management.<br>
+
+Criptografia.<br>
+
+Firewall.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🌎 Contexto
+
+</strong>
+
+<br><br>
+
+IP.<br>
+
+Geolocalização.<br>
+
+Rede.<br>
+
+Horário.<br>
+
+VPN.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+📈 Comportamento
+
+</strong>
+
+<br><br>
+
+Volume de acessos.<br>
+
+Aplicações utilizadas.<br>
+
+Downloads.<br>
+
+Anomalias.<br>
+
+Movimentação lateral.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚠ Quando o Risco Aumenta
+
+</h2>
+
+<p style="text-align: justify;">
+
+Nem toda sessão permanece segura do início ao fim.
+
+</p>
+
+<p style="text-align: justify;">
+
+Durante sua utilização, diversos fatores podem aumentar o risco
+associado ao usuário ou ao dispositivo, exigindo uma nova
+avaliação da política de acesso.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Exemplos
+
+</strong>
+
+<br><br>
+
+Novo país.<br>
+
+Novo dispositivo.<br>
+
+Malware detectado.<br>
+
+IP suspeito.<br>
+
+Comportamento anômalo.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Possíveis respostas
+
+</strong>
+
+<br><br>
+
+Solicitar MFA.<br>
+
+Revogar sessão.<br>
+
+Bloquear dispositivo.<br>
+
+Reduzir permissões.<br>
+
+Encerrar acesso.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um usuário inicia normalmente sua sessão utilizando um notebook
+corporativo. Durante o expediente, o EDR identifica um malware no
+equipamento. Automaticamente a arquitetura Zero Trust reduz o
+nível de confiança daquela sessão e encerra o acesso às
+aplicações críticas até que o incidente seja resolvido.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🔁 Reautenticação Inteligente
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Verificação Contínua não significa solicitar senha ou MFA a
+cada poucos minutos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez disso, a plataforma determina quando uma nova
+autenticação realmente é necessária, equilibrando segurança e
+experiência do usuário.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Situações comuns
+
+</strong>
+
+<br><br>
+
+Mudança de localização.<br>
+
+Novo navegador.<br>
+
+Dispositivo desconhecido.<br>
+
+Aplicação crítica.<br>
+
+Elevação de privilégios.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Objetivos
+
+</strong>
+
+<br><br>
+
+✔ Melhor experiência.<br>
+
+✔ Menos interrupções.<br>
+
+✔ Segurança contextual.<br>
+
+✔ Menor risco.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📡 Integração com SIEM, EDR e UEBA
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Verificação Contínua depende da integração entre diversas
+ferramentas responsáveis por fornecer informações sobre o estado
+da infraestrutura.
+
+</p>
+
+<p style="text-align: justify;">
+
+Enquanto o SIEM centraliza eventos de segurança, o EDR monitora
+os dispositivos e o UEBA identifica comportamentos anômalos dos
+usuários.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+SIEM
+
+</strong>
+
+<br><br>
+
+Correlação de eventos.<br>
+
+Logs.<br>
+
+Alertas.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+EDR
+
+</strong>
+
+<br><br>
+
+Malware.<br>
+
+Processos.<br>
+
+Ameaças.<br>
+
+Resposta automática.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+UEBA
+
+</strong>
+
+<br><br>
+
+Análise comportamental.<br>
+
+Machine Learning.<br>
+
+Detecção de desvios.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Threat Intelligence
+
+</strong>
+
+<br><br>
+
+Indicadores.<br>
+
+Reputação.<br>
+
+Campanhas.<br>
+
+IOC.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Benefícios da Verificação Contínua
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao substituir decisões estáticas por avaliações permanentes, o
+Zero Trust reduz significativamente o tempo necessário para
+identificar mudanças no nível de risco e responder a incidentes.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Segurança
+
+</strong>
+
+<br><br>
+
+✔ Menor tempo de exposição.<br>
+
+✔ Revogação imediata.<br>
+
+✔ Menor movimentação lateral.<br>
+
+✔ Contenção automática.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Operação
+
+</strong>
+
+<br><br>
+
+✔ Decisões dinâmicas.<br>
+
+✔ Melhor experiência.<br>
+
+✔ Automatização.<br>
+
+✔ Maior visibilidade.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+A Verificação Contínua é um dos elementos que diferencia o Zero
+Trust das arquiteturas tradicionais. Em vez de considerar a
+autenticação como um evento único, o modelo trata a confiança
+como uma variável dinâmica, recalculada continuamente conforme o
+estado da identidade, do dispositivo e do ambiente. Isso permite
+que uma sessão inicialmente legítima seja restringida ou
+encerrada caso o nível de risco aumente durante sua utilização.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🧩 Microsegmentação
+
+</h2>
+
+<p style="text-align: justify;">
+
+Um dos pilares técnicos mais importantes do Zero Trust é a
+<strong>Microsegmentação</strong>.
+
+</p>
+
+<p style="text-align: justify;">
+
+Enquanto os modelos tradicionais dividem a infraestrutura em
+grandes segmentos de rede, a microsegmentação cria pequenas zonas
+de segurança independentes, controlando rigorosamente a
+comunicação entre aplicações, servidores, dispositivos e
+usuários.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa abordagem reduz significativamente a movimentação lateral de
+atacantes dentro do ambiente corporativo.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura06-microsegmentacao.png"
+alt="Microsegmentação em uma arquitetura Zero Trust">
+
+<figcaption class="image-caption">
+
+Figura 6 – Exemplo de microsegmentação reduzindo a movimentação
+lateral entre diferentes segmentos da infraestrutura.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌐 Do Perímetro para os Recursos
+
+</h2>
+
+<p style="text-align: justify;">
+
+Tradicionalmente, a proteção era concentrada na borda da rede.
+
+</p>
+
+<p style="text-align: justify;">
+
+Após ultrapassar o firewall corporativo, grande parte dos
+servidores permanecia acessível aos usuários internos.
+
+</p>
+
+<p style="text-align: justify;">
+
+No Zero Trust, cada recurso passa a possuir sua própria política
+de segurança, independentemente de sua localização física ou
+lógica.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Modelo Tradicional
+
+</strong>
+
+<br><br>
+
+Firewall.<br>
+
+VPN.<br>
+
+Segmentação por VLAN.<br>
+
+Confiança na rede interna.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Zero Trust
+
+</strong>
+
+<br><br>
+
+Proteção por aplicação.<br>
+
+Proteção por workload.<br>
+
+Políticas individuais.<br>
+
+Autorização contínua.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+➡ Tráfego Norte-Sul e Leste-Oeste
+
+</h2>
+
+<p style="text-align: justify;">
+
+A Microsegmentação protege tanto o tráfego que entra ou sai da
+organização quanto a comunicação entre recursos internos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Essa distinção é importante porque muitos ataques modernos não se
+limitam ao acesso inicial. Após comprometer um equipamento, o
+invasor normalmente tenta movimentar-se lateralmente em busca de
+servidores mais sensíveis.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+North-South
+
+</strong>
+
+<br><br>
+
+Internet.<br>
+
+VPN.<br>
+
+Clientes.<br>
+
+Parceiros.<br>
+
+Cloud.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+East-West
+
+</strong>
+
+<br><br>
+
+Servidor → Servidor.<br>
+
+Aplicação → Banco.<br>
+
+Container → Container.<br>
+
+Workload → Workload.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Importante
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Grande parte dos ataques de ransomware explora justamente o
+tráfego Leste-Oeste para comprometer outros servidores após a
+invasão inicial.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Como a Microsegmentação Funciona
+
+</h2>
+
+<p style="text-align: justify;">
+
+Cada aplicação, servidor ou serviço passa a possuir políticas
+próprias de comunicação.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de permitir acesso irrestrito entre todos os equipamentos
+de uma rede, somente comunicações previamente autorizadas são
+estabelecidas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Critérios
+
+</strong>
+
+<br><br>
+
+Identidade.<br>
+
+Aplicação.<br>
+
+Workload.<br>
+
+Serviço.<br>
+
+Porta.<br>
+
+Protocolo.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Decisões
+
+</strong>
+
+<br><br>
+
+✔ Permitir.<br>
+
+✔ Bloquear.<br>
+
+✔ Limitar.<br>
+
+✔ Registrar.<br>
+
+✔ Monitorar.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Tecnologias Utilizadas
+
+</h2>
+
+<p style="text-align: justify;">
+
+A implementação da Microsegmentação pode utilizar diferentes
+tecnologias, dependendo da infraestrutura existente.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Infraestrutura
+
+</strong>
+
+<br><br>
+
+VLANs.<br>
+
+ACLs.<br>
+
+Firewalls internos.<br>
+
+SDN.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Cloud
+
+</strong>
+
+<br><br>
+
+AWS Security Groups.<br>
+
+Azure NSG.<br>
+
+Google Cloud Firewall.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Workloads
+
+</strong>
+
+<br><br>
+
+Kubernetes Network Policies.<br>
+
+Service Mesh.<br>
+
+Istio.<br>
+
+Calico.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Zero Trust
+
+</strong>
+
+<br><br>
+
+ZTNA.<br>
+
+Identity Policies.<br>
+
+Application Proxy.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🎯 Benefícios da Microsegmentação
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao limitar rigorosamente a comunicação entre recursos, a
+Microsegmentação reduz significativamente o impacto de um
+comprometimento inicial.
+
+</p>
+
+<p style="text-align: justify;">
+
+Mesmo que um atacante consiga invadir um servidor, suas
+possibilidades de alcançar outros sistemas permanecem bastante
+restritas.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Segurança
+
+</strong>
+
+<br><br>
+
+✔ Menor movimentação lateral.<br>
+
+✔ Contenção de ataques.<br>
+
+✔ Menor superfície de ataque.<br>
+
+✔ Isolamento de workloads.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Governança
+
+</strong>
+
+<br><br>
+
+✔ Melhor visibilidade.<br>
+
+✔ Políticas granulares.<br>
+
+✔ Auditoria.<br>
+
+✔ Conformidade.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Durante muitos anos acreditou-se que proteger o perímetro da rede
+era suficiente. O Zero Trust inverte essa lógica: cada recurso se
+torna um novo perímetro de segurança. A Microsegmentação é o
+mecanismo que transforma esse conceito em realidade, reduzindo a
+movimentação lateral, protegendo aplicações críticas e limitando
+o impacto de ataques como ransomware e comprometimento de contas
+privilegiadas.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🌐 Zero Trust Network Access (ZTNA)
+
+</h2>
+
+<p style="text-align: justify;">
+
+Durante muitos anos, a VPN foi a principal tecnologia utilizada
+para fornecer acesso remoto aos recursos corporativos.
+
+</p>
+
+<p style="text-align: justify;">
+
+Embora continue sendo amplamente utilizada, a VPN tradicional foi
+projetada para um cenário em que usuários acessavam uma rede
+corporativa claramente definida e protegida por um perímetro.
+
+</p>
+
+<p style="text-align: justify;">
+
+O <strong>Zero Trust Network Access (ZTNA)</strong> substitui essa
+abordagem, concedendo acesso diretamente às aplicações
+autorizadas, sem expor toda a rede interna ao usuário.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura07-vpn-vs-ztna.png"
+alt="Comparação entre VPN tradicional e Zero Trust Network Access">
+
+<figcaption class="image-caption">
+
+Figura 7 – Comparação entre VPN tradicional e ZTNA.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏛 Como Funciona o ZTNA
+
+</h2>
+
+<p style="text-align: justify;">
+
+Em uma arquitetura ZTNA, o usuário não estabelece uma conexão
+direta com toda a rede corporativa.
+
+</p>
+
+<p style="text-align: justify;">
+
+Primeiramente, sua identidade é validada pelo Identity Provider.
+Em seguida, as políticas do Zero Trust analisam o contexto da
+solicitação, verificam o nível de risco e determinam quais
+aplicações poderão ser acessadas.
+
+</p>
+
+<p style="text-align: justify;">
+
+Somente após essa avaliação o acesso é estabelecido, normalmente
+por meio de um proxy seguro ou gateway de aplicação.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Fluxo Simplificado
+
+</strong>
+
+<br><br>
+
+Usuário.<br>
+
+Autenticação.<br>
+
+MFA.<br>
+
+Policy Engine.<br>
+
+ZTNA Gateway.<br>
+
+Aplicação.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Características
+
+</strong>
+
+<br><br>
+
+✔ Sem acesso direto à rede.<br>
+
+✔ Acesso por aplicação.<br>
+
+✔ Políticas dinâmicas.<br>
+
+✔ Verificação contínua.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚖ VPN Tradicional × ZTNA
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora ambas permitam acesso remoto, VPN e ZTNA seguem modelos de
+segurança completamente diferentes.
+
+</p>
+
+<p style="text-align: justify;">
+
+Na VPN, o usuário normalmente recebe conectividade com parte da
+rede interna. Já no ZTNA, o acesso é concedido apenas às
+aplicações autorizadas, reduzindo significativamente a superfície
+de ataque.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+VPN Tradicional
+
+</strong>
+
+<br><br>
+
+Acesso à rede.<br>
+
+Confiança após conexão.<br>
+
+Maior movimentação lateral.<br>
+
+Dependência do perímetro.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+ZTNA
+
+</strong>
+
+<br><br>
+
+Acesso por aplicação.<br>
+
+Validação contínua.<br>
+
+Menor superfície de ataque.<br>
+
+Segurança baseada em identidade.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Exemplo
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+Um analista financeiro necessita acessar apenas o sistema ERP da
+empresa. Em uma VPN tradicional ele pode obter conectividade com
+diversos segmentos da rede. Em uma arquitetura ZTNA, somente a
+aplicação ERP é disponibilizada, permanecendo invisíveis todos os
+demais recursos corporativos.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🛡 Benefícios do ZTNA
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao limitar o acesso apenas aos recursos necessários, o Zero Trust
+Network Access reduz significativamente o impacto de credenciais
+comprometidas e dificulta a movimentação lateral dentro da
+infraestrutura.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Segurança
+
+</strong>
+
+<br><br>
+
+✔ Menor superfície de ataque.<br>
+
+✔ Aplicações invisíveis.<br>
+
+✔ Menor movimentação lateral.<br>
+
+✔ Políticas contextuais.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Operação
+
+</strong>
+
+<br><br>
+
+✔ Melhor experiência.<br>
+
+✔ Escalabilidade.<br>
+
+✔ Acesso simplificado.<br>
+
+✔ Administração centralizada.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+☁ ZTNA em Ambientes Modernos
+
+</h2>
+
+<p style="text-align: justify;">
+
+O crescimento da computação em nuvem tornou o ZTNA um dos
+principais componentes das arquiteturas modernas de segurança.
+
+</p>
+
+<p style="text-align: justify;">
+
+Como aplicações passaram a estar distribuídas entre data centers,
+provedores de nuvem e ambientes SaaS, proteger apenas o perímetro
+da rede deixou de ser suficiente.
+
+</p>
+
+<p style="text-align: justify;">
+
+Nesse cenário, o acesso baseado em identidade torna-se muito mais
+adequado do que a simples conectividade de rede oferecida pelas
+VPNs tradicionais.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Integrações
+
+</strong>
+
+<br><br>
+
+Microsoft Entra ID.<br>
+
+AWS.<br>
+
+Azure.<br>
+
+Google Cloud.<br>
+
+SaaS.<br>
+
+Aplicações Web.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Componentes
+
+</strong>
+
+<br><br>
+
+Identity Provider.<br>
+
+MFA.<br>
+
+Conditional Access.<br>
+
+Policy Engine.<br>
+
+ZTNA Gateway.
+
+</div>
+
+</div>
+
+<div class="tip">
+
+<strong>
+
+💡 Cyber Insight
+
+</strong>
+
+<br><br>
+
+<p style="text-align: justify;">
+
+O ZTNA não substitui apenas a VPN. Ele representa uma mudança de
+paradigma na forma como o acesso remoto é concedido. Em vez de
+conectar usuários à rede corporativa, conecta identidades apenas
+às aplicações autorizadas, utilizando políticas dinâmicas,
+avaliação contínua de risco e autenticação forte. Essa abordagem
+está alinhada aos princípios do Zero Trust e reduz
+consideravelmente a exposição dos ambientes corporativos.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚨 Principais Ameaças Mitigadas pelo Zero Trust
+
+</h2>
+
+<p style="text-align: justify;">
+
+Nenhuma arquitetura de segurança elimina completamente os riscos.
+Entretanto, o modelo Zero Trust reduz significativamente a
+probabilidade de sucesso de diversos ataques modernos ao limitar
+privilégios, validar continuamente identidades e restringir a
+movimentação lateral dos invasores.
+
+</p>
+
+<p style="text-align: justify;">
+
+Ao combinar Identity and Access Management, Autenticação
+Multifator, Conditional Access, Microsegmentação e monitoramento
+contínuo, o Zero Trust cria múltiplas camadas de proteção que
+dificultam a progressão de um ataque.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura08-zero-trust-superficie-ataque.png"
+alt="Zero Trust reduzindo a superfície de ataque">
+
+<figcaption class="image-caption">
+
+Figura 8 – Como Zero Trust reduz a superfície de ataque.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+⚠ Ameaças Mais Comuns
+
+</h2>
+
+<p style="text-align: justify;">
+
+Embora existam inúmeras técnicas utilizadas por atacantes, algumas
+ameaças são particularmente impactadas pela adoção do modelo Zero
+Trust.
+
+</p>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+🔑 Credenciais Comprometidas
+
+</strong>
+
+<br><br>
+
+Mesmo com usuário e senha válidos, o acesso continua dependendo
+do contexto, do dispositivo e do nível de risco.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🦠 Ransomware
+
+</strong>
+
+<br><br>
+
+A Microsegmentação dificulta a propagação entre servidores e
+estações de trabalho.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+➡ Movimentação Lateral
+
+</strong>
+
+<br><br>
+
+O atacante encontra barreiras adicionais entre aplicações e
+segmentos da infraestrutura.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+👤 Insider Threat
+
+</strong>
+
+<br><br>
+
+Privilégios mínimos e monitoramento reduzem riscos internos.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+☁ Shadow IT
+
+</strong>
+
+<br><br>
+
+Aplicações não autorizadas tornam-se mais fáceis de identificar e
+controlar.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+🎣 Phishing
+
+</strong>
+
+<br><br>
+
+MFA, Passkeys e Conditional Access reduzem significativamente o
+impacto das credenciais roubadas.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+✔ Boas Práticas para Implementação do Zero Trust
+
+</h2>
+
+<p style="text-align: justify;">
+
+A adoção do Zero Trust não ocorre por meio da instalação de um
+único produto. Trata-se de uma estratégia contínua de evolução da
+arquitetura de segurança.
+
+</p>
+
+<p style="text-align: justify;">
+
+Organizações maduras normalmente implementam o Zero Trust de
+forma gradual, priorizando identidades, aplicações críticas e
+dados mais sensíveis.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura09-boas-praticas-zero-trust.png"
+alt="Boas práticas para implementação do Zero Trust">
+
+<figcaption class="image-caption">
+
+Figura 9 – Boas práticas para implementação de Zero Trust.
+
+</figcaption>
+
+</figure>
+
+<div class="tip">
+
+<strong>
+
+✔ Recomendações
+
+</strong>
+
+<br><br>
+
+<ul>
+
+<li>Implementar Identity and Access Management (IAM).</li>
+
+<li>Exigir MFA para todos os usuários.</li>
+
+<li>Aplicar o Princípio do Menor Privilégio.</li>
+
+<li>Utilizar Conditional Access baseado em risco.</li>
+
+<li>Adotar Microsegmentação.</li>
+
+<li>Implementar Zero Trust Network Access (ZTNA).</li>
+
+<li>Monitorar continuamente usuários e dispositivos.</li>
+
+<li>Integrar SIEM, EDR e Threat Intelligence.</li>
+
+<li>Revisar privilégios periodicamente.</li>
+
+<li>Automatizar respostas a incidentes sempre que possível.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🏢 Arquitetura Corporativa Zero Trust
+
+</h2>
+
+<p style="text-align: justify;">
+
+Em ambientes corporativos modernos, o Zero Trust integra diversas
+soluções responsáveis por proteger identidades, dispositivos,
+aplicações, redes e dados.
+
+</p>
+
+<p style="text-align: justify;">
+
+Em vez de depender exclusivamente de firewalls ou VPNs, todas as
+decisões passam a considerar informações provenientes de
+plataformas especializadas em identidade, monitoramento e
+proteção de endpoints.
+
+</p>
+
+<figure class="article-image">
+
+<img src="img/figura10-arquitetura-zero-trust-corporativa.png"
+alt="Arquitetura corporativa baseada em Zero Trust">
+
+<figcaption class="image-caption">
+
+Figura 10 – Arquitetura corporativa completa baseada em Zero
+Trust.
+
+</figcaption>
+
+</figure>
+
+<div class="tech-info">
+
+<div class="tech-box">
+
+<strong>
+
+Componentes
+
+</strong>
+
+<br><br>
+
+IAM.<br>
+
+MFA.<br>
+
+ZTNA.<br>
+
+Policy Engine.<br>
+
+Conditional Access.<br>
+
+SIEM.<br>
+
+EDR.<br>
+
+Threat Intelligence.
+
+</div>
+
+<div class="tech-box">
+
+<strong>
+
+Benefícios
+
+</strong>
+
+<br><br>
+
+✔ Segurança baseada em identidade.<br>
+
+✔ Menor superfície de ataque.<br>
+
+✔ Decisões dinâmicas.<br>
+
+✔ Monitoramento contínuo.<br>
+
+✔ Maior resiliência.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+📚 O que aprendemos?
+
+</h2>
+
+<ul>
+
+<li>O conceito de Zero Trust e sua evolução em relação ao modelo tradicional.</li>
+
+<li>Os três princípios fundamentais: Verify Explicitly, Least Privilege e Assume Breach.</li>
+
+<li>Os principais componentes de uma arquitetura Zero Trust.</li>
+
+<li>Como ocorre a decisão de acesso baseada em risco.</li>
+
+<li>O conceito de Verificação Contínua.</li>
+
+<li>A importância da Microsegmentação.</li>
+
+<li>O funcionamento do Zero Trust Network Access (ZTNA).</li>
+
+<li>As principais ameaças mitigadas pelo Zero Trust.</li>
+
+<li>As boas práticas para implementação em ambientes corporativos.</li>
+
+<li>Como integrar identidade, dispositivos e monitoramento em uma arquitetura moderna de segurança.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+🚀 Próximo Capítulo
+
+</h2>
+
+<p style="text-align: justify;">
+
+Ao longo deste capítulo estudamos como o Zero Trust transforma a
+forma de proteger usuários, dispositivos, aplicações e dados por
+meio da verificação contínua e da eliminação da confiança
+implícita.
+
+</p>
+
+<p style="text-align: justify;">
+
+Entretanto, existe um grupo de identidades que exige controles
+ainda mais rigorosos devido ao seu elevado nível de privilégio.
+
+</p>
+
+<blockquote>
+
+Como proteger contas administrativas, credenciais privilegiadas,
+acessos temporários e sessões críticas utilizadas por equipes de
+infraestrutura e segurança?
+
+</blockquote>
+
+<p style="text-align: justify;">
+
+No próximo capítulo conheceremos o
+<strong>Privileged Access Management (PAM)</strong>, explorando
+cofres de credenciais, gerenciamento de sessões privilegiadas,
+acessos Just-In-Time (JIT), Just Enough Administration (JEA) e
+monitoramento de atividades administrativas.
+
+</p>
+
+<br>
+
+<a class="content-button">
+
+➡ Ler o próximo capítulo
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="tip">
+
+<strong>
+
+📚 Série Técnica
+
+</strong>
+
+<br><br>
+
+✅ 🔺 Tríade CIA
+
+<br><br>
+
+✅ 🔒 Confidencialidade
+
+<br><br>
+
+✅ 🛡 Integridade
+
+<br><br>
+
+✅ ⚡ Disponibilidade
+
+<br><br>
+
+✅ 🔐 Criptografia
+
+<br><br>
+
+✅ 👥 Controle de Acesso
+
+<br><br>
+
+✅ 🆔 Autenticação
+
+<br><br>
+
+✅ ✔ Autorização
+
+<br><br>
+
+✅ 🔑 Autenticação Multifator (MFA)
+
+<br><br>
+
+✅ 🏛 Identity and Access Management (IAM)
+
+<br><br>
+
+✅ ☁ Zero Trust
+
+<br><br>
+
+➡ 🔐 Privileged Access Management (PAM)
+
+<br><br>
+
+⬜ 🌐 Active Directory e Microsoft Entra ID
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© Carlos Renato Vilas Boas da Silva
+
+</p>
+
+<p>
+
+CR Portal • Biblioteca Técnica
+
+</p>
+
+<p>
+
+📚 Série Técnica
+
+Fundamentos da Segurança da Informação
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>  
+
+
+  
